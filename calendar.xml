@@ -1,0 +1,697 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+
+<events>
+	<header>
+		<name>Название</name>
+		<pic>Картинка</pic>
+		<url>Название</url>
+		<type>Тип</type>
+		<typeid>id типа</typeid>
+		<date>Дата</date>
+		<enddate>Дата</enddate>
+		<time>Время</time>
+		<members>Участники</members>
+		<review>Обзор</review>
+		<photos>Фотоотчет</photos>
+		<views>Просмотры</views>
+	</header>
+  
+  <event>
+		<name>Первое</name>
+    <pic>files/calendar-pic-1.jpg</pic>
+		<url>#</url>
+		<type>Веб-аналитика</type>
+    <typeid>1</typeid>
+		<date>01.04.2010</date>
+    <enddate>05.04.2010</enddate>
+		<time></time>
+		<members>555</members>
+    <review>#</review>
+		<photos>#</photos>
+    <views></views>
+	</event>
+  
+  <event>
+		<name>Продажи интернет-услуг на 100%</name>
+    <pic>files/calendar-pic-1.jpg</pic>
+		<url>#</url>
+		<type>Интернет-реклама</type>
+    <typeid>2</typeid>
+		<date>02.04.2010</date>
+    <enddate>15.04.2010</enddate>
+		<time></time>
+		<members>555</members>
+    <review>#</review>
+		<photos></photos>
+    <views></views>
+	</event>
+
+  <event>
+		<name>Кейс-конференция «Интернет-магазины: кейсы, «фишки», опыт практиков»</name>
+    <pic>files/calendar-pic-1.jpg</pic>
+		<url>#</url>
+		<type>Веб-аналитика</type>
+    <typeid>1</typeid>
+		<date>03.04.2010</date>
+    <enddate>05.04.2010</enddate>
+		<time></time>
+		<members>555</members>
+    <review>#</review>
+		<photos>#</photos>
+    <views></views>
+	</event>
+  
+  <event>
+		<name>Первое</name>
+    <pic>files/calendar-pic-1.jpg</pic>
+		<url>#</url>
+		<type>Веб-аналитика</type>
+    <typeid>1</typeid>
+		<date>01.04.2011</date>
+    <enddate>05.04.2011</enddate>
+		<time></time>
+		<members>555</members>
+    <review>#</review>
+		<photos>#</photos>
+    <views></views>
+	</event>
+  
+  <event>
+		<name>Продажи интернет-услуг на 100%</name>
+    <pic>files/calendar-pic-1.jpg</pic>
+		<url>#</url>
+		<type>Интернет-реклама</type>
+    <typeid>2</typeid>
+		<date>02.04.2011</date>
+    <enddate>15.04.2011</enddate>
+		<time></time>
+		<members>555</members>
+    <review>#</review>
+		<photos></photos>
+    <views></views>
+	</event>
+
+  <event>
+		<name>Кейс-конференция «Интернет-магазины: кейсы, «фишки», опыт практиков»</name>
+    <pic>files/calendar-pic-1.jpg</pic>
+		<url>#</url>
+		<type>Веб-аналитика</type>
+    <typeid>1</typeid>
+		<date>03.04.2011</date>
+    <enddate>05.04.2011</enddate>
+		<time></time>
+		<members>555</members>
+    <review>#</review>
+		<photos>#</photos>
+    <views></views>
+	</event>
+  
+  <event>
+		<name>Первое</name>
+    <pic>files/calendar-pic-1.jpg</pic>
+		<url>#</url>
+		<type>Веб-аналитика</type>
+    <typeid>1</typeid>
+		<date>01.01.2012</date>
+    <enddate>05.01.2012</enddate>
+		<time></time>
+		<members>555</members>
+    <review>#</review>
+		<photos>#</photos>
+    <views></views>
+	</event>
+  
+  <event>
+		<name>Первое</name>
+    <pic>files/calendar-pic-1.jpg</pic>
+		<url>#</url>
+		<type>Веб-аналитика</type>
+    <typeid>1</typeid>
+		<date>01.02.2012</date>
+    <enddate>05.02.2012</enddate>
+		<time></time>
+		<members>555</members>
+    <review>#</review>
+		<photos>#</photos>
+    <views></views>
+	</event>
+  
+  <event>
+		<name>Первое</name>
+    <pic>files/calendar-pic-1.jpg</pic>
+		<url>#</url>
+		<type>Веб-аналитика</type>
+    <typeid>1</typeid>
+		<date>01.03.2012</date>
+    <enddate>05.03.2012</enddate>
+		<time></time>
+		<members>555</members>
+    <review>#</review>
+		<photos>#</photos>
+    <views></views>
+	</event>
+  
+  <event>
+		<name>Первое</name>
+    <pic>files/calendar-pic-1.jpg</pic>
+		<url>#</url>
+		<type>Веб-аналитика</type>
+    <typeid>1</typeid>
+		<date>01.04.2012</date>
+    <enddate>05.04.2012</enddate>
+		<time></time>
+		<members>555</members>
+    <review>#</review>
+		<photos>#</photos>
+    <views></views>
+	</event>
+  
+  <event>
+		<name>Продажи интернет-услуг на 100%</name>
+    <pic>files/calendar-pic-1.jpg</pic>
+		<url>#</url>
+		<type>Интернет-реклама</type>
+    <typeid>2</typeid>
+		<date>02.04.2012</date>
+    <enddate>15.04.2012</enddate>
+		<time></time>
+		<members>555</members>
+    <review>#</review>
+		<photos></photos>
+    <views></views>
+	</event>
+  
+
+  <event>
+		<name>Кейс-конференция «Интернет-магазины: кейсы, «фишки», опыт практиков»</name>
+    <pic>files/calendar-pic-1.jpg</pic>
+		<url>#</url>
+		<type>Веб-аналитика</type>
+    <typeid>1</typeid>
+		<date>03.04.2012</date>
+    <enddate>05.04.2012</enddate>
+		<time></time>
+		<members>555</members>
+    <review>#</review>
+		<photos>#</photos>
+    <views></views>
+	</event>
+  
+  <event>
+		<name>Первое</name>
+    <pic>files/calendar-pic-1.jpg</pic>
+		<url>#</url>
+		<type>Веб-аналитика</type>
+    <typeid>1</typeid>
+		<date>01.05.2012</date>
+    <enddate>05.05.2012</enddate>
+		<time></time>
+		<members>555</members>
+    <review>#</review>
+		<photos>#</photos>
+    <views></views>
+	</event>
+  
+  <event>
+		<name>Первое</name>
+    <pic>files/calendar-pic-1.jpg</pic>
+		<url>#</url>
+		<type>Веб-аналитика</type>
+    <typeid>1</typeid>
+		<date>01.06.2012</date>
+    <enddate>05.06.2012</enddate>
+		<time></time>
+		<members>555</members>
+    <review>#</review>
+		<photos>#</photos>
+    <views></views>
+	</event>
+  
+  <event>
+		<name>Первое</name>
+    <pic>files/calendar-pic-1.jpg</pic>
+		<url>#</url>
+		<type>Веб-аналитика</type>
+    <typeid>1</typeid>
+		<date>01.07.2012</date>
+    <enddate>05.07.2012</enddate>
+		<time></time>
+		<members>555</members>
+    <review>#</review>
+		<photos>#</photos>
+    <views></views>
+	</event>
+  
+  <event>
+		<name>Первое</name>
+    <pic>files/calendar-pic-1.jpg</pic>
+		<url>#</url>
+		<type>Веб-аналитика</type>
+    <typeid>1</typeid>
+		<date>01.08.2012</date>
+    <enddate>05.08.2012</enddate>
+		<time></time>
+		<members>555</members>
+    <review>#</review>
+		<photos>#</photos>
+    <views></views>
+	</event>
+  
+  <event>
+		<name>Первое</name>
+    <pic>files/calendar-pic-1.jpg</pic>
+		<url>#</url>
+		<type>Веб-аналитика</type>
+    <typeid>1</typeid>
+		<date>01.09.2012</date>
+    <enddate>05.09.2012</enddate>
+		<time></time>
+		<members>555</members>
+    <review>#</review>
+		<photos>#</photos>
+    <views></views>
+	</event>
+  
+  <event>
+		<name>Первое</name>
+    <pic>files/calendar-pic-1.jpg</pic>
+		<url>#</url>
+		<type>Веб-аналитика</type>
+    <typeid>1</typeid>
+		<date>01.10.2012</date>
+    <enddate>05.10.2012</enddate>
+		<time></time>
+		<members>555</members>
+    <review>#</review>
+		<photos>#</photos>
+    <views></views>
+	</event>
+  
+  <event>
+		<name>Первое</name>
+    <pic>files/calendar-pic-1.jpg</pic>
+		<url>#</url>
+		<type>Веб-аналитика</type>
+    <typeid>1</typeid>
+		<date>01.11.2012</date>
+    <enddate>05.11.2012</enddate>
+		<time></time>
+		<members>555</members>
+    <review>#</review>
+		<photos>#</photos>
+    <views></views>
+	</event>
+  
+  <event>
+		<name>Первое</name>
+    <pic>files/calendar-pic-1.jpg</pic>
+		<url>#</url>
+		<type>Веб-аналитика</type>
+    <typeid>1</typeid>
+		<date>01.12.2012</date>
+    <enddate>05.12.2012</enddate>
+		<time></time>
+		<members>555</members>
+    <review>#</review>
+		<photos>#</photos>
+    <views></views>
+	</event>
+  
+  <event>
+		<name>Продажи интернет-услуг на 100%</name>
+    <pic>files/calendar-pic-1.jpg</pic>
+		<url>#</url>
+		<type>Интернет-реклама</type>
+    <typeid>2</typeid>
+		<date>02.01.2013</date>
+    <enddate>15.04.2013</enddate>
+		<time></time>
+		<members>555</members>
+    <review>#</review>
+		<photos></photos>
+    <views></views>
+	</event>
+  
+  <event>
+		<name>Продажи интернет-услуг на 100%</name>
+    <pic>files/calendar-pic-1.jpg</pic>
+		<url>#</url>
+		<type>Интернет-реклама</type>
+    <typeid>2</typeid>
+		<date>02.02.2013</date>
+    <enddate>15.04.2013</enddate>
+		<time></time>
+		<members>555</members>
+    <review>#</review>
+		<photos></photos>
+    <views></views>
+	</event>
+  
+  <event>
+		<name>Продажи интернет-услуг на 100%</name>
+    <pic>files/calendar-pic-1.jpg</pic>
+		<url>#</url>
+		<type>Интернет-реклама</type>
+    <typeid>2</typeid>
+		<date>02.03.2013</date>
+    <enddate>15.04.2013</enddate>
+		<time></time>
+		<members>555</members>
+    <review>#</review>
+		<photos></photos>
+    <views></views>
+	</event>
+  
+	<event>
+		<name>Первое</name>
+    <pic>files/calendar-pic-1.jpg</pic>
+		<url>#</url>
+		<type>Веб-аналитика</type>
+    <typeid>1</typeid>
+		<date>01.04.2013</date>
+    <enddate>05.04.2013</enddate>
+		<time></time>
+		<members>555</members>
+    <review>#</review>
+		<photos>#</photos>
+    <views></views>
+	</event>
+  
+  <event>
+		<name>Продажи интернет-услуг на 100%</name>
+    <pic>files/calendar-pic-1.jpg</pic>
+		<url>#</url>
+		<type>Интернет-реклама</type>
+    <typeid>2</typeid>
+		<date>02.04.2013</date>
+    <enddate>15.04.2013</enddate>
+		<time></time>
+		<members>555</members>
+    <review>#</review>
+		<photos></photos>
+    <views></views>
+	</event>
+
+  <event>
+		<name>Кейс-конференция «Интернет-магазины: кейсы, «фишки», опыт практиков»</name>
+    <pic>files/calendar-pic-1.jpg</pic>
+		<url>#</url>
+		<type>Веб-аналитика</type>
+    <typeid>1</typeid>
+		<date>03.04.2013</date>
+    <enddate>05.04.2013</enddate>
+		<time></time>
+		<members>555</members>
+    <review>#</review>
+		<photos>#</photos>
+    <views></views>
+	</event>
+  
+  <event>
+		<name>Продажи интернет-услуг на 100%</name>
+    <pic>files/calendar-pic-1.jpg</pic>
+		<url>#</url>
+		<type>Интернет-реклама</type>
+    <typeid>2</typeid>
+		<date>04.04.2013</date>
+    <enddate>15.04.2013</enddate>
+		<time></time>
+		<members>555</members>
+    <review>#</review>
+		<photos></photos>
+    <views></views>
+	</event>
+
+  
+  <event>
+		<name>Продажи интернет-услуг на 100%. Кейс-конференция «Интернет-магазины: кейсы, «фишки», опыт практиков»</name>
+    <pic>files/calendar-pic-1.jpg</pic>
+		<url>#</url>
+		<type>Контекстная реклама</type>
+    <typeid>3</typeid>
+		<date>05.05.2013</date>
+    <enddate>15.05.2013</enddate>
+		<time></time>
+		<members>555</members>
+    <review>#</review>
+		<photos>#</photos>
+    <views></views>
+	</event>
+  
+  <event>
+		<name>Продажи интернет-услуг на 100%</name>
+    <pic>files/calendar-pic-1.jpg</pic>
+		<url>#</url>
+		<type>Интернет-реклама</type>
+    <typeid>2</typeid>
+		<date>02.06.2013</date>
+    <enddate>15.04.2013</enddate>
+		<time></time>
+		<members>555</members>
+    <review>#</review>
+		<photos></photos>
+    <views></views>
+	</event>
+  
+  <event>
+		<name>Кейс-конференция «Интернет-магазины: кейсы, «фишки», опыт практиков»</name>
+    <pic>files/calendar-pic-1.jpg</pic>
+		<url>#</url>
+		<type>Оптимизация сайта</type>
+    <typeid>4</typeid>
+		<date>06.07.2013</date>
+    <enddate>01.08.2013</enddate>
+		<time></time>
+		<members>555</members>
+    <review></review>
+		<photos>#</photos>
+    <views></views>
+	</event>
+  
+  <event>
+		<name>Продажи интернет-услуг на 100%</name>
+    <pic>files/calendar-pic-1.jpg</pic>
+		<url>#</url>
+		<type>Поисковой маркетинг</type>
+    <typeid>5</typeid>
+		<date>07.07.2013</date>
+    <enddate>01.08.2013</enddate>
+		<time></time>
+		<members>555</members>
+    <review>#</review>
+		<photos></photos>
+    <views></views>
+	</event>
+  
+  <event>
+		<name>Кейс-конференция «Интернет-магазины: кейсы, «фишки», опыт практиков»</name>
+    <pic>files/calendar-pic-1.jpg</pic>
+		<url>#</url>
+		<type>Создание сайтов</type>
+    <typeid>6</typeid>
+		<date>08.08.2013</date>
+    <enddate>02.08.2013</enddate>
+		<time></time>
+		<members>555</members>
+    <review></review>
+		<photos>#</photos>
+    <views></views>
+	</event>
+  
+  <event>
+		<name>Кейс-конференция «Интернет-магазины: кейсы, «фишки», опыт практиков»</name>
+    <pic>files/calendar-pic-1.jpg</pic>
+		<url>#</url>
+		<type>Юзабилити</type>
+    <typeid>7</typeid>
+		<date>09.08.2013</date>
+    <enddate>02.08.2013</enddate>
+		<time></time>
+		<members>555</members>
+    <review>#</review>
+		<photos>#</photos>
+    <views></views>
+	</event>
+  
+  <event>
+		<name>Кейс-конференция «Интернет-магазины: кейсы, «фишки», опыт практиков»</name>
+    <pic>files/calendar-pic-1.jpg</pic>
+		<url>#</url>
+		<type>Технические приемы</type>
+    <typeid>8</typeid>
+		<date>10.08.2013</date>
+    <enddate>02.08.2013</enddate>
+		<time></time>
+		<members>555</members>
+    <review>#</review>
+		<photos>#</photos>
+    <views></views>
+	</event>
+  
+  <event>
+		<name>Кейс-конференция «Интернет-магазины: кейсы, «фишки», опыт практиков»</name>
+    <pic>files/calendar-pic-1.jpg</pic>
+		<url>#</url>
+		<type>Юзабилити</type>
+    <typeid>7</typeid>
+		<date>11.08.2013</date>
+    <enddate>02.08.2013</enddate>
+		<time></time>
+		<members>555</members>
+    <review>#</review>
+		<photos></photos>
+    <views></views>
+	</event>
+  
+  <event>
+		<name>Продажи интернет-услуг на 100%</name>
+    <pic></pic>
+		<url>#</url>
+		<type>Создание сайтов</type>
+    <typeid>6</typeid>
+		<date>12.09.2013</date>
+    <enddate></enddate>
+		<time>11:30</time>
+		<members>555</members>
+    <review></review>
+		<photos></photos>
+    <views>123</views>
+	</event>
+  
+  <event>
+		<name>Продажи на 100%</name>
+    <pic></pic>
+		<url>#</url>
+		<type>Создание сайтов</type>
+    <typeid>6</typeid>
+		<date>13.09.2013</date>
+    <enddate></enddate>
+		<time>11:30</time>
+		<members>555</members>
+    <review></review>
+		<photos></photos>
+    <views>123</views>
+	</event>
+  
+  <event>
+		<name>Продажи на 100%</name>
+    <pic></pic>
+		<url>#</url>
+		<type>Создание сайтов</type>
+    <typeid>6</typeid>
+		<date>14.10.2013</date>
+    <enddate></enddate>
+		<time>11:30</time>
+		<members>555</members>
+    <review></review>
+		<photos></photos>
+    <views>123</views>
+	</event>
+  
+  <event>
+		<name>Продажи на 100%</name>
+    <pic></pic>
+		<url>#</url>
+		<type>Создание сайтов</type>
+    <typeid>6</typeid>
+		<date>15.10.2013</date>
+    <enddate></enddate>
+		<time>11:30</time>
+		<members>555</members>
+    <review></review>
+		<photos></photos>
+    <views>123</views>
+	</event>
+  
+  <event>
+		<name>Продажи на 100%</name>
+    <pic></pic>
+		<url>#</url>
+		<type>Поисковой маркетинг</type>
+    <typeid>5</typeid>
+		<date>16.10.2013</date>
+    <enddate></enddate>
+		<time>11:30</time>
+		<members>555</members>
+    <review></review>
+		<photos></photos>
+    <views>123</views>
+	</event>
+  
+  <event>
+		<name>Продажи на 100%</name>
+    <pic></pic>
+		<url>#</url>
+		<type>Создание сайтов</type>
+    <typeid>6</typeid>
+		<date>17.10.2013</date>
+    <enddate></enddate>
+		<time>11:30</time>
+		<members>555</members>
+    <review></review>
+		<photos></photos>
+    <views>123</views>
+	</event>
+  
+  <event>
+		<name>Продажи интернет-услуг на 100%</name>
+    <pic></pic>
+		<url>#</url>
+		<type>Создание сайтов</type>
+    <typeid>6</typeid>
+		<date>18.11.2013</date>
+    <enddate></enddate>
+		<time>11:30</time>
+		<members>555</members>
+    <review></review>
+		<photos></photos>
+    <views>123</views>
+	</event>
+  
+  <event>
+		<name>Продажи на 100%</name>
+    <pic></pic>
+		<url>#</url>
+		<type>Создание сайтов</type>
+    <typeid>6</typeid>
+		<date>19.12.2013</date>
+    <enddate></enddate>
+		<time>11:30</time>
+		<members>555</members>
+    <review></review>
+		<photos></photos>
+    <views>123</views>
+	</event>
+  
+  <event>
+		<name>Продажи на 110%</name>
+    <pic></pic>
+		<url>#</url>
+		<type>Создание сайтов</type>
+    <typeid>6</typeid>
+		<date>20.12.2013</date>
+    <enddate></enddate>
+		<time>11:30</time>
+		<members>555</members>
+    <review></review>
+		<photos></photos>
+    <views>123</views>
+	</event>
+  
+  <event>
+		<name>Последнее событие в календаре</name>
+    <pic></pic>
+		<url>#</url>
+		<type>Создание сайтов</type>
+    <typeid>6</typeid>
+		<date>21.12.2014</date>
+    <enddate></enddate>
+		<time>11:30</time>
+		<members>555</members>
+    <review></review>
+		<photos></photos>
+    <views>123</views>
+	</event>
+
+	
+</events>

@@ -1,0 +1,46 @@
+﻿.common-form .input-wrapper {
+  background:#f4f4f4 url(../images/input-bg-2.png) 0 0 repeat-x;
+  border:1px solid #dcdcdc;
+}
+
+.common-form .form-textarea {
+  background:#f4f4f4 url(../images/input-bg-2.png) 0 0 repeat-x;
+  border:1px solid #dcdcdc;
+}
+
+.registration-company .input-wrapper {
+  background-image:url(../images/input-bg.png);
+  background-color:#FFF;
+  border:none;
+}
+
+.param-sel {
+  background:#f4f4f4 url(../images/input-bg-2.png) 0 0 repeat-x;
+  border:1px solid #dcdcdc;
+}
+
+.tools-services .input-wrapper {
+  background-image:url(../images/input-bg.png);
+  background-color:#FFF;
+}
+
+.tools-filter .param-sel {
+  background-image:url(../images/input-bg.png);
+}
+
+.facebook-popup {
+  /* display:none; */
+  width:252px;
+  position:absolute;
+  top:20px;
+  behavior:url(PIE.htc);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow:0 0 20px -5px #000;
+  -moz-box-shadow:0 0 20px -5px #000;
+  box-shadow:0 0 20px -5px #000;
+  background-color:#FFF;
+  z-index:12;
+  display:none;
+}

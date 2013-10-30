@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+
+<catalogue>
+	<header>
+		<name>Название</name>
+		<logo>Логотип</logo>
+		<url>URL</url>
+		<descr>Описание</descr>
+		<likes>Лайки</likes>
+		<comments>Число комментариев</comments>
+		<review>Обзор редакции</review>
+		<rating>Место в рейтинге</rating>
+		<ratingname>Название рейтинга</ratingname>
+		<badge>Бейдж</badge>
+	</header>
+
+	<item>
+		<name>Быстропост</name>
+		<logo>files/logo-submit.png</logo>
+		<url>#</url>
+		<descr>Быстропост: автоматизировать свой заработок так просто!</descr>
+		<likes>56</likes>
+		<comments>16</comments>
+		<review>#</review>
+		<rating>10</rating>
+		<ratingname>в рейтинге сервисов для заработка в интернете</ratingname>
+		<badge></badge>
+	</item>
+  
+  <item>
+		<name>Управление ставками</name>
+		<logo>files/logo-yandex.png</logo>
+		<url>#</url>
+		<descr>Cервис для оптимизаторов для управления ставками в Яндекс.Маркет от Cyberhead</descr>
+		<likes>56</likes>
+		<comments>16</comments>
+		<review>#</review>
+		<rating>10</rating>
+		<ratingname>в рейтинге сервисов для продвижения</ratingname>
+		<badge>1</badge>
+	</item>
+  
+  <item>
+		<name>Movebo.ru</name>
+		<logo>files/logo-facebook.png</logo>
+		<url>#</url>
+		<descr>Cервис для оптимизаторов для управления ставками в Яндекс.Маркет от Cyberhead</descr>
+		<likes>56</likes>
+		<comments>16</comments>
+		<review>#</review>
+		<rating>10</rating>
+		<ratingname>в рейтинге сервисов для заработка в интернете</ratingname>
+		<badge></badge>
+	</item>
+  
+  <item>
+		<name>Быстропост</name>
+		<logo>files/logo-submit.png</logo>
+		<url>#</url>
+		<descr>Быстропост: автоматизировать свой заработок так просто!</descr>
+		<likes>56</likes>
+		<comments>16</comments>
+		<review>#</review>
+		<rating>10</rating>
+		<ratingname>в рейтинге сервисов для заработка в интернете</ratingname>
+		<badge></badge>
+	</item>
+  
+  <item>
+		<name>Управление ставками</name>
+		<logo>files/logo-yandex.png</logo>
+		<url>#</url>
+		<descr>Cервис для оптимизаторов для управления ставками в Яндекс.Маркет от Cyberhead</descr>
+		<likes>56</likes>
+		<comments>16</comments>
+		<review>#</review>
+		<rating>10</rating>
+		<ratingname>в рейтинге сервисов для продвижения</ratingname>
+		<badge>1</badge>
+	</item>
+  
+  <item>
+		<name>Movebo.ru</name>
+		<logo>files/logo-facebook.png</logo>
+		<url>#</url>
+		<descr>Cервис для оптимизаторов для управления ставками в Яндекс.Маркет от Cyberhead</descr>
+		<likes>56</likes>
+		<comments>16</comments>
+		<review>#</review>
+		<rating>10</rating>
+		<ratingname>в рейтинге сервисов для заработка в интернете</ratingname>
+		<badge>1</badge>
+	</item>
+  
+  <item>
+		<name>Быстропост</name>
+		<logo>files/logo-submit.png</logo>
+		<url>#</url>
+		<descr>Быстропост: автоматизировать свой заработок так просто!</descr>
+		<likes>56</likes>
+		<comments>16</comments>
+		<review>#</review>
+		<rating>10</rating>
+		<ratingname>в рейтинге сервисов для заработка в интернете</ratingname>
+		<badge></badge>
+	</item>
+  
+  <item>
+		<name>Управление ставками</name>
+		<logo>files/logo-yandex.png</logo>
+		<url>#</url>
+		<descr>Cервис для оптимизаторов для управления ставками в Яндекс.Маркет от Cyberhead</descr>
+		<likes>56</likes>
+		<comments>16</comments>
+		<review>#</review>
+		<rating>10</rating>
+		<ratingname>в рейтинге сервисов для продвижения</ratingname>
+		<badge></badge>
+	</item>
+  
+</catalogue>

@@ -1,0 +1,302 @@
+﻿.html-narrow .body-narrow .main-column {
+  width:720px;
+}
+
+.html-narrow body,
+.html-narrow  {
+  font-family:'OpenSans', sans-serif;
+  color:#2f2c2b;
+  background:#fff;
+  min-width:980px;
+}
+
+.html-narrow .center-wrapper {
+  width:980px;
+  min-width:980px;
+  margin:0 auto;
+  padding:0 10px;
+  position:relative;
+}
+
+.html-narrow .header {
+  min-width:980px;
+  height:236px;
+}
+
+.html-narrow .header-top,
+.html-narrow .header-bottom {
+  min-width:980px;
+}
+
+.html-narrow .body {
+  /* height:500px; */
+  min-width:980px;
+}
+
+.html-narrow .top-filter {
+  left:197px;
+}
+
+.html-narrow .top-filter a {
+  font-size:12px !important;
+  padding-left:47px !important;
+  height:39px !important;
+  padding-top:19px !important;
+}
+
+.html-narrow .top-filter .tf-prof a {
+  background-image:url(../images/filter-1-bg-n.png);
+  width:142px;
+}
+
+.html-narrow .top-filter .tf-moneymakers a {
+  background-image:url(../images/filter-2-bg-n.png);
+  width:127px;
+}
+
+.html-narrow .top-filter .tf-clients a {
+  background-image:url(../images/filter-3-bg-n.png);
+  width:115px;
+}
+
+.html-narrow .top-filter-shadow {
+  width:491px;
+}
+
+.html-narrow .main-column {
+  width:698px;
+}
+
+.html-narrow .sidenav {
+  display:none !important;
+}
+
+.html-narrow .header-banner img {
+  width:980px;
+  height:77px;
+}
+
+.html-narrow .header-fixed .logo {
+  left:17px;
+}
+
+.html-narrow .main-menu {
+  margin:0 -10px;
+}
+
+.html-narrow .header-fixed .main-menu {
+  margin:0 0 0 78px;
+  width:800px;
+}
+
+.html-narrow .main-menu a {
+  padding:0 10px;
+}
+
+.html-narrow .header-fixed .main-menu a {
+  padding:0 7px;
+}
+
+.html-narrow .header-fixed .user-link {
+  right:45px;
+}
+
+.html-narrow .top-filter-wrapper {
+  width:980px;
+}
+
+.html-narrow .search-block .form-text {
+  width:745px;
+}
+
+.html-narrow .mainpage-main .pic {
+  width:343px;
+  float:left;
+  margin:0 31px 0 0;
+}
+
+.html-narrow .mainpage-main .pic img {
+  margin-left:-33px;
+}
+
+.html-narrow .mainpage-main .descr {
+  width:325px;
+  position:relative;
+}
+
+.html-narrow .mainpage-main .post-lead {
+  height:196px;
+  overflow:hidden;
+}
+
+.html-narrow .mainpage-main .post-data:before {
+  content:"...";
+  background:#ececec;
+  display:block;
+  position:absolute;
+  top:175px;
+  right:0;
+  padding:0 10px;
+  font-size:18px;
+}
+
+.html-narrow .newslist .with-pic .author {
+  padding:0;
+}
+
+.html-narrow .newslist .with-pic .author .userpic {
+  display:none;
+}
+
+.html-narrow .newslist .with-pic .post-lead {
+  margin-bottom:10px;
+}
+
+.html-narrow .newslist .with-pic .post-lead p {
+  display:none;
+}
+
+.html-narrow .newslist-item {
+  width:340px;
+  margin-right:29px;
+}
+
+.html-narrow .newslist-item p {
+  height:48px;
+  overflow:hidden;
+}
+
+.html-narrow .newslist-item .post-lead {
+  height:auto;
+  margin:0 0 0 0;
+}
+
+.html-narrow .newslist-item-big .post-lead {
+  height:auto;
+  margin:0 0 14px 0;
+}
+
+.html-narrow .newslist .with-pic .comments-views {
+  float:left;
+}
+
+.html-narrow .sn-subscribe .txt {
+  padding:4px 0 0 65px;
+}
+
+.html-narrow .news-col {
+  width:369px;
+}
+
+.html-narrow .newslist-item-big .pic {
+  width:340px;
+  overflow:hidden;
+}
+
+.html-narrow .newslist-item-big .pic img {
+  left:-33px;
+}
+
+.html-narrow .mainpage-experts .expertslist-item {
+  width:203px;
+}
+
+.html-narrow .mainpage-experts .expertslist-item .pic {
+  width:203px;
+}
+
+.html-narrow .mainpage-experts .expertslist-item .pic img {
+  left:-39px;
+}
+
+.html-narrow .footer-col {
+  max-width:270px;
+  margin-right:30px;
+}
+
+.html-narrow .fav-trigger {
+  padding-left:20px;
+}
+
+.html-narrow .fav-trigger span {
+  display:none;
+}
+
+.html-narrow .post-controls .comments-views,
+.html-narrow .post-controls .font-control {
+  padding-left:20px !important;
+}
+
+.html-narrow .bestlist-item {
+  width:328px;
+}
+
+.html-narrow .post-controls .author {
+  margin-top:-6px;
+}
+
+.html-narrow .post-controls .author .userpic {
+  margin-top:1px;
+}
+
+.html-narrow .post-comments .comment-form {
+  margin-right:40px;
+}
+
+.html-narrow .events-calendar .descr {
+  width:553px;
+}
+
+.html-narrow .events-calendar .event-date {
+  display:none;
+}
+
+.html-narrow .events-calendar .event-date-narrow {
+  display:block;
+  margin-right:0;
+}
+
+.html-narrow .event-header .descr {
+  width: 589px;
+}
+
+.html-narrow .event-status .event-more {
+  width:145px;
+  margin-top:5px;
+}
+
+.html-narrow .event-status .closed {
+  width:136px;
+  margin-top:5px;
+  padding-top:0;
+}
+
+.html-narrow .event-status .event-more .ico,
+.html-narrow .event-status .closed .ico {
+  margin-top:4px;
+}
+
+.html-narrow .photo-gallery .fancybox {
+  margin:11px;
+}
+
+.html-narrow .event-status .price {
+  margin: -4px 20px 0 0;
+}
+
+.html-narrow .event-status .members {
+  margin: 12px 0 0 20px;
+  padding: 0 0 0 9px;
+}
+
+.html-narrow .fav-hint {
+  left:-49px;
+}
+
+.html-narrow .post-controls .s-button {
+  margin:0 13px 0 0;
+}
+
+.html-narrow .event-lineup .descr {
+  width: 581px;
+}
