@@ -42,9 +42,7 @@ $(window).load(function () {
 
   adaptation();
 
-  if ($(".events-calendar").length) {
-    $(".events-calendar").eventsCalendar();
-  }
+  
   
 });
 
@@ -76,6 +74,10 @@ $(window).scroll(function () {
 });
 
 $(document).ready(function () {
+
+  if ($(".events-calendar").length) {
+    $(".events-calendar").eventsCalendar();
+  }
 
   $(".html-narrow .post-controls .author a").last().addClass("author-name");
 
@@ -893,6 +895,8 @@ $(document).ready(function () {
         
       }
       
+      
+      
       var calContent = $("<div class='calendar-content'></div>");
     
       calendar.append(calContent);
@@ -994,6 +998,8 @@ $(document).ready(function () {
       }
       
       if (showFuture) {
+      
+        $(".month-nav").hide();
         
         var startIndex = firstFutureIndex;
         var futureTab = $("<div class='tab act' rel='upcoming'><div class='cont'><span>Предстоящие</span></div></div>");
@@ -1013,12 +1019,14 @@ $(document).ready(function () {
         monthsList.find(".cn-future[year='"+curYear+"']").show();
         monthsList.find(".cn-future[year='"+curYear+"'][month='"+curMonth+"']").addClass("act");
         
-        for (i=startIndex;i<events.length;i++) {
-          if (parseInt(events[i].date.split(".")[1],10) != curMonth || parseInt(events[i].date.split(".")[2],10) != curYear) {
-            var finishIndex = i-1;
-            break;
-          }
-        }
+        // for (i=startIndex;i<events.length;i++) {
+          // if (parseInt(events[i].date.split(".")[1],10) != curMonth || parseInt(events[i].date.split(".")[2],10) != curYear) {
+            // var finishIndex = i-1;
+            // break;
+          // }
+        // }
+        
+        var finishIndex = events.length - 1;
         
         insertEventCards(startIndex,finishIndex,events,calContent);
         
@@ -1036,6 +1044,8 @@ $(document).ready(function () {
       }
       
       if (showPast) {
+      
+        $(".month-nav").show();
         
         pastTab.addClass("act");
         
@@ -1088,7 +1098,6 @@ $(document).ready(function () {
       calPopup.find(".close").click(function() {
         calPopup.fadeOut(250)
       });
-      
       
       prevBtn.click(function() {
         if (!$(this).hasClass("inact")) {
@@ -1186,7 +1195,7 @@ $(document).ready(function () {
             }
           }
           
-          if (finishIndex == maxIndex) {
+          if (finishIndex == maxIndex+1) {
             nextBtn.addClass("inact")
           }
           
@@ -1199,6 +1208,8 @@ $(document).ready(function () {
       
       
       pastTab.click(function() {
+        
+        $(".month-nav").show();
         
         minIndex = 0;
         
@@ -1258,6 +1269,8 @@ $(document).ready(function () {
       
       futureTab.click(function() {
       
+        $(".month-nav").hide();
+      
         maxIndex = events.length - 1;
         
         if (firstFutureIndex) {
@@ -1289,27 +1302,29 @@ $(document).ready(function () {
         
         calendar.find(".month-nav .month span").html(monthName2[curMonth-1] + " " + curYear);
         
-        for (i=startIndex;i<events.length;i++) {
-          if (parseInt(events[i].date.split(".")[1],10) != curMonth || parseInt(events[i].date.split(".")[2],10) != curYear) {
-            var finishIndex = i-1;
-            break;
-          } else if (i==events.length-1) {
-            finishIndex = events.length-1;
-            nextBtn.addClass("inact")
-          }
-        }
+        // for (i=startIndex;i<events.length;i++) {
+          // if (parseInt(events[i].date.split(".")[1],10) != curMonth || parseInt(events[i].date.split(".")[2],10) != curYear) {
+            // var finishIndex = i-1;
+            // break;
+          // } else if (i==events.length-1) {
+            // finishIndex = events.length-1;
+            // nextBtn.addClass("inact")
+          // }
+        // }
         
-        if (finishIndex == maxIndex) {
-          nextBtn.addClass("inact")
-        }
+        // if (finishIndex == maxIndex) {
+          // nextBtn.addClass("inact")
+        // }
+        
+        var finishIndex = events.length;
         
         insertEventCards(startIndex,finishIndex,events,calContent)
         
-        if (finishIndex < events.length) {
-          nextBtn.removeClass("inact")
-        } else {
-          nextBtn.addClass("inact")
-        }
+        // if (finishIndex < events.length) {
+          // nextBtn.removeClass("inact")
+        // } else {
+          // nextBtn.addClass("inact")
+        // }
         
       });
       
@@ -1719,7 +1734,7 @@ jQuery.extend({
     var result = null;
     $.ajax({
       url: url,
-      type: 'get',
+      type: 'post',
       dataType: 'text',
       async: false
     }).done(function(data) {
