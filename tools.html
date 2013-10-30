@@ -8,6 +8,7 @@
 <link rel="stylesheet" type="text/css" href="css/fonts-min.css" media="screen"/>
 <link rel="stylesheet" type="text/css" href="css/jquery.fancybox.css" media="screen"/>
 <link rel="stylesheet" type="text/css" href="css/main.css" media="screen"/>
+<link rel="stylesheet" type="text/css" href="css/narrow.css" media="screen"/>
 <!--[if lte IE 8]>
   <link rel="stylesheet" type="text/css" href="css/ie7-8.css" media="screen"/>
 <![endif]-->
@@ -31,7 +32,7 @@
 
 </head>
 
-<body>
+<body class="adaptive">
 
 <!-- Wrapper -->
 <div class="top-wrap">
@@ -168,19 +169,1421 @@
             
             <div class="content-block">
             
-              <div class="section-filter-tools fc">
-                <span class="title">Показать:</span>
-                <span class="link" rel="files/html/tools-reviews.html"><span>Обзор</span></span>
-                <span class="link" rel="files/html/tools-list.html"><span>Списком</span></span>
-              </div>
+              
             
-              <h2 class="section-title">Инструменты и сервисы</h2>
+              <div class="fc">
+              	<h2 class="section-title">Инструменты и сервисы</h2>
+              </div>
+              
               
               <!-- Section content -->
               
               <div class="section-content">
               	
-                
+                <div class="tools">
+
+                  <div class="tools-services fc">
+                  
+                    <div class="item item-rooletka">
+                      <div class="logo">
+                        <a href=""><img src="files/logo-rooletka-bg.png" /></a>
+                      </div>
+                      <div class="descr">
+                        Анализ готовности сайта к продвижению
+                      </div>
+                      <div class="service-form common-form">
+                        <div class="form-item">
+                          <input type="text" name="service_rooletka" id="service_rooletka" class="form-text" value="Введите адрес сайта" phvalue="Введите адрес сайта" />
+                        </div>
+                        <input type="submit" value="Анализировать" class="form-submit button button-rooletka"/>
+                      </div>
+                    </div>
+                    
+                    <div class="item item-rookee">
+                      <div class="logo">
+                        <a href=""><img src="files/logo-rookee-bg.png" /></a>
+                      </div>
+                      <div class="descr">
+                        Анализ готовности сайта к продвижению
+                      </div>
+                      <div class="service-form common-form">
+                        <div class="form-item">
+                          <input type="text" name="service_rookee" id="service_rookee" class="form-text" value="Введите запрос" phvalue="Введите запрос" />
+                        </div>
+                        <input type="submit" value="Оценить запрос" class="form-submit button button-rookee"/>
+                      </div>
+                    </div>
+                    
+                    <div class="item item-uniplace">
+                      <div class="logo">
+                        <a href=""><img src="files/logo-uniplace-bg.png" /></a>
+                      </div>
+                      <div class="descr">
+                        Анализ готовности сайта к продвижению
+                      </div>
+                      <div class="service-form common-form">
+                        <div class="form-item">
+                          <input type="text" name="service_uniplace" id="service_uniplace" class="form-text" value="Введите адрес сайта" phvalue="Введите адрес сайта" />
+                        </div>
+                        <input type="submit" value="Посчитать доход" class="form-submit button button-uniplace"/>
+                      </div>
+                    </div>
+                  
+                  </div>
+                  
+                  
+                  <div class="tools-filter fc">
+                    
+                    <div class="tf-sort fc">
+                      <span class="title">Сортировать по:</span>
+                      <span class="link act" sort="popularity"><span>Популярности</span></span>
+                      <span class="link" sort="names"><span>Названию</span></span>
+                      <span class="link" sort="choices"><span>Выбор редакции</span></span>
+                    </div>
+                    
+                    <div class="tf-filter">
+                      <div class="common-form">
+                        <select name="tf_select" id="tf_select" class="form-select">
+                          <option value="all">Все</option>
+                          <option value="1">Анализ сайта</option>
+                          <option value="2">Копирайтеру</option>
+                          <option value="3">Биржа ссылок</option>
+                          <option value="4">Партнерская программа</option>
+                        </select>
+                      </div>
+                    </div>
+                    
+                  </div>
+                  
+                  
+                  <div class="toolsreviews">
+                  
+                    <div class="toolsreviews-item tool-type tool-type-1" popular="100" choice="1">
+                    
+                      <div class="pic">
+                        <span class="badge badge-seonews-select"></span>
+                        <a href="#"><img src="files/logo-submit-m.png" /></a>
+                      </div>
+                      
+                      <div class="descr">
+                        <div class="lead">
+                          <a href="#" class="tool-tag tool-tag-1">Анализ сайта</a>
+                          <h3><a href="#">Управление ставками</a></h3>
+                          <div class="txt">
+                            <p>
+                              Cервис для оптимизаторов для управления ставками в Яндекс.Маркет от Cyberhead
+                            </p>
+                          </div>
+                        </div>
+                        <div class="comments-views">
+                          <span class="cv-item"><a href="#"><span class="ico ico-comments"></span> 16</a></span>
+                          <span class="cv-item"><a href="#"><span class="ico ico-review"></span>Обзор редакции</a></span>
+                          <span class="cv-item"><span class="ico ico-approves"></span> 215</span>
+                        </div>
+                        <div class="tool-review-pup">
+                          <div class="pt"></div>
+                          <div class="trp-content">
+                            <div class="trp-header fc">
+                              <div class="author">
+                                <a href="#"><img class="userpic" src="files/userpic.jpg" alt="Василий Петров"></a>
+                                <a href="#">Василий Петров&nbsp;&nbsp;&nbsp;&nbsp;</a> Вчера, <span class="time">в 23:29</span><br />
+                                Работал над проектом <a class="normal" href="#">Flour2u</a>
+                              </div>
+                              <div class="experience">
+                                Опыт использования: <span>более года</span>
+                              </div>
+                            </div>
+                            <div class="trp-body">
+                              <h4>Достоинства:</h4>
+                              <p>Модель 2013 года. Показывает Питерский цифровой мультиплекс с 35 канала. Легко проигрывает 18Гб mkv. Безумно удобное меню. Автопоиск самый лучший - не одного дубля, хотя ловил на проволочку.</p>
+                              <h4>Недостатки:</h4>
+                              <p>Также сервис Movebo.ru представляет новую ценовую политику. Вы можете выбрать наиболее подходящую для Ваших целей и бюджетов стратегию продвижения.</p>
+                              <h4>Комментарий:</h4>
+                              <p>сервис продвижения сайтов в ТОП Яндекса и Google поведенческими факторами. Поведенческие факторы характеризуют действия пользователей сайта, как на поисковой выдаче (CTR описания сайта на выдаче), так и на самом сайте (время на сайте и просмотренные на сайте страницы). Влияние поведенческих факторов на ранжирование сайтов в поисковой выдаче составляет, по оценкам экспертов, до 30%.</p>
+                              <div class="read-all">
+                                <a href="#">Читать полностью</a>
+                              </div>
+                            </div>
+                          </div>
+                          
+                        </div>
+                      </div>
+                    
+                    </div>
+                    
+                    <div class="toolsreviews-item tool-type tool-type-2" popular="88" choice="0">
+                    
+                      <div class="pic">
+                        <a href="#"><img src="files/logo-yandex-m.png" /></a>
+                      </div>
+                      
+                      <div class="descr">
+                        <div class="lead">
+                          <a href="#" class="tool-tag tool-tag-2">копирайтеру</a>
+                          <h3><a href="#">Анализатор трафика</a></h3>
+                          <div class="txt">
+                            <p>
+                              Прекрасная телза для управления ставками в Яндекс.Маркет от Cyberhead. Для птимизаторов для управления ставками
+                            </p>
+                          </div>
+                        </div>
+                        <div class="comments-views">
+                          <span class="cv-item"><a href="#"><span class="ico ico-comments"></span> 16</a></span>
+                          <span class="cv-item"><a href="#"><span class="ico ico-review"></span>Обзор редакции</a></span>
+                          <span class="cv-item"><span class="ico ico-approves"></span> 215</span>
+                        </div>
+                        <div class="tool-review-pup">
+                          <div class="pt"></div>
+                          <div class="trp-content">
+                            <div class="trp-header fc">
+                              <div class="author">
+                                <a href="#"><img class="userpic" src="files/userpic.jpg" alt="Василий Петров"></a>
+                                <a href="#">Василий Петров&nbsp;&nbsp;&nbsp;&nbsp;</a> Вчера, <span class="time">в 23:29</span><br />
+                                Работал над проектом <a class="normal" href="#">Flour2u</a>
+                              </div>
+                              <div class="experience">
+                                Опыт использования: <span>более года</span>
+                              </div>
+                            </div>
+                            <div class="trp-body">
+                              <h4>Достоинства:</h4>
+                              <p>Модель 2013 года. Показывает Питерский цифровой мультиплекс с 35 канала. Легко проигрывает 18Гб mkv. Безумно удобное меню. Автопоиск самый лучший - не одного дубля, хотя ловил на проволочку.</p>
+                              <h4>Недостатки:</h4>
+                              <p>Также сервис Movebo.ru представляет новую ценовую политику. Вы можете выбрать наиболее подходящую для Ваших целей и бюджетов стратегию продвижения.</p>
+                              <h4>Комментарий:</h4>
+                              <p>сервис продвижения сайтов в ТОП Яндекса и Google поведенческими факторами. Поведенческие факторы характеризуют действия пользователей сайта, как на поисковой выдаче (CTR описания сайта на выдаче), так и на самом сайте (время на сайте и просмотренные на сайте страницы). Влияние поведенческих факторов на ранжирование сайтов в поисковой выдаче составляет, по оценкам экспертов, до 30%.</p>
+                              <div class="read-all">
+                                <a href="#">Читать полностью</a>
+                              </div>
+                            </div>
+                          </div>
+                          
+                        </div>
+                      </div>
+                    
+                    </div>
+                    
+                    <div class="toolsreviews-item tool-type tool-type-3" popular="83" choice="0">
+                    
+                      <div class="pic">
+                        <a href="#"><img src="files/logo-rooletka-m.png" /></a>
+                      </div>
+                      
+                      <div class="descr">
+                        <div class="lead">
+                          <a href="#" class="tool-tag tool-tag-3">биржа ссылок</a>
+                          <h3><a href="#">Оценка стоимости продвижения</a></h3>
+                          <div class="txt">
+                            <p>
+                              Быстро, качественно, без проблем
+                            </p>
+                          </div>
+                        </div>
+                        <div class="comments-views">
+                          <span class="cv-item"><a href="#"><span class="ico ico-comments"></span> 16</a></span>
+                          <span class="cv-item"><a href="#"><span class="ico ico-review"></span>Обзор редакции</a></span>
+                          <span class="cv-item"><span class="ico ico-approves"></span> 215</span>
+                        </div>
+                        <div class="tool-review-pup">
+                          <div class="pt"></div>
+                          <div class="trp-content">
+                            <div class="trp-header fc">
+                              <div class="author">
+                                <a href="#"><img class="userpic" src="files/userpic.jpg" alt="Василий Петров"></a>
+                                <a href="#">Василий Петров&nbsp;&nbsp;&nbsp;&nbsp;</a> Вчера, <span class="time">в 23:29</span><br />
+                                Работал над проектом <a class="normal" href="#">Flour2u</a>
+                              </div>
+                              <div class="experience">
+                                Опыт использования: <span>более года</span>
+                              </div>
+                            </div>
+                            <div class="trp-body">
+                              <h4>Достоинства:</h4>
+                              <p>Модель 2013 года. Показывает Питерский цифровой мультиплекс с 35 канала. Легко проигрывает 18Гб mkv. Безумно удобное меню. Автопоиск самый лучший - не одного дубля, хотя ловил на проволочку.</p>
+                              <h4>Недостатки:</h4>
+                              <p>Также сервис Movebo.ru представляет новую ценовую политику. Вы можете выбрать наиболее подходящую для Ваших целей и бюджетов стратегию продвижения.</p>
+                              <h4>Комментарий:</h4>
+                              <p>сервис продвижения сайтов в ТОП Яндекса и Google поведенческими факторами. Поведенческие факторы характеризуют действия пользователей сайта, как на поисковой выдаче (CTR описания сайта на выдаче), так и на самом сайте (время на сайте и просмотренные на сайте страницы). Влияние поведенческих факторов на ранжирование сайтов в поисковой выдаче составляет, по оценкам экспертов, до 30%.</p>
+                              <div class="read-all">
+                                <a href="#">Читать полностью</a>
+                              </div>
+                            </div>
+                          </div>
+                          
+                        </div>
+                      </div>
+                    
+                    </div>
+                    
+                    <div class="toolsreviews-item tool-type tool-type-4" popular="80" choice="0">
+                    
+                      <div class="pic">
+                        <a href="#"><img src="files/logo-facebook-m.png" /></a>
+                      </div>
+                      
+                      <div class="descr">
+                        <div class="lead">
+                          <a href="#" class="tool-tag tool-tag-4">партнерская программа</a>
+                          <h3><a href="#">Анализатор трафика</a></h3>
+                          <div class="txt">
+                            <p>
+                              Прекрасная телза для управления ставками в Яндекс.Маркет от Cyberhead. Для птимизаторов для управления ставками
+                            </p>
+                          </div>
+                        </div>
+                        <div class="comments-views">
+                          <span class="cv-item"><a href="#"><span class="ico ico-comments"></span> 16</a></span>
+                          <span class="cv-item"><a href="#"><span class="ico ico-review"></span>Обзор редакции</a></span>
+                          <span class="cv-item"><span class="ico ico-approves"></span> 215</span>
+                        </div>
+                        <div class="tool-review-pup">
+                          <div class="pt"></div>
+                          <div class="trp-content">
+                            <div class="trp-header fc">
+                              <div class="author">
+                                <a href="#"><img class="userpic" src="files/userpic.jpg" alt="Василий Петров"></a>
+                                <a href="#">Василий Петров&nbsp;&nbsp;&nbsp;&nbsp;</a> Вчера, <span class="time">в 23:29</span><br />
+                                Работал над проектом <a class="normal" href="#">Flour2u</a>
+                              </div>
+                              <div class="experience">
+                                Опыт использования: <span>более года</span>
+                              </div>
+                            </div>
+                            <div class="trp-body">
+                              <h4>Достоинства:</h4>
+                              <p>Модель 2013 года. Показывает Питерский цифровой мультиплекс с 35 канала. Легко проигрывает 18Гб mkv. Безумно удобное меню. Автопоиск самый лучший - не одного дубля, хотя ловил на проволочку.</p>
+                              <h4>Недостатки:</h4>
+                              <p>Также сервис Movebo.ru представляет новую ценовую политику. Вы можете выбрать наиболее подходящую для Ваших целей и бюджетов стратегию продвижения.</p>
+                              <h4>Комментарий:</h4>
+                              <p>сервис продвижения сайтов в ТОП Яндекса и Google поведенческими факторами. Поведенческие факторы характеризуют действия пользователей сайта, как на поисковой выдаче (CTR описания сайта на выдаче), так и на самом сайте (время на сайте и просмотренные на сайте страницы). Влияние поведенческих факторов на ранжирование сайтов в поисковой выдаче составляет, по оценкам экспертов, до 30%.</p>
+                              <div class="read-all">
+                                <a href="#">Читать полностью</a>
+                              </div>
+                            </div>
+                          </div>
+                          
+                        </div>
+                      </div>
+                    
+                    </div>
+                    
+                    <div class="toolsreviews-item tool-type tool-type-1" popular="75" choice="0">
+                    
+                      <div class="pic">
+                        <a href="#"><img src="files/logo-cyberhead-m.png" /></a>
+                      </div>
+                      
+                      <div class="descr">
+                        <div class="lead">
+                          <a href="#" class="tool-tag tool-tag-1">анализ сайта</a>
+                          <h3><a href="#">Управление ставками</a></h3>
+                          <div class="txt">
+                            <p>
+                              Cервис для оптимизаторов для управления ставками в Яндекс.Маркет от Cyberhead
+                            </p>
+                          </div>
+                        </div>
+                        <div class="comments-views">
+                          <span class="cv-item"><a href="#"><span class="ico ico-comments"></span> 16</a></span>
+                          <span class="cv-item"><a href="#"><span class="ico ico-review"></span>Обзор редакции</a></span>
+                          <span class="cv-item"><span class="ico ico-approves"></span> 215</span>
+                        </div>
+                        <div class="tool-review-pup">
+                          <div class="pt"></div>
+                          <div class="trp-content">
+                            <div class="trp-header fc">
+                              <div class="author">
+                                <a href="#"><img class="userpic" src="files/userpic.jpg" alt="Василий Петров"></a>
+                                <a href="#">Василий Петров&nbsp;&nbsp;&nbsp;&nbsp;</a> Вчера, <span class="time">в 23:29</span><br />
+                                Работал над проектом <a class="normal" href="#">Flour2u</a>
+                              </div>
+                              <div class="experience">
+                                Опыт использования: <span>более года</span>
+                              </div>
+                            </div>
+                            <div class="trp-body">
+                              <h4>Достоинства:</h4>
+                              <p>Модель 2013 года. Показывает Питерский цифровой мультиплекс с 35 канала. Легко проигрывает 18Гб mkv. Безумно удобное меню. Автопоиск самый лучший - не одного дубля, хотя ловил на проволочку.</p>
+                              <h4>Недостатки:</h4>
+                              <p>Также сервис Movebo.ru представляет новую ценовую политику. Вы можете выбрать наиболее подходящую для Ваших целей и бюджетов стратегию продвижения.</p>
+                              <h4>Комментарий:</h4>
+                              <p>сервис продвижения сайтов в ТОП Яндекса и Google поведенческими факторами. Поведенческие факторы характеризуют действия пользователей сайта, как на поисковой выдаче (CTR описания сайта на выдаче), так и на самом сайте (время на сайте и просмотренные на сайте страницы). Влияние поведенческих факторов на ранжирование сайтов в поисковой выдаче составляет, по оценкам экспертов, до 30%.</p>
+                              <div class="read-all">
+                                <a href="#">Читать полностью</a>
+                              </div>
+                            </div>
+                          </div>
+                          
+                        </div>
+
+                      </div>
+                    
+                    </div>
+                  
+                    <div class="toolsreviews-item tool-type tool-type-1" popular="70" choice="0">
+                    
+                      <div class="pic">
+                        <span class="badge badge-seonews-select"></span>
+                        <a href="#"><img src="files/logo-submit-m.png" /></a>
+                      </div>
+                      
+                      <div class="descr">
+                        <div class="lead">
+                          <a href="#" class="tool-tag tool-tag-1">Анализ сайта</a>
+                          <h3><a href="#">Управление ставками</a></h3>
+                          <div class="txt">
+                            <p>
+                              Cервис для оптимизаторов для управления ставками в Яндекс.Маркет от Cyberhead
+                            </p>
+                          </div>
+                        </div>
+                        <div class="comments-views">
+                          <span class="cv-item"><a href="#"><span class="ico ico-comments"></span> 16</a></span>
+                          <span class="cv-item"><a href="#"><span class="ico ico-review"></span>Обзор редакции</a></span>
+                          <span class="cv-item"><span class="ico ico-approves"></span> 215</span>
+                        </div>
+                        <div class="tool-review-pup">
+                          <div class="pt"></div>
+                          <div class="trp-content">
+                            <div class="trp-header fc">
+                              <div class="author">
+                                <a href="#"><img class="userpic" src="files/userpic.jpg" alt="Василий Петров"></a>
+                                <a href="#">Василий Петров&nbsp;&nbsp;&nbsp;&nbsp;</a> Вчера, <span class="time">в 23:29</span><br />
+                                Работал над проектом <a class="normal" href="#">Flour2u</a>
+                              </div>
+                              <div class="experience">
+                                Опыт использования: <span>более года</span>
+                              </div>
+                            </div>
+                            <div class="trp-body">
+                              <h4>Достоинства:</h4>
+                              <p>Модель 2013 года. Показывает Питерский цифровой мультиплекс с 35 канала. Легко проигрывает 18Гб mkv. Безумно удобное меню. Автопоиск самый лучший - не одного дубля, хотя ловил на проволочку.</p>
+                              <h4>Недостатки:</h4>
+                              <p>Также сервис Movebo.ru представляет новую ценовую политику. Вы можете выбрать наиболее подходящую для Ваших целей и бюджетов стратегию продвижения.</p>
+                              <h4>Комментарий:</h4>
+                              <p>сервис продвижения сайтов в ТОП Яндекса и Google поведенческими факторами. Поведенческие факторы характеризуют действия пользователей сайта, как на поисковой выдаче (CTR описания сайта на выдаче), так и на самом сайте (время на сайте и просмотренные на сайте страницы). Влияние поведенческих факторов на ранжирование сайтов в поисковой выдаче составляет, по оценкам экспертов, до 30%.</p>
+                              <div class="read-all">
+                                <a href="#">Читать полностью</a>
+                              </div>
+                            </div>
+                          </div>
+                          
+                        </div>
+                      </div>
+                    
+                    </div>
+                    
+                    <div class="toolsreviews-item tool-type tool-type-2" popular="69" choice="0">
+                    
+                      <div class="pic">
+                        <a href="#"><img src="files/logo-yandex-m.png" /></a>
+                      </div>
+                      
+                      <div class="descr">
+                        <div class="lead">
+                          <a href="#" class="tool-tag tool-tag-2">копирайтеру</a>
+                          <h3><a href="#">Анализатор трафика</a></h3>
+                          <div class="txt">
+                            <p>
+                              Прекрасная телза для управления ставками в Яндекс.Маркет от Cyberhead. Для птимизаторов для управления ставками
+                            </p>
+                          </div>
+                        </div>
+                        <div class="comments-views">
+                          <span class="cv-item"><a href="#"><span class="ico ico-comments"></span> 16</a></span>
+                          <span class="cv-item"><a href="#"><span class="ico ico-review"></span>Обзор редакции</a></span>
+                          <span class="cv-item"><span class="ico ico-approves"></span> 215</span>
+                        </div>
+                        <div class="tool-review-pup">
+                          <div class="pt"></div>
+                          <div class="trp-content">
+                            <div class="trp-header fc">
+                              <div class="author">
+                                <a href="#"><img class="userpic" src="files/userpic.jpg" alt="Василий Петров"></a>
+                                <a href="#">Василий Петров&nbsp;&nbsp;&nbsp;&nbsp;</a> Вчера, <span class="time">в 23:29</span><br />
+                                Работал над проектом <a class="normal" href="#">Flour2u</a>
+                              </div>
+                              <div class="experience">
+                                Опыт использования: <span>более года</span>
+                              </div>
+                            </div>
+                            <div class="trp-body">
+                              <h4>Достоинства:</h4>
+                              <p>Модель 2013 года. Показывает Питерский цифровой мультиплекс с 35 канала. Легко проигрывает 18Гб mkv. Безумно удобное меню. Автопоиск самый лучший - не одного дубля, хотя ловил на проволочку.</p>
+                              <h4>Недостатки:</h4>
+                              <p>Также сервис Movebo.ru представляет новую ценовую политику. Вы можете выбрать наиболее подходящую для Ваших целей и бюджетов стратегию продвижения.</p>
+                              <h4>Комментарий:</h4>
+                              <p>сервис продвижения сайтов в ТОП Яндекса и Google поведенческими факторами. Поведенческие факторы характеризуют действия пользователей сайта, как на поисковой выдаче (CTR описания сайта на выдаче), так и на самом сайте (время на сайте и просмотренные на сайте страницы). Влияние поведенческих факторов на ранжирование сайтов в поисковой выдаче составляет, по оценкам экспертов, до 30%.</p>
+                              <div class="read-all">
+                                <a href="#">Читать полностью</a>
+                              </div>
+                            </div>
+                          </div>
+                          
+                        </div>
+                      </div>
+                    
+                    </div>
+                    
+                    <div class="toolsreviews-item tool-type tool-type-3" popular="68" choice="0">
+                    
+                      <div class="pic">
+                        <a href="#"><img src="files/logo-rooletka-m.png" /></a>
+                      </div>
+                      
+                      <div class="descr">
+                        <div class="lead">
+                          <a href="#" class="tool-tag tool-tag-3">биржа ссылок</a>
+                          <h3><a href="#">Оценка стоимости продвижения</a></h3>
+                          <div class="txt">
+                            <p>
+                              Быстро, качественно, без проблем
+                            </p>
+                          </div>
+                        </div>
+                        <div class="comments-views">
+                          <span class="cv-item"><a href="#"><span class="ico ico-comments"></span> 16</a></span>
+                          <span class="cv-item"><a href="#"><span class="ico ico-review"></span>Обзор редакции</a></span>
+                          <span class="cv-item"><span class="ico ico-approves"></span> 215</span>
+                        </div>
+                        <div class="tool-review-pup">
+                          <div class="pt"></div>
+                          <div class="trp-content">
+                            <div class="trp-header fc">
+                              <div class="author">
+                                <a href="#"><img class="userpic" src="files/userpic.jpg" alt="Василий Петров"></a>
+                                <a href="#">Василий Петров&nbsp;&nbsp;&nbsp;&nbsp;</a> Вчера, <span class="time">в 23:29</span><br />
+                                Работал над проектом <a class="normal" href="#">Flour2u</a>
+                              </div>
+                              <div class="experience">
+                                Опыт использования: <span>более года</span>
+                              </div>
+                            </div>
+                            <div class="trp-body">
+                              <h4>Достоинства:</h4>
+                              <p>Модель 2013 года. Показывает Питерский цифровой мультиплекс с 35 канала. Легко проигрывает 18Гб mkv. Безумно удобное меню. Автопоиск самый лучший - не одного дубля, хотя ловил на проволочку.</p>
+                              <h4>Недостатки:</h4>
+                              <p>Также сервис Movebo.ru представляет новую ценовую политику. Вы можете выбрать наиболее подходящую для Ваших целей и бюджетов стратегию продвижения.</p>
+                              <h4>Комментарий:</h4>
+                              <p>сервис продвижения сайтов в ТОП Яндекса и Google поведенческими факторами. Поведенческие факторы характеризуют действия пользователей сайта, как на поисковой выдаче (CTR описания сайта на выдаче), так и на самом сайте (время на сайте и просмотренные на сайте страницы). Влияние поведенческих факторов на ранжирование сайтов в поисковой выдаче составляет, по оценкам экспертов, до 30%.</p>
+                              <div class="read-all">
+                                <a href="#">Читать полностью</a>
+                              </div>
+                            </div>
+                          </div>
+                          
+                        </div>
+                      </div>
+                    
+                    </div>
+                    
+                    
+                    <div class="tool-review fc">
+                  
+                      <div class="pic">
+                        <a href="#">
+                          <img src="files/tool-pic-m.jpg" />
+                        </a>
+                      </div>
+                      
+                      <div class="descr">
+                        <div class="post-lead">
+                          <h3><a href="#">Плюсы и минусы Rookee</a></h3>
+                          <p>
+                            Новый сервис SaleTex позволит увеличить количество клиентов при прежней посещаемости сайта и сохранении текущего рекламного бюджета. Прекрасная телза для управления ставками в Яндекс.Маркет от Cyberhead
+                          </p>
+                        </div>
+                        <div class="post-data fc">
+                          <div class="author">
+                            <a href="#"><img class="userpic" src="files/userpic.jpg" alt="Василий Петров"></a>
+                            <a href="#">Василий Петров</a><br>
+                            Пишет про сервис <a href="#">Rookee</a>
+                          </div>
+                          <div class="comments-views">
+                            <span class="cv-item"><span class="ico ico-views"></span> 561</span>
+                          </div>
+                        </div>
+                      </div>
+                      
+                    </div>
+                    
+                    <div class="toolsreviews-item tool-type tool-type-1" popular="65" choice="1">
+                    
+                      <div class="pic">
+                        <span class="badge badge-seonews-select"></span>
+                        <a href="#"><img src="files/logo-submit-m.png" /></a>
+                      </div>
+                      
+                      <div class="descr">
+                        <div class="lead">
+                          <a href="#" class="tool-tag tool-tag-1">Анализ сайта</a>
+                          <h3><a href="#">Управление ставками</a></h3>
+                          <div class="txt">
+                            <p>
+                              Cервис для оптимизаторов для управления ставками в Яндекс.Маркет от Cyberhead
+                            </p>
+                          </div>
+                        </div>
+                        <div class="comments-views">
+                          <span class="cv-item"><a href="#"><span class="ico ico-comments"></span> 16</a></span>
+                          <span class="cv-item"><a href="#"><span class="ico ico-review"></span>Обзор редакции</a></span>
+                          <span class="cv-item"><span class="ico ico-approves"></span> 215</span>
+                        </div>
+                        <div class="tool-review-pup">
+                          <div class="pt"></div>
+                          <div class="trp-content">
+                            <div class="trp-header fc">
+                              <div class="author">
+                                <a href="#"><img class="userpic" src="files/userpic.jpg" alt="Василий Петров"></a>
+                                <a href="#">Василий Петров&nbsp;&nbsp;&nbsp;&nbsp;</a> Вчера, <span class="time">в 23:29</span><br />
+                                Работал над проектом <a class="normal" href="#">Flour2u</a>
+                              </div>
+                              <div class="experience">
+                                Опыт использования: <span>более года</span>
+                              </div>
+                            </div>
+                            <div class="trp-body">
+                              <h4>Достоинства:</h4>
+                              <p>Модель 2013 года. Показывает Питерский цифровой мультиплекс с 35 канала. Легко проигрывает 18Гб mkv. Безумно удобное меню. Автопоиск самый лучший - не одного дубля, хотя ловил на проволочку.</p>
+                              <h4>Недостатки:</h4>
+                              <p>Также сервис Movebo.ru представляет новую ценовую политику. Вы можете выбрать наиболее подходящую для Ваших целей и бюджетов стратегию продвижения.</p>
+                              <h4>Комментарий:</h4>
+                              <p>сервис продвижения сайтов в ТОП Яндекса и Google поведенческими факторами. Поведенческие факторы характеризуют действия пользователей сайта, как на поисковой выдаче (CTR описания сайта на выдаче), так и на самом сайте (время на сайте и просмотренные на сайте страницы). Влияние поведенческих факторов на ранжирование сайтов в поисковой выдаче составляет, по оценкам экспертов, до 30%.</p>
+                              <div class="read-all">
+                                <a href="#">Читать полностью</a>
+                              </div>
+                            </div>
+                          </div>
+                          
+                        </div>
+                      </div>
+                    
+                    </div>
+                    
+                    <div class="toolsreviews-item tool-type tool-type-2" popular="60" choice="0">
+                    
+                      <div class="pic">
+                        <a href="#"><img src="files/logo-yandex-m.png" /></a>
+                      </div>
+                      
+                      <div class="descr">
+                        <div class="lead">
+                          <a href="#" class="tool-tag tool-tag-2">копирайтеру</a>
+                          <h3><a href="#">Анализатор трафика</a></h3>
+                          <div class="txt">
+                            <p>
+                              Прекрасная телза для управления ставками в Яндекс.Маркет от Cyberhead. Для птимизаторов для управления ставками
+                            </p>
+                          </div>
+                        </div>
+                        <div class="comments-views">
+                          <span class="cv-item"><a href="#"><span class="ico ico-comments"></span> 16</a></span>
+                          <span class="cv-item"><a href="#"><span class="ico ico-review"></span>Обзор редакции</a></span>
+                          <span class="cv-item"><span class="ico ico-approves"></span> 215</span>
+                        </div>
+                        <div class="tool-review-pup">
+                          <div class="pt"></div>
+                          <div class="trp-content">
+                            <div class="trp-header fc">
+                              <div class="author">
+                                <a href="#"><img class="userpic" src="files/userpic.jpg" alt="Василий Петров"></a>
+                                <a href="#">Василий Петров&nbsp;&nbsp;&nbsp;&nbsp;</a> Вчера, <span class="time">в 23:29</span><br />
+                                Работал над проектом <a class="normal" href="#">Flour2u</a>
+                              </div>
+                              <div class="experience">
+                                Опыт использования: <span>более года</span>
+                              </div>
+                            </div>
+                            <div class="trp-body">
+                              <h4>Достоинства:</h4>
+                              <p>Модель 2013 года. Показывает Питерский цифровой мультиплекс с 35 канала. Легко проигрывает 18Гб mkv. Безумно удобное меню. Автопоиск самый лучший - не одного дубля, хотя ловил на проволочку.</p>
+                              <h4>Недостатки:</h4>
+                              <p>Также сервис Movebo.ru представляет новую ценовую политику. Вы можете выбрать наиболее подходящую для Ваших целей и бюджетов стратегию продвижения.</p>
+                              <h4>Комментарий:</h4>
+                              <p>сервис продвижения сайтов в ТОП Яндекса и Google поведенческими факторами. Поведенческие факторы характеризуют действия пользователей сайта, как на поисковой выдаче (CTR описания сайта на выдаче), так и на самом сайте (время на сайте и просмотренные на сайте страницы). Влияние поведенческих факторов на ранжирование сайтов в поисковой выдаче составляет, по оценкам экспертов, до 30%.</p>
+                              <div class="read-all">
+                                <a href="#">Читать полностью</a>
+                              </div>
+                            </div>
+                          </div>
+                          
+                        </div>
+                        
+                      </div>
+                    
+                    </div>
+                    
+                    <div class="toolsreviews-item tool-type tool-type-3" popular="55" choice="0">
+                    
+                      <div class="pic">
+                        <a href="#"><img src="files/logo-rooletka-m.png" /></a>
+                      </div>
+                      
+                      <div class="descr">
+                        <div class="lead">
+                          <a href="#" class="tool-tag tool-tag-3">биржа ссылок</a>
+                          <h3><a href="#">Оценка стоимости продвижения</a></h3>
+                          <div class="txt">
+                            <p>
+                              Быстро, качественно, без проблем
+                            </p>
+                          </div>
+                        </div>
+                        <div class="comments-views">
+                          <span class="cv-item"><a href="#"><span class="ico ico-comments"></span> 16</a></span>
+                          <span class="cv-item"><a href="#"><span class="ico ico-review"></span>Обзор редакции</a></span>
+                          <span class="cv-item"><span class="ico ico-approves"></span> 215</span>
+                        </div>
+                        <div class="tool-review-pup">
+                          <div class="pt"></div>
+                          <div class="trp-content">
+                            <div class="trp-header fc">
+                              <div class="author">
+                                <a href="#"><img class="userpic" src="files/userpic.jpg" alt="Василий Петров"></a>
+                                <a href="#">Василий Петров&nbsp;&nbsp;&nbsp;&nbsp;</a> Вчера, <span class="time">в 23:29</span><br />
+                                Работал над проектом <a class="normal" href="#">Flour2u</a>
+                              </div>
+                              <div class="experience">
+                                Опыт использования: <span>более года</span>
+                              </div>
+                            </div>
+                            <div class="trp-body">
+                              <h4>Достоинства:</h4>
+                              <p>Модель 2013 года. Показывает Питерский цифровой мультиплекс с 35 канала. Легко проигрывает 18Гб mkv. Безумно удобное меню. Автопоиск самый лучший - не одного дубля, хотя ловил на проволочку.</p>
+                              <h4>Недостатки:</h4>
+                              <p>Также сервис Movebo.ru представляет новую ценовую политику. Вы можете выбрать наиболее подходящую для Ваших целей и бюджетов стратегию продвижения.</p>
+                              <h4>Комментарий:</h4>
+                              <p>сервис продвижения сайтов в ТОП Яндекса и Google поведенческими факторами. Поведенческие факторы характеризуют действия пользователей сайта, как на поисковой выдаче (CTR описания сайта на выдаче), так и на самом сайте (время на сайте и просмотренные на сайте страницы). Влияние поведенческих факторов на ранжирование сайтов в поисковой выдаче составляет, по оценкам экспертов, до 30%.</p>
+                              <div class="read-all">
+                                <a href="#">Читать полностью</a>
+                              </div>
+                            </div>
+                          </div>
+                          
+                        </div>
+                      </div>
+                    
+                    </div>
+                    
+                    <div class="toolsreviews-item tool-type tool-type-4" popular="50" choice="0">
+                    
+                      <div class="pic">
+                        <a href="#"><img src="files/logo-facebook-m.png" /></a>
+                      </div>
+                      
+                      <div class="descr">
+                        <div class="lead">
+                          <a href="#" class="tool-tag tool-tag-4">партнерская программа</a>
+                          <h3><a href="#">Анализатор трафика</a></h3>
+                          <div class="txt">
+                            <p>
+                              Прекрасная телза для управления ставками в Яндекс.Маркет от Cyberhead. Для птимизаторов для управления ставками
+                            </p>
+                          </div>
+                        </div>
+                        <div class="comments-views">
+                          <span class="cv-item"><a href="#"><span class="ico ico-comments"></span> 16</a></span>
+                          <span class="cv-item"><a href="#"><span class="ico ico-review"></span>Обзор редакции</a></span>
+                          <span class="cv-item"><span class="ico ico-approves"></span> 215</span>
+                        </div>
+                        <div class="tool-review-pup">
+                          <div class="pt"></div>
+                          <div class="trp-content">
+                            <div class="trp-header fc">
+                              <div class="author">
+                                <a href="#"><img class="userpic" src="files/userpic.jpg" alt="Василий Петров"></a>
+                                <a href="#">Василий Петров&nbsp;&nbsp;&nbsp;&nbsp;</a> Вчера, <span class="time">в 23:29</span><br />
+                                Работал над проектом <a class="normal" href="#">Flour2u</a>
+                              </div>
+                              <div class="experience">
+                                Опыт использования: <span>более года</span>
+                              </div>
+                            </div>
+                            <div class="trp-body">
+                              <h4>Достоинства:</h4>
+                              <p>Модель 2013 года. Показывает Питерский цифровой мультиплекс с 35 канала. Легко проигрывает 18Гб mkv. Безумно удобное меню. Автопоиск самый лучший - не одного дубля, хотя ловил на проволочку.</p>
+                              <h4>Недостатки:</h4>
+                              <p>Также сервис Movebo.ru представляет новую ценовую политику. Вы можете выбрать наиболее подходящую для Ваших целей и бюджетов стратегию продвижения.</p>
+                              <h4>Комментарий:</h4>
+                              <p>сервис продвижения сайтов в ТОП Яндекса и Google поведенческими факторами. Поведенческие факторы характеризуют действия пользователей сайта, как на поисковой выдаче (CTR описания сайта на выдаче), так и на самом сайте (время на сайте и просмотренные на сайте страницы). Влияние поведенческих факторов на ранжирование сайтов в поисковой выдаче составляет, по оценкам экспертов, до 30%.</p>
+                              <div class="read-all">
+                                <a href="#">Читать полностью</a>
+                              </div>
+                            </div>
+                          </div>
+                          
+                        </div>
+                      </div>
+                    
+                    </div>
+                    
+                    <div class="toolsreviews-item tool-type tool-type-1" popular="49" choice="0">
+                    
+                      <div class="pic">
+                        <a href="#"><img src="files/logo-cyberhead-m.png" /></a>
+                      </div>
+                      
+                      <div class="descr">
+                        <div class="lead">
+                          <a href="#" class="tool-tag tool-tag-1">анализ сайта</a>
+                          <h3><a href="#">Управление ставками</a></h3>
+                          <div class="txt">
+                            <p>
+                              Cервис для оптимизаторов для управления ставками в Яндекс.Маркет от Cyberhead
+                            </p>
+                          </div>
+                        </div>
+                        <div class="comments-views">
+                          <span class="cv-item"><a href="#"><span class="ico ico-comments"></span> 16</a></span>
+                          <span class="cv-item"><a href="#"><span class="ico ico-review"></span>Обзор редакции</a></span>
+                          <span class="cv-item"><span class="ico ico-approves"></span> 215</span>
+                        </div>
+                        <div class="tool-review-pup">
+                          <div class="pt"></div>
+                          <div class="trp-content">
+                            <div class="trp-header fc">
+                              <div class="author">
+                                <a href="#"><img class="userpic" src="files/userpic.jpg" alt="Василий Петров"></a>
+                                <a href="#">Василий Петров&nbsp;&nbsp;&nbsp;&nbsp;</a> Вчера, <span class="time">в 23:29</span><br />
+                                Работал над проектом <a class="normal" href="#">Flour2u</a>
+                              </div>
+                              <div class="experience">
+                                Опыт использования: <span>более года</span>
+                              </div>
+                            </div>
+                            <div class="trp-body">
+                              <h4>Достоинства:</h4>
+                              <p>Модель 2013 года. Показывает Питерский цифровой мультиплекс с 35 канала. Легко проигрывает 18Гб mkv. Безумно удобное меню. Автопоиск самый лучший - не одного дубля, хотя ловил на проволочку.</p>
+                              <h4>Недостатки:</h4>
+                              <p>Также сервис Movebo.ru представляет новую ценовую политику. Вы можете выбрать наиболее подходящую для Ваших целей и бюджетов стратегию продвижения.</p>
+                              <h4>Комментарий:</h4>
+                              <p>сервис продвижения сайтов в ТОП Яндекса и Google поведенческими факторами. Поведенческие факторы характеризуют действия пользователей сайта, как на поисковой выдаче (CTR описания сайта на выдаче), так и на самом сайте (время на сайте и просмотренные на сайте страницы). Влияние поведенческих факторов на ранжирование сайтов в поисковой выдаче составляет, по оценкам экспертов, до 30%.</p>
+                              <div class="read-all">
+                                <a href="#">Читать полностью</a>
+                              </div>
+                            </div>
+                          </div>
+                          
+                        </div>
+                      </div>
+                    
+                    </div>
+                  
+                    <div class="toolsreviews-item tool-type tool-type-1" popular="48" choice="0">
+                    
+                      <div class="pic">
+                        <span class="badge badge-seonews-select"></span>
+                        <a href="#"><img src="files/logo-submit-m.png" /></a>
+                      </div>
+                      
+                      <div class="descr">
+                        <div class="lead">
+                          <a href="#" class="tool-tag tool-tag-1">Анализ сайта</a>
+                          <h3><a href="#">Управление ставками</a></h3>
+                          <div class="txt">
+                            <p>
+                              Cервис для оптимизаторов для управления ставками в Яндекс.Маркет от Cyberhead
+                            </p>
+                          </div>
+                        </div>
+                        <div class="comments-views">
+                          <span class="cv-item"><a href="#"><span class="ico ico-comments"></span> 16</a></span>
+                          <span class="cv-item"><a href="#"><span class="ico ico-review"></span>Обзор редакции</a></span>
+                          <span class="cv-item"><span class="ico ico-approves"></span> 215</span>
+                        </div>
+                        <div class="tool-review-pup">
+                          <div class="pt"></div>
+                          <div class="trp-content">
+                            <div class="trp-header fc">
+                              <div class="author">
+                                <a href="#"><img class="userpic" src="files/userpic.jpg" alt="Василий Петров"></a>
+                                <a href="#">Василий Петров&nbsp;&nbsp;&nbsp;&nbsp;</a> Вчера, <span class="time">в 23:29</span><br />
+                                Работал над проектом <a class="normal" href="#">Flour2u</a>
+                              </div>
+                              <div class="experience">
+                                Опыт использования: <span>более года</span>
+                              </div>
+                            </div>
+                            <div class="trp-body">
+                              <h4>Достоинства:</h4>
+                              <p>Модель 2013 года. Показывает Питерский цифровой мультиплекс с 35 канала. Легко проигрывает 18Гб mkv. Безумно удобное меню. Автопоиск самый лучший - не одного дубля, хотя ловил на проволочку.</p>
+                              <h4>Недостатки:</h4>
+                              <p>Также сервис Movebo.ru представляет новую ценовую политику. Вы можете выбрать наиболее подходящую для Ваших целей и бюджетов стратегию продвижения.</p>
+                              <h4>Комментарий:</h4>
+                              <p>сервис продвижения сайтов в ТОП Яндекса и Google поведенческими факторами. Поведенческие факторы характеризуют действия пользователей сайта, как на поисковой выдаче (CTR описания сайта на выдаче), так и на самом сайте (время на сайте и просмотренные на сайте страницы). Влияние поведенческих факторов на ранжирование сайтов в поисковой выдаче составляет, по оценкам экспертов, до 30%.</p>
+                              <div class="read-all">
+                                <a href="#">Читать полностью</a>
+                              </div>
+                            </div>
+                          </div>
+                          
+                        </div>
+                      </div>
+                    
+                    </div>
+                    
+                    <div class="toolsreviews-item tool-type tool-type-2" popular="47" choice="0">
+                    
+                      <div class="pic">
+                        <a href="#"><img src="files/logo-yandex-m.png" /></a>
+                      </div>
+                      
+                      <div class="descr">
+                        <div class="lead">
+                          <a href="#" class="tool-tag tool-tag-2">копирайтеру</a>
+                          <h3><a href="#">Анализатор трафика</a></h3>
+                          <div class="txt">
+                            <p>
+                              Прекрасная телза для управления ставками в Яндекс.Маркет от Cyberhead. Для птимизаторов для управления ставками
+                            </p>
+                          </div>
+                        </div>
+                        <div class="comments-views">
+                          <span class="cv-item"><a href="#"><span class="ico ico-comments"></span> 16</a></span>
+                          <span class="cv-item"><a href="#"><span class="ico ico-review"></span>Обзор редакции</a></span>
+                          <span class="cv-item"><span class="ico ico-approves"></span> 215</span>
+                        </div>
+                        <div class="tool-review-pup">
+                          <div class="pt"></div>
+                          <div class="trp-content">
+                            <div class="trp-header fc">
+                              <div class="author">
+                                <a href="#"><img class="userpic" src="files/userpic.jpg" alt="Василий Петров"></a>
+                                <a href="#">Василий Петров&nbsp;&nbsp;&nbsp;&nbsp;</a> Вчера, <span class="time">в 23:29</span><br />
+                                Работал над проектом <a class="normal" href="#">Flour2u</a>
+                              </div>
+                              <div class="experience">
+                                Опыт использования: <span>более года</span>
+                              </div>
+                            </div>
+                            <div class="trp-body">
+                              <h4>Достоинства:</h4>
+                              <p>Модель 2013 года. Показывает Питерский цифровой мультиплекс с 35 канала. Легко проигрывает 18Гб mkv. Безумно удобное меню. Автопоиск самый лучший - не одного дубля, хотя ловил на проволочку.</p>
+                              <h4>Недостатки:</h4>
+                              <p>Также сервис Movebo.ru представляет новую ценовую политику. Вы можете выбрать наиболее подходящую для Ваших целей и бюджетов стратегию продвижения.</p>
+                              <h4>Комментарий:</h4>
+                              <p>сервис продвижения сайтов в ТОП Яндекса и Google поведенческими факторами. Поведенческие факторы характеризуют действия пользователей сайта, как на поисковой выдаче (CTR описания сайта на выдаче), так и на самом сайте (время на сайте и просмотренные на сайте страницы). Влияние поведенческих факторов на ранжирование сайтов в поисковой выдаче составляет, по оценкам экспертов, до 30%.</p>
+                              <div class="read-all">
+                                <a href="#">Читать полностью</a>
+                              </div>
+                            </div>
+                          </div>
+                          
+                        </div>
+                      </div>
+                    
+                    </div>
+                    
+                    <div class="toolsreviews-item tool-type tool-type-3" popular="46" choice="0">
+                    
+                      <div class="pic">
+                        <a href="#"><img src="files/logo-rooletka-m.png" /></a>
+                      </div>
+                      
+                      <div class="descr">
+                        <div class="lead">
+                          <a href="#" class="tool-tag tool-tag-3">биржа ссылок</a>
+                          <h3><a href="#">Оценка стоимости продвижения</a></h3>
+                          <div class="txt">
+                            <p>
+                              Быстро, качественно, без проблем
+                            </p>
+                          </div>
+                        </div>
+                        <div class="comments-views">
+                          <span class="cv-item"><a href="#"><span class="ico ico-comments"></span> 16</a></span>
+                          <span class="cv-item"><a href="#"><span class="ico ico-review"></span>Обзор редакции</a></span>
+                          <span class="cv-item"><span class="ico ico-approves"></span> 215</span>
+                        </div>
+                        <div class="tool-review-pup">
+                          <div class="pt"></div>
+                          <div class="trp-content">
+                            <div class="trp-header fc">
+                              <div class="author">
+                                <a href="#"><img class="userpic" src="files/userpic.jpg" alt="Василий Петров"></a>
+                                <a href="#">Василий Петров&nbsp;&nbsp;&nbsp;&nbsp;</a> Вчера, <span class="time">в 23:29</span><br />
+                                Работал над проектом <a class="normal" href="#">Flour2u</a>
+                              </div>
+                              <div class="experience">
+                                Опыт использования: <span>более года</span>
+                              </div>
+                            </div>
+                            <div class="trp-body">
+                              <h4>Достоинства:</h4>
+                              <p>Модель 2013 года. Показывает Питерский цифровой мультиплекс с 35 канала. Легко проигрывает 18Гб mkv. Безумно удобное меню. Автопоиск самый лучший - не одного дубля, хотя ловил на проволочку.</p>
+                              <h4>Недостатки:</h4>
+                              <p>Также сервис Movebo.ru представляет новую ценовую политику. Вы можете выбрать наиболее подходящую для Ваших целей и бюджетов стратегию продвижения.</p>
+                              <h4>Комментарий:</h4>
+                              <p>сервис продвижения сайтов в ТОП Яндекса и Google поведенческими факторами. Поведенческие факторы характеризуют действия пользователей сайта, как на поисковой выдаче (CTR описания сайта на выдаче), так и на самом сайте (время на сайте и просмотренные на сайте страницы). Влияние поведенческих факторов на ранжирование сайтов в поисковой выдаче составляет, по оценкам экспертов, до 30%.</p>
+                              <div class="read-all">
+                                <a href="#">Читать полностью</a>
+                              </div>
+                            </div>
+                          </div>
+                          
+                        </div>
+                      </div>
+                    
+                    </div>
+                    
+                    
+                    <div class="tool-review fc">
+                  
+                      <div class="pic">
+                        <a href="#">
+                          <img src="files/tool-pic-m.jpg" />
+                        </a>
+                      </div>
+                      
+                      <div class="descr">
+                        <div class="post-lead">
+                          <h3><a href="#">Плюсы и минусы Rookee</a></h3>
+                          <p>
+                            Новый сервис SaleTex позволит увеличить количество клиентов при прежней посещаемости сайта и сохранении текущего рекламного бюджета. Прекрасная телза для управления ставками в Яндекс.Маркет от Cyberhead
+                          </p>
+                        </div>
+                        <div class="post-data fc">
+                          <div class="author">
+                            <a href="#"><img class="userpic" src="files/userpic.jpg" alt="Василий Петров"></a>
+                            <a href="#">Василий Петров</a><br>
+                            Пишет про сервис <a href="#">Rookee</a>
+                          </div>
+                          <div class="comments-views">
+                            <span class="cv-item"><span class="ico ico-views"></span> 561</span>
+                          </div>
+                        </div>
+                      </div>
+                      
+                    </div>
+                    
+                    <div class="toolsreviews-item tool-type tool-type-1" popular="45" choice="1">
+                    
+                      <div class="pic">
+                        <span class="badge badge-seonews-select"></span>
+                        <a href="#"><img src="files/logo-submit-m.png" /></a>
+                      </div>
+                      
+                      <div class="descr">
+                        <div class="lead">
+                          <a href="#" class="tool-tag tool-tag-1">Анализ сайта</a>
+                          <h3><a href="#">Управление ставками</a></h3>
+                          <div class="txt">
+                            <p>
+                              Cервис для оптимизаторов для управления ставками в Яндекс.Маркет от Cyberhead
+                            </p>
+                          </div>
+                        </div>
+                        <div class="comments-views">
+                          <span class="cv-item"><a href="#"><span class="ico ico-comments"></span> 16</a></span>
+                          <span class="cv-item"><a href="#"><span class="ico ico-review"></span>Обзор редакции</a></span>
+                          <span class="cv-item"><span class="ico ico-approves"></span> 215</span>
+                        </div>
+                        <div class="tool-review-pup">
+                          <div class="pt"></div>
+                          <div class="trp-content">
+                            <div class="trp-header fc">
+                              <div class="author">
+                                <a href="#"><img class="userpic" src="files/userpic.jpg" alt="Василий Петров"></a>
+                                <a href="#">Василий Петров&nbsp;&nbsp;&nbsp;&nbsp;</a> Вчера, <span class="time">в 23:29</span><br />
+                                Работал над проектом <a class="normal" href="#">Flour2u</a>
+                              </div>
+                              <div class="experience">
+                                Опыт использования: <span>более года</span>
+                              </div>
+                            </div>
+                            <div class="trp-body">
+                              <h4>Достоинства:</h4>
+                              <p>Модель 2013 года. Показывает Питерский цифровой мультиплекс с 35 канала. Легко проигрывает 18Гб mkv. Безумно удобное меню. Автопоиск самый лучший - не одного дубля, хотя ловил на проволочку.</p>
+                              <h4>Недостатки:</h4>
+                              <p>Также сервис Movebo.ru представляет новую ценовую политику. Вы можете выбрать наиболее подходящую для Ваших целей и бюджетов стратегию продвижения.</p>
+                              <h4>Комментарий:</h4>
+                              <p>сервис продвижения сайтов в ТОП Яндекса и Google поведенческими факторами. Поведенческие факторы характеризуют действия пользователей сайта, как на поисковой выдаче (CTR описания сайта на выдаче), так и на самом сайте (время на сайте и просмотренные на сайте страницы). Влияние поведенческих факторов на ранжирование сайтов в поисковой выдаче составляет, по оценкам экспертов, до 30%.</p>
+                              <div class="read-all">
+                                <a href="#">Читать полностью</a>
+                              </div>
+                            </div>
+                          </div>
+                          
+                        </div>
+                      </div>
+                    
+                    </div>
+                    
+                    <div class="toolsreviews-item tool-type tool-type-2" popular="44" choice="0">
+                    
+                      <div class="pic">
+                        <a href="#"><img src="files/logo-yandex-m.png" /></a>
+                      </div>
+                      
+                      <div class="descr">
+                        <div class="lead">
+                          <a href="#" class="tool-tag tool-tag-2">копирайтеру</a>
+                          <h3><a href="#">Анализатор трафика</a></h3>
+                          <div class="txt">
+                            <p>
+                              Прекрасная телза для управления ставками в Яндекс.Маркет от Cyberhead. Для птимизаторов для управления ставками
+                            </p>
+                          </div>
+                        </div>
+                        <div class="comments-views">
+                          <span class="cv-item"><a href="#"><span class="ico ico-comments"></span> 16</a></span>
+                          <span class="cv-item"><a href="#"><span class="ico ico-review"></span>Обзор редакции</a></span>
+                          <span class="cv-item"><span class="ico ico-approves"></span> 215</span>
+                        </div>
+                        <div class="tool-review-pup">
+                          <div class="pt"></div>
+                          <div class="trp-content">
+                            <div class="trp-header fc">
+                              <div class="author">
+                                <a href="#"><img class="userpic" src="files/userpic.jpg" alt="Василий Петров"></a>
+                                <a href="#">Василий Петров&nbsp;&nbsp;&nbsp;&nbsp;</a> Вчера, <span class="time">в 23:29</span><br />
+                                Работал над проектом <a class="normal" href="#">Flour2u</a>
+                              </div>
+                              <div class="experience">
+                                Опыт использования: <span>более года</span>
+                              </div>
+                            </div>
+                            <div class="trp-body">
+                              <h4>Достоинства:</h4>
+                              <p>Модель 2013 года. Показывает Питерский цифровой мультиплекс с 35 канала. Легко проигрывает 18Гб mkv. Безумно удобное меню. Автопоиск самый лучший - не одного дубля, хотя ловил на проволочку.</p>
+                              <h4>Недостатки:</h4>
+                              <p>Также сервис Movebo.ru представляет новую ценовую политику. Вы можете выбрать наиболее подходящую для Ваших целей и бюджетов стратегию продвижения.</p>
+                              <h4>Комментарий:</h4>
+                              <p>сервис продвижения сайтов в ТОП Яндекса и Google поведенческими факторами. Поведенческие факторы характеризуют действия пользователей сайта, как на поисковой выдаче (CTR описания сайта на выдаче), так и на самом сайте (время на сайте и просмотренные на сайте страницы). Влияние поведенческих факторов на ранжирование сайтов в поисковой выдаче составляет, по оценкам экспертов, до 30%.</p>
+                              <div class="read-all">
+                                <a href="#">Читать полностью</a>
+                              </div>
+                            </div>
+                          </div>
+                          
+                        </div>
+                      </div>
+                    
+                    </div>
+                    
+                    <div class="toolsreviews-item tool-type tool-type-3" popular="43" choice="0">
+                    
+                      <div class="pic">
+                        <a href="#"><img src="files/logo-rooletka-m.png" /></a>
+                      </div>
+                      
+                      <div class="descr">
+                        <div class="lead">
+                          <a href="#" class="tool-tag tool-tag-3">биржа ссылок</a>
+                          <h3><a href="#">Оценка стоимости продвижения</a></h3>
+                          <div class="txt">
+                            <p>
+                              Быстро, качественно, без проблем
+                            </p>
+                          </div>
+                        </div>
+                        <div class="comments-views">
+                          <span class="cv-item"><a href="#"><span class="ico ico-comments"></span> 16</a></span>
+                          <span class="cv-item"><a href="#"><span class="ico ico-review"></span>Обзор редакции</a></span>
+                          <span class="cv-item"><span class="ico ico-approves"></span> 215</span>
+                        </div>
+                        <div class="tool-review-pup">
+                          <div class="pt"></div>
+                          <div class="trp-content">
+                            <div class="trp-header fc">
+                              <div class="author">
+                                <a href="#"><img class="userpic" src="files/userpic.jpg" alt="Василий Петров"></a>
+                                <a href="#">Василий Петров&nbsp;&nbsp;&nbsp;&nbsp;</a> Вчера, <span class="time">в 23:29</span><br />
+                                Работал над проектом <a class="normal" href="#">Flour2u</a>
+                              </div>
+                              <div class="experience">
+                                Опыт использования: <span>более года</span>
+                              </div>
+                            </div>
+                            <div class="trp-body">
+                              <h4>Достоинства:</h4>
+                              <p>Модель 2013 года. Показывает Питерский цифровой мультиплекс с 35 канала. Легко проигрывает 18Гб mkv. Безумно удобное меню. Автопоиск самый лучший - не одного дубля, хотя ловил на проволочку.</p>
+                              <h4>Недостатки:</h4>
+                              <p>Также сервис Movebo.ru представляет новую ценовую политику. Вы можете выбрать наиболее подходящую для Ваших целей и бюджетов стратегию продвижения.</p>
+                              <h4>Комментарий:</h4>
+                              <p>сервис продвижения сайтов в ТОП Яндекса и Google поведенческими факторами. Поведенческие факторы характеризуют действия пользователей сайта, как на поисковой выдаче (CTR описания сайта на выдаче), так и на самом сайте (время на сайте и просмотренные на сайте страницы). Влияние поведенческих факторов на ранжирование сайтов в поисковой выдаче составляет, по оценкам экспертов, до 30%.</p>
+                              <div class="read-all">
+                                <a href="#">Читать полностью</a>
+                              </div>
+                            </div>
+                          </div>
+                          
+                        </div>
+                      </div>
+                    
+                    </div>
+                    
+                    <div class="toolsreviews-item tool-type tool-type-4" popular="42" choice="0">
+                    
+                      <div class="pic">
+                        <a href="#"><img src="files/logo-facebook-m.png" /></a>
+                      </div>
+                      
+                      <div class="descr">
+                        <div class="lead">
+                          <a href="#" class="tool-tag tool-tag-4">партнерская программа</a>
+                          <h3><a href="#">Анализатор трафика</a></h3>
+                          <div class="txt">
+                            <p>
+                              Прекрасная телза для управления ставками в Яндекс.Маркет от Cyberhead. Для птимизаторов для управления ставками
+                            </p>
+                          </div>
+                        </div>
+                        <div class="comments-views">
+                          <span class="cv-item"><a href="#"><span class="ico ico-comments"></span> 16</a></span>
+                          <span class="cv-item"><a href="#"><span class="ico ico-review"></span>Обзор редакции</a></span>
+                          <span class="cv-item"><span class="ico ico-approves"></span> 215</span>
+                        </div>
+                        <div class="tool-review-pup">
+                          <div class="pt"></div>
+                          <div class="trp-content">
+                            <div class="trp-header fc">
+                              <div class="author">
+                                <a href="#"><img class="userpic" src="files/userpic.jpg" alt="Василий Петров"></a>
+                                <a href="#">Василий Петров&nbsp;&nbsp;&nbsp;&nbsp;</a> Вчера, <span class="time">в 23:29</span><br />
+                                Работал над проектом <a class="normal" href="#">Flour2u</a>
+                              </div>
+                              <div class="experience">
+                                Опыт использования: <span>более года</span>
+                              </div>
+                            </div>
+                            <div class="trp-body">
+                              <h4>Достоинства:</h4>
+                              <p>Модель 2013 года. Показывает Питерский цифровой мультиплекс с 35 канала. Легко проигрывает 18Гб mkv. Безумно удобное меню. Автопоиск самый лучший - не одного дубля, хотя ловил на проволочку.</p>
+                              <h4>Недостатки:</h4>
+                              <p>Также сервис Movebo.ru представляет новую ценовую политику. Вы можете выбрать наиболее подходящую для Ваших целей и бюджетов стратегию продвижения.</p>
+                              <h4>Комментарий:</h4>
+                              <p>сервис продвижения сайтов в ТОП Яндекса и Google поведенческими факторами. Поведенческие факторы характеризуют действия пользователей сайта, как на поисковой выдаче (CTR описания сайта на выдаче), так и на самом сайте (время на сайте и просмотренные на сайте страницы). Влияние поведенческих факторов на ранжирование сайтов в поисковой выдаче составляет, по оценкам экспертов, до 30%.</p>
+                              <div class="read-all">
+                                <a href="#">Читать полностью</a>
+                              </div>
+                            </div>
+                          </div>
+                          
+                        </div>
+                      </div>
+                    
+                    </div>
+                    
+                    <div class="toolsreviews-item tool-type tool-type-1" popular="41" choice="0">
+                    
+                      <div class="pic">
+                        <a href="#"><img src="files/logo-cyberhead-m.png" /></a>
+                      </div>
+                      
+                      <div class="descr">
+                        <div class="lead">
+                          <a href="#" class="tool-tag tool-tag-1">анализ сайта</a>
+                          <h3><a href="#">Управление ставками</a></h3>
+                          <div class="txt">
+                            <p>
+                              Cервис для оптимизаторов для управления ставками в Яндекс.Маркет от Cyberhead
+                            </p>
+                          </div>
+                        </div>
+                        <div class="comments-views">
+                          <span class="cv-item"><a href="#"><span class="ico ico-comments"></span> 16</a></span>
+                          <span class="cv-item"><a href="#"><span class="ico ico-review"></span>Обзор редакции</a></span>
+                          <span class="cv-item"><span class="ico ico-approves"></span> 215</span>
+                        </div>
+                        <div class="tool-review-pup">
+                          <div class="pt"></div>
+                          <div class="trp-content">
+                            <div class="trp-header fc">
+                              <div class="author">
+                                <a href="#"><img class="userpic" src="files/userpic.jpg" alt="Василий Петров"></a>
+                                <a href="#">Василий Петров&nbsp;&nbsp;&nbsp;&nbsp;</a> Вчера, <span class="time">в 23:29</span><br />
+                                Работал над проектом <a class="normal" href="#">Flour2u</a>
+                              </div>
+                              <div class="experience">
+                                Опыт использования: <span>более года</span>
+                              </div>
+                            </div>
+                            <div class="trp-body">
+                              <h4>Достоинства:</h4>
+                              <p>Модель 2013 года. Показывает Питерский цифровой мультиплекс с 35 канала. Легко проигрывает 18Гб mkv. Безумно удобное меню. Автопоиск самый лучший - не одного дубля, хотя ловил на проволочку.</p>
+                              <h4>Недостатки:</h4>
+                              <p>Также сервис Movebo.ru представляет новую ценовую политику. Вы можете выбрать наиболее подходящую для Ваших целей и бюджетов стратегию продвижения.</p>
+                              <h4>Комментарий:</h4>
+                              <p>сервис продвижения сайтов в ТОП Яндекса и Google поведенческими факторами. Поведенческие факторы характеризуют действия пользователей сайта, как на поисковой выдаче (CTR описания сайта на выдаче), так и на самом сайте (время на сайте и просмотренные на сайте страницы). Влияние поведенческих факторов на ранжирование сайтов в поисковой выдаче составляет, по оценкам экспертов, до 30%.</p>
+                              <div class="read-all">
+                                <a href="#">Читать полностью</a>
+                              </div>
+                            </div>
+                          </div>
+                          
+                        </div>
+                      </div>
+                    
+                    </div>
+                  
+                    <div class="toolsreviews-item tool-type tool-type-1" popular="40" choice="0">
+                    
+                      <div class="pic">
+                        <span class="badge badge-seonews-select"></span>
+                        <a href="#"><img src="files/logo-submit-m.png" /></a>
+                      </div>
+                      
+                      <div class="descr">
+                        <div class="lead">
+                          <a href="#" class="tool-tag tool-tag-1">Анализ сайта</a>
+                          <h3><a href="#">Управление ставками</a></h3>
+                          <div class="txt">
+                            <p>
+                              Cервис для оптимизаторов для управления ставками в Яндекс.Маркет от Cyberhead
+                            </p>
+                          </div>
+                        </div>
+                        <div class="comments-views">
+                          <span class="cv-item"><a href="#"><span class="ico ico-comments"></span> 16</a></span>
+                          <span class="cv-item"><a href="#"><span class="ico ico-review"></span>Обзор редакции</a></span>
+                          <span class="cv-item"><span class="ico ico-approves"></span> 215</span>
+                        </div>
+                        <div class="tool-review-pup">
+                          <div class="pt"></div>
+                          <div class="trp-content">
+                            <div class="trp-header fc">
+                              <div class="author">
+                                <a href="#"><img class="userpic" src="files/userpic.jpg" alt="Василий Петров"></a>
+                                <a href="#">Василий Петров&nbsp;&nbsp;&nbsp;&nbsp;</a> Вчера, <span class="time">в 23:29</span><br />
+                                Работал над проектом <a class="normal" href="#">Flour2u</a>
+                              </div>
+                              <div class="experience">
+                                Опыт использования: <span>более года</span>
+                              </div>
+                            </div>
+                            <div class="trp-body">
+                              <h4>Достоинства:</h4>
+                              <p>Модель 2013 года. Показывает Питерский цифровой мультиплекс с 35 канала. Легко проигрывает 18Гб mkv. Безумно удобное меню. Автопоиск самый лучший - не одного дубля, хотя ловил на проволочку.</p>
+                              <h4>Недостатки:</h4>
+                              <p>Также сервис Movebo.ru представляет новую ценовую политику. Вы можете выбрать наиболее подходящую для Ваших целей и бюджетов стратегию продвижения.</p>
+                              <h4>Комментарий:</h4>
+                              <p>сервис продвижения сайтов в ТОП Яндекса и Google поведенческими факторами. Поведенческие факторы характеризуют действия пользователей сайта, как на поисковой выдаче (CTR описания сайта на выдаче), так и на самом сайте (время на сайте и просмотренные на сайте страницы). Влияние поведенческих факторов на ранжирование сайтов в поисковой выдаче составляет, по оценкам экспертов, до 30%.</p>
+                              <div class="read-all">
+                                <a href="#">Читать полностью</a>
+                              </div>
+                            </div>
+                          </div>
+                          
+                        </div>
+                      </div>
+                    
+                    </div>
+                    
+                    <div class="toolsreviews-item tool-type tool-type-2" popular="39" choice="0">
+                    
+                      <div class="pic">
+                        <a href="#"><img src="files/logo-yandex-m.png" /></a>
+                      </div>
+                      
+                      <div class="descr">
+                        <div class="lead">
+                          <a href="#" class="tool-tag tool-tag-2">копирайтеру</a>
+                          <h3><a href="#">Анализатор трафика</a></h3>
+                          <div class="txt">
+                            <p>
+                              Прекрасная телза для управления ставками в Яндекс.Маркет от Cyberhead. Для птимизаторов для управления ставками
+                            </p>
+                          </div>
+                        </div>
+                        <div class="comments-views">
+                          <span class="cv-item"><a href="#"><span class="ico ico-comments"></span> 16</a></span>
+                          <span class="cv-item"><a href="#"><span class="ico ico-review"></span>Обзор редакции</a></span>
+                          <span class="cv-item"><span class="ico ico-approves"></span> 215</span>
+                        </div>
+                        <div class="tool-review-pup">
+                          <div class="pt"></div>
+                          <div class="trp-content">
+                            <div class="trp-header fc">
+                              <div class="author">
+                                <a href="#"><img class="userpic" src="files/userpic.jpg" alt="Василий Петров"></a>
+                                <a href="#">Василий Петров&nbsp;&nbsp;&nbsp;&nbsp;</a> Вчера, <span class="time">в 23:29</span><br />
+                                Работал над проектом <a class="normal" href="#">Flour2u</a>
+                              </div>
+                              <div class="experience">
+                                Опыт использования: <span>более года</span>
+                              </div>
+                            </div>
+                            <div class="trp-body">
+                              <h4>Достоинства:</h4>
+                              <p>Модель 2013 года. Показывает Питерский цифровой мультиплекс с 35 канала. Легко проигрывает 18Гб mkv. Безумно удобное меню. Автопоиск самый лучший - не одного дубля, хотя ловил на проволочку.</p>
+                              <h4>Недостатки:</h4>
+                              <p>Также сервис Movebo.ru представляет новую ценовую политику. Вы можете выбрать наиболее подходящую для Ваших целей и бюджетов стратегию продвижения.</p>
+                              <h4>Комментарий:</h4>
+                              <p>сервис продвижения сайтов в ТОП Яндекса и Google поведенческими факторами. Поведенческие факторы характеризуют действия пользователей сайта, как на поисковой выдаче (CTR описания сайта на выдаче), так и на самом сайте (время на сайте и просмотренные на сайте страницы). Влияние поведенческих факторов на ранжирование сайтов в поисковой выдаче составляет, по оценкам экспертов, до 30%.</p>
+                              <div class="read-all">
+                                <a href="#">Читать полностью</a>
+                              </div>
+                            </div>
+                          </div>
+                          
+                        </div>
+                      </div>
+                    
+                    </div>
+                    
+                    <div class="toolsreviews-item tool-type tool-type-3" popular="38" choice="0">
+                    
+                      <div class="pic">
+                        <a href="#"><img src="files/logo-rooletka-m.png" /></a>
+                      </div>
+                      
+                      <div class="descr">
+                        <div class="lead">
+                          <a href="#" class="tool-tag tool-tag-3">биржа ссылок</a>
+                          <h3><a href="#">Оценка стоимости продвижения</a></h3>
+                          <div class="txt">
+                            <p>
+                              Быстро, качественно, без проблем
+                            </p>
+                          </div>
+                        </div>
+                        <div class="comments-views">
+                          <span class="cv-item"><a href="#"><span class="ico ico-comments"></span> 16</a></span>
+                          <span class="cv-item"><a href="#"><span class="ico ico-review"></span>Обзор редакции</a></span>
+                          <span class="cv-item"><span class="ico ico-approves"></span> 215</span>
+                        </div>
+                        <div class="tool-review-pup">
+                          <div class="pt"></div>
+                          <div class="trp-content">
+                            <div class="trp-header fc">
+                              <div class="author">
+                                <a href="#"><img class="userpic" src="files/userpic.jpg" alt="Василий Петров"></a>
+                                <a href="#">Василий Петров&nbsp;&nbsp;&nbsp;&nbsp;</a> Вчера, <span class="time">в 23:29</span><br />
+                                Работал над проектом <a class="normal" href="#">Flour2u</a>
+                              </div>
+                              <div class="experience">
+                                Опыт использования: <span>более года</span>
+                              </div>
+                            </div>
+                            <div class="trp-body">
+                              <h4>Достоинства:</h4>
+                              <p>Модель 2013 года. Показывает Питерский цифровой мультиплекс с 35 канала. Легко проигрывает 18Гб mkv. Безумно удобное меню. Автопоиск самый лучший - не одного дубля, хотя ловил на проволочку.</p>
+                              <h4>Недостатки:</h4>
+                              <p>Также сервис Movebo.ru представляет новую ценовую политику. Вы можете выбрать наиболее подходящую для Ваших целей и бюджетов стратегию продвижения.</p>
+                              <h4>Комментарий:</h4>
+                              <p>сервис продвижения сайтов в ТОП Яндекса и Google поведенческими факторами. Поведенческие факторы характеризуют действия пользователей сайта, как на поисковой выдаче (CTR описания сайта на выдаче), так и на самом сайте (время на сайте и просмотренные на сайте страницы). Влияние поведенческих факторов на ранжирование сайтов в поисковой выдаче составляет, по оценкам экспертов, до 30%.</p>
+                              <div class="read-all">
+                                <a href="#">Читать полностью</a>
+                              </div>
+                            </div>
+                          </div>
+                          
+                        </div>
+                      </div>
+                    
+                    </div>
+                    
+                    <div class="show-more show-more-small" rel="files/html/more-tools-reviews.html">
+                      <span class="ico ico-show-more-small"></span>
+                      <span class="txt">Показать еще</span>
+                    </div>
+                    
+                  </div>
+                  
+                  
+
+                </div>
                 
               </div>
               

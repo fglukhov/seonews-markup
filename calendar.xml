@@ -545,12 +545,12 @@
   
   <event>
 		<name>Продажи интернет-услуг на 100%</name>
-    <pic></pic>
+    <pic>files/calendar-pic-1.jpg</pic>
 		<url>#</url>
 		<type>Создание сайтов</type>
     <typeid>6</typeid>
 		<date>12.09.2013</date>
-    <enddate></enddate>
+    <enddate>16.09.2013</enddate>
 		<time>11:30</time>
 		<members>555</members>
     <review></review>
@@ -560,12 +560,12 @@
   
   <event>
 		<name>Продажи на 100%</name>
-    <pic></pic>
+    <pic>files/calendar-pic-1.jpg</pic>
 		<url>#</url>
 		<type>Создание сайтов</type>
     <typeid>6</typeid>
 		<date>13.09.2013</date>
-    <enddate></enddate>
+    <enddate>17.09.2013</enddate>
 		<time>11:30</time>
 		<members>555</members>
     <review></review>
@@ -575,7 +575,7 @@
   
   <event>
 		<name>Продажи на 100%</name>
-    <pic></pic>
+    <pic>files/calendar-pic-1.jpg</pic>
 		<url>#</url>
 		<type>Создание сайтов</type>
     <typeid>6</typeid>
@@ -590,7 +590,7 @@
   
   <event>
 		<name>Продажи на 100%</name>
-    <pic></pic>
+    <pic>files/calendar-pic-1.jpg</pic>
 		<url>#</url>
 		<type>Создание сайтов</type>
     <typeid>6</typeid>
@@ -605,7 +605,7 @@
   
   <event>
 		<name>Продажи на 100%</name>
-    <pic></pic>
+    <pic>files/calendar-pic-1.jpg</pic>
 		<url>#</url>
 		<type>Поисковой маркетинг</type>
     <typeid>5</typeid>
@@ -620,7 +620,7 @@
   
   <event>
 		<name>Продажи на 100%</name>
-    <pic></pic>
+    <pic>files/calendar-pic-1.jpg</pic>
 		<url>#</url>
 		<type>Создание сайтов</type>
     <typeid>6</typeid>
@@ -635,7 +635,7 @@
   
   <event>
 		<name>Продажи интернет-услуг на 100%</name>
-    <pic></pic>
+    <pic>files/calendar-pic-1.jpg</pic>
 		<url>#</url>
 		<type>Создание сайтов</type>
     <typeid>6</typeid>
@@ -650,7 +650,7 @@
   
   <event>
 		<name>Продажи на 100%</name>
-    <pic></pic>
+    <pic>files/calendar-pic-1.jpg</pic>
 		<url>#</url>
 		<type>Создание сайтов</type>
     <typeid>6</typeid>
@@ -665,7 +665,7 @@
   
   <event>
 		<name>Продажи на 110%</name>
-    <pic></pic>
+    <pic>files/calendar-pic-1.jpg</pic>
 		<url>#</url>
 		<type>Создание сайтов</type>
     <typeid>6</typeid>
@@ -680,7 +680,7 @@
   
   <event>
 		<name>Последнее событие в календаре</name>
-    <pic></pic>
+    <pic>files/calendar-pic-1.jpg</pic>
 		<url>#</url>
 		<type>Создание сайтов</type>
     <typeid>6</typeid>

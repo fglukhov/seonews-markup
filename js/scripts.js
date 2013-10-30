@@ -109,6 +109,18 @@ $(document).ready(function () {
     return false;
   });
   
+  $(".facebook-popup").hover(function() {
+    $(this).addClass("hover");
+  },function() {
+    $(this).removeClass("hover");
+  });
+  
+  $("body").click(function() {
+    if (!$(".facebook-popup").hasClass("hover")) {
+      $(".facebook-popup").fadeOut(250)
+    }
+  })
+  
 
   $(".top-filter li").click(function() {
     $(this).toggleClass("act")
@@ -384,6 +396,8 @@ $(document).ready(function () {
     $(".fancybox")
     .attr('rel', 'gallery')
     .fancybox({
+      nextEffect: 'fade',
+      prevEffect: 'fade',
       beforeShow: function () {
       
         if (this.title) {
@@ -596,7 +610,10 @@ $(document).ready(function () {
     if ($(this).attr("hint")) {
       $(".hint-dis").remove();
       $("body").append("<div class='hint-popup'><div class='hint-content'>"+$(this).attr("hint")+"</div></div>");
-      $(".hint-popup").css("top",$(this).offset().top - $(".hint-popup").outerHeight(true)).css("left",$(this).offset().left - $(".hint-popup").outerWidth(true)/2+$(this).outerWidth()/2).hide().fadeIn(150)
+      $(".hint-popup").css("top",$(this).offset().top - $(".hint-popup").outerHeight(true)).css("left",$(this).offset().left - $(".hint-popup").outerWidth(true)/2+$(this).outerWidth()/2).hide().fadeIn(150);
+      if ($(this).attr("hinttype")) {
+        $(".hint-popup").addClass($(this).attr("hinttype"));
+      }
     }
   },function() {
     if ($(this).attr("hint")) {
@@ -728,6 +745,8 @@ $(document).ready(function () {
         insertCalCard(j,events,calContent,'after');
       }
       
+      calSlider.find(".calendar-card").eq(0).addClass("first-visible")
+      
       prevBtn.click(function() {
       
         if (!$(this).hasClass("inact") && !calSlider.hasClass("moving")) {
@@ -750,23 +769,30 @@ $(document).ready(function () {
           
           lastInsertIndex = finishIndex-calContent.children(".calendar-card[index='"+parseInt(finishIndex+1)+"']").prevAll(".calendar-card").length;
           
-          slideDistance = 294*(prevStart - startIndex);
+          // slideDistance = 294*(prevStart - startIndex);
+          slideDistance = $(".mainpage-calendar .calendar-card").outerWidth(true)*(prevStart - startIndex);
 
           if (!calContent.children(".calendar-card[index='"+startIndex+"']").length) {
             var insertedNum = 0;
             for (j=lastInsertIndex;j>=startIndex;j--,insertedNum++) {
               insertCalCard(j,events,calContent,'before');
             }
-            calContent.css("width",calendar.find(".calendar-content").width() + slideDistance).css("left",calContent.position().left - 294*insertedNum).stop().animate({
+            calContent.css("width",calendar.find(".calendar-content").width() + slideDistance).css("left",calContent.position().left - $(".mainpage-calendar .calendar-card").outerWidth(true)*insertedNum).stop().animate({
               left: calContent.position().left + slideDistance
             },500,function() {
-              calSlider.removeClass("moving")
+              calSlider.removeClass("moving");
+              var fv = calSlider.find(".first-visible");
+              fv.removeClass("first-visible");
+              fv.prev().addClass("first-visible");
             });
           } else {
             calendar.find(".calendar-content").animate({
               left: calContent.position().left + slideDistance
             },500,function() {
-              calSlider.removeClass("moving")
+              calSlider.removeClass("moving");
+              var fv = calSlider.find(".first-visible");
+              fv.removeClass("first-visible");
+              fv.prev().addClass("first-visible");
             });
           }
           
@@ -793,7 +819,7 @@ $(document).ready(function () {
           
           startIndex = finishIndex - 2;
           
-          slideDistance = 294*(finishIndex - prevFinish);
+          slideDistance = $(".mainpage-calendar .calendar-card").outerWidth(true)*(finishIndex - prevFinish);
           
           if (!calContent.children(".calendar-card[index='"+finishIndex+"']").length) {
             firstInsertIndex = startIndex+calContent.children(".calendar-card[index='"+parseInt(startIndex-1)+"']").nextAll(".calendar-card").length;
@@ -804,13 +830,19 @@ $(document).ready(function () {
             calendar.find(".calendar-content").css("width",calendar.find(".calendar-content").width() + slideDistance).stop().animate({
               left: calContent.position().left - slideDistance
             },500,function() {
-              calSlider.removeClass("moving")
+              calSlider.removeClass("moving");
+              var fv = calSlider.find(".first-visible");
+              fv.removeClass("first-visible");
+              fv.next().addClass("first-visible");
             });
           } else {
             calendar.find(".calendar-content").animate({
               left: calContent.position().left - slideDistance
             },500,function() {
-              calSlider.removeClass("moving")
+              calSlider.removeClass("moving");
+              var fv = calSlider.find(".first-visible");
+              fv.removeClass("first-visible");
+              fv.next().addClass("first-visible");
             });
           }
           
@@ -878,6 +910,7 @@ $(document).ready(function () {
       var calPopup = calendar.find(".cal-popup");
       
       calPopup.append("<div class='pt' />");
+      calPopup.append("<div class='close' />");
       
       calPopup.append("<div class='cal-popup-years' />");
       calPopup.append("<div class='cal-popup-months' />");
@@ -1051,6 +1084,10 @@ $(document).ready(function () {
         minIndex = firstFutureIndex;
         maxIndex = events.length - 1;
       }
+      
+      calPopup.find(".close").click(function() {
+        calPopup.fadeOut(250)
+      });
       
       
       prevBtn.click(function() {
@@ -1280,7 +1317,6 @@ $(document).ready(function () {
       
       monthsList.find(".item").click(function() {
       
-      
         monthsList.find(".item").removeClass("act");
         $(this).addClass("act")
       
@@ -1319,25 +1355,44 @@ $(document).ready(function () {
         
         insertEventCards(startIndex,finishIndex,events,calContent)
         
+        calPopup.fadeOut(250)
+        
       });
       
       yearsList.find(".item").click(function() {
         yearsList.find(".item").removeClass("act");
         $(this).addClass("act");
         if ($(".tab[rel='archive']").hasClass("act")) {
-          monthsList.find(".cn-past[year='"+$(this).attr("year")+"']").first().click();
+          //monthsList.find(".cn-past[year='"+$(this).attr("year")+"']").first().click();
           monthsList.find(".cn-past").hide();
           monthsList.find(".cn-past[year='"+$(this).attr("year")+"']").show();
         } else {
-          monthsList.find(".cn-future[year='"+$(this).attr("year")+"']").first().click();
+          //monthsList.find(".cn-future[year='"+$(this).attr("year")+"']").first().click();
           monthsList.find(".cn-future").hide();
           monthsList.find(".cn-future[year='"+$(this).attr("year")+"']").show();
         }
       });
       
+      calPopup.hover(function() {
+        $(this).addClass("hover");
+      },function() {
+        $(this).removeClass("hover");
+      });
+      
+      $(".events-calendar .month span").hover(function() {
+        $(this).addClass("hover");
+      },function() {
+        $(this).removeClass("hover");
+      });
       
       $(".events-calendar .month span").on("click",function() {
         $(".cal-popup").fadeToggle(250);
+      });
+      
+      $("body").click(function() {
+        if (!$(".events-calendar .month span").hasClass("hover") && !$(".cal-popup").hasClass("hover") && $(".cal-popup").css("display") == "block") {
+          calPopup.fadeOut(250);
+        }
       });
       
       
@@ -1718,7 +1773,7 @@ function insertEventCards(start,finish,events,calContent) {
     var calCard = $("<div class='calendar-card fc event-type event-type-" + events[j].typeid +"' index='" + j + "' />");
     calCard.append("<div class='event-cont' />");
     
-    if (events[j].pic) {
+    if (events[j].pic && events[j].enddate) {
       calCard.children(".event-cont").append("<div class='pic pic-full' style='background-image:url("+events[j].pic+")'></div>")
     } else {
       calCard.children(".event-cont").append("<div class='pic'></div>")
@@ -1756,8 +1811,8 @@ function insertEventCards(start,finish,events,calContent) {
     if (events[j].enddate) {
       var dateString = events[j].date.split(".")[0] + " " + monthName[parseInt(events[j].date.split(".")[1],10)] + " " + events[j].date.split(".")[2];
       var dateStringNarrow = events[j].date.split(".")[0] + "." + events[j].date.split(".")[1] + "." + events[j].date.split(".")[2];
-      calCard.find(".event-data").append("<div class='data-item event-date'>Завершено: "+dateString+"</div>")
-      calCard.find(".event-data").append("<div class='data-item event-date event-date-narrow'>Завершено: "+dateStringNarrow+"</div>")
+      calCard.find(".event-data").append("<div class='data-item event-date end-date-wide'>Завершено: "+dateString+"</div>")
+      calCard.find(".event-data").append("<div class='data-item event-date end-date-narrow'>Завершено: "+dateStringNarrow+"</div>")
     } else {
       var evDate = new Date(events[j].date.split(".")[2],events[j].date.split(".")[1],events[j].date.split(".")[0]);
       dateString = dayName[evDate.getDay()] + ", " + events[j].time;
@@ -1811,13 +1866,11 @@ function buildRatCard(ratCard,j,items) {
   
   var j = j;
 
-  ratCard.append("<div class='item-cont' />");
-  
   ratCard.append("<div class='rating-item' /><div class='rating-item' /><div class='rating-item last' />");
   
   ratCard.children(".rating-item").eq(0).append("<a class='logo' href='" + items[j].url.first + "'><img src='" + items[j].logo.first + "'/></a>");
-  ratCard.children(".rating-item").eq(1).append("<a href='" + items[j].url.second + "'><img class='logo' src='" + items[j].logo.second + "'/></a>");
-  ratCard.children(".rating-item").eq(2).append("<a href='" + items[j].url.third + "'><img class='logo' src='" + items[j].logo.third + "'/></a>");
+  ratCard.children(".rating-item").eq(1).append("<a class='logo' href='" + items[j].url.second + "'><img src='" + items[j].logo.second + "'/></a>");
+  ratCard.children(".rating-item").eq(2).append("<a class='logo' href='" + items[j].url.third + "'><img src='" + items[j].logo.third + "'/></a>");
   
   ratCard.children(".rating-item").eq(0).append("<div class='rating-place rating-place-1'></div>");
   ratCard.children(".rating-item").eq(1).append("<div class='rating-place rating-place-2'></div>");
@@ -2279,6 +2332,42 @@ function adaptation() {
         $(this).html($(this).html().replace(" ","<br />"))
       });
     }
+    if ($(".mainpage-calendar").length) {
+      $(".mainpage-calendar .prev .text").html("Предыдущие");
+      $(".mainpage-calendar .next .text").html("Предстоящие");
+    }
+    if ($(".mainpage-catalogue").length) {
+      $(".mainpage-catalogue .act").css("left",183)
+      $(".mainpage-catalogue .act-next").css("left",360)
+    }
+    if ($(".mainpage-sliders").length) {
+      $(".mainpage-events-slider .events-list").each(function() {
+        $(this).children(".event-item").eq(2).hide();
+      });
+    }
+    
+    if ($(".library .book-status .button-4").length) {
+      $(".library .book-status .button-4 span").each(function() {
+        $(this).html($(this).html().replace(" книгу",""));
+      })
+    }
+    
+    if ($(".experts .expertslist-item-big").length) {
+      $(".experts .expertslist-item-big").each(function() {
+        $(this).nextUntil(".expertslist-item-big").eq(2).hide();
+      });
+    }
+    
+    if ($(".toolsreviews").length) {
+      $(".toolsreviews .ico-review").parent().html("<span class='ico ico-review'></span>");
+    }
+    
+    if ($(".tool-descr .rating").length) {
+      $(".tool-descr .rating .place").attr("hint",$(".tool-descr .rating .place span").html() + " место " + $(".tool-descr .rating .ratingname").html());
+      $(".tool-descr .rating .place").attr("hint",$(".tool-descr .rating .place").attr("hint").replace("рейтинге","рейтинге<br />"))
+    }
+    
+    
   } else {
     $("html").removeClass("html-narrow");
     $(".sn-subscribe .txt").html("Нас удобно читать в социальных сетях.<br>Подписывайся!");
@@ -2286,6 +2375,49 @@ function adaptation() {
       $(this).removeClass("author-name");
       $(this).html($(this).html().replace("<br>"," "))
     });
+    if ($(".mainpage-calendar").length) {
+      $(".mainpage-calendar .prev .text").html("Предыдущие события");
+      $(".mainpage-calendar .next .text").html("Предстоящие события");
+    }
+    if ($(".mainpage-catalogue").length) {
+      $(".mainpage-catalogue .act").css("left",253)
+      $(".mainpage-catalogue .act-next").css("left",500)
+    }
+    if ($(".mainpage-sliders").length) {
+      $(".mainpage-events-slider .events-list").each(function() {
+        $(this).children(".event-item").eq(2).show();
+      });
+    }
+    if ($(".library .book-status .button-4").length) {
+      $(".library .book-status .button-4 span").each(function() {
+        $(this).html($(this).html().replace(" книгу","") + " книгу");
+      });
+    }
+    
+    if ($(".experts .expertslist-item-big").length) {
+      $(".experts .expertslist-item-big").each(function() {
+        $(this).nextUntil(".expertslist-item-big").eq(2).show();
+      });
+    }
+    
+    if ($(".toolsreviews").length) {
+      $(".toolsreviews .ico-review").parent().html("<span class='ico ico-review'></span> Обзор редакции");
+    }
+    
+    if ($(".tool-descr .rating").length) {
+      $(".tool-descr .rating .place").attr("hint","");
+    }
+    
+  }
+  
+  if ($(".mainpage-calendar").length) {
+    var calContent = $(".mainpage-calendar .calendar-content");
+    var t = setTimeout(function() {
+      calPos = -calContent.find(".calendar-card").outerWidth(true)*calContent.find(".first-visible").prevAll(".calendar-card").length;
+      calWidth = calContent.find(".calendar-card").outerWidth(true)*calContent.find(".calendar-card").length;
+      calContent.stop().css("left",calPos).css("width",calWidth)
+    },100)
+    
   }
   
   

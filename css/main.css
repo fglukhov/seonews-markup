@@ -83,7 +83,7 @@ html, body {
 
 .top-wrap {min-height: 100%;}
 
-.top-main {/* overflow:auto; */
+.top-main {overflow:auto;
 	padding-bottom: 262px;}  /* must be same height as the footer */
 
 .footer {position: relative;
@@ -909,7 +909,7 @@ a.button:visited {
   width:860px;
   float:left;
   margin:0 40px 0 0;
-  padding-bottom:64px;
+  padding-bottom:20px;
   position:relative;
 }
 
@@ -1006,6 +1006,8 @@ a.button:visited {
   line-height:13px;
   color:#737373;
   font-size:11px;
+  position:relative;
+  overflow:hidden;
 }
 
 .author {
@@ -1013,8 +1015,12 @@ a.button:visited {
   position:relative;
   padding:0 0 0 38px;
 }
+
 .post-data .author {
-  max-width:140px;
+  /* max-width:140px; */
+  white-space:nowrap;
+  position:relative;
+  z-index:1;
 }
 
 .author span.time {
@@ -1069,14 +1075,23 @@ a.button:visited {
 }
 
 .post-data .comments-views {
-  float:right;
+  /* float:right; */
+  right:0;
+  position:absolute;
+  z-index:2;
 }
 
 .comments-views {
   font-size:9px;
-  padding-top:8px;
+  padding:8px 0 0 35px;
   height:18px;
   line-height:18px;
+  background:url(../images/username-fade.png) 0 0 repeat-y;
+}
+
+.mainpage-main .comments-views,
+.mainpage-best .comments-views {
+  background:none;
 }
 
 .comments-views .cv-item {
@@ -1311,7 +1326,7 @@ a:hover .ico-review {
 .bestlist-item {
   position:relative;
   width:409px;
-  height:145px;
+  /* height:145px; */
   margin:0 20px 27px 0;
   padding:0 20px 27px 0;
   float:left;
@@ -1329,7 +1344,7 @@ a:hover .ico-review {
 }
 
 .bestlist-item .descr {
-  height:145px;
+  /* height:145px; */
   font-size:13px;
   line-height:16px;
 }
@@ -1355,8 +1370,9 @@ a:hover .ico-review {
 }
 
 .bestlist-item .post-lead {
-  height:114px;
+  /* height:114px; */
   overflow:hidden;
+  margin:0 0 16px 0;
 }
 
 .sn-subscribe {
@@ -2090,6 +2106,7 @@ a:hover .ico-review {
 
 .mainpage-catalogue .comments-views {
   padding-top:13px;
+  padding-left:0;
 }
 
 .mainpage-catalogue .comments-views a {
@@ -2272,6 +2289,7 @@ a:hover .ico-review {
   padding:0 32px 0 32px;
   margin:28px 0 0 0;
   border-right:1px solid #ebebeb;
+  width:208px;
 }
 
 .mainpage-ratings .last {
@@ -2360,6 +2378,11 @@ h2 .rating-link:hover {
   margin-bottom:-8px;
 }
 
+.mainpage-library .bookslist {
+  height:300px;
+  overflow:hidden;
+}
+
 .mainpage-library .bookslist-item {
   margin-bottom:0;
 }
@@ -2405,7 +2428,7 @@ h2 .rating-link:hover {
 }
 
 .bloglist-item .descr {
-  height:145px;
+  /* height:145px; */
   font-size:13px;
   line-height:16px;
 }
@@ -2488,6 +2511,7 @@ h2 .rating-link:hover {
   color:#fff;
   float:left;
   padding:0 0 0 82px;
+  width:478px;
 }
 
 .blog-motivator .buttons {
@@ -2685,6 +2709,7 @@ a:hover .user-role,
 
 .sidebar .blog-motivator .txt {
   padding:0 0 15px 0;
+  width:auto;
 }
 
 .sidebar .blog-motivator h4 {
@@ -2704,13 +2729,17 @@ a:hover .user-role,
   margin:8px 23px 22px 23px;
 }
 
+h2.section-title {
+  float:left;
+}
+
 .section-filter,
 .section-filter-tools {
   position:relative;
-  float:right;
+  float:left;
   right:0;
   font-family:'OpenSansItalic',sans-serif;
-  padding:9px 0 0 0;
+  padding:29px 0 0 20px;
   font-size:13px;
   text-transform:none;
 }
@@ -2825,9 +2854,11 @@ a:hover .user-role,
 
 .toolslist-2 .toolslist-item .comments-views {
   padding-top:13px;
+  padding-left:0;
 }
 
-.toolslist-2 .toolslist-item .comments-views a {
+.toolslist-item .comments-views {
+  padding-left:0;
 }
 
 .toolslist-2 .toolslist-item .logo {
@@ -3533,7 +3564,7 @@ h1 {
 .events-calendar .tabs {
   font-size:24px;
   font-family:'OpenSansSemibold',sans-serif;
-  margin-left:5px;
+  /* margin-left:5px; */
 }
 
 .events-calendar .tabs span {
@@ -3825,6 +3856,10 @@ h1 {
 
 .event-data .event-date {
   font-size:12px !important;
+}
+
+.events-calendar .end-date-narrow {
+  display:none;
 }
 
 .event-data .ico {
@@ -4534,6 +4569,16 @@ h1 {
   margin-bottom:35px;
 }
 
+.bookslist-item-big .pic,
+.bookslist-item-big .post-controls {
+  margin-bottom:0 !important;
+}
+
+.bookslist-item .comments-views {
+  background:none;
+  padding-left:0;
+}
+
 .book-descr {
   margin-bottom:30px;
 }
@@ -4808,8 +4853,8 @@ h2 .section-filter span {
   padding-bottom:27px;
   padding-top:27px;
   margin-bottom:27px;
-  border-bottom:1px solid #ececec;
-  border-top:1px solid #ececec;
+  /* border-bottom:1px solid #ececec; */
+  /* border-top:1px solid #ececec; */
 }
 
 .experts .expertslist-item-big .pic,
@@ -5365,6 +5410,7 @@ h2 .section-filter span {
 .registration-form .form-checkboxes {
   width:190px;
   padding:22px 0 0 25px;
+  white-space:nowrap;
 }
 
 .common-form .input-wrapper-error {
@@ -5393,7 +5439,7 @@ h2 .section-filter span {
 }
 
 .param-selector {
-  position:relative;
+  position:relative;zzz
 }
 
 .param-sel {
@@ -5551,16 +5597,22 @@ h2 .section-filter span {
   float:left;
   font-size:13px;
   padding:14px 0 0 0;
+  height:34px;
 }
 
-.tender-form .select-link span {
+.tender-form .select-link span#compSelectTrigger {
   color:#5ba5aa;
   background:url(../images/underline-3.png) 0 18px repeat-x;
   cursor:pointer;
   font-size:16px;
   font-family:'OpenSansSemibold', sans-serif;
-  display:inline-block;
-  margin-left:20px;
+}
+
+.tender-form .select-link span.or {
+  display:block;
+  float:left;
+  margin-right:20px;
+  padding:2px 0 15px 0;
 }
 
 .tender-form .select-hint {
@@ -5722,8 +5774,9 @@ h2 .section-filter span {
   float:right;
   right:0;
   padding:9px 0 0 0;
-  font-size:13px;
+  font-size:14px;
   text-transform:none;
+  font-family:'OpenSansSemibold';
 }
 
 .tf-sort span {
@@ -5857,7 +5910,7 @@ h2 .section-filter span {
   -moz-box-shadow:0 0 40px -5px #000;
   box-shadow:0 0 40px -5px #000;
   background-color:#FFF;
-  z-index:12;
+  z-index:52;
   top:166px;
   left:-168px;
   font-size:13px;
@@ -5921,6 +5974,12 @@ h2 .section-filter span {
   padding-bottom:25px;
   padding-left:20px;
   margin-left:-20px;
+}
+
+.tool-review .comments-views {
+  position:relative;
+  background:none;
+  bottom:auto;
 }
 
 .toolsreviews-item .lead {
@@ -7291,4 +7350,28 @@ h2 .section-filter span {
   color:#554f3b;
   padding:13px 18px;
   white-space:nowrap;
+}
+
+.news-item-content .post-controls .author {
+  float:left;
+}
+
+.cal-popup .close {
+  width:29px;
+  height:30px;
+  position:absolute;
+  cursor:pointer;
+  right:-10px;
+  top:-10px;
+  background:url(../images/calendar-close.png) 0 0 no-repeat;
+}
+
+.expertslist .expertslist-item .post-data {
+  height:18px;
+  padding-top:10px;
+}
+
+.expertslist .expertslist-item .post-data .comments-views {
+  padding-left:0;
+  left:0;
 }

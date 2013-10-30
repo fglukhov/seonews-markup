@@ -129,7 +129,7 @@
   overflow:hidden;
 }
 
-.html-narrow .mainpage-main .post-data:before {
+/* .html-narrow .mainpage-main .post-data:before {
   content:"...";
   background:#ececec;
   display:block;
@@ -138,10 +138,16 @@
   right:0;
   padding:0 10px;
   font-size:18px;
-}
+} */
 
 .html-narrow .newslist .with-pic .author {
   padding:0;
+}
+
+.html-narrow .newslist .with-pic .comments-views {
+  position:relative;
+  padding-left:0;
+  right:auto;
 }
 
 .html-narrow .newslist .with-pic .author .userpic {
@@ -168,7 +174,7 @@
 
 .html-narrow .newslist-item .post-lead {
   height:auto;
-  margin:0 0 0 0;
+  margin:0 0 12px 0;
 }
 
 .html-narrow .newslist-item-big .post-lead {
@@ -247,17 +253,25 @@
   width:553px;
 }
 
-.html-narrow .events-calendar .event-date {
+.html-narrow .events-calendar .end-date-wide {
   display:none;
 }
 
-.html-narrow .events-calendar .event-date-narrow {
+.html-narrow .events-calendar .end-date-narrow {
   display:block;
   margin-right:0;
 }
 
 .html-narrow .event-header .descr {
   width: 589px;
+}
+
+.html-narrow .event-status {
+  padding:21px 25px 11px 25px;
+}
+
+.html-narrow .event-status-closed {
+  padding-bottom:23px !important;
 }
 
 .html-narrow .event-status .event-more {
@@ -285,8 +299,12 @@
 }
 
 .html-narrow .event-status .members {
-  margin: 12px 0 0 20px;
-  padding: 0 0 0 9px;
+  margin: 12px 0 0 0;
+  padding: 0 0 0 29px;
+}
+
+.html-narrow .event-status .button-5 {
+  margin-left:20px;
 }
 
 .html-narrow .fav-hint {
@@ -299,4 +317,397 @@
 
 .html-narrow .event-lineup .descr {
   width: 581px;
+}
+
+.html-narrow  .mainpage-calendar .calendar-card {
+  width:230px;
+  margin:10px 15px 0 0;
+}
+
+.html-narrow .mainpage-calendar {
+  width: 735px;
+  height: 245px;
+  margin: 0 -15px 40px 0;
+  position: relative;
+}
+
+.html-narrow .mainpage-calendar .calendar-slider {
+  width:735px;
+}
+
+.html-narrow .mainpage-calendar .sn-share {
+  width:228px;
+}
+
+.html-narrow .mainpage-calendar .prev {
+  right:190px;
+}
+
+.html-narrow .mainpage-catalogue {
+  width:720px;
+}
+
+.html-narrow .mainpage-catalogue .act-next {
+  left: 360px;
+}
+
+.html-narrow .mainpage-catalogue .act {
+  left: 183px;
+}
+
+.html-narrow .mainpage-catalogue .prev {
+  left: 71px;
+}
+
+.html-narrow .mainpage-catalogue .next {
+  right: 71px;
+}
+
+.html-narrow .mainpage-ratings {
+  width:720px;
+}
+
+.html-narrow .mainpage-ratings .ratings-card {
+  width:680px;
+}
+
+.html-narrow .mainpage-ratings .rating-item {
+  width:162px;
+}
+
+.html-narrow .mainpage-ratings .rating-place {
+  width:162px;
+}
+
+.html-narrow .mainpage-ratings .rating-place-1 {
+  background-position: 0 -352px;
+}
+
+.html-narrow .mainpage-ratings .rating-place-2 {
+  background-position: 0 -386px;
+}
+
+.html-narrow .mainpage-ratings .rating-place-3 {
+  background-position: 0 -420px;
+}
+
+.html-narrow .mainpage-ratings .logo {
+  height:73px;
+}
+
+.html-narrow .mainpage-ratings .logo img {
+  max-width:162px;
+}
+
+.html-narrow .mainpage-events-slider {
+  width: 334px;
+  margin: 0 30px 0 0;
+}
+
+.html-narrow .mainpage-sliders {
+  margin: 0 -30px 0 0;
+}
+
+.html-narrow .mainpage-events-slider .event-content {
+  width: 334px;
+}
+
+.html-narrow .mainpage-events-slider .event-content .event-wrapper {
+  width: 334px;
+}
+
+.html-narrow .mainpage-events-slider .event-content .pic-mask {
+  width: 334px;
+}
+
+.html-narrow .mainpage-events-slider .event-item {
+  width: 159px;
+  height:109px;
+}
+
+.html-narrow .mainpage-events-slider .event-item img {
+  width: 159px;
+  height: 109px;
+}
+
+.html-narrow .mainpage-events-slider .events-list {
+  height:109px;
+  overflow:hidden;
+}
+
+.html-narrow .mainpage-library .bookslist {
+  margin:0 -22px 0 0;
+}
+
+.html-narrow .bloglist {
+  margin-right: -17px;
+}
+
+.html-narrow .bloglist-item {
+  width: 220px;
+  margin: 0 17px 27px 0;
+}
+
+.html-narrow .mainpage-library .bookslist-item {
+  margin-right:22px;
+}
+
+.html-narrow .bloglist-item .logo {
+  width: 220px;
+  height:88px;
+}
+
+.html-narrow .bloglist-item .logo img {
+  width:220px;
+  height:88px;
+}
+
+.html-narrow .blog-motivator .txt {
+  width:408px;
+  padding:0 0 0 64px;
+}
+
+.html-narrow .sidebar .blog-motivator .txt {
+  padding:0 0 15px 0;
+  width:auto;
+}
+
+.html-narrow h2.section-title {
+  width:290px;
+}
+
+.html-narrow .book-descr .descr,
+.html-narrow .library .bookslist-item-big .descr {
+  width: 328px;
+}
+
+.html-narrow .library .bookslist-item-big .book-status {
+  margin-bottom:18px !important;
+}
+
+.html-narrow .library .bookslist-item-big .post-controls {
+  padding-top:32px;
+  clear:left;
+  position:relative;
+}
+
+.html-narrow .library .bookslist-item-big .post-controls .comments-views {
+  padding:0 !important;
+  position:absolute;
+  left:0;
+  top:0;
+}
+
+.html-narrow .library .bookslist-item {
+  margin: 0 20px 15px 20px;
+}
+
+.html-narrow .library .bookslist-item-big {
+  margin: 0 60px 35px 0;
+}
+
+.html-narrow .book-descr .book-status .bought-count {
+  margin-left:20px;
+}
+
+.html-narrow .book-descr .book-status .button-4 {
+  margin-right:0;
+}
+
+.html-narrow .narrow-hidden {
+  display:none;
+}
+
+.html-narrow .experts .expertslist-item {
+  margin-right:45px !important;
+}
+
+.html-narrow .experts .expertslist-item-big {
+  margin-right:25px !important;
+}
+
+.html-narrow .experts .expertslist-item-big .pic {
+  width:400px;
+}
+
+.html-narrow .experts .expertslist-item-big .pic img {
+  margin-left:-82px;
+}
+
+.html-narrow .post-video iframe {
+  width:675px !important;
+}
+
+.html-narrow .page-title {
+  width:698px;
+}
+
+.html-narrow .page-ratings .page-text {
+  width:698px;
+}
+
+.html-narrow .page-ratings .tabs .tab {
+  font-size:17px;
+  line-height:17px;
+  width:290px;
+}
+
+.html-narrow .page-ratings .tabs .tab .cont {
+  padding-bottom:13px;
+}
+
+.html-narrow .page-ratings .tabs .tab .cont span {
+  position:relative;
+  top:-5px;
+}
+
+.html-narrow .rating-table {
+  width:698px;
+}
+
+.html-narrow .rating-table .name {
+  width:250px;
+}
+
+.html-narrow .rating-table {
+  background-image:url(../images/rating-table-header-n.png) !important;
+}
+
+.html-narrow .sponsorslist-item {
+  margin:0 28px 28px 0;
+}
+
+.html-narrow .rating-experts .item {
+  margin-right:46px !important;
+}
+
+.html-narrow .common-form .form-text {
+  width: 305px;
+}
+
+.html-narrow .common-form .form-textarea {
+  width:675px;
+}
+
+.html-narrow .registration-form .form-checkboxes {
+  white-space:normal;
+  padding-left:0;
+  position:relative;
+  padding-left:32px;
+  padding-top: 15px;
+  width: 90px;
+  margin-right: 0 !important;
+}
+
+.html-narrow .registration-form .form-checkboxes .icheckbox {
+  position:absolute !important;
+  left:0;
+  top:22px;
+}
+
+.html-narrow .registration-company {
+  width:640px;
+}
+
+.html-narrow .registration-form .form-footer .form-item {
+  margin-right:20px;
+}
+
+.html-narrow .tender-form .form-submit {
+  padding:0 20px;
+}
+
+.html-narrow .tender-form .select-link {
+  width:140px;
+}
+
+.html-narrow #compSelectTrigger {
+  position:relative;
+  top:-7px;
+}
+
+.html-narrow .tender-form .select-hint {
+  width:238px;
+  margin-top:0;
+}
+
+.html-narrow .tools-services .item {
+  width:170px;
+  margin-right:12px;
+}
+
+.html-narrow .tools-services .form-text {
+  width: 144px;
+}
+
+.html-narrow .tools-services .button {
+  width:170px;
+  font-size:17px;
+}
+
+.html-narrow .tools-filter {
+  padding-top:16px;
+}
+
+.html-narrow .tools-filter .tf-sort {
+  padding-top:0;
+}
+
+.html-narrow .tools-filter .tf-sort .title {
+  float:none;
+  margin:0 0 18px 0;
+}
+
+.html-narrow .tools-filter .tf-filter {
+  padding-top:25px;
+}
+
+.html-narrow .toolsreviews-item {
+  margin-right:32px;
+  width:338px;
+  height:214px;
+}
+
+.html-narrow .toolsreviews-item .descr {
+  width:171px;
+  height:auto;
+}
+
+.html-narrow .toolsreviews-item .comments-views {
+  position:relative;
+  padding:15px 0 0 0 !important;
+  margin:0;
+  bottom:auto;
+}
+
+.html-narrow .toolsreviews-item .lead {
+  max-height:159px;
+  height:auto;
+}
+
+.html-narrow .toolsreviews .tool-review .descr {
+  width:365px;
+}
+
+.html-narrow .tool-descr .descr {
+  width:416px;
+}
+
+.html-narrow .tool-descr .ratingname {
+  display:none;
+}
+
+.html-narrow .hint-rating {
+  background:url(../images/hint-pt-2.png) 40px bottom no-repeat;
+  margin-left:56px;
+}
+
+.html-narrow .hint-rating .hint-content {
+  background-color:#e3ecff;
+  color:#555e70;
+  font-size:11px;
+}
+
+.html-narrow .slides {
+  margin-left:5px;
 }
