@@ -90,9 +90,12 @@ $(document).ready(function () {
              .wrapAll("<div class='newslist-row fc' />");
         }
         
-      }
+        list.find(".newslist-row").first().addClass("first-row");
       
-      list.find(".newslist-row").first().addClass("first-row");
+      } else {
+        list.addClass("newslist-alternate")
+      } 
+      
       
     });
   }

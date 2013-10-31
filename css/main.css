@@ -1251,6 +1251,8 @@ a:hover .ico-review {
   border-bottom:none;
   padding-bottom:25px;
   margin-bottom:22px;
+  border-top:none;
+  padding-top:0;
 }
 
 .newslist-item-big,
@@ -1260,7 +1262,7 @@ a:hover .ico-review {
 
 .newslist-item-big .post-lead {
   height:auto;
-  margin-bottom:11px;
+  margin-bottom:20px;
 }
 
 .newslist-item-big .pic {
@@ -1273,6 +1275,16 @@ a:hover .ico-review {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
+}
+
+.newslist-alternate .newslist-item-small {
+  position: relative;
+  margin: 0 40px 27px 0;
+  padding: 0 0 27px 0;
+  float: left;
+  border-bottom: 1px solid #ececec;
+  overflow: hidden;
+  border-top:none;
 }
 
 .newslist-item-big .descr h3 {
@@ -1295,6 +1307,15 @@ a:hover .ico-review {
   font-size:16px;
   line-height:18px;
   margin-bottom:.9em;
+}
+
+.newslist-item-small .post-lead {
+  margin:0 0 11px 0;
+}
+
+.newslist-alternate .last-row {
+  border-bottom:none;
+  padding-bottom:5px;
 }
 
 .tag-pro {
