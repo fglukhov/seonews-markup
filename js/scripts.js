@@ -125,12 +125,29 @@ $(document).ready(function () {
 
   $(".sn-subscribe .button-fb").click(function() {
     
+    $(".vk-popup").hide();
+    
     $(".facebook-popup").css("top",$(this).position().top - $(".facebook-popup").height() - 12).css("left",$(this).position().left - $(".facebook-popup").width()/2 + $(this).width()/2).fadeToggle(250);
     
     if ($(".facebook-popup").offset().top < $(window).scrollTop()) {
       $(".facebook-popup").addClass("facebook-popup-btm").css("top",$(this).position().top + 12 + $(this).height());
     } else {
       $(".facebook-popup").removeClass("facebook-popup-btm");
+    }
+    
+    return false;
+  });
+  
+  $(".sn-subscribe .button-vk").click(function() {
+  
+    $(".facebook-popup").hide();
+    
+    $(".vk-popup").css("top",$(this).position().top - $(".vk-popup").height() - 12).css("left",$(this).position().left - $(".vk-popup").width()/2 + $(this).width()/2).fadeToggle(250);
+    
+    if ($(".vk-popup").offset().top < $(window).scrollTop()) {
+      $(".vk-popup").addClass("vk-popup-btm").css("top",$(this).position().top + 12 + $(this).height());
+    } else {
+      $(".vk-popup").removeClass("vk-popup-btm");
     }
     
     return false;

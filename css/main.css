@@ -7267,7 +7267,8 @@ h2 .section-filter span {
   overflow:hidden;
 }
 
-.facebook-popup {
+.facebook-popup,
+.vk-popup {
   /* display:none; */
   width:252px;
   position:absolute;
@@ -7284,7 +7285,8 @@ h2 .section-filter span {
   display:none;
 }
 
-.facebook-popup .pt {
+.facebook-popup .pt,
+.vk-popup .pt {
   width:16px;
   height:8px;
   position:absolute;
@@ -7293,7 +7295,9 @@ h2 .section-filter span {
   background:url(../images/white-pt-btm.png) 0 0 no-repeat;
 }
 
-.facebook-popup-btm .pt {
+
+.facebook-popup-btm .pt,
+.vk-popup-btm .pt {
   width:16px;
   height:8px;
   position:absolute;
@@ -7315,6 +7319,13 @@ h2 .section-filter span {
 .facebook-popup .popup-content {
   padding:6px 15px 15px 15px;
 }
+
+.vk-popup .popup-content {
+  padding:15px 15px 15px 15px;
+  height:290px;
+  overflow:hidden;
+}
+
 
 .facebook-popup .like-block .pic {
   float: left;
