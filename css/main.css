@@ -1163,19 +1163,24 @@ a:hover .ico-review {
 }
 
 .newslist .last-row {
-  border-bottom:none;
-  margin-bottom:15px;
+  /* border-bottom:none;
+  margin-bottom:15px; */
 }
 
 .newslist-item {
   position:relative;
   width:410px;
-  height:145px;
+  /* height:145px; */
   margin:0 40px 27px 0;
-  padding:0 0 27px 0;
+  padding:27px 0 0 0;
   float:left;
-  border-bottom:1px solid #ececec;
-  overflow:hidden;
+  border-top:1px solid #ececec;
+  /* overflow:hidden; */
+}
+
+.first-row .newslist-item {
+  padding-top:0;
+  border-top:0;
 }
 
 .newslist-item .pic {
@@ -1204,9 +1209,10 @@ a:hover .ico-review {
 }
 
 .newslist-item .descr {
-  height:145px;
+  /* height:145px; */
   font-size:13px;
   line-height:16px;
+  overflow:hidden;
 }
 
 .newslist-item .descr h3 {
@@ -1231,8 +1237,9 @@ a:hover .ico-review {
 }
 
 .newslist-item .post-lead {
-  height:114px;
-  overflow:hidden;
+  /* height:114px;
+  overflow:hidden; */
+  margin:0 0 20px 0;
 }
 
 .news-col {

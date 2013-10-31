@@ -75,6 +75,28 @@ $(window).scroll(function () {
 
 $(document).ready(function () {
 
+  // Separating news items by rows
+  
+  if ($(".newslist").length) {
+    $(".newslist").each(function() {
+      var list = $(this);
+      
+      if (!$(this).children(".newslist-item-big").length) {
+        
+        var items = list.children(".newslist-item");
+        
+        for(var i = 0; i < items.length; i+=2) {
+          items.slice(i, i+2)
+             .wrapAll("<div class='newslist-row fc' />");
+        }
+        
+      }
+      
+      list.find(".newslist-row").first().addClass("first-row");
+      
+    });
+  }
+
   if ($(".events-calendar").length) {
     $(".events-calendar").eventsCalendar();
   }
