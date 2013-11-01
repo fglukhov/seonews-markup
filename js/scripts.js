@@ -452,13 +452,20 @@ $(document).ready(function () {
           
           this.title += '<div class="fancybox-counter">Фотография ' + (this.index + 1) + ' из ' + this.group.length +'</div>';
           
+          this.title += '<div class="f-socbuttons fc">'
+          
           // Add tweet button
-          this.title += '<a href="https://twitter.com/share" class="twitter-share-button" data-count="none" data-url="' + this.href + '">Tweet</a> ';
+          this.title += '<div class="fancy-socbutton"><a href="https://twitter.com/share" class="twitter-share-button" data-count="none" data-url="' + this.href + '">Tweet</a></div>';
           
           // Add FaceBook like button
           
+          this.title += '<div class="fancy-socbutton"><iframe src="//www.facebook.com/plugins/like.php?href='+this.href+'&amp;width&amp;height=21&amp;colorscheme=light&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;send=false" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:21px;" allowTransparency="true"></iframe></div>';
           
-          this.title += '<iframe src="//www.facebook.com/plugins/like.php?href=' + this.href + '&amp;layout=button_count&amp;show_faces=true&amp;width=500&amp;action=like&amp;font&amp;colorscheme=light&amp;height=23" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:110px; height:23px;" allowTransparency="true"></iframe>';
+          var vkButton = VK.Share.button({url: this.href},{type: "round", text: "Сохранить"})
+          
+          this.title += '<div class="fancy-socbutton">'+vkButton+'</div>'
+          
+          this.title += '</div>'
           
         }
       },
