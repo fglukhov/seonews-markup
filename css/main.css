@@ -4478,7 +4478,6 @@ h1 {
   position:relative;
 }
 
-.fancybox-inner .fancybox-image,
 .photo-gallery .fancybox img {
   behavior:url(PIE.htc);
   position:relative;
@@ -4488,6 +4487,15 @@ h1 {
   width:192px !important;
   height:129px !important;
 }
+
+.fancybox-inner .fancybox-image {
+  behavior:url(PIE.htc);
+  position:relative;
+  -webkit-border-radius:4px;
+  -moz-border-radius:4px;
+  border-radius:4px;
+}
+
 
 .fancybox-title {
   font-size:15px;
