@@ -3183,6 +3183,7 @@ h1 {
 .post-text {
   font-size:14px;
   line-height:22px;
+  padding-bottom:1px;
 }
 
 .post-text p,
