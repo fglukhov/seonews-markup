@@ -3062,6 +3062,7 @@ h1 {
 .post-controls .social-buttons {
   float:left;
   padding:0 0 0 0;
+  display:none;
 }
 
 .post-controls .s-button {
@@ -3276,7 +3277,7 @@ h1 {
 .post-tags {
   background:url(../images/ico-tag.png) 0 0 no-repeat;
   color:#9b9b9b;
-  font-size:12px;
+  font-size:11px;
   font-family:'OpenSansItalic', sans-serif;
   padding:0 0 8px 34px;
   margin-bottom:20px;
@@ -3299,6 +3300,12 @@ h1 {
   padding-top:2px;
   float:right;
   margin-left:40px;
+  margin-top:-5px;
+}
+
+.post-controls .author .date-time {
+  display:block;
+  padding:0 !important;
 }
 
 .post-comments .author {
@@ -3308,6 +3315,10 @@ h1 {
 .post-comments .author .userpic,
 .post-controls .author .userpic {
   margin-top:-5px;
+}
+
+.post-controls .author .userpic {
+  margin-top:0 !important;
 }
 
 .next-link,
@@ -4453,7 +4464,7 @@ h1 {
 }
 
 .fancybox-title iframe {
-  min-height: 30px;
+  /* min-height: 30px; */
   vertical-align: middle;
 }
 
@@ -4506,13 +4517,15 @@ h1 {
 .fancybox-title .descr {
   font-size:13px;
   font-family:'OpenSans', sans-serif;
-  padding:.7em 0;
+  padding:4px 0;
+  clear:both;
 }
 
 .fancybox-counter {
   float:right;
   font-size:11px;
   color:#737373;
+  padding:0 0 0 30px;
 }
 
 .fancybox-skin {
@@ -7402,7 +7415,8 @@ h2 .section-filter span {
 }
 
 .news-item-content .post-controls .author {
-  float:left;
+  float:left !important;
+  padding-top:0 !important;
 }
 
 .cal-popup .close {
@@ -7427,6 +7441,8 @@ h2 .section-filter span {
 
 .f-socbuttons {
   clear:both;
+  padding:10px 0 0 0;
+  float:left;
 }
 
 .f-socbuttons iframe {
@@ -7436,4 +7452,20 @@ h2 .section-filter span {
 .fancy-socbutton {
   float:left;
   margin:0 10px 0 0;
+}
+
+.fancybox-title .ttl {
+  overflow:hidden;
+}
+
+.fancybox-title {
+  zoom:1;
+}
+
+.fancybox-title:after {
+  content:".";
+  display:block;
+  height:0;
+  clear:both;
+  visibility:hidden;
 }

@@ -39,11 +39,10 @@ var dayName = [
   ];  
   
 $(window).load(function () {
-
   adaptation();
-
-  
-  
+  var socT = setTimeout(function() {
+    $(".social-buttons").show();
+  },1000);
 });
 
 $(window).resize(function() {
@@ -428,19 +427,24 @@ $(document).ready(function () {
       beforeShow: function () {
       
         if (this.title) {
+        
+          this.title = '<div class="fancybox-counter">Фотография ' + (this.index + 1) + ' из ' + this.group.length +'</div><div class="ttl">'+this.title+'</div>'
+        
           // New line
           this.title += '';
           
           picUrl = "http://seonews.renart.ru" + this.href
           
-          this.title += '<div class="descr">'+$(this.element).children(".descr").html()+'</div>'
           
-          this.title += '<div class="fancybox-counter">Фотография ' + (this.index + 1) + ' из ' + this.group.length +'</div>';
+          if ($(this.element).children(".descr").html()) {
+            this.title += '<div class="descr">'+$(this.element).children(".descr").html()+'</div>'
+          }
+          
+          
           
           this.title += '<div class="f-socbuttons fc">';
           
-          // Add tweet button
-          this.title += '<div class="fancy-socbutton"><a href="https://twitter.com/share" class="twitter-share-button" data-count="none" data-url="' + picUrl + '">Tweet</a></div>';
+          
           
           // Add FaceBook like button
           
@@ -448,9 +452,14 @@ $(document).ready(function () {
           
           var vkButton = VK.Share.button({url: picUrl},{type: "round", text: "Сохранить"})
           
-          this.title += '<div class="fancy-socbutton">'+vkButton+'</div>'
+          this.title += '<div class="fancy-socbutton" style="margin-right:20px">'+vkButton+'</div>'
+          
+          // Add tweet button
+          this.title += '<div class="fancy-socbutton"><a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-lang="ru" data-url="' + picUrl + '">Твитнуть</a></div>';
           
           this.title += '</div>'
+          
+          
           
         }
       },
@@ -465,7 +474,7 @@ $(document).ready(function () {
       }
     });
 
-  }  
+  } 
     
   $(".tabbed-content .tab").click(function() {
     $(this).parents(".tabs").find(".tab").removeClass("act");
