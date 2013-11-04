@@ -75,30 +75,13 @@ $(window).scroll(function () {
 
 $(document).ready(function () {
 
+  
+
   // Separating news items by rows
   
-  if ($(".newslist").length) {
-    $(".newslist").each(function() {
-      var list = $(this);
-      
-      if (!$(this).children(".newslist-item-big").length) {
-        
-        var items = list.children(".newslist-item");
-        
-        for(var i = 0; i < items.length; i+=2) {
-          items.slice(i, i+2)
-             .wrapAll("<div class='newslist-row fc' />");
-        }
-        
-        list.find(".newslist-row").first().addClass("first-row");
-      
-      } else {
-        list.addClass("newslist-alternate")
-      } 
-      
-      
-    });
-  }
+  newsMakeup()
+  
+  
 
   if ($(".events-calendar").length) {
     $(".events-calendar").eventsCalendar();
@@ -448,20 +431,22 @@ $(document).ready(function () {
           // New line
           this.title += '';
           
+          picUrl = "http://seonews.renart.ru" + this.href
+          
           this.title += '<div class="descr">'+$(this.element).children(".descr").html()+'</div>'
           
           this.title += '<div class="fancybox-counter">Фотография ' + (this.index + 1) + ' из ' + this.group.length +'</div>';
           
-          this.title += '<div class="f-socbuttons fc">'
+          this.title += '<div class="f-socbuttons fc">';
           
           // Add tweet button
-          this.title += '<div class="fancy-socbutton"><a href="https://twitter.com/share" class="twitter-share-button" data-count="none" data-url="' + this.href + '">Tweet</a></div>';
+          this.title += '<div class="fancy-socbutton"><a href="https://twitter.com/share" class="twitter-share-button" data-count="none" data-url="' + picUrl + '">Tweet</a></div>';
           
           // Add FaceBook like button
           
-          this.title += '<div class="fancy-socbutton"><iframe src="//www.facebook.com/plugins/like.php?href='+this.href+'&amp;width&amp;height=21&amp;colorscheme=light&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;send=false" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:21px;" allowTransparency="true"></iframe></div>';
+          this.title += '<div class="fancy-socbutton"><iframe src="//www.facebook.com/plugins/like.php?href='+picUrl+'&amp;width&amp;height=21&amp;colorscheme=light&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;send=false" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:21px;" allowTransparency="true"></iframe></div>';
           
-          var vkButton = VK.Share.button({url: this.href},{type: "round", text: "Сохранить"})
+          var vkButton = VK.Share.button({url: picUrl},{type: "round", text: "Сохранить"})
           
           this.title += '<div class="fancy-socbutton">'+vkButton+'</div>'
           
@@ -488,10 +473,23 @@ $(document).ready(function () {
     $(this).parents(".tabbed-content").find(".tab-content").hide()
     $(this).parents(".tabbed-content").find("#"+$(this).attr("rel")).show()
   });
+  
+  // Tabs switching
+  
+  if (window.location.hash == "#review") {
+    $(".tab[rel='review-tab']").click();
+  }
 
+  if (window.location.hash == "#photos") {
+    $(".tab[rel='photos-tab']").click();
+  }
+  
+  // Tabs switching END
+  
   if ($("input:checkbox").length) {
     $("input:checkbox").iCheck()
   }
+  
   
   $(".type-filter").addClass("initial");
   
@@ -540,6 +538,7 @@ $(document).ready(function () {
       $(".section-content").html(data);
         link.addClass("act");
         makeup();
+        newsMakeup();
     });
   });
   
@@ -2488,3 +2487,28 @@ function adaptation() {
   
   
 }
+
+function newsMakeup() {
+  if ($(".newslist").length) {
+    $(".newslist").each(function() {
+      var list = $(this);
+      
+      if (!$(this).children(".newslist-item-big").length && !$(this).find(".newslist-row").length) {
+        
+        var items = list.children(".newslist-item");
+        
+        for(var i = 0; i < items.length; i+=2) {
+          items.slice(i, i+2)
+             .wrapAll("<div class='newslist-row fc' />");
+        }
+        
+        list.find(".newslist-row").first().addClass("first-row");
+      
+      } else {
+        list.addClass("newslist-alternate")
+      } 
+      
+      
+    });
+  }
+} 
