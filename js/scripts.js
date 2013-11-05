@@ -70,6 +70,20 @@ $(window).scroll(function () {
   }
   
   
+  if ($(window).scrollTop() > parseInt($(document).height() - $(".footer").height() - $(window).height() - 50)) {
+    $.ajax({
+      url: '/news.php?from='+$(".newslist-item").length+'&to='+parseInt($(".newslist-item").length+10),
+      type: 'get',
+      dataType: 'html',
+      async: false
+    }).done(function(data) {
+      $(".loader").remove();
+      $(".section-content").append(data);
+      makeup();
+      newsMakeup();
+    });
+  }
+  
 });
 
 $(document).ready(function () {
