@@ -815,7 +815,7 @@ $(document).ready(function () {
       calSlider.append(calContent)
       
       for (j=startIndex;j<(startIndex+3);j++) {
-        insertCalCard(j,events,calContent,'after');
+        if (j < events.length) insertCalCard(j,events,calContent,'after');
       }
       
       calSlider.find(".calendar-card").eq(0).addClass("first-visible")
