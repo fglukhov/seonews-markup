@@ -3666,6 +3666,8 @@ h1 {
   height:81px;
   float:left;
   margin:0 20px 0 0;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 
 .events-calendar .event-cont {
@@ -7469,4 +7471,8 @@ h2 .section-filter span {
   height:0;
   clear:both;
   visibility:hidden;
+}
+
+.event-header .lockimg {
+  margin:23px 0 0 26px;
 }
