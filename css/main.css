@@ -7319,7 +7319,8 @@ h2 .section-filter span {
   box-shadow:0 0 40px -5px #000;
   background-color:#FFF;
   z-index:12;
-  display:none;
+  left:-10000px;
+  display:block;
 }
 
 .facebook-popup .pt,
@@ -7486,4 +7487,13 @@ h2 .section-filter span {
 
 .event-header .lockimg {
   margin:23px 0 0 26px;
+}
+
+.tab-content .photo-gallery {
+  margin-bottom:31px;
+}
+
+.post-controls {
+  position:relative;
+  z-index:5;
 }

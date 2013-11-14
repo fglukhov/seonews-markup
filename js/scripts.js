@@ -40,7 +40,8 @@ var dayName = [
   
 $(window).load(function () {
   adaptation();
-  
+  $(".vk-popup").addClass("initial");
+  $(".facebook-popup").addClass("initial");
 });
 
 $(window).resize(function() {
@@ -131,7 +132,12 @@ $(document).ready(function () {
     
     $(".vk-popup").hide();
     
-    $(".facebook-popup").css("top",$(this).position().top - $(".facebook-popup").height() - 12).css("left",$(this).position().left - $(".facebook-popup").width()/2 + $(this).width()/2).fadeToggle(250);
+    if ($(".facebook-popup").hasClass("initial")) {
+      $(".facebook-popup").hide().removeClass("initial");
+      $(".facebook-popup").css("top",$(this).position().top - $(".facebook-popup").height() - 12).css("left",$(this).position().left - $(".facebook-popup").width()/2 + $(this).width()/2).fadeIn(250);
+    } else {
+      $(".facebook-popup").css("top",$(this).position().top - $(".facebook-popup").height() - 12).css("left",$(this).position().left - $(".facebook-popup").width()/2 + $(this).width()/2).fadeToggle(250);
+    }
     
     if ($(".facebook-popup").offset().top < $(window).scrollTop()) {
       $(".facebook-popup").addClass("facebook-popup-btm").css("top",$(this).position().top + 12 + $(this).height());
@@ -146,7 +152,12 @@ $(document).ready(function () {
   
     $(".facebook-popup").hide();
     
-    $(".vk-popup").css("top",$(this).position().top - $(".vk-popup").height() - 12).css("left",$(this).position().left - $(".vk-popup").width()/2 + $(this).width()/2).fadeToggle(250);
+    if ($(".vk-popup").hasClass("initial")) {
+      $(".vk-popup").hide().removeClass("initial");
+      $(".vk-popup").css("top",$(this).position().top - $(".vk-popup").height() - 12).css("left",$(this).position().left - $(".vk-popup").width()/2 + $(this).width()/2).fadeIn(250);
+    } else {
+      $(".vk-popup").css("top",$(this).position().top - $(".vk-popup").height() - 12).css("left",$(this).position().left - $(".vk-popup").width()/2 + $(this).width()/2).fadeToggle(250);
+    }
     
     if ($(".vk-popup").offset().top < $(window).scrollTop()) {
       $(".vk-popup").addClass("vk-popup-btm").css("top",$(this).position().top + 12 + $(this).height());
@@ -157,7 +168,7 @@ $(document).ready(function () {
     return false;
   });
   
-  $(".facebook-popup").hover(function() {
+  $(".facebook-popup,.vk-popup").hover(function() {
     $(this).addClass("hover");
   },function() {
     $(this).removeClass("hover");
@@ -166,6 +177,9 @@ $(document).ready(function () {
   $("body").click(function() {
     if (!$(".facebook-popup").hasClass("hover")) {
       $(".facebook-popup").fadeOut(250)
+    }
+    if (!$(".vk-popup").hasClass("hover")) {
+      $(".vk-popup").fadeOut(250)
     }
   })
   
