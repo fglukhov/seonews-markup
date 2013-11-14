@@ -957,9 +957,11 @@ a.button:visited {
 
 .mainpage-main .descr {
   width:411px;
+  min-height:251px;
   float:left;
   font-size:15px;
   line-height:20px;
+  position:relative;
 }
 
 .mainpage-main .descr h3 {
@@ -999,7 +1001,7 @@ a.button:visited {
 }
 
 .mainpage-main .post-lead {
-  margin:0 0 1.7em 0;
+  margin:0 0 50px 0;
 }
 
 .post-data {
@@ -1008,6 +1010,12 @@ a.button:visited {
   font-size:11px;
   position:relative;
   overflow:hidden;
+}
+
+.mainpage-main .post-data {
+  position:absolute;
+  width:100%;
+  bottom:0;
 }
 
 .author {
@@ -1279,8 +1287,8 @@ a:hover .ico-review {
 
 .newslist-alternate .newslist-item-small {
   position: relative;
-  margin: 0 40px 27px 0;
-  padding: 0 0 27px 0;
+  margin: 0 40px 17px 0;
+  padding: 0 0 20px 0;
   float: left;
   border-bottom: 1px solid #ececec;
   overflow: hidden;
@@ -2565,7 +2573,7 @@ h2 .rating-link:hover {
 }
 
 .search-trigger {
-  padding:25px 0 14px 0;
+  padding:25px 0 14px 34px;
   height:32px;
   cursor:pointer;
 }
@@ -3062,12 +3070,15 @@ h1 {
 .post-controls .social-buttons {
   float:left;
   padding:0 0 0 0;
-  display:none;
 }
 
 .post-controls .s-button {
   margin:0 18px 0 0;
   float:left;
+}
+
+.post-controls .fb-like {
+  width:110px;
 }
 
 .fr {

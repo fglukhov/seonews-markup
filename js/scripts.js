@@ -40,9 +40,7 @@ var dayName = [
   
 $(window).load(function () {
   adaptation();
-  var socT = setTimeout(function() {
-    $(".social-buttons").show();
-  },1000);
+  
 });
 
 $(window).resize(function() {
@@ -70,25 +68,35 @@ $(window).scroll(function () {
   }
   
   
-  if ($(window).scrollTop() > parseInt($(document).height() - $(".footer").height() - $(window).height() - 50)) {
+  if (($(window).scrollTop() > parseInt($(document).height() - $(".footer").height() - $(window).height() - 50)) && ($(location).attr('pathname') == "/news/" || $(location).attr('pathname') == "/analytics/")) {
+    
+    alert(111)
+    
     $.ajax({
-      url: '/news.php?from='+$(".newslist-item").length+'&to='+parseInt($(".newslist-item").length+10),
+
+      url: '/ajax/articles.php?from='+$(".newslist-item").length+'&to='+parseInt($(".newslist-item").length+10),
+
       type: 'get',
+
       dataType: 'html',
+
       async: false
+
     }).done(function(data) {
+
       $(".loader").remove();
+
       $(".section-content").append(data);
       makeup();
       newsMakeup();
+
     });
+
   }
   
 });
 
 $(document).ready(function () {
-
-  
 
   // Separating news items by rows
   
@@ -1232,6 +1240,8 @@ $(document).ready(function () {
 
           var curMonth = parseInt(events[startIndex].date.split(".")[1],10);
           
+          var curDay = parseInt(events[startIndex].date.split(".")[0],10);
+          
           if ($(".tab[rel='archive']").hasClass("act")) {
             calPopup.find(".item").hide();
             yearsList.find(".cn-past").show();
@@ -1256,13 +1266,16 @@ $(document).ready(function () {
           
           calendar.find(".month-nav .month span").html(monthName2[curMonth-1] + " " + curYear);
           
+          // Сделать, чтобы при листании вперед в хронике до конца не показывались будущие события
+          
           for (i=startIndex;i<events.length;i++) {
             if (parseInt(events[i].date.split(".")[1],10) != curMonth || parseInt(events[i].date.split(".")[2],10) != curYear) {
               var finishIndex = i-1;
               break;
-            } else if (i==events.length-1) {
-              finishIndex = events.length-1;
+            } else if (parseInt(events[i].date.split(".")[0],10) > curDay) {
+              var finishIndex = i-1;
               nextBtn.addClass("inact")
+              break;
             }
           }
           
@@ -1302,6 +1315,7 @@ $(document).ready(function () {
 
         var curMonth = parseInt(events[finishIndex].date.split(".")[1],10);
         
+        var curDay = parseInt(events[finishIndex].date.split(".")[0],10);
         
         
         calPopup.find(".item").hide();
