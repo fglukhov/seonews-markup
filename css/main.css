@@ -7506,3 +7506,22 @@ h2 .section-filter span {
   height:100px;
   background:url(../images/news-loader.gif) center center no-repeat;
 }
+
+.ui-tooltip {
+  position:absolute;
+  z-index:10;
+  padding:0 0 6px 0;
+  background:url(../images/hint-pt.png) center bottom no-repeat;
+}
+
+.ui-tooltip .ui-tooltip-content {
+  position:relative;
+  behavior:url(PIE.htc);
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  background-color:#f2e2b0;
+  color:#554f3b;
+  padding:13px 18px;
+  white-space:nowrap;
+}

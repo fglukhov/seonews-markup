@@ -141,7 +141,22 @@ $(window).scroll(function () {
 
 $(document).ready(function () {
 
-
+  // tooltips
+  
+  $(".tooltip").tooltip({
+    position: {
+        my: "center bottom",
+        at: "center top",
+        using: function( position, feedback ) {
+          $( this ).css( position );
+          $( "<div>" )
+            .addClass( "arrow" )
+            .addClass( feedback.vertical )
+            .addClass( feedback.horizontal )
+            .appendTo( this );
+        }
+      }
+  });
 
   // Separating news items by rows
 
