@@ -3075,6 +3075,9 @@ h1 {
 .post-controls .s-button {
   margin:0 18px 0 0;
   float:left;
+  background:url(../images/sb-loader.gif) center center no-repeat;
+  min-width:90px;
+  min-height:20px
 }
 
 .post-controls .fb-like {
@@ -7496,4 +7499,10 @@ h2 .section-filter span {
 .post-controls {
   position:relative;
   z-index:5;
+}
+
+.news-loader {
+  clear:both;
+  height:100px;
+  background:url(../images/news-loader.gif) center center no-repeat;
 }

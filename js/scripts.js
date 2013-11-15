@@ -38,10 +38,39 @@ var dayName = [
     "суббота"
   ];  
   
+  
+function newsMakeup() {
+  if ($(".newslist").length) {
+    $(".newslist").each(function() {
+      var list = $(this);
+      
+      if (!$(this).children(".newslist-item-big").length && !$(this).find(".newslist-row").length) {
+        
+        var items = list.children(".newslist-item");
+        
+        for(var i = 0; i < items.length; i+=2) {
+          items.slice(i, i+2)
+             .wrapAll("<div class='newslist-row fc' />");
+        }
+        
+        list.find(".newslist-row").first().addClass("first-row");
+      
+      } else {
+        list.addClass("newslist-alternate")
+      } 
+      
+      
+    });
+  }
+} 
+  
 $(window).load(function () {
+
   adaptation();
+
   $(".vk-popup").addClass("initial");
   $(".facebook-popup").addClass("initial");
+  
 });
 
 $(window).resize(function() {
@@ -68,14 +97,20 @@ $(window).scroll(function () {
     $(".up-link *").stop().fadeOut(250);
   }
   
+ if (($(window).scrollTop() > parseInt($(document).height() - $(".footer").height() - $(window).height() - 50)) && ($(location).attr('pathname') == "/news/" || $(location).attr('pathname') == "/analytics/") && !$(".section-content").hasClass("loaded")) {
+   
+  var iblockid=12;
+  if($(location).attr('pathname') == "/analytics/") iblockid=17;
+    
+    var newLength;
+    
+    var oldLength = $(".newslist-item").length;
+    
+    $(".section-content").append("<div class='news-loader'></div>")
   
-  if (($(window).scrollTop() > parseInt($(document).height() - $(".footer").height() - $(window).height() - 50)) && ($(location).attr('pathname') == "/news/" || $(location).attr('pathname') == "/analytics/")) {
-    
-    alert(111)
-    
     $.ajax({
 
-      url: '/ajax/articles.php?from='+$(".newslist-item").length+'&to='+parseInt($(".newslist-item").length+10),
+      url: '/ajax/articles.php?from='+$(".newslist-item").length+'&to='+parseInt($(".newslist-item").length+10) + "&iblockid=" + iblockid,
 
       type: 'get',
 
@@ -84,10 +119,17 @@ $(window).scroll(function () {
       async: false
 
     }).done(function(data) {
-
-      $(".loader").remove();
+      
+      $(".news-loader").remove();
 
       $(".section-content").append(data);
+      
+      newLength = $(".newslist-item").length;
+      
+      if (newLength == oldLength) {
+        $(".section-content").addClass("loaded")
+      }
+      
       makeup();
       newsMakeup();
 
@@ -95,15 +137,59 @@ $(window).scroll(function () {
 
   }
   
-});
+}); 
 
 $(document).ready(function () {
 
+
+
   // Separating news items by rows
+
   
-  newsMakeup()
+
+/*  if ($(".newslist").length) {
+
+    $(".newslist").each(function() {
+
+      var list = $(this);
+
+     
+
+     if (!$(this).children(".newslist-item-big").length) {
+
+        
+
+        var items = list.children(".newslist-item");
+
+        
+
+       for(var i = 0; i < items.length; i+=2) {
+
+          items.slice(i, i+2)
+
+             .wrapAll("<div class='newslist-row fc' />");
+
+        }
+
+        
+
+      
+
+		 list.find(".newslist-row").first().addClass("first-row");     
+
+      } else {
+       list.addClass("newslist-alternate")
+     } 
+      
+
   
-  
+
+      
+
+    });
+
+ }*/
+newsMakeup();
 
   if ($(".events-calendar").length) {
     $(".events-calendar").eventsCalendar();
@@ -129,7 +215,7 @@ $(document).ready(function () {
   });
 
   $(".sn-subscribe .button-fb").click(function() {
-    
+  
     $(".vk-popup").hide();
     
     if ($(".facebook-popup").hasClass("initial")) {
@@ -148,7 +234,16 @@ $(document).ready(function () {
     return false;
   });
   
-  $(".sn-subscribe .button-vk").click(function() {
+  $(".vk-popup").click(function(){  
+	$(".vk-popup").hide();
+  });
+  
+  $(".facebook-popup").click(function(){  
+	$(".facebook-popup").hide();
+  });
+  
+  
+$(".sn-subscribe .button-vk").click(function() {
   
     $(".facebook-popup").hide();
     
@@ -519,22 +614,24 @@ $(document).ready(function () {
     $(this).parents(".tabbed-content").find("#"+$(this).attr("rel")).show()
   });
   
-  // Tabs switching
   
+  // Tabs switching 
+
   if (window.location.hash == "#review") {
     $(".tab[rel='review-tab']").click();
-  }
+  } 
 
   if (window.location.hash == "#photos") {
     $(".tab[rel='photos-tab']").click();
   }
-  
+
   // Tabs switching END
   
+  
+
   if ($("input:checkbox").length) {
     $("input:checkbox").iCheck()
   }
-  
   
   $(".type-filter").addClass("initial");
   
@@ -572,20 +669,33 @@ $(document).ready(function () {
 
   $(".ajax-link").click(function() {
     var link = $(this);
-    $(".section-content").html("<div class='loader' />");
+    $(".section-content").html("<div class='news-loader' />");
+	
     $.ajax({
       url: $(this).attr("rel"),
       type: 'get',
       dataType: 'html',
       async: false
     }).done(function(data) {
-      $(".loader").remove();
+      //$(".news-loader").remove();
       $(".section-content").html(data);
         link.addClass("act");
-        makeup();
+        makeup();	
         newsMakeup();
     });
+	
   });
+  
+   $(".nav-calendar .ajax-link").click(function() {
+   
+   if($('.nav-calendar span.year.year-act').html() && $('span.ajax-link.act').html()) 
+		$('h2.section-title').html($(this).html()+' '+$('.nav-calendar span.year.year-act').html());
+	else 
+		$('h2.section-title').html($(this).html());
+   
+   
+   });  
+  
   
   $(".year-nav .item").click(function() {
     $(".year-nav .item").removeClass("act");
@@ -606,6 +716,7 @@ $(document).ready(function () {
           makeup();
       });
     })
+	
   });
   
   $(".show-more").click(function() {
@@ -649,9 +760,11 @@ $(document).ready(function () {
         $(".loader").remove();
         $(".section-content").html(data);
         makeup();
+		
         handleTools();
       });
     }
+	
   });
   
   if ($(".section-filter-tools").length) {
@@ -679,6 +792,7 @@ $(document).ready(function () {
     $(".month-act").removeClass("month-act");
     $(".nav-calendar .month-act").removeClass("month-act");
     $(this).addClass("month-act");
+	
   });
 
   $(".search-trigger").click(function() {
@@ -700,6 +814,44 @@ $(document).ready(function () {
       })
     },2000);
   });
+  
+  
+  
+    $("div.button-5").click(function() {
+    $(".fav-hint").remove();
+	var title = $(this).html() == "<span>Я пойду</span>" ? "<span>Я не пойду</span>" : "<span>Я пойду</span>";
+	var baloontext = title == '<span>Я не пойду</span>' ? 'Вы добавлены' : 'Вы удалены';
+	$(this).append("<div class='fav-hint hint-popup' style='display:none'><div class='hint-content'></div></div>");
+    $("div.button-5 .hint-popup").fadeIn(150);	
+    $('div.button-5 .hint-popup .hint-content').html(baloontext);
+    var tt0 = setTimeout(function() {
+      $(".fav-hint").fadeOut(150,function() {
+        $(".fav-hint").remove();
+		$('div.button-5').html(title);
+      })
+    },2000);
+	 
+	var result = null;
+	var xdata = {ID:$(this).attr('rel'),ACTION:baloontext};
+	
+    $.ajax({
+      url: '/ajax/addmember.php',
+	  data: xdata,
+      type: 'post',
+      dataType: 'json',
+      async: false
+    }).done(function(data) {     
+        
+        result = data;    
+		
+        
+    });
+	
+	if(result.SUMM>0) $('span.total span').html(result.SUMM+' чел.');
+	
+  });
+  
+  
   
   $("*").hover(function() {
     if ($(this).attr("hint")) {
@@ -777,7 +929,7 @@ $(document).ready(function () {
     
     var calendar = $(this);
     
-    var eventsXml = $.getValues("calendar.xml");
+    var eventsXml = $.getValues("/calendar/calendar.xml");
     
     if (eventsXml) {
     
@@ -987,8 +1139,6 @@ $(document).ready(function () {
         }
         
       }
-      
-      
       
       var calContent = $("<div class='calendar-content'></div>");
     
@@ -1282,18 +1432,19 @@ $(document).ready(function () {
           
           // Сделать, чтобы при листании вперед в хронике до конца не показывались будущие события
           
+          
           for (i=startIndex;i<events.length;i++) {
-            if (parseInt(events[i].date.split(".")[1],10) != curMonth || parseInt(events[i].date.split(".")[2],10) != curYear) {
+            if (parseInt(events[i].date.split(".")[1],10) != curMonth || parseInt(events[i].date.split(".")[2],10) != curYear || i == firstFutureIndex) {
               var finishIndex = i-1;
-              break;
-            } else if (parseInt(events[i].date.split(".")[0],10) > curDay) {
-              var finishIndex = i-1;
-              nextBtn.addClass("inact")
+              // alert(finishIndex)
+              if (i==firstFutureIndex) {
+                nextBtn.addClass("inact")
+              }
               break;
             }
           }
           
-          if (finishIndex == maxIndex+1) {
+          if (finishIndex == maxIndex) {
             nextBtn.addClass("inact")
           }
           
@@ -1543,7 +1694,7 @@ $(document).ready(function () {
     
     var catalogue = $(this);
     
-    var catalogueXml = $.getValues("catalogue.xml");
+    var catalogueXml = $.getValues("/catalogue.xml");
     
     if (catalogueXml) {
     
@@ -1684,7 +1835,7 @@ $(document).ready(function () {
     
     var ratings = $(this);
     
-    var ratingsXml = $.getValues("ratings.xml");
+    var ratingsXml = $.getValues("/ratings.xml");
     
     if (ratingsXml) {
     
@@ -1833,7 +1984,7 @@ jQuery.extend({
     var result = null;
     $.ajax({
       url: url,
-      type: 'post',
+      type: 'get',
       dataType: 'text',
       async: false
     }).done(function(data) {
@@ -1867,7 +2018,7 @@ function insertCalCard(j,events,calContent,pos) {
   calCard.children(".event-cont").append("<span class='hr'></span><span class='name'><a href='" + events[j].url + "'>" + events[j].name + "</a></span>");
   calCard.children(".event-cont").append("<a href='#' class='event-tag event-tag-" + events[j].typeid + "'>" + events[j].type + "</a>");
   
-  calCard.append("<div class='sn-share fc'><div class='cont'><h5>Поделись с друзьями:</h5><div class='share-btn'><a href='#'><span class='ico ico-vk'></span></a></div><div class='share-btn'><a href='#'><span class='ico ico-fb'></span></a></div><div class='share-btn'><a href='#'><span class='ico ico-twitter'></span><span class='shares-num'><span>435</span></span></a></div></div></div>");
+ calCard.append("<div class='sn-share fc'><div class='cont'><h5>Поделись с друзьями:</h5><div class='share-btn'><a href='http://vkontakte.ru/share.php?url="+events[j].url+"' onclick='return vk_click();' target='_blank'><span class='ico ico-vk'></span></a></div><div class='share-btn'><a href='http://www.facebook.com/share.php?u=&t="+events[j].name+"' onclick='return fbs_click();' target='_blank'><span class='ico ico-fb'></span></a></div><div class='share-btn'><a href='"+events[j].url+"+"+events[j].name+"' onclick='return twitter_click_1();' target='_blank' ><span class='ico ico-twitter'></span><span class='shares-num'><span>"+ events[j].twit +"</span></span></a></div></div></div>");
   
   if (pos == 'before') {
     calCard.prependTo(calContent);
@@ -2532,34 +2683,7 @@ function adaptation() {
       calContent.stop().css("left",calPos).css("width",calWidth)
     },100)
     
-  }
-  
-  
-  
+  } 
   
 }
 
-function newsMakeup() {
-  if ($(".newslist").length) {
-    $(".newslist").each(function() {
-      var list = $(this);
-      
-      if (!$(this).children(".newslist-item-big").length && !$(this).find(".newslist-row").length) {
-        
-        var items = list.children(".newslist-item");
-        
-        for(var i = 0; i < items.length; i+=2) {
-          items.slice(i, i+2)
-             .wrapAll("<div class='newslist-row fc' />");
-        }
-        
-        list.find(".newslist-row").first().addClass("first-row");
-      
-      } else {
-        list.addClass("newslist-alternate")
-      } 
-      
-      
-    });
-  }
-} 
