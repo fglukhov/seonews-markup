@@ -1,10 +1,10 @@
 ﻿@font-face {
     font-family: 'OpenSansItalic';
-    src: url('../fonts/OpenSans-Italic-webfont.eot');
-    src: url('../fonts/OpenSans-Italic-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/OpenSans-Italic-webfont.woff') format('woff'),
-         url('../fonts/OpenSans-Italic-webfont.ttf') format('truetype'),
-         url('../fonts/OpenSans-Italic-webfont.svg#open_sansitalic') format('svg');
+    src: url('/fonts/OpenSans-Italic-webfont.eot');
+    src: url('/fonts/OpenSans-Italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/OpenSans-Italic-webfont.woff') format('woff'),
+         url('/fonts/OpenSans-Italic-webfont.ttf') format('truetype'),
+         url('/fonts/OpenSans-Italic-webfont.svg#open_sansitalic') format('svg');
     font-weight: normal;
     font-style: normal;
 
@@ -12,11 +12,11 @@
 
 @font-face {
     font-family: 'OpenSansLight';
-    src: url('../fonts/OpenSans-Light-webfont.eot');
-    src: url('../fonts/OpenSans-Light-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/OpenSans-Light-webfont.woff') format('woff'),
-         url('../fonts/OpenSans-Light-webfont.ttf') format('truetype'),
-         url('../fonts/OpenSans-Light-webfont.svg#open_sansLight') format('svg');
+    src: url('/fonts/OpenSans-Light-webfont.eot');
+    src: url('/fonts/OpenSans-Light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/OpenSans-Light-webfont.woff') format('woff'),
+         url('/fonts/OpenSans-Light-webfont.ttf') format('truetype'),
+         url('/fonts/OpenSans-Light-webfont.svg#open_sansLight') format('svg');
     font-weight: normal;
     font-style: normal;
 
@@ -24,11 +24,11 @@
 
 @font-face {
     font-family: 'OpenSansBold';
-    src: url('../fonts/OpenSans-Bold-webfont.eot');
-    src: url('../fonts/OpenSans-Bold-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/OpenSans-Bold-webfont.woff') format('woff'),
-         url('../fonts/OpenSans-Bold-webfont.ttf') format('truetype'),
-         url('../fonts/OpenSans-Bold-webfont.svg#open_sansBold') format('svg');
+    src: url('/fonts/OpenSans-Bold-webfont.eot');
+    src: url('/fonts/OpenSans-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/OpenSans-Bold-webfont.woff') format('woff'),
+         url('/fonts/OpenSans-Bold-webfont.ttf') format('truetype'),
+         url('/fonts/OpenSans-Bold-webfont.svg#open_sansBold') format('svg');
     font-weight: normal;
     font-style: normal;
 
@@ -36,11 +36,11 @@
 
 @font-face {
     font-family: 'OpenSans';
-    src: url('../fonts/OpenSans-Regular-webfont.eot');
-    src: url('../fonts/OpenSans-Regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/OpenSans-Regular-webfont.woff') format('woff'),
-         url('../fonts/OpenSans-Regular-webfont.ttf') format('truetype'),
-         url('../fonts/OpenSans-Regular-webfont.svg#open_sansregular') format('svg');
+    src: url('/fonts/OpenSans-Regular-webfont.eot');
+    src: url('/fonts/OpenSans-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/OpenSans-Regular-webfont.woff') format('woff'),
+         url('/fonts/OpenSans-Regular-webfont.ttf') format('truetype'),
+         url('/fonts/OpenSans-Regular-webfont.svg#open_sansregular') format('svg');
     font-weight: normal;
     font-style: normal;
 
@@ -48,11 +48,11 @@
 
 @font-face {
     font-family: 'OpenSansSemibold';
-    src: url('../fonts/OpenSans-Semibold-webfont.eot');
-    src: url('../fonts/OpenSans-Semibold-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/OpenSans-Semibold-webfont.woff') format('woff'),
-         url('../fonts/OpenSans-Semibold-webfont.ttf') format('truetype'),
-         url('../fonts/OpenSans-Semibold-webfont.svg#open_sanssemibold') format('svg');
+    src: url('/fonts/OpenSans-Semibold-webfont.eot');
+    src: url('/fonts/OpenSans-Semibold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/OpenSans-Semibold-webfont.woff') format('woff'),
+         url('/fonts/OpenSans-Semibold-webfont.ttf') format('truetype'),
+         url('/fonts/OpenSans-Semibold-webfont.svg#open_sanssemibold') format('svg');
     font-weight: normal;
     font-style: normal;
 
@@ -60,11 +60,11 @@
 
 @font-face {
     font-family: 'OpenSansSemiboldItalic';
-    src: url('../fonts/OpenSans-SemiboldItalic-webfont.eot');
-    src: url('../fonts/OpenSans-SemiboldItalic-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/OpenSans-SemiboldItalic-webfont.woff') format('woff'),
-         url('../fonts/OpenSans-SemiboldItalic-webfont.ttf') format('truetype'),
-         url('../fonts/OpenSans-SemiboldItalic-webfont.svg#open_sanssemibold_italic') format('svg');
+    src: url('/fonts/OpenSans-SemiboldItalic-webfont.eot');
+    src: url('/fonts/OpenSans-SemiboldItalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/OpenSans-SemiboldItalic-webfont.woff') format('woff'),
+         url('/fonts/OpenSans-SemiboldItalic-webfont.ttf') format('truetype'),
+         url('/fonts/OpenSans-SemiboldItalic-webfont.svg#open_sanssemibold_italic') format('svg');
     font-weight: normal;
     font-style: normal;
 
@@ -243,7 +243,7 @@ b,strong {
   vertical-align:middle;
   padding:0 14px 0 14px;
   height:50px;
-  background:url(../images/m-menu-vr.png) right center no-repeat;
+  background:url(/images/m-menu-vr.png) right center no-repeat;
   position:relative;
   color:#fff;
   font-family:'OpenSansSemibold', sans-serif;
@@ -290,7 +290,7 @@ b,strong {
   position:absolute;
   height:90px;
   width:100%;
-  top:-58px;
+  top:-68px;
   z-index:10;
 }
 
@@ -320,21 +320,21 @@ b,strong {
 }
 
 .top-filter .tf-prof a {
-  background-image:url(../images/filter-1-bg.png);
+  background-image:url(/images/filter-1-bg.png);
   background-repeat:no-repeat;
   width:167px;
   background-position:0 0;
 }
 
 .top-filter .tf-moneymakers a {
-  background-image:url(../images/filter-2-bg.png);
+  background-image:url(/images/filter-2-bg.png);
   background-repeat:no-repeat;
   width:147px;
   background-position:0 0;
 }
 
 .top-filter .tf-clients a {
-  background-image:url(../images/filter-3-bg.png);
+  background-image:url(/images/filter-3-bg.png);
   background-repeat:no-repeat;
   width:136px;
   background-position:0 0;
@@ -399,7 +399,7 @@ b,strong {
   color:#2f2c2b;
   font-size:15px;
   font-family:'OpenSansSemibold', sans-serif;
-  background:url(../images/underline-2.png) 0 18px repeat-x;
+  background:url(/images/underline-2.png) 0 18px repeat-x;
 }
 
 .header .user-controls {
@@ -428,7 +428,7 @@ b,strong {
   height:8px;
   position:absolute;
   margin:-8px 0 0 112px;
-  background:url(../images/white-pt.png) 0 0 no-repeat;
+  background:url(/images/white-pt.png) 0 0 no-repeat;
 }
 
 .header-fixed .user-controls .pt {
@@ -477,7 +477,7 @@ b,strong {
 }
 
 .ico {
-  background-image:url(../images/sprite.png);
+  background-image:url(/images/sprite.png);
   background-repeat:no-repeat;
 }
 
@@ -586,7 +586,7 @@ b,strong {
 .header-fixed .userpic {
   width:30px !important;
   height:30px !important;
-  background:url(../images/sprite.png) -46px -51px no-repeat;
+  background:url(/images/sprite.png) -46px -51px no-repeat;
 }
 
 .header-fixed .user-link .userpic img {
@@ -652,7 +652,7 @@ a.button:visited {
 }
 
 .button-2 {
-  background-image:url(../images/button-2-bg.png);
+  background-image:url(/images/button-2-bg.png);
   background-repeat:repeat-x;
   background-position:0 0;
   height:42px;
@@ -670,7 +670,7 @@ a.button:visited {
 }
 
 .button-3 {
-  background-image:url(../images/button-2-bg.png);
+  background-image:url(/images/button-2-bg.png);
   background-repeat:repeat-x;
   background-position:0 0;
   height:35px;
@@ -687,7 +687,7 @@ a.button:visited {
 }
 
 .button-4 {
-  background-image:url(../images/button-4-bg.png);
+  background-image:url(/images/button-4-bg.png);
   background-repeat:repeat-x;
   background-position:0 0;
   height:47px;
@@ -708,7 +708,7 @@ a.button:visited {
 }
 
 .button-5 {
-  background-image:url(../images/button-2-bg.png);
+  background-image:url(/images/button-2-bg.png);
   background-repeat:repeat-x;
   background-position:0 0;
   height:30px;
@@ -721,7 +721,7 @@ a.button:visited {
 }
 
 .button-6 {
-  background-image:url(../images/button-4-bg.png);
+  background-image:url(/images/button-4-bg.png);
   background-repeat:repeat-x;
   background-position:0 0;
   height:26px;
@@ -750,11 +750,11 @@ a.button:visited {
 }
 
 .button-1-ico {
-  background-image:url(../images/button-1-ico-bg.png);
+  background-image:url(/images/button-1-ico-bg.png);
 }
 
 .button-2-ico {
-  background-image:url(../images/button-2-ico-bg.png);
+  background-image:url(/images/button-2-ico-bg.png);
 }
 
 .button-best .ico {
@@ -786,7 +786,7 @@ a.button:visited {
 }
 
 .button-fb {
-  background-image:url(../images/button-fb-bg.png);
+  background-image:url(/images/button-fb-bg.png);
 }
 
 .button-fb .ico {
@@ -800,7 +800,7 @@ a.button:visited {
 }
 
 .button-vk {
-  background-image:url(../images/button-vk-bg.png);
+  background-image:url(/images/button-vk-bg.png);
 }
 
 .button-vk .ico {
@@ -814,7 +814,7 @@ a.button:visited {
 }
 
 .button-twitter {
-  background-image:url(../images/button-twitter-bg.png);
+  background-image:url(/images/button-twitter-bg.png);
 }
 
 .button-twitter .ico {
@@ -997,7 +997,7 @@ a.button:visited {
 }
 
 .badge-seonews-select {
-  background-image:url(../images/badge-seonews-select.png);
+  background-image:url(/images/badge-seonews-select.png);
 }
 
 .mainpage-main .post-lead {
@@ -1094,7 +1094,7 @@ a.button:visited {
   padding:8px 0 0 35px;
   height:18px;
   line-height:18px;
-  background:url(../images/username-fade.png) 0 0 repeat-y;
+  background:url(/images/username-fade.png) 0 0 repeat-y;
 }
 
 .mainpage-main .comments-views,
@@ -1189,6 +1189,11 @@ a:hover .ico-review {
 .first-row .newslist-item {
   padding-top:0;
   border-top:0;
+}
+
+.newslist.themeup .newslist-item{
+border-top:1px solid #ececec;
+padding:27px 0 0 0;
 }
 
 .newslist-item .pic {
@@ -1334,7 +1339,7 @@ a:hover .ico-review {
   position:relative;
   top:-1px;
   height:16px;
-  background:url(../images/tag-pro.png) 0 0 no-repeat;
+  background:url(/images/tag-pro.png) 0 0 no-repeat;
   color:#fff;
   text-transform:uppercase;
   font-family:'OpenSansSemibold', sans-serif;
@@ -1665,7 +1670,7 @@ a:hover .ico-review {
 
 .mainpage-calendar .prev .text,
 .mainpage-calendar .next .text {
-  background:url(../images/underline-2.png) 0 17px repeat-x;
+  background:url(/images/underline-2.png) 0 17px repeat-x;
   position:relative;
   top:7px;
 }
@@ -1677,12 +1682,12 @@ a:hover .ico-review {
 
 .mainpage-calendar .prev:hover .text,
 .mainpage-calendar .next:hover .text {
-  background:url(../images/underline-2-hover.png) 0 17px repeat-x;
+  background:url(/images/underline-2-hover.png) 0 17px repeat-x;
 }
 
 .mainpage-calendar .prev .arr,
 .mainpage-calendar .next .arr {
-  background-image:url(../images/arrows-1.png);
+  background-image:url(/images/arrows-1.png);
   background-repeat:no-repeat;
   display:block;
   width:35px;
@@ -1859,7 +1864,7 @@ a:hover .ico-review {
 }
 
 .shares-num {
-  background:url(../images/shares-num.png) 0 0 no-repeat;
+  background:url(/images/shares-num.png) 0 0 no-repeat;
   padding:0 0 0 6px;
   height:22px;
   display:block;
@@ -1868,7 +1873,7 @@ a:hover .ico-review {
 }
 
 .shares-num span {
-  background:url(../images/shares-num.png) right -22px no-repeat;
+  background:url(/images/shares-num.png) right -22px no-repeat;
   height:22px;
   display:block;
   padding:0 6px 0 2px;
@@ -1948,6 +1953,16 @@ a:hover .ico-review {
   margin-bottom:14px;
 }
 
+.mainpage-events-slider .event-content a {
+  display:block;
+  text-decoration:none;
+}
+
+.mainpage-events-slider .event-content span {
+  display:block;
+}
+
+
 .mainpage-events-slider .event-content .event-wrapper {
   position:relative;
   width:409px;
@@ -1966,7 +1981,7 @@ a:hover .ico-review {
   -webkit-border-radius:4px;
   -moz-border-radius:4px;
   border-radius:4px;
-  background:url(../images/main-event-mask.png) 0 bottom repeat-x;
+  background:url(/images/main-event-mask.png) 0 bottom repeat-x;
   z-index:1;
 }
 
@@ -1997,8 +2012,12 @@ a:hover .ico-review {
   color:#fff;
 }
 
-.mainpage-events-slider .event-content .event-descr .name a:hover {
-  background:url(../images/underline-1.png) 0 bottom repeat-x;
+.mainpage-events-slider .event-content .event-descr .name span {
+  display:inline;
+}
+
+.mainpage-events-slider .event-content:hover .event-descr .name span {
+  background:url(/images/underline-1.png) 0 bottom repeat-x;
 }
 
 .mainpage-catalogue {
@@ -2057,7 +2076,7 @@ a:hover .ico-review {
 .mainpage-catalogue .next {
   position:absolute;
   z-index:5;
-  background-image:url(../images/cat-arrows.png);
+  background-image:url(/images/cat-arrows.png);
   background-repeat:no-repeat;
   top:43px;
   cursor:pointer;
@@ -2118,7 +2137,7 @@ a:hover .ico-review {
 .mainpage-catalogue .rating .place {
   width:56px;
   height:56px;
-  background:url(../images/sprite.png) -60px -131px no-repeat;
+  background:url(/images/sprite.png) -60px -131px no-repeat;
   text-align:center;
   font-size:9px;
   float:left;
@@ -2287,7 +2306,7 @@ a:hover .ico-review {
 .mainpage-ratings .next {
   position:absolute;
   z-index:5;
-  background-image:url(../images/cat-arrows.png);
+  background-image:url(/images/cat-arrows.png);
   background-repeat:no-repeat;
   top:58px;
   cursor:pointer;
@@ -2340,7 +2359,7 @@ a:hover .ico-review {
 }
 
 .mainpage-ratings .rating-place {
-  background-image:url(../images/sprite.png);
+  background-image:url(/images/sprite.png);
   background-repeat:no-repeat;
   width:205px;
   height:34px;
@@ -2380,7 +2399,7 @@ h2 .rating-link:hover {
 }
 
 .total {
-  background:url(../images/total-bg.png) 0 0 no-repeat;
+  background:url(/images/total-bg.png) 0 0 no-repeat;
   padding:0 0 0 15px;
   font-size:17px;
   position:relative;
@@ -2393,7 +2412,7 @@ h2 .rating-link:hover {
 }
 
 .total span {
-  background:url(../images/total-bg.png) right -39px no-repeat;
+  background:url(/images/total-bg.png) right -39px no-repeat;
   padding:0 15px 0 7px;
   display:inline-block;
   height:39px;
@@ -2491,7 +2510,7 @@ h2 .rating-link:hover {
 
 .bloglist-item .post-lead {
   overflow:hidden;
-  background:url(../images/bloglist-hr.png) 0 bottom no-repeat;
+  background:url(/images/bloglist-hr.png) 0 bottom no-repeat;
   padding:0 0 21px 0;
   margin:0 0 12px 0;
 }
@@ -2556,7 +2575,7 @@ h2 .rating-link:hover {
 
 .button-blog-motivator {
 
-  background-image:url(../images/button-blog-motivator.png);
+  background-image:url(/images/button-blog-motivator.png);
   background-repeat:repeat-x;
   font-family:'OpenSansBold', sans-serif;
   text-transform:uppercase;
@@ -2582,7 +2601,7 @@ h2 .rating-link:hover {
   color:#2f2c2b;
   font-size:16px;
   font-family:'OpenSansSemibold', sans-serif;
-  background:url(../images/underline-2.png) 0 20px repeat-x;
+  background:url(/images/underline-2.png) 0 20px repeat-x;
 }
 
 .ico-search {
@@ -2617,7 +2636,7 @@ h2 .rating-link:hover {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
-  background:#fff url(../images/input-bg.png) 0 0 repeat-x;
+  background:#fff url(/images/input-bg.png) 0 0 repeat-x;
   height:42px;
 }
 
@@ -2631,7 +2650,7 @@ h2 .rating-link:hover {
 }
 
 .search-block .form-text {
-  background:url(../images/search.png) 12px 12px no-repeat;
+  background:url(/images/search.png) 12px 12px no-repeat;
   padding:0 20px 0 55px;
   font-size:17px;
   font-family:'OpenSansSemibold', sans-serif;
@@ -2659,7 +2678,7 @@ h2 .rating-link:hover {
   color:#737373;
   padding:9px 0 20px 0;
   margin:0 0 7px 0;
-  background:url(../images/livefeed-hr.png) right bottom no-repeat;
+  background:url(/images/livefeed-hr.png) right bottom no-repeat;
 }
 
 .livefeed-item .action a,
@@ -2800,7 +2819,7 @@ h2.section-title {
 .section-filter .link span,
 .section-filter-tools .link span {
   line-height:18px;
-  background:url(../images/underline-2.png) 0 16px repeat-x;
+  background:url(/images/underline-2.png) 0 16px repeat-x;
   cursor:pointer;
   margin:0;
 }
@@ -2866,7 +2885,7 @@ h2.section-title {
 .toolslist-2 .toolslist-item .rating .place {
   width:56px;
   height:56px;
-  background:url(../images/sprite.png) -60px -131px no-repeat;
+  background:url(/images/sprite.png) -60px -131px no-repeat;
   text-align:center;
   font-size:9px;
   float:left;
@@ -2974,7 +2993,7 @@ h2.section-title {
 
 .sidenav li ul {
   margin:4px -15px -9px -15px;
-  background:#f3f3f3 url(../images/nav-calendar-act.png) 0 0 no-repeat;
+  background:#f3f3f3 url(/images/nav-calendar-act.png) 0 0 no-repeat;
   display:none;
   padding:10px 0 7px 0;
 }
@@ -3126,7 +3145,7 @@ h1 {
   float:left;
   width:27px;
   height:27px;
-  background-image:url(../images/sprite.png);
+  background-image:url(/images/sprite.png);
   background-repeat:no-repeat;
   cursor:pointer;
   margin:-6px 5px 0 0;
@@ -3290,7 +3309,7 @@ h1 {
 }
 
 .post-tags {
-  background:url(../images/ico-tag.png) 0 0 no-repeat;
+  background:url(/images/ico-tag.png) 0 0 no-repeat;
   color:#9b9b9b;
   font-size:11px;
   font-family:'OpenSansItalic', sans-serif;
@@ -3453,7 +3472,7 @@ h1 {
   float:left;
   width:27px;
   height:27px;
-  background-image:url(../images/sprite.png);
+  background-image:url(/images/sprite.png);
   background-repeat:no-repeat;
   cursor:pointer;
   margin:-6px 2px 0 0;
@@ -3476,7 +3495,7 @@ h1 {
 .post-comments .comment-body {
   float:left;
   padding:5px 0 19px 0;
-  background-image:url(../images/comment-pt.png);
+  background-image:url(/images/comment-pt.png);
   background-repeat:no-repeat;
   background-position:30px -5px;
 }
@@ -3559,7 +3578,7 @@ h1 {
 
 .post-comments .comment .comment {
   padding:13px 0 0 30px;
-  background:url(../images/comment-arr.png) 0 15px no-repeat;
+  background:url(/images/comment-arr.png) 0 15px no-repeat;
 }
 
 .post-comments .comment .comment .comment .comment .comment {
@@ -3622,7 +3641,7 @@ h1 {
 }
 
 .events-calendar .tabs span {
-  background:url(../images/underline-2.png) 0 29px repeat-x;
+  background:url(/images/underline-2.png) 0 29px repeat-x;
 }
 
 .events-calendar .tabs .act span {
@@ -3744,7 +3763,7 @@ h1 {
   right:0;
   width:27px;
   height:27px;
-  background-image:url(../images/sprite.png);
+  background-image:url(/images/sprite.png);
   background-repeat:no-repeat;
   cursor:pointer;
 }
@@ -3834,7 +3853,7 @@ h1 {
 }
 
 .events-calendar .total {
-  background:url(../images/total-small-bg.png) 0 0 no-repeat;
+  background:url(/images/total-small-bg.png) 0 0 no-repeat;
   padding:0 0 0 10px;
   font-size:11px;
   position:relative;
@@ -3848,7 +3867,7 @@ h1 {
 }
 
 .events-calendar .total span {
-  background:url(../images/total-small-bg.png) right -23px no-repeat;
+  background:url(/images/total-small-bg.png) right -23px no-repeat;
   padding:0 7px 0 2px;
   display:inline-block;
   height:23px;
@@ -3911,7 +3930,7 @@ h1 {
 }
 
 .event-data .event-date {
-  font-size:12px !important;
+  /* font-size:12px !important; */
 }
 
 .events-calendar .end-date-narrow {
@@ -3958,7 +3977,7 @@ h1 {
     padding: 0;
     width: 23px;
     height: 23px;
-    background: url(../images/icheck.png) no-repeat;
+    background: url(/images/icheck.png) no-repeat;
     border: none;
     cursor: pointer;
     float:left;
@@ -4132,7 +4151,7 @@ h1 {
 
 .book-descr .total,
 .event-status .total {
-  background:url(../images/total-med-bg.png) 0 0 no-repeat;
+  background:url(/images/total-med-bg.png) 0 0 no-repeat;
   padding:0 0 0 10px;
   font-size:13px;
   position:relative;
@@ -4147,7 +4166,7 @@ h1 {
 
 .book-descr .total span,
 .event-status .total span {
-  background:url(../images/total-med-bg.png) right -28px no-repeat;
+  background:url(/images/total-med-bg.png) right -28px no-repeat;
   padding:0 12px 0 7px;
   display:inline-block;
   height:28px;
@@ -4225,7 +4244,7 @@ h1 {
 
 .post-text ul li {
   padding:0 0 0 15px;
-  background:url(../images/bullit.png) 0 .55em no-repeat;
+  background:url(/images/bullit.png) 0 .55em no-repeat;
   margin:0 0 .7em 0;
 }
 
@@ -4382,7 +4401,7 @@ h1 {
 }
 
 .tabbed-content .tabs span {
-  background:url(../images/underline-2.png) 0 23px repeat-x;
+  background:url(/images/underline-2.png) 0 23px repeat-x;
   font-family:'OpenSansSemibold',sans-serif;
 }
 
@@ -4553,7 +4572,7 @@ h1 {
   position:absolute;
   width:58px;
   height:59px;
-  background:url(../images/zoom.png) 0 0 no-repeat;
+  background:url(/images/zoom.png) 0 0 no-repeat;
   z-index:2;
   top:33px;
   left:68px;
@@ -4568,7 +4587,7 @@ h1 {
 .fancybox-next span {
   width:25px !important;
   height:39px !important;
-  background-image:url(../images/fancybox-arrows.png) !important;
+  background-image:url(/images/fancybox-arrows.png) !important;
   background-repeat:no-repeat !important;
   display:block !important;
   visibility:visible !important;
@@ -4885,7 +4904,7 @@ h2 .section-filter span {
 
 .show-more .txt,
 .rating-show-more .txt {
-  background:url(../images/underline-2.png) 0 16px repeat-x;
+  background:url(/images/underline-2.png) 0 16px repeat-x;
   line-height:16px;
   position:relative;
   top:11px;
@@ -5052,7 +5071,7 @@ h2 .section-filter span {
 }
 
 .year-nav span {
-  background:url(../images/underline-2.png) 0 18px repeat-x;
+  background:url(/images/underline-2.png) 0 18px repeat-x;
   cursor:pointer;
   position:relative;
   top:6px;
@@ -5065,12 +5084,12 @@ h2 .section-filter span {
 }
 
 .year-nav .act {
-  background:url(../images/sprite.png) -305px -250px no-repeat;
+  background:url(/images/sprite.png) -305px -250px no-repeat;
 }
 
 .rating-table {
   width:857px;
-  background:url(../images/rating-table-header.png) 0 0 no-repeat;
+  background:url(/images/rating-table-header.png) 0 0 no-repeat;
   color:#202020;
 }
 
@@ -5081,7 +5100,7 @@ h2 .section-filter span {
   font-family:'OpenSansSemibold',sans-serif;
   text-align:center;
   vertical-align:middle;
-  background:url(../images/rating-table-sep.png) 0 center no-repeat;
+  background:url(/images/rating-table-sep.png) 0 center no-repeat;
   padding:0 12px;
 }
 
@@ -5142,13 +5161,13 @@ h2 .section-filter span {
 .rating-change-pos {
   color:#94ba4a;
   padding:0 0 0 12px;
-  background:url(../images/rating-arrows.png) 0 4px no-repeat;
+  background:url(/images/rating-arrows.png) 0 4px no-repeat;
 }
 
 .rating-change-neg {
   color:#cb454f;
   padding:0 0 0 12px;
-  background:url(../images/rating-arrows.png) 0 -26px no-repeat;
+  background:url(/images/rating-arrows.png) 0 -26px no-repeat;
 }
 
 .rating-rules {
@@ -5267,7 +5286,7 @@ h2 .section-filter span {
 }
 
 .button-ico-rating-reg {
-  background-image:url(../images/button-rating-reg-ico-bg.png);
+  background-image:url(/images/button-rating-reg-ico-bg.png);
 }
 
 .rating-reg-sidebar .button {
@@ -5304,7 +5323,7 @@ h2 .section-filter span {
   line-height:42px;
   font-family:'OpenSansSemibold',sans-serif;
   text-transform:uppercase;
-  background-image:url(../images/button-7-bg.png);
+  background-image:url(/images/button-7-bg.png);
   background-repeat:repeat-x;
   padding:0 20px;
   text-align:center;
@@ -5458,7 +5477,7 @@ h2 .section-filter span {
 
 .common-form .icheckbox,
 .common-form .iradio {
-  background-image:url(../images/icheck-2.png);
+  background-image:url(/images/icheck-2.png);
 }
 
 .common-form .captcha {
@@ -5568,7 +5587,7 @@ h2 .section-filter span {
 }
 
 .param-selector .arr {
-  background:url(../images/sprite.png) -407px -198px no-repeat;
+  background:url(/images/sprite.png) -407px -198px no-repeat;
   width:20px;
   height:20px;
   right:10px;
@@ -5585,7 +5604,7 @@ h2 .section-filter span {
   top:-40px;
   position:relative;
   clear:left;
-  background:url(../images/city-selector-pt.png);
+  background:url(/images/city-selector-pt.png);
   background-repeat:no-repeat;
   display:none;
   font-size:13px;
@@ -5617,7 +5636,7 @@ h2 .section-filter span {
 
 .tender-form .city-link {
   color:#5ba5aa;
-  background:url(../images/underline-3.png) 0 16px repeat-x;
+  background:url(/images/underline-3.png) 0 16px repeat-x;
   font-size:12px;
   margin:0 0 0 15px;
   display:none;
@@ -5670,7 +5689,7 @@ h2 .section-filter span {
 
 .tender-form .select-link span#compSelectTrigger {
   color:#5ba5aa;
-  background:url(../images/underline-3.png) 0 18px repeat-x;
+  background:url(/images/underline-3.png) 0 18px repeat-x;
   cursor:pointer;
   font-size:16px;
   font-family:'OpenSansSemibold', sans-serif;
@@ -5707,7 +5726,7 @@ h2 .section-filter span {
 
 .city-selector .icheckbox,
 #tenderTable .icheckbox {
-  background-image:url(../images/icheck-3.png);
+  background-image:url(/images/icheck-3.png);
 }
 
 #tenderTable .icheckbox {
@@ -5789,17 +5808,17 @@ h2 .section-filter span {
 }
 
 .button-rooletka {
-  background-image:url(../images/button-rooletka.png);
+  background-image:url(/images/button-rooletka.png);
   background-repeat:repeat-x;
 }
 
 .button-rookee {
-  background-image:url(../images/button-rookee.png);
+  background-image:url(/images/button-rookee.png);
   background-repeat:repeat-x;
 }
 
 .button-uniplace {
-  background-image:url(../images/button-uniplace.png);
+  background-image:url(/images/button-uniplace.png);
   background-repeat:repeat-x;
 }
 
@@ -5863,7 +5882,7 @@ h2 .section-filter span {
 
 .tf-sort .link span {
   line-height:18px;
-  background:url(../images/underline-2.png) 0 16px repeat-x;
+  background:url(/images/underline-2.png) 0 16px repeat-x;
   cursor:pointer;
   margin:0;
 }
@@ -5915,7 +5934,7 @@ h2 .section-filter span {
   border:1px solid #e7e7e7;
   width:145px;
   height:145px;
-  background:url(../images/tool-logo-bg-m.png) 0 0 no-repeat;
+  background:url(/images/tool-logo-bg-m.png) 0 0 no-repeat;
   margin:0 20px 0 0;
   float:left;
   position:relative;
@@ -5990,11 +6009,11 @@ h2 .section-filter span {
   height:8px;
   position:absolute;
   margin:-8px 0 0 169px;
-  background:url(../images/white-pt.png) 0 0 no-repeat;
+  background:url(/images/white-pt.png) 0 0 no-repeat;
 }
 
 .tool-review-pup-top .pt {
-  background:url(../images/white-pt-btm.png) 0 0 no-repeat;
+  background:url(/images/white-pt-btm.png) 0 0 no-repeat;
   bottom:-8px;
   margin-top:0;
 }
@@ -6167,7 +6186,7 @@ h2 .section-filter span {
 }
 
 .toolslist .toolslist-item-big {
-  background:url(../images/toolslist-item-big-bg.png) 0 0 no-repeat;
+  background:url(/images/toolslist-item-big-bg.png) 0 0 no-repeat;
   width:275px;
   height:210px;
   behavior:url(PIE.htc);
@@ -6288,7 +6307,7 @@ h2 .section-filter span {
   border:1px solid #e7e7e7;
   width:100px;
   height:100px;
-  background:url(../images/tool-logo-bg-m.png) 0 0 no-repeat;
+  background:url(/images/tool-logo-bg-m.png) 0 0 no-repeat;
   margin:0 20px 0 0;
   float:left;
   position:relative;
@@ -6408,7 +6427,7 @@ h2 .section-filter span {
   border:1px solid #e7e7e7;
   width:250px;
   height:179px;
-  background:url(../images/tool-big-bg.png) 0 0 no-repeat;
+  background:url(/images/tool-big-bg.png) 0 0 no-repeat;
   margin:0 30px 0 0;
   float:left;
   position:relative;
@@ -6445,7 +6464,7 @@ h2 .section-filter span {
 }
 
 .button-ico-vote {
-  background-image:url(../images/button-rating-reg-ico-bg.png);
+  background-image:url(/images/button-rating-reg-ico-bg.png);
   text-transform:none;
   font-family:'OpenSansBold';
   height:39px;
@@ -6464,7 +6483,7 @@ h2 .section-filter span {
 }
 
 .rating-count {
-  background:url(../images/total-bg-2.png) 0 0 no-repeat;
+  background:url(/images/total-bg-2.png) 0 0 no-repeat;
   padding:0 0 0 15px;
   font-size:17px;
   position:relative;
@@ -6478,7 +6497,7 @@ h2 .section-filter span {
 }
 
 .rating-count .cont {
-  background:url(../images/total-bg-2.png) right -39px no-repeat;
+  background:url(/images/total-bg-2.png) right -39px no-repeat;
   padding:0 15px 0 7px;
   height:39px;
   display:block;
@@ -6517,7 +6536,7 @@ h2 .section-filter span {
 .tool-descr .rating .place {
   width:47px;
   height:47px;
-  background:url(../images/sprite.png) -495px -131px no-repeat;
+  background:url(/images/sprite.png) -495px -131px no-repeat;
   text-align:center;
   font-size:9px;
   float:left;
@@ -6545,7 +6564,7 @@ h2 .section-filter span {
 }
 
 .tabbed-content .tabs .total {
-  background:url(../images/total-med-bg.png) 0 0 no-repeat !important;
+  background:url(/images/total-med-bg.png) 0 0 no-repeat !important;
   padding:0 0 0 10px;
   font-size:13px;
   position:relative;
@@ -6559,7 +6578,7 @@ h2 .section-filter span {
 }
 
 .tabbed-content .tabs .total span {
-  background:url(../images/total-med-bg.png) right -28px no-repeat !important;
+  background:url(/images/total-med-bg.png) right -28px no-repeat !important;
   padding:0 12px 0 7px;
   display:inline-block;
   height:28px;
@@ -6688,7 +6707,7 @@ h2 .section-filter span {
   width:26px;
   height:26px;
   text-indent:1000px;
-  background-image:url(../images/sprite.png);
+  background-image:url(/images/sprite.png);
   background-repeat:no-repeat;
   background-position:-385px -48px;
   cursor:pointer;
@@ -6702,7 +6721,7 @@ h2 .section-filter span {
   width:26px;
   height:26px;
   text-indent:1000px;
-  background-image:url(../images/sprite.png);
+  background-image:url(/images/sprite.png);
   background-repeat:no-repeat;
   background-position:-413px -48px;
   cursor:pointer;
@@ -6801,7 +6820,7 @@ h2 .section-filter span {
 .popup-header .close {
   width:35px;
   height:35px;
-  background:url(../images/sprite.png) -202px 0 no-repeat;
+  background:url(/images/sprite.png) -202px 0 no-repeat;
   cursor:pointer;
   float:right;
 }
@@ -6875,7 +6894,7 @@ h2 .section-filter span {
 .review-form .pic-upload {
   float:right;
   height:20px;
-  background:url(../images/ico-photo.png) 0 0 no-repeat;
+  background:url(/images/ico-photo.png) 0 0 no-repeat;
   color:#5b5b5b;
   padding:0 0 0 30px;
   cursor:pointer;
@@ -6888,7 +6907,7 @@ h2 .section-filter span {
   line-height:13px;
   position:relative;
   top:3px;
-  background:url(../images/underline-2.png) 0 13px repeat-x;
+  background:url(/images/underline-2.png) 0 13px repeat-x;
 }
 
 .review-opinion .button:active,
@@ -6908,17 +6927,17 @@ h2 .section-filter span {
 }
 
 #button-pos {
-  background-image:url(../images/button-pos.png);
+  background-image:url(/images/button-pos.png);
   padding:0 16px 0 64px;
 }
 
 #button-neg {
-  background-image:url(../images/button-neg.png);
+  background-image:url(/images/button-neg.png);
   padding:0 16px 0 64px;
 }
 
 #button-neu {
-  background-image:url(../images/button-neu.png);
+  background-image:url(/images/button-neu.png);
   background-repeat:repeat-x;
   padding:0 28px;
 }
@@ -6936,7 +6955,7 @@ h2 .section-filter span {
 
 .tint {
   position:absolute;
-  background:url(../images/tint.png);
+  background:url(/images/tint.png);
   left:0;
   top:0;
   z-index:900;
@@ -6967,7 +6986,7 @@ h2 .section-filter span {
   width:150px;
   padding:0 20px 0 0;
   float:left;
-  background:url(../images/vr.png) right 0 no-repeat;
+  background:url(/images/vr.png) right 0 no-repeat;
 }
 
 .post-text .expert-profile .expert-data .userpic {
@@ -7121,7 +7140,7 @@ h2 .section-filter span {
 }
 
 .text-nav li .li-cont {
-  background:url(../images/text-nav-bg.png) 0 0 no-repeat;
+  background:url(/images/text-nav-bg.png) 0 0 no-repeat;
   display:block;
   padding:2px 0 5px 38px;
   margin:0 0 0 -30px;
@@ -7130,7 +7149,7 @@ h2 .section-filter span {
 .text-nav a,
 .text-nav a:hover {
   text-decoration:none;
-  background:url(../images/underline-3.png) 0 18px repeat-x;
+  background:url(/images/underline-3.png) 0 18px repeat-x;
 }
 
 .post-text .table-wrapper {
@@ -7156,7 +7175,7 @@ h2 .section-filter span {
 
 .post-text table th {
   color:#fff;
-  background:#72bfc4 url(../images/rating-table-sep.png) 0 center no-repeat;
+  background:#72bfc4 url(/images/rating-table-sep.png) 0 center no-repeat;
   padding:12px 20px;
 }
 
@@ -7186,6 +7205,19 @@ h2 .section-filter span {
   color:red;
 }
 
+.cal-popup-months .empty {
+  cursor:default;
+}
+
+.cal-popup-months .empty .count {
+  display:none;
+}
+
+.cal-popup-months .empty span {
+  background:none;
+  cursor:default;
+}
+
 .cal-popup {
   /* display:none; */
   width:440px;
@@ -7212,7 +7244,7 @@ h2 .section-filter span {
   position:absolute;
   top:-8px;
   left:237px;
-  background:url(../images/white-pt.png) 0 0 no-repeat;
+  background:url(/images/white-pt.png) 0 0 no-repeat;
 }
 
 .cal-popup-years {
@@ -7235,7 +7267,7 @@ h2 .section-filter span {
 }
 
 .cal-popup-years span {
-  background:url(../images/underline-2.png) 0 20px repeat-x;
+  background:url(/images/underline-2.png) 0 20px repeat-x;
   cursor:pointer;
   position:relative;
   top:6px;
@@ -7248,7 +7280,7 @@ h2 .section-filter span {
 }
 
 .cal-popup-years .act {
-  background:url(../images/sprite.png) -372px -250px no-repeat;
+  background:url(/images/sprite.png) -372px -250px no-repeat;
 }
 
 .cal-popup-months {
@@ -7269,7 +7301,7 @@ h2 .section-filter span {
 
 .cal-popup-months span {
   font-family:'OpenSans', sans-serif;
-  background:url(../images/underline-2.png) 0 20px repeat-x;
+  background:url(/images/underline-2.png) 0 20px repeat-x;
   cursor:pointer;
   position:relative;
   top:6px;
@@ -7283,7 +7315,7 @@ h2 .section-filter span {
 .cal-popup-months .count {
   width:20px;
   height:20px;
-  background-image:url(../images/sprite.png);
+  background-image:url(/images/sprite.png);
   background-position:-448px -250px;
   background-repeat:no-repeat;
   font-size:8px;
@@ -7297,7 +7329,7 @@ h2 .section-filter span {
 }
 
 .cal-popup-months .act .count {
-  background-image:url(../images/sprite.png);
+  background-image:url(/images/sprite.png);
   background-position:-448px -270px;
   color:#fff;
 }
@@ -7333,7 +7365,7 @@ h2 .section-filter span {
   position:absolute;
   bottom:-8px;
   left:113px;
-  background:url(../images/white-pt-btm.png) 0 0 no-repeat;
+  background:url(/images/white-pt-btm.png) 0 0 no-repeat;
 }
 
 
@@ -7344,13 +7376,13 @@ h2 .section-filter span {
   position:absolute;
   top:-8px;
   left:113px;
-  background:url(../images/white-pt.png) 0 0 no-repeat;
+  background:url(/images/white-pt.png) 0 0 no-repeat;
 }
 
 .facebook-popup .ttl {
   width:231px;
   height:24px;
-  background:url(../images/facebook-popup-ttl.png) 0 0 no-repeat;
+  background:url(/images/facebook-popup-ttl.png) 0 0 no-repeat;
   font-size:12px;
   color:#fff;
   margin:0 -9px;
@@ -7417,7 +7449,7 @@ h2 .section-filter span {
   position:absolute;
   z-index:10;
   padding:0 0 6px 0;
-  background:url(../images/hint-pt.png) center bottom no-repeat;
+  background:url(/images/hint-pt.png) center bottom no-repeat;
 }
 
 .hint-popup .hint-content {
@@ -7444,7 +7476,7 @@ h2 .section-filter span {
   cursor:pointer;
   right:-10px;
   top:-10px;
-  background:url(../images/calendar-close.png) 0 0 no-repeat;
+  background:url(/images/calendar-close.png) 0 0 no-repeat;
 }
 
 .expertslist .expertslist-item .post-data {

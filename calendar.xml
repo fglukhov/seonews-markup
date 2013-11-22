@@ -425,7 +425,7 @@
 
   
  <event>
-		<name>Международная Конференция LEAD-Management</name>
+		<name>1. Международная Конференция LEAD-Management</name>
     <pic></pic>
 		<url>/calendar/past/984/</url>
 		<type>Оптимизация сайта</type>
@@ -434,8 +434,8 @@
     <enddate>9.10.2013</enddate>
 		<time>13:30</time>
 		<members>78</members>
-    <!--<review>#</review>-->
-		<!--<photos>#</photos>-->
+    <review>#</review>
+		<photos>#</photos>
     <views>466</views>
 	<twit>0</twit>
 </event>
@@ -806,6 +806,22 @@
 		<type>Создание сайтов</type>
     <typeid>6</typeid>
 		<date>14.11.2013</date>
+    <enddate></enddate>
+		<time>13:30</time>
+		<members>78</members>
+    <!--<review>#</review>
+		<photos>#</photos>-->
+    <views>459</views>
+	<twit>0</twit>
+</event>
+
+<event>
+		<name>Мероприятие13</name>
+    <pic></pic>
+		<url>/calendar/future/987/</url>
+		<type>Создание сайтов</type>
+    <typeid>6</typeid>
+		<date>28.11.2013</date>
     <enddate></enddate>
 		<time>13:30</time>
 		<members>78</members>

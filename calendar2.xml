@@ -424,7 +424,7 @@
 
   
  <event>
-		<name>Международная Конференция LEAD-Management</name>
+		<name>11 Международная Конференция LEAD-Management</name>
     <pic></pic>
 		<url>/calendar/past/984/</url>
 		<type>Оптимизация сайта</type>
@@ -433,8 +433,8 @@
     <enddate>9.10.2013</enddate>
 		<time>13:30</time>
 		<members>78</members>
-    <!--<review>#</review>-->
-		<!--<photos>#</photos>-->
+    <review>#</review>
+		<photos>#</photos>
     <views>466</views>
 	<twit>0</twit>
 </event>

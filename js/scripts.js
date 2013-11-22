@@ -306,7 +306,7 @@ $(".sn-subscribe .button-vk").click(function() {
   
   $(document.body).on('mouseout', '.header-fixed .top-filter-wrapper', function() {
     $(this).stop().animate({
-      top:-58
+      top:-68
     },250);
   });
 
@@ -639,6 +639,14 @@ $(".sn-subscribe .button-vk").click(function() {
   if (window.location.hash == "#photos") {
     $(".tab[rel='photos-tab']").click();
   }
+  
+  if (window.location.hash == "#upcoming") {
+    $(".tab[rel='upcoming']").click();
+  }
+  
+  if (window.location.hash == "#archive") {
+    $(".tab[rel='archive']").click();
+  }
 
   // Tabs switching END
   
@@ -886,14 +894,6 @@ $(".sn-subscribe .button-vk").click(function() {
   });
   
 
-  if ($(".mainpage-events-slider").length) {
-    $(".mainpage-events-slider").each(function() {
-      $(this).mainpageEventsSlider();
-    })
-  }
-  
-  
-  
   if ($(".mainpage-calendar").length) {
     $(".mainpage-calendar").mainpageCalendar();
   }
@@ -944,7 +944,7 @@ $(".sn-subscribe .button-vk").click(function() {
     
     var calendar = $(this);
     
-    var eventsXml = $.getValues("/calendar/calendar.xml");
+    var eventsXml = $.getValues("calendar.xml");
     
     if (eventsXml) {
     
@@ -1223,29 +1223,41 @@ $(".sn-subscribe .button-vk").click(function() {
         prevMonth = 0;
         count = 0;
         var navYear = yearsArray[j];
+        
+        for (i=0;i<12;i++) {
+          monthsList.append("<div class='item cn-past empty'><span>"+monthName2[parseInt(i,10)]+"</span><span class='count'></span></div>");
+        }
+        
         for (i in events) {
           eDateStr = events[i].date.split(".");
           eDay = eDateStr[0];
           eMonth = eDateStr[1];
           eYear = eDateStr[2];
+          
+          monthsList.find(".item").eq(eMonth-1).attr("year",eYear).attr("month",parseInt(eMonth,10)).removeClass("empty");
+          
           var eDate = new Date(eYear, eMonth-1, eDay);
           if (eYear == navYear) {
             if (eDate - curDate >= 0) {
               if (eMonth != prevMonth || i == firstFutureIndex) {
-                monthsList.append("<div class='item cn-future' year='"+eYear+"' month='"+parseInt(eMonth,10)+"'><span>"+monthName2[parseInt(eMonth,10)-1]+"</span><span class='count'></span></div>");
+                //monthsList.append("<div class='item cn-future' year='"+eYear+"' month='"+parseInt(eMonth,10)+"'><span>"+monthName2[parseInt(eMonth,10)-1]+"</span><span class='count'></span></div>");
                 count = 1;
               } else {
                 count++
               }
-              monthsList.find(".cn-future[year='"+eYear+"'][month='"+parseInt(eMonth,10)+"'] .count").html(count);
+              monthsList.find(".cn-future[year='"+eYear+"'][month='"+parseInt(eMonth,10)+1+"'] .count").html(count);
             } else {
               if (eMonth != prevMonth) {
-                monthsList.append("<div class='item cn-past' year='"+eYear+"' month='"+parseInt(eMonth,10)+"'><span>"+monthName2[parseInt(eMonth,10)-1]+"</span><span class='count'></span></div>");
+                
+
+                //monthsList.append("<div class='item cn-past' year='"+eYear+"' month='"+parseInt(eMonth,10)+"'><span>"+monthName2[parseInt(eMonth,10)-1]+"</span><span class='count'></span></div>");
                 count = 1;
               } else {
                 count++
               }
-              monthsList.find(".cn-past[year='"+eYear+"'][month='"+parseInt(eMonth,10)+"'] .count").html(count);
+              
+              monthsList.find(".item").eq(eMonth-1).find(".count").html(count);
+              // monthsList.find(".cn-past[year='"+eYear+"'][month='"+parseInt(eMonth,10)+"'] .count").html(count);
             }
             
             prevMonth = eMonth;
@@ -1261,13 +1273,18 @@ $(".sn-subscribe .button-vk").click(function() {
         
         var startIndex = firstFutureIndex;
         var futureTab = $("<div class='tab act' rel='upcoming'><div class='cont'><span>Предстоящие</span></div></div>");
+        
+        if (window.location.hash == "") {
+          window.location.hash = '#upcoming'
+        }
+        
         calendar.find(".tabs").append(futureTab);
         
         var curYear = parseInt(events[startIndex].date.split(".")[2],10);
         
         var curMonth = parseInt(events[startIndex].date.split(".")[1],10);
         
-        calPopup.find(".item").hide();
+        //calPopup.find(".item").hide();
         yearsList.find(".cn-future").show();
         
         yearsList.find(".item").removeClass("act");
@@ -1307,11 +1324,15 @@ $(".sn-subscribe .button-vk").click(function() {
         
         pastTab.addClass("act");
         
+        if (window.location.hash == "") {
+          window.location.hash = '#archive'
+        }
+        
         var curYear = parseInt(events[events.length-1].date.split(".")[2],10);
 
         var curMonth = parseInt(events[events.length-1].date.split(".")[1],10);
         
-        calPopup.find(".item").hide();
+        //calPopup.find(".item").hide();
         yearsList.find(".cn-past").show();
         
         yearsList.find(".item").removeClass("act");
@@ -1366,7 +1387,7 @@ $(".sn-subscribe .button-vk").click(function() {
           var curMonth = parseInt(events[finishIndex].date.split(".")[1],10);
           
           if ($(".tab[rel='archive']").hasClass("act")) {
-            calPopup.find(".item").hide();
+            //calPopup.find(".item").hide();
             yearsList.find(".cn-past").show();
             
             yearsList.find(".item").removeClass("act");
@@ -1376,7 +1397,7 @@ $(".sn-subscribe .button-vk").click(function() {
             monthsList.find(".cn-past[year='"+curYear+"']").show();
             monthsList.find(".cn-past[year='"+curYear+"'][month='"+curMonth+"']").addClass("act");
           } else {
-            calPopup.find(".item").hide();
+            //calPopup.find(".item").hide();
             yearsList.find(".cn-future").show();
             
             yearsList.find(".item").removeClass("act");
@@ -1422,7 +1443,7 @@ $(".sn-subscribe .button-vk").click(function() {
           var curDay = parseInt(events[startIndex].date.split(".")[0],10);
           
           if ($(".tab[rel='archive']").hasClass("act")) {
-            calPopup.find(".item").hide();
+            //calPopup.find(".item").hide();
             yearsList.find(".cn-past").show();
             
             yearsList.find(".item").removeClass("act");
@@ -1432,7 +1453,7 @@ $(".sn-subscribe .button-vk").click(function() {
             monthsList.find(".cn-past[year='"+curYear+"']").show();
             monthsList.find(".cn-past[year='"+curYear+"'][month='"+curMonth+"']").addClass("act");
           } else {
-            calPopup.find(".item").hide();
+            //calPopup.find(".item").hide();
             yearsList.find(".cn-future").show();
             
             yearsList.find(".item").removeClass("act");
@@ -1475,6 +1496,8 @@ $(".sn-subscribe .button-vk").click(function() {
         
         $(".month-nav").show();
         
+        window.location.hash = '#archive'
+        
         minIndex = 0;
         
         if (firstFutureIndex) {
@@ -1498,7 +1521,7 @@ $(".sn-subscribe .button-vk").click(function() {
         var curDay = parseInt(events[finishIndex].date.split(".")[0],10);
         
         
-        calPopup.find(".item").hide();
+        //calPopup.find(".item").hide();
         yearsList.find(".cn-past").show();
         
         yearsList.find(".item").removeClass("act");
@@ -1535,6 +1558,8 @@ $(".sn-subscribe .button-vk").click(function() {
       futureTab.click(function() {
       
         $(".month-nav").hide();
+        
+        window.location.hash = '#upcoming'
       
         maxIndex = events.length - 1;
         
@@ -1555,7 +1580,7 @@ $(".sn-subscribe .button-vk").click(function() {
 
         var curMonth = parseInt(events[startIndex].date.split(".")[1],10);
         
-        calPopup.find(".item").hide();
+        //calPopup.find(".item").hide();
         yearsList.find(".cn-future").show();
         
         yearsList.find(".item").removeClass("act");
@@ -1595,7 +1620,7 @@ $(".sn-subscribe .button-vk").click(function() {
       
       
       
-      monthsList.find(".item").click(function() {
+      monthsList.find(".item").not(".empty").click(function() {
       
         monthsList.find(".item").removeClass("act");
         $(this).addClass("act")
@@ -2031,7 +2056,7 @@ function insertCalCard(j,events,calContent,pos) {
   calCard.append("<div class='event-cont' />");
   calCard.children(".event-cont").append("<span class='date'><span class='day'>" + events[j].date.split(".")[0] + "</span><span class='sep'>/</span>" + monthName[parseInt(events[j].date.split(".")[1])-1] + "</span>")
   calCard.children(".event-cont").append("<span class='hr'></span><span class='name'><a href='" + events[j].url + "'>" + events[j].name + "</a></span>");
-  calCard.children(".event-cont").append("<a href='#' class='event-tag event-tag-" + events[j].typeid + "'>" + events[j].type + "</a>");
+  calCard.children(".event-cont").append("<span  class='event-tag event-tag-" + events[j].typeid + "'>" + events[j].type + "</span>");
   
  calCard.append("<div class='sn-share fc'><div class='cont'><h5>Поделись с друзьями:</h5><div class='share-btn'><a href='http://vkontakte.ru/share.php?url="+events[j].url+"' onclick='return vk_click();' target='_blank'><span class='ico ico-vk'></span></a></div><div class='share-btn'><a href='http://www.facebook.com/share.php?u=&t="+events[j].name+"' onclick='return fbs_click();' target='_blank'><span class='ico ico-fb'></span></a></div><div class='share-btn'><a href='"+events[j].url+"+"+events[j].name+"' onclick='return twitter_click_1();' target='_blank' ><span class='ico ico-twitter'></span><span class='shares-num'><span>"+ events[j].twit +"</span></span></a></div></div></div>");
   
@@ -2064,7 +2089,7 @@ function insertEventCards(start,finish,events,calContent) {
     calCard.children(".event-cont").append("<div class='descr'></div>")
 
 
-    calCard.find(".descr").append("<a href='#' class='event-tag event-tag-" + events[j].typeid + "'>" + events[j].type + "</a>");
+    calCard.find(".descr").append("<span class='event-tag event-tag-" + events[j].typeid + "'>" + events[j].type + "</span>");
     
     calCard.find(".descr").append("<span class='name'><a href='" + events[j].url + "'>" + events[j].name + "</a></span>");
     
@@ -2089,7 +2114,7 @@ function insertEventCards(start,finish,events,calContent) {
     }
     
     if (events[j].enddate) {
-      var dateString = events[j].date.split(".")[0] + " " + monthName[parseInt(events[j].date.split(".")[1],10)] + " " + events[j].date.split(".")[2];
+      var dateString = events[j].date.split(".")[0] + " <span style='text-transform:capitalize;'>" + monthName[parseInt(events[j].date.split(".")[1],10)] + "</span> " + events[j].date.split(".")[2];
       var dateStringNarrow = events[j].date.split(".")[0] + "." + events[j].date.split(".")[1] + "." + events[j].date.split(".")[2];
       calCard.find(".event-data").append("<div class='data-item event-date end-date-wide'>Завершено: "+dateString+"</div>")
       calCard.find(".event-data").append("<div class='data-item event-date end-date-narrow'>Завершено: "+dateStringNarrow+"</div>")
@@ -2620,6 +2645,7 @@ function adaptation() {
       $(".mainpage-catalogue .act").css("left",183)
       $(".mainpage-catalogue .act-next").css("left",360)
     }
+    
     if ($(".mainpage-sliders").length) {
       $(".mainpage-events-slider .events-list").each(function() {
         $(this).children(".event-item").eq(2).hide();
