@@ -141,6 +141,17 @@ $(window).scroll(function () {
 
 $(document).ready(function () {
 
+  var addthis_config = {"data_track_addressbar":true};
+
+  var addthisScript = document.createElement('script');
+  addthisScript.setAttribute('src', 'http://s7.addthis.com/js/300/addthis_widget.js#domready=1')
+  document.body.appendChild(addthisScript)
+
+  if ($(".event-more").length && !$(".calendar-event-content .tab-content .post-controls").length) {
+    $(".event-more").addClass("event-more-act");
+    $(".event-more-content").show();
+  }
+
   // tooltips
   
   $(".tooltip").tooltip({
@@ -1045,7 +1056,8 @@ $(".sn-subscribe .button-vk").click(function() {
               calSlider.removeClass("moving");
               var fv = calSlider.find(".first-visible");
               fv.removeClass("first-visible");
-              fv.prev().addClass("first-visible");
+              //fv.prev().addClass("first-visible");
+              calSlider.find(".calendar-card[index='"+startIndex+"']").addClass("first-visible")
             });
           } else {
             calendar.find(".calendar-content").animate({
@@ -1054,11 +1066,16 @@ $(".sn-subscribe .button-vk").click(function() {
               calSlider.removeClass("moving");
               var fv = calSlider.find(".first-visible");
               fv.removeClass("first-visible");
-              fv.prev().addClass("first-visible");
+              //fv.prev().addClass("first-visible");
+              calSlider.find(".calendar-card[index='"+startIndex+"']").addClass("first-visible")
             });
           }
           
+          
         }
+        
+        addthis.toolbox(".addthis_toolbox");
+        addthis.counter(".addthis_counter");
           
       });
       
@@ -1110,6 +1127,9 @@ $(".sn-subscribe .button-vk").click(function() {
           
           
         }
+        
+        addthis.toolbox(".addthis_toolbox");
+        addthis.counter(".addthis_counter");
           
       });
       
@@ -1606,7 +1626,7 @@ $(".sn-subscribe .button-vk").click(function() {
           // nextBtn.addClass("inact")
         // }
         
-        var finishIndex = events.length;
+        var finishIndex = events.length - 1;
         
         insertEventCards(startIndex,finishIndex,events,calContent)
         
@@ -2058,7 +2078,11 @@ function insertCalCard(j,events,calContent,pos) {
   calCard.children(".event-cont").append("<span class='hr'></span><span class='name'><a href='" + events[j].url + "'>" + events[j].name + "</a></span>");
   calCard.children(".event-cont").append("<span  class='event-tag event-tag-" + events[j].typeid + "'>" + events[j].type + "</span>");
   
- calCard.append("<div class='sn-share fc'><div class='cont'><h5>Поделись с друзьями:</h5><div class='share-btn'><a href='http://vkontakte.ru/share.php?url="+events[j].url+"' onclick='return vk_click();' target='_blank'><span class='ico ico-vk'></span></a></div><div class='share-btn'><a href='http://www.facebook.com/share.php?u=&t="+events[j].name+"' onclick='return fbs_click();' target='_blank'><span class='ico ico-fb'></span></a></div><div class='share-btn'><a href='"+events[j].url+"+"+events[j].name+"' onclick='return twitter_click_1();' target='_blank' ><span class='ico ico-twitter'></span><span class='shares-num'><span>"+ events[j].twit +"</span></span></a></div></div></div>");
+ //calCard.append("<div class='sn-share fc'><div class='cont'><h5>Поделись с друзьями:</h5><div class='share-btn'><a href='http://vkontakte.ru/share.php?url="+events[j].url+"' onclick='return vk_click();' target='_blank'><span class='ico ico-vk'></span></a></div><div class='share-btn'><a href='http://www.facebook.com/share.php?u=&t="+events[j].name+"' onclick='return fbs_click();' target='_blank'><span class='ico ico-fb'></span></a></div><div class='share-btn'><a href='"+events[j].url+"+"+events[j].name+"' onclick='return twitter_click_1();' target='_blank' ><span class='ico ico-twitter'></span><span class='shares-num'><span>"+ events[j].twit +"</span></span></a></div></div></div>");
+  
+  calCard.append("<div class='sn-share fc'><div class='cont'><h5>Поделись с друзьями:</h5><div class='addthis_toolbox addthis_default_style addthis_16x16_style' addthis:url='http://seonews.renart.ru"+events[j].url+"'><a class='addthis_button_vk'></a><a class='addthis_button_facebook'></a><a class='addthis_button_twitter'></a><a class='addthis_counter addthis_bubble_style'></a></div></div></div>");
+  
+  
   
   if (pos == 'before') {
     calCard.prependTo(calContent);
@@ -2073,7 +2097,6 @@ function insertEventCards(start,finish,events,calContent) {
   var events = events;
   var calContent = calContent;
   calContent.html("");
-  
   for (j=start;j<=finish;j++) {
     var calCard = $("<div class='calendar-card fc event-type event-type-" + events[j].typeid +"' index='" + j + "' />");
     calCard.append("<div class='event-cont' />");
