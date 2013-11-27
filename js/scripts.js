@@ -1518,6 +1518,10 @@ $(".sn-subscribe .button-vk").click(function() {
         
         window.location.hash = '#archive'
         
+        $(".top-filter a").each(function() {
+          $(this).attr("href",$(this).attr("href").split("#")[0] + "#archive");
+        });
+        
         minIndex = 0;
         
         if (firstFutureIndex) {
@@ -1580,6 +1584,10 @@ $(".sn-subscribe .button-vk").click(function() {
         $(".month-nav").hide();
         
         window.location.hash = '#upcoming'
+        
+        $(".top-filter a").each(function() {
+          $(this).attr("href",$(this).attr("href").split("#")[0] + "#upcoming");
+        });
       
         maxIndex = events.length - 1;
         
@@ -2098,7 +2106,7 @@ function insertEventCards(start,finish,events,calContent) {
   var calContent = calContent;
   calContent.html("");
   for (j=start;j<=finish;j++) {
-    var calCard = $("<div class='calendar-card fc event-type event-type-" + events[j].typeid +"' index='" + j + "' />");
+    var calCard = $("<div class='calendar-card fc event-type event-type-" + events[j].typeid +"' index='" + j + "' filter='" + events[j].filter + "' />");
     calCard.append("<div class='event-cont' />");
     
     if (events[j].pic && events[j].enddate) {
@@ -2751,3 +2759,10 @@ function adaptation() {
   
 }
 
+function getUrlVars() {
+    var vars = {};
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+        vars[key] = value;
+    });
+    return vars;
+}
