@@ -13,6 +13,7 @@
   <link rel="stylesheet" type="text/css" href="css/ie7-8.css" media="screen"/>
 <![endif]-->
 <script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.10.3.custom.min.js"></script>
 <script type="text/javascript" src="js/jquery.xml2json.js"></script>
 <script type="text/javascript" src="js/jquery.mousewheel-3.0.6.pack.js"></script>
 <script type="text/javascript" src="js/jquery.fancybox.js"></script>
@@ -195,13 +196,18 @@
                   	  <div class="pic">
                   	    <a href="#">
                   	      <img src="files/experts-pic-big.jpg" alt="Редактор AdWords"/>
-                          <span class="ico ico-video"></span>
+                          <span class="ico ico-media-video"></span>
                   	    </a>
                   	  </div>
                   	  
                   	  <div class="descr">
                   	    <div class="post-lead">
                   	      <h3><a href="#">Мэтт Каттс смог поговорить о SEO в сенате государства</a></h3>
+                          <div class="author">
+                            <a href="#"><img class="userpic" src="files/userpic.jpg" alt="Олег Левчук"></a>
+                            <a href="#">Олег Левчук</a><br>
+                            <span class="date-time">Старший консультант технической поддержки I-Technologies</span>
+                          </div>
                   	      <p>Возможно, существует определенная группа факторов, которая играет важную роль при ранжировании? Группа факторов, на которую большинство SEO-специалистов не обращают внимания и считают ее влияние на место сайта в ТОПе всего лишь мифом?</p>
                   	    </div>
                   	    <div class="post-data fc">
@@ -226,61 +232,82 @@
                   	  </div>
                   	</div>
                   	
-                  	<div class="expertslist-item event-type" rel="popular">
-                  	  <div class="pic">
-                  	    <a href="#">
-                  	      <img src="files/experts-pic-1.jpg" alt="Редактор AdWords"/>
-                  	    </a>
-                  	  </div>
-                  	  <div class="descr">
-                  	    <div class="post-lead">
-                  	      <h3><a href="#">Мэтт Каттс смог поговорить о SEO в сенате государства</a></h3>
-                  	    </div>
-                  	    <div class="post-data fc">
-                  	      <div class="comments-views">
-                  	        <span class='cv-item'><a href="#"><span class="ico ico-comments"/></span> 16</a></span>
-                  	        <span class='cv-item'><span class="ico ico-views"/></span> 561</span>
-                  	      </div>
-                  	    </div>
-                  	  </div>
-                  	</div>
-                    <div class="expertslist-item event-type" rel="duscussed">
-                  	  <div class="pic">
-                  	    <a href="#">
-                  	      <img src="files/experts-pic-1.jpg" alt="Редактор AdWords"/>
-                  	    </a>
-                  	  </div>
-                  	  <div class="descr">
-                  	    <div class="post-lead">
-                  	      <h3><a href="#">Персонализация сайта как первый способ повышения конверсий</a></h3>
-                  	    </div>
-                  	    <div class="post-data fc">
-                  	      <div class="comments-views">
-                  	        <span class='cv-item'><a href="#"><span class="ico ico-comments"/></span> 16</a></span>
-                  	        <span class='cv-item'><span class="ico ico-views"/></span> 561</span>
-                  	      </div>
-                  	    </div>
-                  	  </div>
-                  	</div>
-                    <div class="expertslist-item event-type" rel="popular">
-                  	  <div class="pic">
-                  	    <a href="#">
-                  	      <img src="files/experts-pic-1.jpg" alt="Редактор AdWords"/>
-                          <span class="ico ico-video"></span>
-                  	    </a>
-                  	  </div>
-                  	  <div class="descr">
-                  	    <div class="post-lead">
-                  	      <h3><a href="#">Мэтт Каттс смог поговорить о SEO в сенате государства</a></h3>
-                  	    </div>
-                  	    <div class="post-data fc">
-                  	      <div class="comments-views">
-                  	        <span class='cv-item'><a href="#"><span class="ico ico-comments"/></span> 16</a></span>
-                  	        <span class='cv-item'><span class="ico ico-views"/></span> 561</span>
-                  	      </div>
-                  	    </div>
-                  	  </div>
-                  	</div>
+                    <!-- Элементы по три оборачиваются в div.fc -->
+                    
+                    <div class="fc">
+                      <div class="expertslist-item event-type" rel="popular">
+                        <div class="pic">
+                          <a href="#">
+                            <img src="files/experts-pic-1.jpg" alt="Редактор AdWords"/>
+                            <span class="ico ico-media-audio"></span>
+                          </a>
+                        </div>
+                        <div class="descr">
+                          <div class="post-lead">
+                            <h3><a href="#">Мэтт Каттс смог поговорить о SEO в сенате государства</a></h3>
+                            <div class="author">
+                              <a href="#"><img class="userpic" src="files/userpic.jpg" alt="Олег Левчук"></a>
+                              <a href="#">Олег Левчук</a><br>
+                              <span class="date-time">Старший консультант технической поддержки I-Technologies</span>
+                            </div>
+                          </div>
+                          <div class="post-data fc">
+                            <div class="comments-views">
+                              <span class='cv-item'><a href="#"><span class="ico ico-comments"/></span> 16</a></span>
+                              <span class='cv-item'><span class="ico ico-views"/></span> 561</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="expertslist-item event-type" rel="duscussed">
+                        <div class="pic">
+                          <a href="#">
+                            <img src="files/experts-pic-1.jpg" alt="Редактор AdWords"/>
+                            <span class="ico ico-media-video"></span>
+                          </a>
+                        </div>
+                        <div class="descr">
+                          <div class="post-lead">
+                            <h3><a href="#">Персонализация сайта как первый способ повышения конверсий</a></h3>
+                            <div class="author">
+                              <a href="#"><img class="userpic" src="files/userpic.jpg" alt="Олег Левчук"></a>
+                              <a href="#">Олег Левчук</a><br>
+                              <span class="date-time">Старший консультант</span>
+                            </div>
+                          </div>
+                          <div class="post-data fc">
+                            <div class="comments-views">
+                              <span class='cv-item'><a href="#"><span class="ico ico-comments"/></span> 16</a></span>
+                              <span class='cv-item'><span class="ico ico-views"/></span> 561</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="expertslist-item event-type" rel="popular">
+                        <div class="pic">
+                          <a href="#">
+                            <img src="files/experts-pic-1.jpg" alt="Редактор AdWords"/>
+                            <span class="ico ico-media-video"></span>
+                          </a>
+                        </div>
+                        <div class="descr">
+                          <div class="post-lead">
+                            <h3><a href="#">Мэтт Каттс смог поговорить о SEO в сенате государства</a></h3>
+                            <div class="author">
+                              <a href="#"><img class="userpic" src="files/userpic.jpg" alt="Олег Левчук"></a>
+                              <a href="#">Олег Левчук</a><br>
+                              <span class="date-time">Старший консультант технической поддержки I-Technologies</span>
+                            </div>
+                          </div>
+                          <div class="post-data fc">
+                            <div class="comments-views">
+                              <span class='cv-item'><a href="#"><span class="ico ico-comments"/></span> 16</a></span>
+                              <span class='cv-item'><span class="ico ico-views"/></span> 561</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                   
                   <div class="expertslist">
@@ -296,6 +323,11 @@
                   	  <div class="descr">
                   	    <div class="post-lead">
                   	      <h3><a href="#">Мэтт Каттс смог поговорить о SEO в сенате государства</a></h3>
+                          <div class="author">
+                            <a href="#"><img class="userpic" src="files/userpic.jpg" alt="Олег Левчук"></a>
+                            <a href="#">Олег Левчук</a><br>
+                            <span class="date-time">Старший консультант технической поддержки I-Technologies</span>
+                          </div>
                   	      <p>Возможно, существует определенная группа факторов, которая играет важную роль при ранжировании? Группа факторов, на которую большинство SEO-специалистов не обращают внимания и считают ее влияние на место сайта в ТОПе всего лишь мифом?</p>
                   	    </div>
                   	    <div class="post-data fc">
@@ -308,61 +340,78 @@
                   	  
                   	</div>
                   	
-                  	<div class="expertslist-item event-type" rel="discussed">
-                  	  <div class="pic">
-                  	    <a href="#">
-                  	      <img src="files/experts-pic-1.jpg" alt="Редактор AdWords"/>
-                  	    </a>
-                  	  </div>
-                  	  <div class="descr">
-                  	    <div class="post-lead">
-                  	      <h3><a href="#">Персонализация сайта как первый способ повышения конверсий</a></h3>
-                  	    </div>
-                  	    <div class="post-data fc">
-                  	      <div class="comments-views">
-                  	        <span class='cv-item'><a href="#"><span class="ico ico-comments"/></span> 16</a></span>
-                  	        <span class='cv-item'><span class="ico ico-views"/></span> 561</span>
-                  	      </div>
-                  	    </div>
-                  	  </div>
-                  	</div>
-                    <div class="expertslist-item event-type" rel="popular">
-                  	  <div class="pic">
-                  	    <a href="#">
-                  	      <img src="files/experts-pic-1.jpg" alt="Редактор AdWords"/>
-                          <span class="ico ico-video"></span>
-                  	    </a>
-                  	  </div>
-                  	  <div class="descr">
-                  	    <div class="post-lead">
-                  	      <h3><a href="#">Мэтт Каттс смог поговорить о SEO в сенате государства</a></h3>
-                  	    </div>
-                  	    <div class="post-data fc">
-                  	      <div class="comments-views">
-                  	        <span class='cv-item'><a href="#"><span class="ico ico-comments"/></span> 16</a></span>
-                  	        <span class='cv-item'><span class="ico ico-views"/></span> 561</span>
-                  	      </div>
-                  	    </div>
-                  	  </div>
-                  	</div>
-                    <div class="expertslist-item event-type" rel="discussed">
-                  	  <div class="pic">
-                  	    <a href="#">
-                  	      <img src="files/experts-pic-1.jpg" alt="Редактор AdWords"/>
-                  	    </a>
-                  	  </div>
-                  	  <div class="descr">
-                  	    <div class="post-lead">
-                  	      <h3><a href="#">Персонализация сайта как первый способ повышения конверсий</a></h3>
-                  	    </div>
-                  	    <div class="post-data fc">
-                  	      <div class="comments-views">
-                  	        <span class='cv-item'><a href="#"><span class="ico ico-comments"/></span> 16</a></span>
-                  	        <span class='cv-item'><span class="ico ico-views"/></span> 561</span>
-                  	      </div>
-                  	    </div>
-                  	  </div>
-                  	</div>
+                    <div class="fc">
+                      <div class="expertslist-item event-type" rel="discussed">
+                        <div class="pic">
+                          <a href="#">
+                            <img src="files/experts-pic-1.jpg" alt="Редактор AdWords"/>
+                          </a>
+                        </div>
+                        <div class="descr">
+                          <div class="post-lead">
+                            <h3><a href="#">Персонализация сайта как первый способ повышения конверсий</a></h3>
+                            <div class="author">
+                              <a href="#"><img class="userpic" src="files/userpic.jpg" alt="Олег Левчук"></a>
+                              <a href="#">Олег Левчук</a><br>
+                              <span class="date-time">Старший консультант технической</span>
+                            </div>
+                          </div>
+                          <div class="post-data fc">
+                            <div class="comments-views">
+                              <span class='cv-item'><a href="#"><span class="ico ico-comments"/></span> 16</a></span>
+                              <span class='cv-item'><span class="ico ico-views"/></span> 561</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="expertslist-item event-type" rel="popular">
+                        <div class="pic">
+                          <a href="#">
+                            <img src="files/experts-pic-1.jpg" alt="Редактор AdWords"/>
+                            <span class="ico ico-media-video"></span>
+                          </a>
+                        </div>
+                        <div class="descr">
+                          <div class="post-lead">
+                            <h3><a href="#">Мэтт Каттс смог поговорить о SEO в сенате государства</a></h3>
+                            <div class="author">
+                              <a href="#"><img class="userpic" src="files/userpic.jpg" alt="Олег Левчук"></a>
+                              <a href="#">Олег Левчук</a><br>
+                              <span class="date-time">Старший консультант технической поддержки I-Technologies</span>
+                            </div>
+                          </div>
+                          <div class="post-data fc">
+                            <div class="comments-views">
+                              <span class='cv-item'><a href="#"><span class="ico ico-comments"/></span> 16</a></span>
+                              <span class='cv-item'><span class="ico ico-views"/></span> 561</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="expertslist-item event-type" rel="discussed">
+                        <div class="pic">
+                          <a href="#">
+                            <img src="files/experts-pic-1.jpg" alt="Редактор AdWords"/>
+                          </a>
+                        </div>
+                        <div class="descr">
+                          <div class="post-lead">
+                            <h3><a href="#">Персонализация сайта как первый способ повышения конверсий</a></h3>
+                            <div class="author">
+                              <a href="#"><img class="userpic" src="files/userpic.jpg" alt="Олег Левчук"></a>
+                              <a href="#">Олег Левчук</a><br>
+                              <span class="date-time">Старший консультант технической поддержки I-Technologies</span>
+                            </div>
+                          </div>
+                          <div class="post-data fc">
+                            <div class="comments-views">
+                              <span class='cv-item'><a href="#"><span class="ico ico-comments"/></span> 16</a></span>
+                              <span class='cv-item'><span class="ico ico-views"/></span> 561</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                   
                   <div class="expertslist">
@@ -372,13 +421,18 @@
                   	  <div class="pic">
                   	    <a href="#">
                   	      <img src="files/experts-pic-big.jpg" alt="Редактор AdWords"/>
-                          <span class="ico ico-video"></span>
+                          <span class="ico ico-media-audio"></span>
                   	    </a>
                   	  </div>
                   	  
                   	  <div class="descr">
                   	    <div class="post-lead">
                   	      <h3><a href="#">Мэтт Каттс смог поговорить о SEO в сенате государства</a></h3>
+                          <div class="author">
+                            <a href="#"><img class="userpic" src="files/userpic.jpg" alt="Олег Левчук"></a>
+                            <a href="#">Олег Левчук</a><br>
+                            <span class="date-time">Старший консультант технической поддержки I-Technologies</span>
+                          </div>
                   	      <p>Возможно, существует определенная группа факторов, которая играет важную роль при ранжировании? Группа факторов, на которую большинство SEO-специалистов не обращают внимания и считают ее влияние на место сайта в ТОПе всего лишь мифом?</p>
                   	    </div>
                   	    <div class="post-data fc">
@@ -391,126 +445,223 @@
                   	  
                   	</div>
                   	
-                  	<div class="expertslist-item event-type" rel="popular">
-                  	  <div class="pic">
-                  	    <a href="#">
-                  	      <img src="files/experts-pic-1.jpg" alt="Редактор AdWords"/>
-                  	    </a>
-                  	  </div>
-                  	  <div class="descr">
-                  	    <div class="post-lead">
-                  	      <h3><a href="#">Мэтт Каттс смог поговорить о SEO в сенате государства</a></h3>
-                  	    </div>
-                  	    <div class="post-data fc">
-                  	      <div class="comments-views">
-                  	        <span class='cv-item'><a href="#"><span class="ico ico-comments"/></span> 16</a></span>
-                  	        <span class='cv-item'><span class="ico ico-views"/></span> 561</span>
-                  	      </div>
-                  	    </div>
-                  	  </div>
-                  	</div>
-                    <div class="expertslist-item event-type" rel="discussed">
-                  	  <div class="pic">
-                  	    <a href="#">
-                  	      <img src="files/experts-pic-1.jpg" alt="Редактор AdWords"/>
-                  	    </a>
-                  	  </div>
-                  	  <div class="descr">
-                  	    <div class="post-lead">
-                  	      <h3><a href="#">Мэтт Каттс смог поговорить о SEO в сенате государства</a></h3>
-                  	    </div>
-                  	    <div class="post-data fc">
-                  	      <div class="comments-views">
-                  	        <span class='cv-item'><a href="#"><span class="ico ico-comments"/></span> 16</a></span>
-                  	        <span class='cv-item'><span class="ico ico-views"/></span> 561</span>
-                  	      </div>
-                  	    </div>
-                  	  </div>
-                  	</div>
-                    <div class="expertslist-item event-type" rel="discussed">
-                  	  <div class="pic">
-                  	    <a href="#">
-                  	      <img src="files/experts-pic-1.jpg" alt="Редактор AdWords"/>
-                          <span class="ico ico-video"></span>
-                  	    </a>
-                  	  </div>
-                  	  <div class="descr">
-                  	    <div class="post-lead">
-                  	      <h3><a href="#">Персонализация сайта как первый способ повышения конверсий</a></h3>
-                  	    </div>
-                  	    <div class="post-data fc">
-                  	      <div class="comments-views">
-                  	        <span class='cv-item'><a href="#"><span class="ico ico-comments"/></span> 16</a></span>
-                  	        <span class='cv-item'><span class="ico ico-views"/></span> 561</span>
-                  	      </div>
-                  	    </div>
-                  	  </div>
-                  	</div>
-                    <div class="expertslist-item event-type" rel="popular">
-                  	  <div class="pic">
-                  	    <a href="#">
-                  	      <img src="files/experts-pic-1.jpg" alt="Редактор AdWords"/>
-                          <span class="ico ico-video"></span>
-                  	    </a>
-                  	  </div>
-                  	  <div class="descr">
-                  	    <div class="post-lead">
-                  	      <h3><a href="#">Мэтт Каттс смог поговорить о SEO в сенате государства</a></h3>
-                  	    </div>
-                  	    <div class="post-data fc">
-                  	      <div class="comments-views">
-                  	        <span class='cv-item'><a href="#"><span class="ico ico-comments"/></span> 16</a></span>
-                  	        <span class='cv-item'><span class="ico ico-views"/></span> 561</span>
-                  	      </div>
-                  	    </div>
-                  	  </div>
-                  	</div>
-                    <div class="expertslist-item event-type" rel="discussed">
-                  	  <div class="pic">
-                  	    <a href="#">
-                  	      <img src="files/experts-pic-1.jpg" alt="Редактор AdWords"/>
-                          <span class="ico ico-video"></span>
-                  	    </a>
-                  	  </div>
-                  	  <div class="descr">
-                  	    <div class="post-lead">
-                  	      <h3><a href="#">Мэтт Каттс смог поговорить о SEO в сенате государства</a></h3>
-                  	    </div>
-                  	    <div class="post-data fc">
-                  	      <div class="comments-views">
-                  	        <span class='cv-item'><a href="#"><span class="ico ico-comments"/></span> 16</a></span>
-                  	        <span class='cv-item'><span class="ico ico-views"/></span> 561</span>
-                  	      </div>
-                  	    </div>
-                  	  </div>
-                  	</div>
-                    <div class="expertslist-item event-type" rel="popular">
-                  	  <div class="pic">
-                  	    <a href="#">
-                  	      <img src="files/experts-pic-1.jpg" alt="Редактор AdWords"/>
-                          <span class="ico ico-video"></span>
-                  	    </a>
-                  	  </div>
-                  	  <div class="descr">
-                  	    <div class="post-lead">
-                  	      <h3><a href="#">Мэтт Каттс смог поговорить о SEO в сенате государства</a></h3>
-                  	    </div>
-                  	    <div class="post-data fc">
-                  	      <div class="comments-views">
-                  	        <span class='cv-item'><a href="#"><span class="ico ico-comments"/></span> 16</a></span>
-                  	        <span class='cv-item'><span class="ico ico-views"/></span> 561</span>
-                  	      </div>
-                  	    </div>
-                  	  </div>
-                  	</div>
+                    <div class="fc">
+                      <div class="expertslist-item event-type" rel="popular">
+                        <div class="pic">
+                          <a href="#">
+                            <img src="files/experts-pic-1.jpg" alt="Редактор AdWords"/>
+                          </a>
+                        </div>
+                        <div class="descr">
+                          <div class="post-lead">
+                            <h3><a href="#">Мэтт Каттс смог поговорить о SEO в сенате государства</a></h3>
+                            <div class="author">
+                              <a href="#"><img class="userpic" src="files/userpic.jpg" alt="Олег Левчук"></a>
+                              <a href="#">Олег Левчук</a><br>
+                              <span class="date-time">Старший консультант технической</span>
+                            </div>
+                          </div>
+                          <div class="post-data fc">
+                            <div class="comments-views">
+                              <span class='cv-item'><a href="#"><span class="ico ico-comments"/></span> 16</a></span>
+                              <span class='cv-item'><span class="ico ico-views"/></span> 561</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="expertslist-item event-type" rel="discussed">
+                        <div class="pic">
+                          <a href="#">
+                            <img src="files/experts-pic-1.jpg" alt="Редактор AdWords"/>
+                          </a>
+                        </div>
+                        <div class="descr">
+                          <div class="post-lead">
+                            <h3><a href="#">Мэтт Каттс смог поговорить о SEO в сенате государства</a></h3>
+                            <div class="author">
+                              <a href="#"><img class="userpic" src="files/userpic.jpg" alt="Олег Левчук"></a>
+                              <a href="#">Олег Левчук</a><br>
+                              <span class="date-time">Старший консультант технической поддержки I-Technologies</span>
+                            </div>
+                          </div>
+                          <div class="post-data fc">
+                            <div class="comments-views">
+                              <span class='cv-item'><a href="#"><span class="ico ico-comments"/></span> 16</a></span>
+                              <span class='cv-item'><span class="ico ico-views"/></span> 561</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="expertslist-item event-type" rel="discussed">
+                        <div class="pic">
+                          <a href="#">
+                            <img src="files/experts-pic-1.jpg" alt="Редактор AdWords"/>
+                          </a>
+                        </div>
+                        <div class="descr">
+                          <div class="post-lead">
+                            <h3><a href="#">Персонализация сайта как первый способ повышения конверсий</a></h3>
+                            <div class="author">
+                              <a href="#"><img class="userpic" src="files/userpic.jpg" alt="Олег Левчук"></a>
+                              <a href="#">Олег Левчук</a><br>
+                              <span class="date-time">Старший консультант технической поддержки I-Technologies</span>
+                            </div>
+                          </div>
+                          <div class="post-data fc">
+                            <div class="comments-views">
+                              <span class='cv-item'><a href="#"><span class="ico ico-comments"/></span> 16</a></span>
+                              <span class='cv-item'><span class="ico ico-views"/></span> 561</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="fc">
+                      <div class="expertslist-item event-type" rel="popular">
+                        <div class="pic">
+                          <a href="#">
+                            <img src="files/experts-pic-1.jpg" alt="Редактор AdWords"/>
+                          </a>
+                        </div>
+                        <div class="descr">
+                          <div class="post-lead">
+                            <h3><a href="#">Мэтт Каттс смог поговорить о SEO в сенате государства</a></h3>
+                            <div class="author">
+                              <a href="#"><img class="userpic" src="files/userpic.jpg" alt="Олег Левчук"></a>
+                              <a href="#">Олег Левчук</a><br>
+                              <span class="date-time">Старший консультант технической</span>
+                            </div>
+                          </div>
+                          <div class="post-data fc">
+                            <div class="comments-views">
+                              <span class='cv-item'><a href="#"><span class="ico ico-comments"/></span> 16</a></span>
+                              <span class='cv-item'><span class="ico ico-views"/></span> 561</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="expertslist-item event-type" rel="discussed">
+                        <div class="pic">
+                          <a href="#">
+                            <img src="files/experts-pic-1.jpg" alt="Редактор AdWords"/>
+                          </a>
+                        </div>
+                        <div class="descr">
+                          <div class="post-lead">
+                            <h3><a href="#">Мэтт Каттс смог поговорить о SEO в сенате государства</a></h3>
+                            <div class="author">
+                              <a href="#"><img class="userpic" src="files/userpic.jpg" alt="Олег Левчук"></a>
+                              <a href="#">Олег Левчук</a><br>
+                              <span class="date-time">Старший консультант технической поддержки I-Technologies</span>
+                            </div>
+                          </div>
+                          <div class="post-data fc">
+                            <div class="comments-views">
+                              <span class='cv-item'><a href="#"><span class="ico ico-comments"/></span> 16</a></span>
+                              <span class='cv-item'><span class="ico ico-views"/></span> 561</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="expertslist-item event-type" rel="discussed">
+                        <div class="pic">
+                          <a href="#">
+                            <img src="files/experts-pic-1.jpg" alt="Редактор AdWords"/>
+                          </a>
+                        </div>
+                        <div class="descr">
+                          <div class="post-lead">
+                            <h3><a href="#">Персонализация сайта как первый способ повышения конверсий</a></h3>
+                            <div class="author">
+                              <a href="#"><img class="userpic" src="files/userpic.jpg" alt="Олег Левчук"></a>
+                              <a href="#">Олег Левчук</a><br>
+                              <span class="date-time">Старший консультант технической поддержки I-Technologies</span>
+                            </div>
+                          </div>
+                          <div class="post-data fc">
+                            <div class="comments-views">
+                              <span class='cv-item'><a href="#"><span class="ico ico-comments"/></span> 16</a></span>
+                              <span class='cv-item'><span class="ico ico-views"/></span> 561</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="fc">
+                      <div class="expertslist-item event-type" rel="popular">
+                        <div class="pic">
+                          <a href="#">
+                            <img src="files/experts-pic-1.jpg" alt="Редактор AdWords"/>
+                          </a>
+                        </div>
+                        <div class="descr">
+                          <div class="post-lead">
+                            <h3><a href="#">Мэтт Каттс смог поговорить о SEO в сенате государства</a></h3>
+                            <div class="author">
+                              <a href="#"><img class="userpic" src="files/userpic.jpg" alt="Олег Левчук"></a>
+                              <a href="#">Олег Левчук</a><br>
+                              <span class="date-time">Старший консультант технической</span>
+                            </div>
+                          </div>
+                          <div class="post-data fc">
+                            <div class="comments-views">
+                              <span class='cv-item'><a href="#"><span class="ico ico-comments"/></span> 16</a></span>
+                              <span class='cv-item'><span class="ico ico-views"/></span> 561</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="expertslist-item event-type" rel="discussed">
+                        <div class="pic">
+                          <a href="#">
+                            <img src="files/experts-pic-1.jpg" alt="Редактор AdWords"/>
+                          </a>
+                        </div>
+                        <div class="descr">
+                          <div class="post-lead">
+                            <h3><a href="#">Мэтт Каттс смог поговорить о SEO в сенате государства</a></h3>
+                            <div class="author">
+                              <a href="#"><img class="userpic" src="files/userpic.jpg" alt="Олег Левчук"></a>
+                              <a href="#">Олег Левчук</a><br>
+                              <span class="date-time">Старший консультант технической поддержки I-Technologies</span>
+                            </div>
+                          </div>
+                          <div class="post-data fc">
+                            <div class="comments-views">
+                              <span class='cv-item'><a href="#"><span class="ico ico-comments"/></span> 16</a></span>
+                              <span class='cv-item'><span class="ico ico-views"/></span> 561</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="expertslist-item event-type" rel="discussed">
+                        <div class="pic">
+                          <a href="#">
+                            <img src="files/experts-pic-1.jpg" alt="Редактор AdWords"/>
+                          </a>
+                        </div>
+                        <div class="descr">
+                          <div class="post-lead">
+                            <h3><a href="#">Персонализация сайта как первый способ повышения конверсий</a></h3>
+                            <div class="author">
+                              <a href="#"><img class="userpic" src="files/userpic.jpg" alt="Олег Левчук"></a>
+                              <a href="#">Олег Левчук</a><br>
+                              <span class="date-time">Старший консультант технической поддержки I-Technologies</span>
+                            </div>
+                          </div>
+                          <div class="post-data fc">
+                            <div class="comments-views">
+                              <span class='cv-item'><a href="#"><span class="ico ico-comments"/></span> 16</a></span>
+                              <span class='cv-item'><span class="ico ico-views"/></span> 561</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
                     
                   </div>
                   
-                  <div class="show-more" rel="files/html/more-experts.html">
-                    <span class="ico ico-show-more"></span>
-                    <span class="txt">Показать еще</span>
-                  </div>
-                
                 </div>
                 
               </div>

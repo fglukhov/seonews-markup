@@ -519,19 +519,29 @@
 }
 
 .html-narrow .experts .expertslist-item {
-  margin-right:45px !important;
+  margin-right:15px !important;
+  width:222px;
+}
+
+.html-narrow .experts .expertslist-item .pic {
+  width:222px;
 }
 
 .html-narrow .experts .expertslist-item-big {
   margin-right:25px !important;
+  width:auto;
 }
 
 .html-narrow .experts .expertslist-item-big .pic {
-  width:400px;
+  width:343px;
 }
 
 .html-narrow .experts .expertslist-item-big .pic img {
-  margin-left:-82px;
+  margin-left:-33px;
+}
+
+.html-narrow .experts .expertslist-item-big .descr {
+  width:315px;
 }
 
 .html-narrow .post-video iframe {
@@ -710,4 +720,12 @@
 
 .html-narrow .slides {
   margin-left:5px;
+}
+
+.html-narrow .n-prev-link {
+  width:280px;
+}
+
+.html-narrow .n-next-link {
+  width:280px;
 }

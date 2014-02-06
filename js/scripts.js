@@ -66,6 +66,12 @@ function newsMakeup() {
   
 $(window).load(function () {
 
+  $(".post-text img").each(function() {
+    if ($(this).width() > 400) {
+      $(this).addClass("nofloat");
+    }
+  });
+
   adaptation();
 
   $(".vk-popup").addClass("initial");
@@ -75,6 +81,13 @@ $(window).load(function () {
 
 $(window).resize(function() {
   adaptation();
+  if ($(window).width() < 1300) {
+    $(".sidenav").fadeOut(250,function() {
+      $(this).addClass("invisible")
+    });
+  } else {
+    $(".sidenav").fadeIn(250).removeClass("invisible");
+  }
 });
 
 $(window).scroll(function () {
@@ -82,20 +95,26 @@ $(window).scroll(function () {
   if ($(window).scrollTop() > ($(".header").offset().top + $(".header-banner").height())) {
     $(".header-content").addClass("header-fixed").removeClass("header-normal").css("margin-left",-$(document).scrollLeft());
     $(".top-filter-shadow").fadeIn(250);
+    if (!$(".sidenav").hasClass("invisible")) {
+      $(".sidenav").fadeIn(250);
+    }
   } else {
     $(".header-content").removeClass("header-fixed").addClass("header-normal").css("margin-left",0);
     $(".top-filter-shadow").fadeOut(250);
+    if (!$(".sidenav").hasClass("invisible")) {
+      $(".sidenav").fadeOut(250);
+    }
   }
   
   
-  if ($(window).scrollTop() > $(".sidebar").offset().top) {
-    $(".up-link *").fadeIn(250);
-    $(".sidenav").stop().animate({
-      top: $(window).scrollTop() - $(".sidebar").offset().top + 20
-    },500);
-  } else {
-    $(".up-link *").stop().fadeOut(250);
-  }
+  // if ($(window).scrollTop() > $(".sidebar").offset().top) {
+    // $(".up-link *").fadeIn(250);
+    // $(".sidenav").stop().animate({
+      // top: $(window).scrollTop() - $(".sidebar").offset().top + 20
+    // },500);
+  // } else {
+    // $(".up-link *").stop().fadeOut(250);
+  // }
   
  if (($(window).scrollTop() > parseInt($(document).height() - $(".footer").height() - $(window).height() - 50)) && ($(location).attr('pathname') == "/news/" || $(location).attr('pathname') == "/analytics/") && !$(".section-content").hasClass("loaded")) {
    
@@ -141,6 +160,14 @@ $(window).scroll(function () {
 
 $(document).ready(function () {
 
+  if ($(window).width() < 1300) {
+    $(".sidenav").fadeOut(250,function() {
+      $(this).addClass("invisible")
+    });
+  } else {
+    $(".sidenav").fadeIn(250).removeClass("invisible");
+  }
+
   var addthis_config = {"data_track_addressbar":true};
 
   var addthisScript = document.createElement('script');
@@ -154,20 +181,23 @@ $(document).ready(function () {
 
   // tooltips
   
-  $(".tooltip").tooltip({
-    position: {
-        my: "center bottom",
-        at: "center top",
-        using: function( position, feedback ) {
-          $( this ).css( position );
-          $( "<div>" )
-            .addClass( "arrow" )
-            .addClass( feedback.vertical )
-            .addClass( feedback.horizontal )
-            .appendTo( this );
+  
+  if ($(".tooltip").length) {
+    $(".tooltip").tooltip({
+      position: {
+          my: "center bottom",
+          at: "center top",
+          using: function( position, feedback ) {
+            $( this ).css( position );
+            $( "<div>" )
+              .addClass( "arrow" )
+              .addClass( feedback.vertical )
+              .addClass( feedback.horizontal )
+              .appendTo( this );
+          }
         }
-      }
-  });
+    });
+  }
 
   // Separating news items by rows
 
@@ -732,25 +762,19 @@ $(".sn-subscribe .button-vk").click(function() {
   
   
   $(".year-nav .item").click(function() {
-    $(".year-nav .item").removeClass("act");
-    var link = $(this);
-    var target = $("#"+$(this).parents(".year-nav").attr("rel"));
-    target.children().fadeOut(250,function() {
-      target.html("<div class='loader' />")
-      $.ajax({
-        url: link.attr("rel"),
-        type: 'get',
-        dataType: 'html',
-        async: false
-      }).done(function(data) {
-          $(".loader").remove();
-          target.html(data);
-          target.children().hide().fadeIn(250);
-          link.addClass("act");
-          makeup();
-      });
-    })
-	
+  
+    if (!$(this).hasClass("act")) {
+      $(".year-nav .item").removeClass("act");
+      var link = $(this);
+      link.addClass("act");
+      var target = $("#"+$(this).attr("rel"));
+      
+      $(".year-nav").closest(".rating-years").find(".rating-content").hide();
+      
+      target.fadeIn(250);
+    
+    }
+  
   });
   
   $(".show-more").click(function() {
@@ -805,7 +829,7 @@ $(".sn-subscribe .button-vk").click(function() {
     $(".section-filter-tools .link").last().trigger("click");
   }
   
-  $(".up-link").click(function() {
+  $(".sidenav").click(function() {
     $("body, html").stop().animate({
       scrollTop: 0
     },1000);
@@ -2689,11 +2713,11 @@ function adaptation() {
       })
     }
     
-    if ($(".experts .expertslist-item-big").length) {
-      $(".experts .expertslist-item-big").each(function() {
-        $(this).nextUntil(".expertslist-item-big").eq(2).hide();
-      });
-    }
+    // if ($(".experts .expertslist-item-big").length) {
+      // $(".experts .expertslist-item-big").each(function() {
+        // $(this).nextUntil(".expertslist-item-big").eq(2).hide();
+      // });
+    // }
     
     if ($(".toolsreviews").length) {
       $(".toolsreviews .ico-review").parent().html("<span class='ico ico-review'></span>");
@@ -2765,4 +2789,23 @@ function getUrlVars() {
         vars[key] = value;
     });
     return vars;
+}
+
+function elementLoader(elementId,loaderBg) {
+  var el = $("#"+elementId);
+  if (!$(".element-loader[rel='"+elementId+"']").length) {
+    $("body").append("<div class='element-loader' rel='"+elementId+"'></div>");
+    var loader = $(".element-loader[rel='"+elementId+"']");
+    loader.css({
+      "left":el.offset().left,
+      "top":el.offset().top,
+      "width":el.width(),
+      "height":el.height()
+    }).append("<div class='loader-bg' />").append("<div class='loader-pic' />");
+    loader.find(".loader-bg").css("background-color",loaderBg)
+  }
+}
+
+function removeLoader(elementId) {
+  $(".element-loader[rel='"+elementId+"']").remove();
 }
