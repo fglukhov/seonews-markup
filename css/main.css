@@ -7981,3 +7981,15 @@ a:visited font {
 .rating-show-more .txt {
   top:2px;
 }
+
+.rating-years .tab-content-wrapper {
+  border:none;
+  padding:0;
+}
+
+.rating-table-content h3 {
+  font-size: 22px;
+  line-height: 24px;
+  font-family: 'OpenSansSemibold', sans-serif;
+  margin: .25em 0 1em 0;
+}
