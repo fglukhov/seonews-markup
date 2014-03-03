@@ -1823,7 +1823,7 @@ $(".sn-subscribe .button-vk").click(function() {
     
     var catalogue = $(this);
     
-    var catalogueXml = $.getValues("/catalogue.xml");
+    var catalogueXml = $.getValues("catalogue.xml");
     
     if (catalogueXml) {
     
@@ -1964,7 +1964,7 @@ $(".sn-subscribe .button-vk").click(function() {
     
     var ratings = $(this);
     
-    var ratingsXml = $.getValues("/ratings.xml");
+    var ratingsXml = $.getValues("ratings.xml");
     
     if (ratingsXml) {
     
