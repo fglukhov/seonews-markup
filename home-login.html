@@ -1,0 +1,1362 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>SeoNews - Главная, логин</title>
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+<link rel="stylesheet" type="text/css" href="css/reset-min.css" media="screen"/>
+<link rel="stylesheet" type="text/css" href="css/fonts-min.css" media="screen"/>
+<link rel="stylesheet" type="text/css" href="css/jquery.fancybox.css" media="screen"/>
+<link rel="stylesheet" type="text/css" href="css/main.css" media="screen"/>
+<link rel="stylesheet" type="text/css" href="css/narrow.css" media="screen"/>
+<!--[if lte IE 8]>
+  <link rel="stylesheet" type="text/css" href="css/ie7-8.css" media="screen"/>
+<![endif]-->
+<script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.xml2json.js"></script>
+<script type="text/javascript" src="js/jquery.mousewheel-3.0.6.pack.js"></script>
+<script type="text/javascript" src="js/jquery.fancybox.js"></script>
+<script type="text/javascript" src="js/jquery.slides.min.js"></script>
+<script type="text/javascript" src="js/jquery.icheck.min.js"></script>
+<script type="text/javascript" src="js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.10.3.custom.min.js"></script>
+<script type="text/javascript" src="js/scripts.js"></script>
+<script type="text/javascript" src="//vk.com/js/api/openapi.js?101"></script>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/ru_RU/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<!-- Открываем всплывашку с логином, нужно будет это поставить на onclick ссылке "войти" -->
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    openPopup($(".login-popup"));
+  });
+</script>
+
+</head>
+
+<body class="adaptive">
+
+<!-- Wrapper -->
+<div class="top-wrap">
+  <div class="top-main">
+    <!-- Header -->
+    
+    <div class="header">
+      <!-- Banner -->
+      <div class="header-banner">
+        <a href="#"><img src="files/top-banner.jpg" alt="Баннер"/></a>
+      </div>
+      <!-- Banner END -->
+      
+      <div class="header-content">
+        <div class="header-top">
+          <!-- Main menu -->
+          <div class="main-menu-wrapper">
+            <div class="center-wrapper">
+              <div class="main-menu fc">
+                <a href="#">Обзор рынка</a>
+                <a href="#">Как продвинуть и заработать</a>
+                <a href="#">Календарь событий</a>
+                <a href="#">Инструменты и сервисы</a>
+                <a href="#">Откровения экспертов</a>
+                <a href="#">Рейтинги</a>
+                <a href="#">Участники рынка</a>
+                <a href="#">Библиотека</a>
+              </div>
+            </div>
+          </div>
+          <!-- Main menu END -->
+          <!-- Main filter -->
+          <div class="center-wrapper">
+            <div class="top-filter-wrapper">
+            	<div class="top-filter-shadow"></div>
+            	<ul class="top-filter top-filter-locked fc">
+            	  <li class="tf-prof act"><a href="#">SEO-специалистам</a></li>
+            	  <li class="tf-moneymakers"><a href="#">Манимейкерам</a></li>
+            	  <li class="tf-clients"><a href="#">Клиентам SEO</a></li>
+            	</ul>
+            </div>
+          </div>
+          <!-- Main filter END -->
+        </div>
+        
+        <div class="header-bottom fc">
+          <div class="center-wrapper">
+            <div class="logo">
+              <a class="logo-main" href="#"><img src="images/logo.png" alt="SeoNews"/></a>
+              <a class="logo-fixed" href="#"><img src="images/logo-fixed.png" alt="SeoNews"/></a>
+            </div>
+            <!-- User link -->
+            <div class="user-link fc">
+              <div class="user-events-num">+3</div>
+              <div class="userpic">
+                <a href="#"><img src="files/userpic.jpg" alt="Алексей Константинов"/></a>
+              </div>
+              <div class="user-link-wrapper">
+                <span>Алексей Константинов</span>
+              </div>
+              <div class="user-controls">
+                <div class="pt"></div>
+                <ul>
+                  <li>
+                    <a href="#">
+                      <span class="pic"><img src="images/void.gif" class="ico ico-events"/></span>
+                      <span class="descr">
+                        Лента событий
+                        <span class="new-events">Новых: 2</span>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <span class="pic"><img src="images/void.gif" class="ico ico-profile"/></span>
+                      <span class="descr">
+                        Мой профиль
+                        <span class="new-events">Новых подписок: 1</span>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <span class="pic"><img src="images/void.gif" class="ico ico-blog"/></span>
+                      <span class="descr">
+                        Мой блог
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <span class="pic"><img src="images/void.gif" class="ico ico-favorites"/></span>
+                      <span class="descr">
+                        Избранное
+                      </span>
+                    </a>
+                  </li>
+                </ul>
+                <a href="#" class="button button-1 button-ico button-1-ico button-blog">
+                  Написать в блог
+                </a>
+              </div>
+            </div>
+            <!-- User link END -->
+          </div>
+        </div>
+      </div>
+      
+      
+    </div>
+    
+    <!-- Header END -->
+    
+    <!-- Body -->
+    
+    <div class="body">
+    
+      <div class="search-block fc">
+        <div class="center-wrapper">
+        	<input type="text" class="form-text" class="site-search"/>
+        	<input type="submit" class="button button-2 form-submit" value="Найти"/>
+        </div>
+      </div>
+      
+      <div class="center-wrapper">
+      
+        <!-- Content -->
+        
+        <div class="content">
+        
+          <div class="main-column">
+            
+            <!-- Главное -->
+            
+            <div class="content-block">
+            
+              <h2>Главное</h2>
+              
+              <div class="mainpage-main fc">
+                
+                <div class="pic">
+                  <a href="#">
+                    <span class="badge badge-seonews-select"></span>
+                    <img src="files/mainpage-main.jpg" alt="Мэтт Каттс: о запуске сайта на припаркованном домене в зоне .ру"/>
+                  </a>
+                </div>
+                
+                <div class="descr">
+                  <div class="post-lead">
+                  	<h3><a href="#">Мэтт Каттс: о запуске сайта на припаркованном домене в зоне .ру</a></h3>
+                  	<p>
+                  	  Возможно, существует определенная группа факторов, которая играет важную роль при ранжировании? Группа факторов, на которую большинство SEO-специалистов не обращают внимания и считают ее влияние на место сайта в ТОПе всего лишь мифом? 
+                  	</p>
+                  </div>
+                  <div class="post-data fc">
+                    <div class="author">
+                      <a href="#"><img class="userpic" src="files/userpic.jpg" alt="Василий Петров"/></a>
+                      <a href="#">Василий Петров</a><br />
+                      <span class='date-time'>Вчера, <span class="time">в 23:29</span></span>
+                    </div>
+                    <div class="comments-views">
+                      <span class='cv-item'><a href="#"><span class="ico ico-comments"/></span> 16</a></span>
+                      <span class='cv-item'><span class="ico ico-views"/></span> 561</span>
+                    </div>
+                  </div>
+                </div>
+                
+              </div>
+              
+            </div>
+            
+            <!-- Главное END -->
+            
+            <!-- Свежее -->
+            
+            <div class="content-block">
+            
+              <h2><a href="#">Свежее</a></h2>
+              
+              <div class="mainpage-news fc">
+                
+                <div class="newslist">
+                
+                  <div class="newslist-item">
+                  
+                    <div class="pic">
+                      <a href="#">
+                        <img src="files/mainpage-news.jpg" alt="Редактор AdWords"/>
+                      </a>
+                    </div>
+                    
+                    <div class="descr">
+                      <div class="post-lead">
+                        <h3><a href="#">Редактор AdWords длинный заголовок в несколько строк</a></h3>
+                        <p>
+                          Google обновил редактор AdWords для Windows и Mac, добавив в него новые возможности для настройки рекламных кампаний Google обновил редактор AdWords для Windows и Mac, добавив в него новые возможности для настройки рекламных кампаний
+                        </p>
+                      </div>
+                      <div class="post-data fc">
+                        <div class="author">
+                          <a href="#"><img class="userpic" src="files/userpic.jpg" alt="Василий Петров"/></a>
+                          <a href="#">Алина Назарова</a><br />
+                          <span class='date-time'>Вчера, <span class="time">в 23:29</span></span>
+                        </div>
+                        <div class="comments-views">
+                        <span class='cv-item'><a href="#"><span class="ico ico-comments"/></span> 16</a></span>
+                        <span class='cv-item'><span class="ico ico-views"/></span> 561</span>
+                      </div>
+                      </div>
+                    </div>
+                    
+                  </div>
+                  
+                  <div class="newslist-item">
+                  
+                    <div class="descr">
+                      <div class="post-lead">
+                        <h3><a href="#">17 типов контента, который Google съест</a></h3>
+                        <p>
+                          Google обновил редактор AdWords для Windows и Mac, добавив в него новые возможности. Google обновил редактор AdWords для Windows и Mac,  добавив в него новые возможности
+                        </p>
+                      </div>
+                      <div class="post-data fc">
+                        <div class="author">
+                          <a href="#"><img class="userpic" src="files/userpic.jpg" alt="Василий Петров"/></a>
+                          <a href="#">Василий Петров</a><br />
+                          <span class='date-time'>Вчера, <span class="time">в 23:29</span></span>
+                        </div>
+                        <div class="comments-views">
+                        <span class='cv-item'><a href="#"><span class="ico ico-comments"/></span> 16</a></span>
+                        <span class='cv-item'><span class="ico ico-views"/></span> 561</span>
+                      </div>
+                      </div>
+                    </div>
+                    
+                  </div>
+                  
+                  <div class="newslist-item">
+                  
+                    <div class="descr">
+                      <div class="post-lead">
+                        <h3><a href="#">SEMcamp научит противостоять агрессии Google</a></h3>
+                        <p>
+                          11 мая в Киеве компания Promodo проведет семинар, посвященный актуальным вопросам SEO и онлайн-маркетинга
+                        </p>
+                      </div>
+                      <div class="post-data fc">
+                        <div class="author">
+                          <a href="#"><img class="userpic" src="files/userpic.jpg" alt="Василий Петров"/></a>
+                          <a href="#">Василий Петров</a><br />
+                          <span class='date-time'>Вчера, <span class="time">в 23:29</span></span>
+                        </div>
+                        <div class="comments-views">
+                          <span class='cv-item'><a href="#"><span class="ico ico-comments"/></span> 16</a></span>
+                          <span class='cv-item'><span class="ico ico-views"/></span> 561</span>
+                        </div>
+                      </div>
+                    </div>
+                    
+                  </div>
+                  
+                  <div class="newslist-item">
+                  
+                    <div class="pic">
+                      <a href="#">
+                        <img src="files/mainpage-news.jpg" alt="Редактор AdWords"/>
+                      </a>
+                    </div>
+                    
+                    <div class="descr">
+                      <div class="post-lead">
+                        <h3><a href="#">Nethouse: 1 год или 60790 сайтов для бизнеса</a></h3>
+                        <p>
+                          Новый сервис SaleTex позволит увеличить количество клиентов при прежней посещаемости сайта
+                        </p>
+                      </div>
+                      <div class="post-data fc">
+                        <div class="author">
+                          <a href="#"><img class="userpic" src="files/userpic.jpg" alt="Василий Петров"/></a>
+                          <a href="#">Вячеслав Георгиев</a><br />
+                          <span class='date-time'>Вчера, <span class="time">в 23:29</span></span>
+                        </div>
+                        <div class="comments-views">
+                          <span class='cv-item'><a href="#"><span class="ico ico-comments"/></span> 16</a></span>
+                          <span class='cv-item'><span class="ico ico-views"/></span> 561</span>
+                        </div>
+                      </div>
+                    </div>
+                    
+                  </div>
+                  
+                </div>
+                
+                <div class="sn-subscribe fc">
+                  <div class="ico sn-subscribe-ico"></div>
+                  <div class="txt">
+                    Нас удобно читать в социальных сетях.<br />Подписывайся! 
+                  </div>
+                  <div class="buttons">
+                    <a href="#" class="button button-1 button-sn button-ico button-fb">Facebook</a>
+                    <a href="#" class="button button-1 button-sn button-ico button-vk">Вконтакте</a>
+                    <a href="#" class="button button-1 button-sn button-ico button-twitter">Twitter</a>
+                    <div class="facebook-popup">
+                      <div class="pt"></div>
+                      <div class="popup-content">
+                      	<div class="ttl">
+                      	  Ищите нас на Facebook
+                      	</div>
+                        <div class="like-block fc">
+                          <div class="pic">
+                          	<a href="#"><img src="files/fb-logo.png" alt="SeoNews"/></a>
+                          </div>
+                          <div class="descr">
+                          	<p>
+                          		<a href="#">SEONews &mdash; поисковый маркетинг</a>
+                          	</p>
+                            <div class="like-btn">
+                            	<div class="fb-like" data-href="https://www.facebook.com/SEOnews.ru" data-width="450" data-show-faces="false" data-send="false"></div>
+                            </div>
+                            
+                          </div>
+                        </div>
+                        <div class="fb-plugin">
+                          <div class="fb-facepile" data-href="https://www.facebook.com/SEOnews.ru" data-action="Comma separated list of action of action types" data-width="220" data-max-rows="2" data-size="large"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="vk-popup">
+                      <div class="pt"></div>
+                      <div class="popup-content">
+                        <!-- VK Widget -->
+                        <div id="vk_groups"></div>
+                        <script type="text/javascript">
+                          VK.Widgets.Group("vk_groups", {mode: 0, width: "220", height: "290"}, 16347673);
+                        </script>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="newslist">
+                
+                  <div class="newslist-item">
+                  
+                    <div class="pic">
+                      <a href="#">
+                        <img src="files/mainpage-news.jpg" alt="Редактор AdWords"/>
+                      </a>
+                    </div>
+                    
+                    <div class="descr">
+                      <div class="post-lead">
+                        <h3><a href="#">Nethouse: 1 год или 60790 сайтов для бизнеса</a></h3>
+                        <p>
+                          Новый сервис SaleTex позволит увеличить количество клиентов при прежней посещаемости сайта
+                        </p>
+                      </div>
+                      <div class="post-data fc">
+                        <div class="author">
+                          <a href="#"><img class="userpic" src="files/userpic.jpg" alt="Василий Петров"/></a>
+                          <a href="#">Вячеслав Георгиев</a><br />
+                          <span class='date-time'>Вчера, <span class="time">в 23:29</span></span>
+                        </div>
+                        <div class="comments-views">
+                          <span class='cv-item'><a href="#"><span class="ico ico-comments"/></span> 16</a></span>
+                          <span class='cv-item'><span class="ico ico-views"/></span> 561</span>
+                        </div>
+                      </div>
+                    </div>
+                    
+                  </div>
+                  
+                  <div class="newslist-item">
+                
+                    <div class="pic">
+                      <a href="#">
+                        <img src="files/mainpage-news.jpg" alt="Редактор AdWords"/>
+                      </a>
+                    </div>
+                    
+                    <div class="descr">
+                      <div class="post-lead">
+                        <h3><a href="#">Nethouse: 1 год или 60790 сайтов для бизнеса</a></h3>
+                        <p>
+                          Новый сервис SaleTex позволит увеличить количество клиентов при прежней посещаемости сайта
+                        </p>
+                      </div>
+                      <div class="post-data fc">
+                        <div class="author">
+                          <a href="#"><img class="userpic" src="files/userpic.jpg" alt="Василий Петров"/></a>
+                          <a href="#">Вячеслав Георгиев</a><br />
+                          <span class='date-time'>Вчера, <span class="time">в 23:29</span></span>
+                        </div>
+                        <div class="comments-views">
+                          <span class='cv-item'><a href="#"><span class="ico ico-comments"/></span> 16</a></span>
+                          <span class='cv-item'><span class="ico ico-views"/></span> 561</span>
+                        </div>
+                      </div>
+                    </div>
+                  
+                  </div>
+                  
+                  <a href="#" class="all-link"><span>Все материалы</span> &rarr;</a>
+                  
+                </div>
+                
+              </div>
+              
+            </div>
+            
+            <!-- Свежее END -->
+            
+            <!-- Лучшие статьи наших блоггеров -->
+            
+            <div class="content-block">
+            
+              <h2>Лучшие статьи наших блоггеров</h2>
+              
+              <div class="mainpage-best fc">
+              
+                <div class="bestlist">
+                
+                  <div class="bestlist-item">
+                    <div class="descr">
+                      <div class="post-lead">
+                        <h3><a href="#">Веб-дизайн, за который пользователи не скажут «спасибо»</a></h3>
+                        <p>
+                          Все большее число сайтов переходят на адаптивный дизайн. Но возникает вопрос: Для достижения максимальной конверсии с разных типов устройств, какие блоки убрать?
+                        </p>
+                      </div>
+                      <div class="post-data fc">
+                        <div class="author">
+                          <a href="#"><img class="userpic" src="files/userpic.jpg" alt="Василий Петров"/></a>
+                          <a href="#">Вячеслав Георгиев</a><br />
+                          <span class='date-time'>Вчера, <span class="time">в 23:29</span></span>
+                        </div>
+                        <div class="comments-views">
+                          <span class='cv-item'><a href="#"><span class="ico ico-comments"/></span> 16</a></span>
+                          <span class='cv-item'><span class="ico ico-views"/></span> 561</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="bestlist-item">
+                    <div class="descr">
+                      <div class="post-lead">
+                        <h3><a href="#">Как правильно монетизировать сайт</a></h3>
+                        <p>
+                          Новичкам на заметку: за что пессимизируют поисковики, и почему от некоторых способов заработка стоит отказаться
+                        </p>
+                      </div>
+                      <div class="post-data fc">
+                        <div class="author">
+                          <a href="#"><img class="userpic" src="files/userpic.jpg" alt="Василий Петров"/></a>
+                          <a href="#">Вячеслав Георгиев</a><br />
+                          <span class='date-time'>Вчера, <span class="time">в 23:29</span></span>
+                        </div>
+                        <div class="comments-views">
+                          <span class='cv-item'><a href="#"><span class="ico ico-comments"/></span> 16</a></span>
+                          <span class='cv-item'><span class="ico ico-views"/></span> 561</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                
+                </div>
+              
+              </div>
+            
+            </div>
+            
+            <!-- Лучшие статьи наших блоггеров END -->
+            
+            <!-- Календарь событий -->
+            
+            <div class="content-block">
+            
+              <h2><a href="#">Календарь событий</a></h2>
+              
+              <div class="mainpage-calendar">
+                
+              </div>
+              
+              <div class="mainpage-sliders fc">
+                
+                <div class="mainpage-events-slider">
+                  <div class="event-content">
+                    <a href="#">
+                      <span class="event-wrapper" style="background-image: url(http://seonews.localhost/files/mp-event-1.jpg); background-position: initial initial; background-repeat: initial initial;">
+                    	  <span class="pic-mask"></span>
+                    	  <span class="event-descr">
+                    	  	<span class="event-tag event-tag-6">Создание сайтов</span>
+                    	  	<span class="name"><span>Кейс-конференция «Интернет-магазины: кейсы, «фишки», опыт практиков»</span></span>
+                    	  </span>
+                    	</span>
+                    </a>
+                  </div>
+                  <div class="events-list fc">
+                    <div class="event-item">
+                      <a class="event-link" href="#" hires="files/mp-event-1.jpg"><img src="files/mp-event-1-tmb.jpg" /></a>
+                      <span class="event-descr">
+                      	<a href="#" class="event-tag event-tag-6">Создание сайтов</a>
+                      	<span class="name"><a href="#">Кейс-конференция «Интернет-магазины: кейсы, «фишки», опыт практиков»</a></span>
+                      </span>
+                    </div>
+                    <div class="event-item">
+                      <a href="#" class="event-link" href="#" hires="files/mp-event-2.jpg"><img src="files/mp-event-2-tmb.jpg" /></a>
+                      <span class="event-descr">
+                      	<a href="#" class="event-tag event-tag-7">Юзабилити</a>
+                      	<span class="name"><a href="#">Продажи интернет-услуг на 100%</a></span>
+                      </span>
+                    </div>
+                    <div class="event-item">
+                      <a href="#" class="event-link" href="#" hires="files/mp-event-3.jpg"><img src="files/mp-event-3-tmb.jpg" /></a>
+                      <span class="event-descr">
+                      	<a href="#" class="event-tag event-tag-8">Технические приемы</a>
+                      	<span class="name"><a href="#">Кейс-конференция «Интернет-магазины»</a></span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="mainpage-events-slider">
+                  <div class="event-content">
+                    <a href="#">
+                      <span class="event-wrapper" style="background-image: url(http://seonews.localhost/files/mp-event-1.jpg); background-position: initial initial; background-repeat: initial initial;">
+                    	  <span class="pic-mask"></span>
+                    	  <span class="event-descr">
+                    	  	<span class="event-tag event-tag-6">Создание сайтов</span>
+                    	  	<span class="name"><span>Кейс-конференция «Интернет-магазины: кейсы, «фишки», опыт практиков»</span></span>
+                    	  </span>
+                    	</span>
+                    </a>
+                  </div>
+                  <div class="events-list fc">
+                    <div class="event-item">
+                      <a class="event-link" href="#" hires="files/mp-event-2.jpg"><img src="files/mp-event-2-tmb.jpg" /></a>
+                      <span class="event-descr">
+                      	<a href="#" class="event-tag event-tag-6">Создание сайтов</a>
+                      	<span class="name"><a href="#">Кейс-конференция «Интернет-магазины: кейсы, «фишки», опыт практиков»</a></span>
+                      </span>
+                    </div>
+                    <div class="event-item">
+                      <a href="#" class="event-link" href="#" hires="files/mp-event-2.jpg"><img src="files/mp-event-2-tmb.jpg" /></a>
+                      <span class="event-descr">
+                      	<a href="#" class="event-tag event-tag-7">Юзабилити</a>
+                      	<span class="name"><a href="#">Продажи интернет-услуг на 100%</a></span>
+                      </span>
+                    </div>
+                    <div class="event-item">
+                      <a href="#" class="event-link" href="#" hires="files/mp-event-3.jpg"><img src="files/mp-event-3-tmb.jpg" /></a>
+                      <span class="event-descr">
+                      	<a href="#" class="event-tag event-tag-8">Технические приемы</a>
+                      	<span class="name"><a href="#">Кейс-конференция «Интернет-магазины»</a></span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                
+              </div>
+            
+            </div>
+            
+            <!-- Календарь событий END -->
+            
+            <!-- Каталог инструментов и сервисов -->
+            
+            <div class="content-block">
+            
+              <h2><a href="#">Каталог инструментов и сервисов</a> <span class="total"><span>345 всего</span></span></h2>
+              
+              <div class="mainpage-catalogue">
+                
+              </div>
+            
+            </div>
+            
+            <!-- Каталог инструментов и сервисов END -->
+            
+            <!-- Откровения экспертов -->
+            
+            <div class="content-block">
+            
+              <h2><a href="#">Откровения экспертов</a></h2>
+              
+              <div class="mainpage-experts fc">
+              
+                <div class="expertslist">
+                
+                  <div class="expertslist-item">
+                  
+                    <div class="pic">
+                      <a href="#">
+                        <img src="files/mainpage-experts.jpg" alt="Редактор AdWords"/>
+                      </a>
+                    </div>
+                    
+                    <div class="descr">
+                      <div class="post-lead">
+                        <h3><a href="#">Мэтт Каттс смог поговорить о SEO в сенате государства</a></h3>
+                      </div>
+                      <div class="post-data fc">
+                        <div class="comments-views">
+                          <span class='cv-item'><a href="#"><span class="ico ico-comments"/></span> 16</a></span>
+                          <span class='cv-item'><span class="ico ico-views"/></span> 561</span>
+                        </div>
+                      </div>
+                    </div>
+                    
+                  </div>
+                  
+                  <div class="ad-item">
+                    <a href="#"><img src="files/ad-1.jpg" alt=""/></a>
+                  </div>
+                  
+                  <div class="expertslist-item">
+                  
+                    <div class="pic">
+                      <a href="#">
+                        <img src="files/mainpage-experts.jpg" alt="Редактор AdWords"/>
+                      </a>
+                    </div>
+                    
+                    <div class="descr">
+                      <div class="post-lead">
+                        <h3><a href="#">Мэтт Каттс смог поговорить о SEO в сенате государства</a></h3>
+                      </div>
+                      <div class="post-data fc">
+                        <div class="comments-views">
+                          <span class='cv-item'><a href="#"><span class="ico ico-comments"/></span> 16</a></span>
+                          <span class='cv-item'><span class="ico ico-views"/></span> 561</span>
+                        </div>
+                      </div>
+                    </div>
+                    
+                  </div>
+                  
+                </div>
+              
+              </div>
+            
+            </div>
+            
+            <!-- Откровения экспертов END -->
+            
+            <!-- Рейтинги -->
+            
+            <div class="content-block">
+            
+              <h2><a href="#">Рейтинги SeoNews</a><span class="sep">&rarr;</span></h2>
+              
+              <div class="mainpage-ratings">
+              
+              
+              
+              </div>
+            
+            </div>
+            
+            <!-- Рейтинги END -->
+            
+            <!-- Библиотека -->
+            
+            <div class="content-block">
+            
+              <h2><a href="#">Библиотека</a> <span class="total"><span>1234 книги</span></span></h2>
+            
+              <div class="mainpage-library fc">
+              
+                <div class="bookslist fc">
+                
+                  <div class="bookslist-item">
+                    <div class="pic">
+                      <a href="#"><img src="files/book-tmb.jpg"/></a>
+                    </div>
+                    <div class="sn-share fc">
+                      <div class="cont">
+                        <h5>Поделись с друзьями:</h5>
+                        <!-- AddThis Button BEGIN -->
+                        <div class="addthis_toolbox addthis_default_style addthis_16x16_style" addthis:url="http://seonews.ru">
+                        <a class="addthis_button_vk"></a>
+                        <a class="addthis_button_facebook"></a>
+                        <a class="addthis_button_twitter"></a>
+                        <a class="addthis_counter addthis_bubble_style"></a>
+                        </div>
+
+                        <!-- AddThis Button END -->
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="bookslist-item">
+                    <div class="pic">
+                      <a href="#"><img src="files/book-tmb.jpg"/></a>
+                    </div>
+                    <div class="sn-share fc">
+                      <div class="cont">
+                        <h5>Поделись с друзьями:</h5>
+                        <!-- AddThis Button BEGIN -->
+                        <div class="addthis_toolbox addthis_default_style addthis_16x16_style" addthis:url="http://seonews.ru">
+                        <a class="addthis_button_vk"></a>
+                        <a class="addthis_button_facebook"></a>
+                        <a class="addthis_button_twitter"></a>
+                        <a class="addthis_counter addthis_bubble_style"></a>
+                        </div>
+
+                        <!-- AddThis Button END -->
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="bookslist-item">
+                    <div class="pic">
+                      <a href="#"><img src="files/book-tmb.jpg"/></a>
+                    </div>
+                    <div class="sn-share fc">
+                      <div class="cont">
+                        <h5>Поделись с друзьями:</h5>
+                        <!-- AddThis Button BEGIN -->
+                        <div class="addthis_toolbox addthis_default_style addthis_16x16_style" addthis:url="http://seonews.ru">
+                        <a class="addthis_button_vk"></a>
+                        <a class="addthis_button_facebook"></a>
+                        <a class="addthis_button_twitter"></a>
+                        <a class="addthis_counter addthis_bubble_style"></a>
+                        </div>
+
+                        <!-- AddThis Button END -->
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="bookslist-item">
+                    <div class="pic">
+                      <a href="#"><img src="files/book-tmb.jpg"/></a>
+                    </div>
+                    <div class="sn-share fc">
+                      <div class="cont">
+                        <h5>Поделись с друзьями:</h5>
+                        <!-- AddThis Button BEGIN -->
+                        <div class="addthis_toolbox addthis_default_style addthis_16x16_style" addthis:url="http://seonews.ru">
+                        <a class="addthis_button_vk"></a>
+                        <a class="addthis_button_facebook"></a>
+                        <a class="addthis_button_twitter"></a>
+                        <a class="addthis_counter addthis_bubble_style"></a>
+                        </div>
+
+                        <!-- AddThis Button END -->
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="bookslist-item">
+                    <div class="pic">
+                      <a href="#"><img src="files/book-tmb.jpg"/></a>
+                    </div>
+                    <div class="sn-share fc">
+                      <div class="cont">
+                        <h5>Поделись с друзьями:</h5>
+                        <!-- AddThis Button BEGIN -->
+                        <div class="addthis_toolbox addthis_default_style addthis_16x16_style" addthis:url="http://seonews.ru">
+                        <a class="addthis_button_vk"></a>
+                        <a class="addthis_button_facebook"></a>
+                        <a class="addthis_button_twitter"></a>
+                        <a class="addthis_counter addthis_bubble_style"></a>
+                        </div>
+
+                        <!-- AddThis Button END -->
+                      </div>
+                    </div>
+                  </div>
+                
+                </div>
+              
+              </div>
+            
+            </div>
+            
+            <!-- Библиотека END -->
+            
+            <!-- Блоги компаний -->
+            
+            <div class="content-block">
+            
+              <h2><a href="#">Блоги компаний</a></h2>
+              
+              <div class="mainpage-blogs">
+              
+              	<div class="bloglist fc">
+              	
+              	  <div class="bloglist-item">
+              	    <div class="logo">
+              	      <a href="#"><img src="files/blog-logo-ingate.jpg" /></a>
+              	    </div>
+              	    <div class="descr">
+              	      <div class="post-lead">
+              	        <h3><a href="#">Инфографика SEO vs SMM</a></h3>
+              	        <p>
+              	          7 декабря 2012 г. в 21:00 пройдет бесплатный вебинар, посвященный повышению эффективности работы сайта, с участием Денни Хена
+              	        </p>
+              	      </div>
+              	      <div class="post-data fc">
+              	        <div class="author">
+              	          <a href="#"><img class="userpic" src="files/userpic-ingate.jpg" alt="Ingate"/></a>
+              	          <a href="#">Ingate</a><br />
+              	          <span class='date-time'>Вчера, <span class="time">в 23:29</span></span>
+              	        </div>
+              	        <div class="comments-views">
+                          <span class='cv-item'><a href="#"><span class="ico ico-comments"/></span> 16</a></span>
+                          <span class='cv-item'><span class="ico ico-views"/></span> 561</span>
+                        </div>
+              	      </div>
+              	    </div>
+                    
+              	  </div>
+                  
+                  <div class="bloglist-item">
+              	    <div class="logo">
+              	      <a href="#"><img src="files/blog-logo-seoguru.jpg" /></a>
+              	    </div>
+              	    <div class="descr">
+              	      <div class="post-lead">
+              	        <h3><a href="#">Персонализация сайта как способ повышения</a></h3>
+              	        <p>
+              	          Как определить, какой инструмент больше подходит для целей вашего бизнеса? Предлагаем рассмотреть сильные стороны каждого их них
+              	        </p>
+              	      </div>
+              	      <div class="post-data fc">
+              	        <div class="author">
+              	          <a href="#"><img class="userpic" src="files/userpic-ingate.jpg" alt="Seo Guru"/></a>
+              	          <a href="#">Seo Guru</a><br />
+              	          <span class='date-time'>Вчера, <span class="time">в 23:29</span></span>
+              	        </div>
+              	        <div class="comments-views">
+                          <span class='cv-item'><a href="#"><span class="ico ico-comments"/></span> 16</a></span>
+                          <span class='cv-item'><span class="ico ico-views"/></span> 561</span>
+                        </div>
+              	      </div>
+              	    </div>
+                    
+              	  </div>
+                  
+                  <div class="bloglist-item">
+              	    <div class="logo">
+              	      <a href="#"><img src="files/blog-logo-bdbd.jpg" /></a>
+              	    </div>
+              	    <div class="descr">
+              	      <div class="post-lead">
+              	        <h3><a href="#">В Москве пройдет медиа выставка</a></h3>
+              	        <p>
+              	          Теленет, по-моему, в Топе на первом месте. По масштабам и шокирующему эффекту безоговорочный лидер
+              	        </p>
+              	      </div>
+              	      <div class="post-data fc">
+              	        <div class="author">
+              	          <a href="#"><img class="userpic" src="files/userpic-ingate.jpg" alt="Seo Guru"/></a>
+              	          <a href="#">Seo Guru</a><br />
+              	          <span class='date-time'>Вчера, <span class="time">в 23:29</span></span>
+              	        </div>
+              	        <div class="comments-views">
+                          <span class='cv-item'><a href="#"><span class="ico ico-comments"/></span> 16</a></span>
+                          <span class='cv-item'><span class="ico ico-views"/></span> 561</span>
+                        </div>
+              	      </div>
+              	    </div>
+                    
+              	  </div>
+              	
+              	</div>
+                
+                <div class="blog-motivator fc">
+                  <div class="ico blog-motivator-ico"></div>
+                  <div class="txt">
+                    Не будь овощем! <a href="#">Напиши</a> что-то полезное и попади на главную! Пускай парнеры и заказчики узнают о тебе!
+                  </div>
+                  <div class="buttons">
+                    <a href="#" class="button button-1 button-blog-motivator">Написать в блог</a>
+                  </div>
+                </div>
+                
+              </div>
+            
+            </div>
+            
+            <!-- Блоги компаний END -->
+            
+            <!-- Блоги пользователей -->
+            
+            <div class="content-block">
+            
+              <h2><a href="#">Блоги пользователей</a></h2>
+              
+              <div class="mainpage-blogs">
+              
+              	<div class="bloglist fc">
+              	
+              	  <div class="bloglist-item">
+              	    <div class="descr">
+              	      <div class="post-lead">
+              	        <h3><a href="#">Инфографика SEO vs SMM</a></h3>
+              	        <p>
+              	          7 декабря 2012 г. в 21:00 пройдет бесплатный вебинар, посвященный повышению эффективности работы сайта, с участием Денни Хена
+              	        </p>
+              	      </div>
+              	      <div class="post-data fc">
+              	        <div class="author">
+              	          <a href="#"><img class="userpic" src="files/userpic.jpg" alt="Ingate"/></a>
+              	          <a href="#">Герман Евтушенко</a><br />
+              	          <span class='date-time'>Вчера, <span class="time">в 23:29</span></span>
+              	        </div>
+              	        <div class="comments-views">
+                          <span class='cv-item'><a href="#"><span class="ico ico-comments"/></span> 16</a></span>
+                          <span class='cv-item'><span class="ico ico-views"/></span> 561</span>
+                        </div>
+              	      </div>
+              	    </div>
+                    
+              	  </div>
+                  
+                  <div class="bloglist-item">
+              	    <div class="descr">
+              	      <div class="post-lead">
+              	        <h3><a href="#">Персонализация сайта как способ повышения</a></h3>
+              	        <p>
+              	          Как определить, какой инструмент больше подходит для целей вашего бизнеса? Предлагаем рассмотреть сильные стороны каждого их них
+              	        </p>
+              	      </div>
+              	      <div class="post-data fc">
+              	        <div class="author">
+              	          <a href="#"><img class="userpic" src="files/userpic-ingate.jpg" alt="Seo Guru"/></a>
+              	          <a href="#">Константин Константинопольский</a><br />
+              	          <span class='date-time'>Вчера, <span class="time">в 23:29</span></span>
+              	        </div>
+              	        <div class="comments-views">
+                          <span class='cv-item'><a href="#"><span class="ico ico-comments"/></span> 16</a></span>
+                          <span class='cv-item'><span class="ico ico-views"/></span> 561</span>
+                        </div>
+              	      </div>
+              	    </div>
+                    
+              	  </div>
+                  
+                  <div class="bloglist-item">
+              	    <div class="descr">
+              	      <div class="post-lead">
+              	        <h3><a href="#">В Москве пройдет медиа выставка</a></h3>
+              	        <p>
+              	          Теленет, по-моему, в Топе на первом месте. По масштабам и шокирующему эффекту безоговорочный лидер
+              	        </p>
+              	      </div>
+              	      <div class="post-data fc">
+              	        <div class="author">
+              	          <a href="#"><img class="userpic" src="files/userpic-ingate.jpg" alt="Seo Guru"/></a>
+              	          <a href="#">Сергей Аристархов</a><br />
+              	          <span class='date-time'>Вчера, <span class="time">в 23:29</span></span>
+              	        </div>
+              	        <div class="comments-views">
+                          <span class='cv-item'><a href="#"><span class="ico ico-comments"/></span> 16</a></span>
+                          <span class='cv-item'><span class="ico ico-views"/></span> 561</span>
+                        </div>
+              	      </div>
+              	    </div>
+                    
+              	  </div>
+              	
+              	</div>
+                
+              </div>
+            
+            </div>
+            
+            <!-- Блоги пользователей END -->
+            
+          </div>
+          
+          <div class="sidebar">
+          
+            <div class="search-trigger-wrapper">
+              <div class="search-trigger">
+                <span class="ico ico-search"></span> <span class="txt">Поиск по сайту</span>
+              </div>
+              
+            </div>
+            
+            <!-- Banner -->
+            
+            <div class="content-block">
+              <a href="#"><img src="files/sidebar-banner.jpg" /></a>
+            </div>
+            
+            <!-- Banner END -->
+            
+            <!-- Прямой эфир -->
+            
+            <div class="content-block">
+              <h2>Прямой эфир</h2>
+              
+              <div class="livefeed">
+              
+                <div class="livefeed-item">
+                  <div class="post-data">
+                  	<div class="author">
+                  	  <a href="#"><img class="userpic" src="files/userpic.jpg" alt="Василий Петров"/></a>
+                  	  <a href="#"><span>Василий</span><span class="user-role">эксперт</span><br /><span>Петров</span></a>
+                  	</div>
+                  </div>
+                  <div class="action">
+                    Оставил комментарий к статье <a href="#">Google изнутри: борьба со спамом</a>
+                  </div>
+                  <div class="post-lead">
+                    <a href="#">Теленет, по-моему, в Топе на первом месте. По масштабам и шокирующему эффекту безоговорочный лидер!</a>
+                  </div>
+                </div>
+                
+                <div class="livefeed-item">
+                  <div class="post-data">
+                  	<div class="author">
+                  	  <a href="#"><img class="userpic" src="files/userpic.jpg" alt="Василий Петров"/></a>
+                  	  <a href="#"><span>Василий</span><span class="user-role">админ</span><br /><span>Петров</span></a>
+                  	</div>
+                  </div>
+                  <div class="action">
+                    Оставил комментарий к статье <a href="#">Google изнутри: борьба со спамом</a>
+                  </div>
+                  <div class="post-lead">
+                    <a href="#">Теленет, по-моему, в Топе на первом месте. По масштабам и шокирующему эффекту безоговорочный лидер!</a>
+                  </div>
+                </div>
+                
+                <div class="livefeed-item">
+                  <div class="post-data">
+                  	<div class="author">
+                  	  <a href="#"><img class="userpic" src="files/userpic.jpg" alt="Василий Петров"/></a>
+                  	  <a href="#"><span>Константин</span><span class="user-role">эксперт</span><br /><span>Константинопольский</span></a>
+                  	</div>
+                  </div>
+                  <div class="action">
+                    Оставил комментарий к статье <a href="#">Google изнутри: борьба со спамом</a>
+                  </div>
+                  <div class="post-lead">
+                    <a href="#">Теленет, по-моему, в Топе на первом месте. По масштабам и шокирующему эффекту безоговорочный лидер!</a>
+                  </div>
+                </div>
+                
+                <div class="blog-motivator fc">
+                  <div class="ico blog-motivator-ico"></div>
+                  <div class="txt">
+                    <h4>Не будь овощем!</h4>
+                    <a href="#">Напиши</a> что-нибудь интересное и попади на главную!
+                  </div>
+                  <div class="buttons">
+                    <a href="#" class="button button-1 button-blog-motivator">Написать в блог</a>
+                  </div>
+                </div>
+                
+                <div class="livefeed-item">
+                  <div class="post-data">
+                  	<div class="author">
+                  	  <a href="#"><img class="userpic" src="files/userpic.jpg" alt="Василий Петров"/></a>
+                  	  <a href="#"><span>Василий</span><br /><span>Петров</span></a>
+                  	</div>
+                  </div>
+                  <div class="action">
+                    Оставил комментарий к статье <a href="#">Google изнутри: борьба со спамом</a>
+                  </div>
+                  <div class="post-lead">
+                    <a href="#">Теленет, по-моему, в Топе на первом месте. По масштабам и шокирующему эффекту безоговорочный лидер!</a>
+                  </div>
+                </div>
+                
+                <div class="livefeed-item">
+                  <div class="post-data">
+                  	<div class="author">
+                  	  <a href="#"><img class="userpic" src="files/userpic.jpg" alt="Василий Петров"/></a>
+                  	  <a href="#"><span>Василий</span><br /><span>Петров</span></a>
+                  	</div>
+                  </div>
+                  <div class="action">
+                    Оставил комментарий к статье <a href="#">Google изнутри: борьба со спамом</a>
+                  </div>
+                  <div class="post-lead">
+                    <a href="#">Теленет, по-моему, в Топе на первом месте. По масштабам и шокирующему эффекту безоговорочный лидер!</a>
+                  </div>
+                </div>
+                
+                <div class="livefeed-item">
+                  <div class="post-data">
+                  	<div class="author">
+                  	  <a href="#"><img class="userpic" src="files/userpic.jpg" alt="Василий Петров"/></a>
+                  	  <a href="#"><span>Василий</span><br /><span>Петров</span></a>
+                  	</div>
+                  </div>
+                  <div class="action">
+                    Оставил комментарий к статье <a href="#">Google изнутри: борьба со спамом</a>
+                  </div>
+                  <div class="post-lead">
+                    <a href="#">Теленет, по-моему, в Топе на первом месте. По масштабам и шокирующему эффекту безоговорочный лидер!</a>
+                  </div>
+                </div>
+                
+                <div class="livefeed-item">
+                  <div class="post-data">
+                  	<div class="author">
+                  	  <a href="#"><img class="userpic" src="files/userpic.jpg" alt="Василий Петров"/></a>
+                  	  <a href="#"><span>Василий</span><br /><span>Петров</span></a>
+                  	</div>
+                  </div>
+                  <div class="action">
+                    Оставил комментарий к статье <a href="#">Google изнутри: борьба со спамом</a>
+                  </div>
+                  <div class="post-lead">
+                    <a href="#">Теленет, по-моему, в Топе на первом месте. По масштабам и шокирующему эффекту безоговорочный лидер!</a>
+                  </div>
+                </div>
+                
+                <div class="livefeed-item">
+                  <div class="post-data">
+                  	<div class="author">
+                  	  <a href="#"><img class="userpic" src="files/userpic.jpg" alt="Василий Петров"/></a>
+                  	  <a href="#"><span>Василий</span><br /><span>Петров</span></a>
+                  	</div>
+                  </div>
+                  <div class="action">
+                    Оставил комментарий к статье <a href="#">Google изнутри: борьба со спамом</a>
+                  </div>
+                  <div class="post-lead">
+                    <a href="#">Теленет, по-моему, в Топе на первом месте. По масштабам и шокирующему эффекту безоговорочный лидер!</a>
+                  </div>
+                </div>
+                
+                <div class="livefeed-item">
+                  <div class="post-data">
+                  	<div class="author">
+                  	  <a href="#"><img class="userpic" src="files/userpic.jpg" alt="Василий Петров"/></a>
+                  	  <a href="#"><span>Василий</span><br /><span>Петров</span></a>
+                  	</div>
+                  </div>
+                  <div class="action">
+                    Оставил комментарий к статье <a href="#">Google изнутри: борьба со спамом</a>
+                  </div>
+                  <div class="post-lead">
+                    <a href="#">Теленет, по-моему, в Топе на первом месте. По масштабам и шокирующему эффекту безоговорочный лидер!</a>
+                  </div>
+                </div>
+                
+              
+              </div>
+              
+            </div>
+            
+            <!-- Прямой эфир END -->
+            
+            <!-- Специальный проект -->
+            
+            <div class="content-block">
+              <a href="#"><img src="files/jobs-banner.jpg"/></a>
+            </div>
+            
+            <!-- Специальный проект END -->
+            
+          </div>
+        
+        </div>
+        
+        <!-- Content END -->
+      
+      </div>
+      
+    </div>
+    
+    <!-- Body END -->
+  </div>
+</div>
+
+<!-- Footer -->
+
+<div class="footer">
+  
+  <div class="center-wrapper">
+  
+    <div class="footer-content">
+  
+      <div class="footer-col footer-col-1">
+      
+        <p>
+          <a href="#"><img class="logo" src="images/logo.png" alt="SeoNews"/></a>
+        </p>
+        
+        <p>
+          © SEOnews.ru Все права защищены. 2013
+        </p>
+        
+        <p>
+          Все права на материалы, публикуемые на данном сайте, принадлежат редакции сайта, за исключением случаев перепечатки чужих материалов, и охраняются в соответствии с законодательством РФ.
+        </p>
+        
+        <a class="email-link" href="mailto:info@seonews.ru"><span>info@seonews.ru</span></a>
+        
+      </div>
+      
+      <div class="footer-col">
+        <h4>Компания</h4>
+        <ul class="footer-menu">
+          <li><a href="#">О проекте</a></li>
+          <li><a href="#">Приглашаем авторов</a></li>
+          <li><a href="#">Контакты</a></li>
+          <li><a href="#">Реклама на сайте</a></li>
+          <li><a href="#">Правообладателям</a></li>
+          <li><a href="#">Правила</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-col">
+        <h4>Статьи</h4>
+        <ul class="footer-menu">
+          <li><a href="#">Как продвинуть сайт и заработать в Интернете</a></li>
+          <li><a href="#">Инструменты продвижения и заработка в Интеренете</a></li>
+          <li><a href="#">Откроевения экспертов</a></li>
+          <li><a href="#">Рейтинги SEOnews</a></li>
+          <li><a href="#">Библиотека</a></li>
+          <li><a href="#">Участники рынка</a></li>
+          <li><a href="#">Календарь событий</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-col">
+        <h4>Подписывайтесь</h4>
+        <ul class="footer-menu">
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">Тwitter</a></li>
+          <li><a href="#">ВКонтакте</a></li>
+          <li><a href="#">RSS</a></li>
+        </ul>
+        
+        <div class="developed-by fc">
+          <span>Разработка сайта:</span>
+          <span class="dev-link"><a href="#">Renaissance Art</a></span>
+        </div>
+        
+      </div>
+      
+    </div>
+  
+  </div>
+  
+</div>
+
+<!-- Footer END -->
+  
+<!-- Wrapper END -->
+
+<!-- Popups -->
+
+<div class="popup login-popup">
+  <div class="popup-header">
+    <div class="close"></div>
+    <h1>Добро пожаловать на SEOnews!</h1>
+  </div>
+  <div class="popup-body">
+    <div class="login-cols fc">
+    	<div class="login-l">
+    	  <h3>Вход на сайт</h3>
+    		<div class="common-form login-form fc">
+    		
+    		  <form action=".">
+    		  	<div class="form-item">
+    		  	  <label for="login_email" class="placeholder">Электронная почта</label>
+    		  	  <input type="text" name="login_email" id="login_email" class="form-text form-email" required />
+    		  	</div>
+    	      
+    	      <div class="form-item">
+    		  	  <label for="login_password" class="placeholder">Пароль</label>
+    		  	  <input type="password" name="login_password" id="login_password" class="form-text" required />
+    		  	</div>
+    		  	
+    		    <div class="form-footer fc">
+    		    	<input type="submit" value="Войти" class="button button-2 form-submit"/>
+    	        <div class="forgot-link">
+    	        	<a href="#">Я забыл пароль</a>
+    	        </div>
+    		    </div>
+    		    
+    		  </form>
+    		
+    		</div>
+    	  
+    	</div>
+    	
+    	<div class="login-r">
+    	  <h3>Я новый пользователь</h3>
+    	  <div class="text">
+    	  	<p>Чтобы полноценно пользоваться нашим сайтом, вам необходимо зарегистрироваться. Это просто и займет всего одну минуту.</p>
+    	  </div>
+    	  <a href="#" class="button button-4">Зарегистрироваться</a>
+    	</div>
+    </div>
+    
+    <div class="login-external">
+      <h4>Войти через</h4>
+      <div class="buttons fc">
+        <div class="button-login button-vk"></div>
+        <div class="button-login button-facebook"></div>
+        <div class="button-login button-twitter"></div>
+        <div class="button-login button-google"></div>
+        <div class="button-login button-mailru"></div>
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+<!-- Popups END -->
+
+</body>
+
+
+</html>

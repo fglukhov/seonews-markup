@@ -88,6 +88,11 @@ $(window).resize(function() {
   } else {
     $(".sidenav").fadeIn(250).removeClass("invisible");
   }
+  
+  if ($(".popup").length) {
+    pupMakeup();
+  }
+  
 });
 
 $(window).scroll(function () {
@@ -160,6 +165,61 @@ $(window).scroll(function () {
 
 $(document).ready(function () {
 
+  validateForms();
+
+  $(".form-text,.form-password, .form-textarea").each(function() {
+    if ($(this).val()) {
+      $(this).prev(".placeholder").hide();
+    }
+  });
+
+  $("input:text, input:password, textarea").each(function() {
+    $(this).addClass("initial");
+    
+    if ($(this).prop("tagName") == "INPUT" || $(this).prop("tagName") == "TEXTAREA") {
+      // if (!$(this).parents(".input-wrapper").length) $(this).wrap("<div class='input-wrapper'></div>");
+      if ($(this).hasClass("form-phone") || $(this).hasClass("form-date")) {
+        $(this).focus(function() {
+          $(this).removeClass("initial");
+          $(this).parents(".form-item").find(".placeholder").hide();
+        });
+      } else {
+        $(this).focus(function() {
+          $(this).parents(".form-item").find(".placeholder").addClass("placeholder-initial");
+        });
+        $(this).keydown(function() {
+          $(this).removeClass("initial");
+          $(this).parents(".form-item").find(".placeholder").hide();
+        });
+      }
+      $(this).blur(function() {
+        $(this).prev().prev(".placeholder").hide();
+        $(this).parents(".form-item").find(".placeholder").removeClass("placeholder-initial");
+        if (!$(this).val()) {
+          $(this).addClass("initial");
+          $(this).parents(".form-item").find(".placeholder").show();
+        }
+      });
+    } else {
+      $(this).focus(function() {
+        $(this).removeClass("initial");
+        $(this).parents(".form-item").find(".placeholder").hide();
+      });
+      $(this).blur(function() {
+        if (!$(this).val()) {
+          $(this).addClass("initial");
+          $(this).parents(".form-item").find(".placeholder").show();
+        }
+      });
+    }
+      
+    $(this).parents(".form-item").find(".placeholder").click(function() {
+      $(this).focus();
+    });
+    
+  });
+  
+  
   if ($(window).width() < 1300) {
     $(".sidenav").fadeOut(250,function() {
       $(this).addClass("invisible")
@@ -352,31 +412,8 @@ $(".sn-subscribe .button-vk").click(function() {
   });
 
   $("#review-open").click(function () {
-    $("body").append("<div class='tint'></div>");
     
-    $(".review-popup").show();
-    pupMakeup();
-    
-    jQuery(document).keydown(function(e){
-      if (e == null) { // ie
-        keycode = event.keyCode;
-      } else { // mozilla
-        keycode = e.which;
-      }
-      
-      if(keycode == 27){ // escape, close box
-        closePopup()
-      }
-      
-    });
-    
-    $(".tint").on("click", function () {
-      closePopup()
-    });
-    
-    $(".popup .close").on("click", function () {
-      closePopup()
-    });
+    openPopup($(".review-popup"));
     
     return false;
     
@@ -2254,7 +2291,7 @@ function makeup() {
     }
   });
 
-  $("input:text").each(function () {
+  $("input:text,input:password").each(function () {
     if (!$(this).parents(".input-wrapper").length) $(this).wrap("<div class='input-wrapper'></div>");
     $(this).addClass("initial");
     $(this).focus(function() {
@@ -2672,14 +2709,22 @@ function handleTools() {
   }
 }
 
-function pupMakeup () {
-  $(".tint").css("height",$("body").height()).css("width",$("body").width());
-  $(".popup").css("top",$(window).scrollTop() + 20).css("left",($(window).width()-$(".popup").width())/2 - 20);
+function pupMakeup() {
+  var popup = $(".popup-act");
+  var pupTop = $(window).scrollTop() + ($(window).height() - popup.outerHeight(true))/2;
+  if (pupTop < 20) pupTop = 20;
+  $(".tint").css("height",$(window).height()).css("width",$("body").width());
+  if (!popup.hasClass("price-popup")) {
+    popup.css("top",pupTop).css("left",($(window).width()-popup.outerWidth(true))/2 - 20);
+  } else {
+    popup.css("margin-top",$(window).scrollTop() - popup.parent().offset().top - popup.parent().outerHeight(true) + ($(window).height()-popup.outerHeight(true))/2);
+  }
+  
 }
 
 function closePopup() {
   $(".tint").remove();
-  $(".popup").hide();
+  $(".popup").hide().removeClass("popup-act");
 }
 
 function adaptation() {
@@ -2809,3 +2854,141 @@ function elementLoader(elementId,loaderBg) {
 function removeLoader(elementId) {
   $(".element-loader[rel='"+elementId+"']").remove();
 }
+
+function openPopup(popup) {
+  var popup = popup;
+  
+  popup.addClass("popup-act");
+  
+  $("body").append("<div class='tint'></div>");
+    
+  popup.fadeIn(150);
+  pupMakeup();
+  
+  jQuery(document).keydown(function(e){
+    if (e == null) { // ie
+      keycode = event.keyCode;
+    } else { // mozilla
+      keycode = e.which;
+    }
+    
+    if(keycode == 27){ // escape, close box
+      closePopup()
+    }
+    
+  });
+  
+  $(".tint").on("click", function () {
+    closePopup()
+  });
+  
+  $(".popup .close").on("click", function () {
+    closePopup()
+  });
+  
+}
+
+function validateForms() {
+  
+  $(".common-form form").each(function() {
+    $(this).validate({
+      focusInvalid: false,
+      sendForm : false,
+      errorPlacement: function(error, element) {
+        element.parents(".input-wrapper").addClass("input-wrapper-error");
+        element.parents(".form-item").find(".placeholder").addClass("placeholder-error");
+        if (element.attr("id") != "reg_email" || element.val() == "") {
+          error.insertAfter(element);
+        }
+        element.focus(function() {
+          error.remove();
+        });
+      },
+      unhighlight: function(element, errorClass, validClass) {
+        $(element).parents(".input-wrapper").removeClass("input-wrapper-error");
+        $(element).parents(".form-item").find(".placeholder").removeClass("placeholder-error");
+        $(element).removeClass(errorClass);
+      },
+      invalidHandler: function(form, validatorcalc) {
+        var errors = validatorcalc.numberOfInvalids();
+        if (errors && validatorcalc.errorList[0].element.tagName == "INPUT") {                    
+            validatorcalc.errorList[0].element.focus();
+        }
+      }
+    });
+    
+    if ($(this).find(".form-email").length) {
+      $(this).find(".form-email").rules('add', {
+        email: true,
+        messages: {
+          required:  "Введите правильный адрес!"
+        }
+      });
+    }
+    
+    if ($(this).find(".form-date").length) {
+      $(this).find(".form-date").rules('add', {
+        messages: {
+          required:  "Выберите дату!"
+        }
+      });
+    }
+    
+    if ($(this).find(".form-email").length && $(this).find(".form-phone").length) {
+      var thisField = $(this).find(".form-phone");
+      var relatedField = $(this).find(".form-email");
+      thisField.rules('add', {
+        required: function(element) {
+          if (relatedField.val() == "") {
+            return true;
+          } else {
+            return false;
+          }
+        }
+      });
+      var thisField2 = $(this).find(".form-email");
+      var relatedField2 = $(this).find(".form-phone");
+      thisField2.rules('add', {
+        required: function(element) {
+          if (relatedField2.val() == "") {
+            return true;
+          } else {
+            return false;
+          }
+        }
+      });
+    }
+    
+    $(document).mouseup(function (e) {
+      var container = $("form");
+
+      if (!container.is(e.target) // if the target of the click isn't the container...
+          && container.has(e.target).length === 0) // ... nor a descendant of the container
+      {
+          $(".error-wrapper").remove();
+      }
+    });
+    
+  });  
+    
+}
+
+jQuery.extend(jQuery.validator.messages, {
+    required: "Заполните поле!",
+    remote: "Please fix this field.",
+    email: "Введите правильный e-mail",
+    url: "Please enter a valid URL.",
+    date: "Please enter a valid date.",
+    dateISO: "Please enter a valid date (ISO).",
+    number: "Please enter a valid number.",
+    digits: "Please enter only digits.",
+    creditcard: "Please enter a valid credit card number.",
+    equalTo: "Please enter the same value again.",
+    accept: "Please enter a value with a valid extension.",
+    maxlength: jQuery.validator.format("Please enter no more than {0} characters."),
+    minlength: jQuery.validator.format("Please enter at least {0} characters."),
+    rangelength: jQuery.validator.format("Please enter a value between {0} and {1} characters long."),
+    range: jQuery.validator.format("Please enter a value between {0} and {1}."),
+    max: jQuery.validator.format("Please enter a value less than or equal to {0}."),
+    min: jQuery.validator.format("Please enter a value greater than or equal to {0}.")
+});
