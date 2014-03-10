@@ -5375,6 +5375,7 @@ h2 .section-filter span {
   padding:0 0 0 20px;
   border-left:1px solid #ececec;
   float:left;
+  list-style:none;
 }
 
 .rating-rules li.first {
@@ -8306,4 +8307,31 @@ a:visited font {
 
 .login-popup .login-cols {
   padding:0 0 35px 0;
+}
+
+.rating-ttl {
+  margin:4px 0 14px 0;
+}
+
+.rating-ttl .ttl {
+  float: left;
+  margin: 4px 40px 0 0;
+  font-family: 'OpenSansSemibold';
+  font-size: 22px;
+  line-height: 22px;
+}
+
+.rating-ttl .year-nav {
+  float:left;
+  margin:0;
+}
+
+.rating-lead {
+  font-size:14px;
+  line-height:21px;
+  margin:0 0 10px 0;
+}
+
+.rating-post-controls {
+  margin:25px 0 28px 0 !important;
 }
