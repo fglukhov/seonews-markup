@@ -5063,6 +5063,12 @@ h2 .section-filter span {
   top:11px;
 }
 
+.rating-show-more a,
+.rating-show-more a:visited {
+  color:#2f2c2b;
+  text-decoration:none;
+}
+
 .experts {
   padding-top:12px;
   overflow:hidden;
@@ -5251,7 +5257,11 @@ h2 .section-filter span {
 }
 
 .year-nav {
-  margin:0 0 18px 0;
+  margin: 0 0 18px 0;
+  position: absolute;
+  left: 344px;
+  top: 4px;
+  z-index: 3;
 }
 
 .year-nav .item {
@@ -8310,7 +8320,7 @@ a:visited font {
 }
 
 .rating-ttl {
-  margin:4px 0 14px 0;
+  margin:4px 0 23px 0; 
 }
 
 .rating-ttl .ttl {
