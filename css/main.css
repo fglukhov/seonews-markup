@@ -5374,6 +5374,10 @@ h2 .section-filter span {
   background:url(../images/rating-arrows.png) 0 -26px no-repeat;
 }
 
+.rating-new {
+  color:#94ba4a;
+}
+
 .rating-rules {
   padding:27px 0;
   margin-left:-20px;
