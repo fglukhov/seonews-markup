@@ -29,15 +29,46 @@ var monthName2 = [
   ];
 
 var dayName = [
-    "воскресенье",
-    "понедельник",
-    "вторник",
-    "среда",
-    "четверг",
-    "пятница",
-    "суббота"
+    "Воскресенье",
+    "Понедельник",
+    "Вторник",
+    "Среда",
+    "Четверг",
+    "Пятница",
+    "Суббота"
   ];  
+
+// Лоадер с крутилкой над элементом  
   
+function elementLoader(elementId,loaderBg) {
+  var el = $("#"+elementId);
+  if (el.length) {
+    if (!$(".element-loader[rel='"+elementId+"']").length) {
+      $("body").append("<div class='element-loader' rel='"+elementId+"'></div>");
+      var loader = $(".element-loader[rel='"+elementId+"']");
+      loader.css({
+        "left":el.offset().left,
+        "top":el.offset().top,
+        "width":el.width(),
+        "height":el.height()
+      }).append("<div class='loader-bg' />").append("<div class='loader-pic' />");
+    if(!loaderBg){
+      loaderBg = "#fff";
+    }
+      loader.find(".loader-bg").css("background-color",loaderBg)
+    }
+  }
+}
+
+// Удаление лоадера
+
+function removeLoader(elementId) {
+  if ($(".element-loader[rel='"+elementId+"']")) {
+    $(".element-loader[rel='"+elementId+"']").remove();
+  }
+}
+
+// Разметка новостей
   
 function newsMakeup() {
   if ($(".newslist").length) {
@@ -66,21 +97,33 @@ function newsMakeup() {
   
 $(window).load(function () {
 
-  $(".post-text img").each(function() {
-    if ($(this).width() > 400) {
-      $(this).addClass("nofloat");
-    }
-  });
+  // $(".post-text img").each(function() {
+    // if ($(this).width() > 400) {
+      // $(this).addClass("nofloat");
+    // }
+  // });
 
+  // Вызов фунции адаптации под ширину окна браузера
+  
   adaptation();
 
   $(".vk-popup").addClass("initial");
   $(".facebook-popup").addClass("initial");
+  $(".twitter-popup").addClass("initial");
+  
+  // if (window.location.hash == "#comments") {
+    // $("html,body").animate({
+      // scrollTop: $(".comments-block").offset().top - 100
+    // },100)
+  // }
   
 });
 
 $(window).resize(function() {
   adaptation();
+  
+  // Скрытие кнопки "Наверх" при маленькой ширине окна
+  
   if ($(window).width() < 1300) {
     $(".sidenav").fadeOut(250,function() {
       $(this).addClass("invisible")
@@ -97,20 +140,63 @@ $(window).resize(function() {
 
 $(window).scroll(function () {
   
+  // Фиксация меню и части шапки при скролле страницы
+  
   if ($(window).scrollTop() > ($(".header").offset().top + $(".header-banner").height())) {
     $(".header-content").addClass("header-fixed").removeClass("header-normal").css("margin-left",-$(document).scrollLeft());
-    $(".top-filter-shadow").fadeIn(250);
     if (!$(".sidenav").hasClass("invisible")) {
       $(".sidenav").fadeIn(250);
     }
+    if ($(".top-filter").hasClass("top-filter-locked")) {
+      $(".top-filter-wrapper").hide();
+    } else {
+      $(".top-filter-shadow").fadeIn(250);
+    }
   } else {
     $(".header-content").removeClass("header-fixed").addClass("header-normal").css("margin-left",0);
-    $(".top-filter-shadow").fadeOut(250);
+    
     if (!$(".sidenav").hasClass("invisible")) {
       $(".sidenav").fadeOut(250);
     }
+    if ($(".top-filter").hasClass("top-filter-locked")) {
+      $(".top-filter-wrapper").show();
+    } else {
+      $(".top-filter-shadow").fadeOut(250);
+    }
   }
   
+  // Фиксация меню в левой колонке
+  
+  if ($(".nav-placeholder").length) {
+    if ($(window).scrollTop() > parseInt($(".nav-placeholder").offset().top - 70)) {
+      if ($(".main-column").height() > $(".sidebar").height()) {
+        $(".nav-calendar-wrapper").addClass("nav-fixed").css({
+          position: "fixed",
+          top: 70
+        });
+        if ($(".nav-calendar-wrapper").offset().top >= $(".footer").offset().top - $(".nav-calendar-wrapper").outerHeight(true) - 25) {
+          $(".nav-calendar-wrapper").addClass("nav-abs").removeClass("nav-fixed").css({
+            position: "absolute",
+            top: $(".main-column").height() - $(".nav-calendar-wrapper").height()
+          });
+        } 
+        
+        if ($(".nav-calendar-wrapper").hasClass("nav-abs")) {
+          if ($(window).scrollTop() < $(".nav-abs").offset().top - 70) {
+            $(".nav-calendar-wrapper").removeClass("nav-abs").addClass("nav-fixed").css({
+              position: "fixed",
+              top: 70
+            });
+          }
+        }
+      }
+    } else {
+      $(".nav-calendar-wrapper").removeClass("nav-fixed").css({
+        position: "relative",
+        top: "auto"
+      });
+    }
+  }
   
   // if ($(window).scrollTop() > $(".sidebar").offset().top) {
     // $(".up-link *").fadeIn(250);
@@ -121,51 +207,76 @@ $(window).scroll(function () {
     // $(".up-link *").stop().fadeOut(250);
   // }
   
- if (($(window).scrollTop() > parseInt($(document).height() - $(".footer").height() - $(window).height() - 50)) && ($(location).attr('pathname') == "/news/" || $(location).attr('pathname') == "/analytics/") && !$(".section-content").hasClass("loaded")) {
-   
-  var iblockid=12;
-  if($(location).attr('pathname') == "/analytics/") iblockid=17;
-    
-    var newLength;
-    
-    var oldLength = $(".newslist-item").length;
-    
-    $(".section-content").append("<div class='news-loader'></div>")
+  // Автоподгрузка при скролле
   
-    $.ajax({
+	if (($(window).scrollTop() > parseInt($(document).height() - $(".footer").height() - $(window).height() - 50)) && !$(".navigation").hasClass("loaded")) {
+	   
+		$(".navigation").addClass("loaded");
+		var page = $(".navigation").find(".next_page").attr("rel");
+		var url = $(".navigation").find(".next_page").attr("href");
+		if(page){
+			 $.ajaxhelper({
+				//params : {"PAGEN_1" : page},
+				url: url,
+				method : "get",
+				beforeSend 		: function()	{
+					$("body").css("cursor","progress");
+				},
+				success:function(data){
+					$(".navigation").remove();
+					$(".main-column").append(data);
+					$("body").css("cursor","default");
+					preparePage();
+					
+				}
+			}) 
+		}
+		return false;
 
-      url: '/ajax/articles.php?from='+$(".newslist-item").length+'&to='+parseInt($(".newslist-item").length+10) + "&iblockid=" + iblockid,
-
-      type: 'get',
-
-      dataType: 'html',
-
-      async: false
-
-    }).done(function(data) {
-      
-      $(".news-loader").remove();
-
-      $(".section-content").append(data);
-      
-      newLength = $(".newslist-item").length;
-      
-      if (newLength == oldLength) {
-        $(".section-content").addClass("loaded")
-      }
-      
-      makeup();
-      newsMakeup();
-
-    });
-
-  }
+	} 
   
 }); 
 
 $(document).ready(function () {
 
   validateForms();
+  
+  $('.form-checkboxes input').on('ifChecked', function(event){
+    $(this).parents(".form-checkboxes").find("label.error").remove();
+  });
+
+  //клик по кнопке "показать еще"
+  $(document).on("click", ".rating-show-more a", function() {
+    var page = $(this).attr("rel");
+	var url = $(this).attr("href");
+	//var del = page - 1;
+	if(page){
+		 $.ajaxhelper({
+			url: url,
+			method : "get",
+			beforeSend : function()	{
+				$("body").css("cursor","progress");
+			},
+			success:function(data){
+				$("#navigation_" + page).remove(); //удаляем навигацию с прошлой страницы
+				
+				//добавляем ссылку на след. страницу
+				var link = $(data).find("div.rating-show-more");
+				$("#rating-table-content").append($(link));
+				
+				//добавляем блок 
+				$("#rating_table").append(data);
+				
+				//удаляем временную навигацию из скрытого блока
+				$("#temp_navigation").remove();
+				
+				$("body").css("cursor","default");
+				preparePage();
+			}
+		}) 
+	}
+	return false; 
+  });
 
   $(".form-text,.form-password, .form-textarea").each(function() {
     if ($(this).val()) {
@@ -220,44 +331,217 @@ $(document).ready(function () {
   });
   
   
-  if ($(window).width() < 1300) {
-    $(".sidenav").fadeOut(250,function() {
-      $(this).addClass("invisible")
-    });
-  } else {
-    $(".sidenav").fadeIn(250).removeClass("invisible");
-  }
+  // if (window.location.hash == "#comments") {
+    // $("html,body").animate({
+      // scrollTop: $(".comments-block").offset().top + 150
+    // },100)
+  // }
 
+  // Календарь новостей
+  
+  $(".nav-calendar span.year").click(function() {
+    if (!$(this).hasClass("year-act")) {
+      $(".nav-calendar li ul").slideUp(250)
+      $(this).parents("li").children("ul").slideDown(250);
+      //$(".nav-calendar .month-act").removeClass("month-act");
+      $(".nav-calendar .year-act").removeClass("year-act");
+      $(this).addClass("year-act");
+    } else {
+      $(this).parents("li").children("ul").slideUp(250);
+      //$(".nav-calendar .month-act").removeClass("month-act");
+      $(this).removeClass("year-act");
+    }
+  });
+  
+  $(".nav-calendar a.year").click(function() {
+    if (!$(this).hasClass("year-act")) {
+      $(".nav-calendar li ul").slideUp(250)
+      //$(this).parents("li").children("ul").slideDown(250);
+      $(".nav-calendar .month-act").removeClass("month-act");
+      $(".nav-calendar .year-act").removeClass("year-act");
+      $(this).addClass("year-act");
+    }
+  });
+  
+  $(".nav-calendar li li a").click(function() {
+    $(".month-act").removeClass("month-act");
+    $(".nav-calendar .month-act").removeClass("month-act");
+    $(this).addClass("month-act");
+	
+  });
+  
+  // Обработка клика по кнопке поиска - раскрытие и скрытие формы
+
+  $(".search-trigger").click(function() {
+    $('.search-trigger .txt').html($('.search-trigger .txt').text() == 'Поиск по сайту' ? 'Свернуть поиск' : 'Поиск по сайту');
+    $(".search-block").slideToggle(250);
+    $(".search-trigger .ico").toggleClass("ico-collapse");
+  });
+  
+  // Всплывающее окно с меню пользователя в шапке
+
+  $(".user-link").hover(function() {
+    $(".user-controls").fadeToggle(150);
+  });
+
+  // Плагин с соцкнопками
+  
   var addthis_config = {"data_track_addressbar":true};
 
   var addthisScript = document.createElement('script');
   addthisScript.setAttribute('src', 'http://s7.addthis.com/js/300/addthis_widget.js#domready=1')
   document.body.appendChild(addthisScript)
+  
+  // Фильтр в шапке
+  
+  $(".top-filter-locked a").on("click",function() {
+    return false;
+  });
 
-  if ($(".event-more").length && !$(".calendar-event-content .tab-content .post-controls").length) {
-    $(".event-more").addClass("event-more-act");
-    $(".event-more-content").show();
-  }
+  // Top filter
+  // , .nav-calendar a, .section-filter a
+	$(".top-filter").not(".top-filter-locked").find("a").on("click", function(){
+		
+		elementLoader("news_list_pageID");
+		var href = $(this).attr("href");
+		var questionPos = href.indexOf("?");
 
-  // tooltips
+		if ( questionPos != -1 ) {
+			var queryString = href.slice(questionPos-(-1));	//только параметры
+			var clearUrl = href.slice(0, questionPos);	
+		} else {
+			var clearUrl = href;
+		}
+		
+		
+		var oldQuery = "";
+		if($("body").data("topQuery")){
+			oldQuery = $("body").data("topQuery");
+		}
+		if($(this).parent().hasClass("act") && oldQuery.length){
+			// удалить параметр
+			var newQuery = oldQuery.replace("&"+queryString, "");
+		} else {
+			if($(".top-filter li.act").length>=2){
+				$(".top-filter li.act").removeClass("act");
+				$("body").data("topQuery", "");
+				oldQuery = "";
+			}
+			
+			// добавить параметр
+			var newQuery = oldQuery+"&"+queryString;
+		}
+		$(this).parent().toggleClass("act");
+		
+		$("body").data("topQuery", newQuery);
+		
+		// собрать все фильтры
+		
+		if($("body").data("rubricQuery")){
+			newQuery = newQuery+$("body").data("rubricQuery");
+		}
+		if($("body").data("calendarQuery")){
+			newQuery = newQuery+"&"+$("body").data("calendarQuery");
+		}
+		if($("body").data("sortQuery")){
+			newQuery = newQuery+"&"+$("body").data("sortQuery");
+		}
+		$.ajaxhelper({
+			url : clearUrl+"?"+newQuery,
+			beforeSend 		: function()	{
+				$("body").css("cursor","progress");
+			},
+			success:function(data){
+				
+				var result = $(data).html();
+				$(".main-column").html(data);
+				$("body").css("cursor","default");
+				preparePage();
+				evCalendar();
+				removeLoader("news_list_pageID");
+				
+			}
+		})
+		return false;
+	}) 
+	
+	// SORT
+	$(".top-main").on("click", ".section-filter a", function(){
+		elementLoader("news_list_pageID");
+		var href = $(this).attr("href");
+		var questionPos = href.indexOf("?");
+
+		if ( questionPos != -1 ) {
+			var queryString = href.slice(questionPos-(-1));	//только параметры
+			var clearUrl = href.slice(0, questionPos);	
+		} else {
+			var clearUrl = href;
+		}
+		
+		$("body").data("sortQuery", queryString);
+		// собрать все фильтры
+		if($("body").data("topQuery")){
+			queryString = queryString+$("body").data("topQuery");
+		}
+		if($("body").data("calendarQuery")){
+			queryString = queryString+"&"+$("body").data("calendarQuery");
+		}
+		
+		$.ajaxhelper({
+			url : clearUrl+"?"+queryString,
+			success:function(data){
+				var result = $(data).html();
+				$(".main-column").html(data);
+				$("body").css("cursor","default");
+				preparePage();
+				removeLoader("news_list_pageID");
+			}
+		})
+		return false;
+	}) 
+	
+	// Calendar
+	$(".top-main").on("click", ".nav-calendar a", function(){
+		elementLoader("news_list_pageID");
+		var href = $(this).attr("href");
+		var questionPos = href.indexOf("?");
+
+		if ( questionPos != -1 ) {
+			var queryString = href.slice(questionPos-(-1));	//только параметры
+			var clearUrl = href.slice(0, questionPos);	
+		} else {
+			var clearUrl = href;
+		}
+		
+		$("body").data("calendarQuery", queryString);
+		// собрать все фильтры
+		if($("body").data("topQuery")){
+			queryString = queryString+$("body").data("topQuery");
+		}
+		if($("body").data("sortQuery")){
+			queryString = queryString+"&"+$("body").data("sortQuery");
+		}
+		
+		//ajaxUpdateHref(queryString, clearUrl+"?"+queryString);
+		
+		$.ajaxhelper({
+			url : clearUrl+"?"+queryString,
+			method : "get",
+			success:function(data){
+				var result = $(data).html();
+				$(".main-column").html(data);
+				$("body").css("cursor","default");
+				preparePage();
+				removeLoader("news_list_pageID");
+			}
+		})
+		return false;
+	}) 
+  
+	preparePage();
+
   
   
-  if ($(".tooltip").length) {
-    $(".tooltip").tooltip({
-      position: {
-          my: "center bottom",
-          at: "center top",
-          using: function( position, feedback ) {
-            $( this ).css( position );
-            $( "<div>" )
-              .addClass( "arrow" )
-              .addClass( feedback.vertical )
-              .addClass( feedback.horizontal )
-              .appendTo( this );
-          }
-        }
-    });
-  }
 
   // Separating news items by rows
 
@@ -305,718 +589,22 @@ $(document).ready(function () {
     });
 
  }*/
-newsMakeup();
-
-  if ($(".events-calendar").length) {
-    $(".events-calendar").eventsCalendar();
-  }
-
-  $(".html-narrow .post-controls .author a").last().addClass("author-name");
-
-  $(".newslist-item").each(function() {
-    if ($(this).find(".pic").length && !$(this).hasClass("newslist-item-big")) {
-      $(this).addClass("with-pic")
-    }
-  });
-
-  $("#compSelectTrigger").click(function() {
-    $("#select-companies").slideDown(400);
-    $("#select-companies input:checkbox").iCheck("uncheck")
-  });
-
-  $(".event-more").click(function() {
-    $(".event-more-content").slideToggle(400);
-    $(this).toggleClass("event-more-act");
-    return false;
-  });
-
-  $(".sn-subscribe .button-fb").click(function() {
-  
-    $(".vk-popup").hide();
-    
-    if ($(".facebook-popup").hasClass("initial")) {
-      $(".facebook-popup").hide().removeClass("initial");
-      $(".facebook-popup").css("top",$(this).position().top - $(".facebook-popup").height() - 12).css("left",$(this).position().left - $(".facebook-popup").width()/2 + $(this).width()/2).fadeIn(250);
-    } else {
-      $(".facebook-popup").css("top",$(this).position().top - $(".facebook-popup").height() - 12).css("left",$(this).position().left - $(".facebook-popup").width()/2 + $(this).width()/2).fadeToggle(250);
-    }
-    
-    if ($(".facebook-popup").offset().top < $(window).scrollTop()) {
-      $(".facebook-popup").addClass("facebook-popup-btm").css("top",$(this).position().top + 12 + $(this).height());
-    } else {
-      $(".facebook-popup").removeClass("facebook-popup-btm");
-    }
-    
-    return false;
-  });
-  
-  $(".vk-popup").click(function(){  
-	$(".vk-popup").hide();
-  });
-  
-  $(".facebook-popup").click(function(){  
-	$(".facebook-popup").hide();
-  });
-  
-  
-$(".sn-subscribe .button-vk").click(function() {
-  
-    $(".facebook-popup").hide();
-    
-    if ($(".vk-popup").hasClass("initial")) {
-      $(".vk-popup").hide().removeClass("initial");
-      $(".vk-popup").css("top",$(this).position().top - $(".vk-popup").height() - 12).css("left",$(this).position().left - $(".vk-popup").width()/2 + $(this).width()/2).fadeIn(250);
-    } else {
-      $(".vk-popup").css("top",$(this).position().top - $(".vk-popup").height() - 12).css("left",$(this).position().left - $(".vk-popup").width()/2 + $(this).width()/2).fadeToggle(250);
-    }
-    
-    if ($(".vk-popup").offset().top < $(window).scrollTop()) {
-      $(".vk-popup").addClass("vk-popup-btm").css("top",$(this).position().top + 12 + $(this).height());
-    } else {
-      $(".vk-popup").removeClass("vk-popup-btm");
-    }
-    
-    return false;
-  });
-  
-  $(".facebook-popup,.vk-popup").hover(function() {
-    $(this).addClass("hover");
-  },function() {
-    $(this).removeClass("hover");
-  });
-  
-  $("body").click(function() {
-    if (!$(".facebook-popup").hasClass("hover")) {
-      $(".facebook-popup").fadeOut(250)
-    }
-    if (!$(".vk-popup").hasClass("hover")) {
-      $(".vk-popup").fadeOut(250)
-    }
-  })
-  
-
-  $(".top-filter li").click(function() {
-    $(this).toggleClass("act")
-  });
-
-  $(document.body).on('mouseover', '.header-fixed .top-filter-wrapper', function() {
-    $(this).stop().animate({
-      top:0
-    },250);
-  });
-  
-  $(document.body).on('mouseout', '.header-fixed .top-filter-wrapper', function() {
-    $(this).stop().animate({
-      top:-68
-    },250);
-  });
-
-  $("#review-open").click(function () {
-    
-    openPopup($(".review-popup"));
-    
-    return false;
-    
-  });
-
-  $(".review-button").click(function() {
-    $(".review-button").removeClass("button-act");
-    $(this).addClass("button-act");
-    $(".review-input").val(0);
-    $(".review-input[rel='"+$(this).attr("id")+"']").val(1);
-    
-  });
-
-  if ($(".slides").length) {
-    $(".slides").each(function(){
-      var obj = $(this);
-      var size = obj.find("img").length
-      $(this).slidesjs({
-        width: 626,
-        height: 407,
-        pagination: {
-          active: false
-        },
-        callback: {
-          loaded: function(number) {
-            obj.append("<div class='number'>"+number+" из "+size+"</div>")
-          },
-          start: function(number) {
-            // Do something awesome!
-            // Passes slide number at start of animation
-          },
-          complete: function(number) {
-            obj.find(".number").html(number+" из "+size)
-            // Do something awesome!
-            // Passes slide number at end of animation
-          }
-        }
-      });
-    });
-  }
-
-  $(".font-control .more").click(function() {
-    var fontSize = parseInt($(".post-text").css("font-size"));
-    fontSize = fontSize + 1 + "px";
-    $(".post-text").css({'font-size':fontSize});
-  })
-  
-  $(".font-control .less").click(function() {
-    var fontSize = parseInt($(".post-text").css("font-size"));
-    fontSize = fontSize - 1 + "px";
-    $(".post-text").css({'font-size':fontSize});
-  })
-
-  if ($(".tender-form").length) {
-  
-    $("#tenderTable tr").click(function() {
-      if ($(this).find("input").is(":checked")) {
-        $(this).iCheck("uncheck")
-      } else {
-        $(this).iCheck("check")
-      }
-    });
-    
-    $('#tenderTable input').on('ifChecked', function(event){
-      $(this).parents("tr").addClass("selected")
-    });
-    
-    $('#tenderTable input').on('ifUnchecked', function(event){
-      $(this).parents("tr").removeClass("selected")
-    });
-    
-    $("#tenderTable").addClass("initial");
-  
-    $('.country-select').on('ifChecked', function(event){
-    
-      $(".city-selector").slideUp(250);
-    
-      if ($("#tenderTable").hasClass("initial")) {
-        $("#tenderTable tr").eq(0).nextAll("tr").hide();
-      }
-      
-      $("#tenderTable").removeClass("initial");
-    
-      
-      $("#tenderTable tr[country='"+$(this).attr("id")+"']").show();
-    
-      // $(".country-selector").slideUp(250);
-      
-      $(this).parents(".form-item").find(".city-link").show();
-      
-      var compNum = $("tr").filter(function() { return $(this).css("display") != "none" }).length - 1;
-      
-      if (compNum !=0 ) {
-        $(".filter-counter").show()
-        $(".filter-counter .num").html(compNum)
-        $(".filter-counter .units").html(compUnits(compNum))
-      } else {
-        $(".filter-counter").hide()
-      }
-      
-      
-    });
-    
-    $('.country-select').on('ifUnchecked', function(event){
-    
-      $(this).parents(".form-item").find(".city-link").hide();
-      
-      $(".city-selector[rel='"+$(this).attr("id")+"']").slideUp(250);
-      $(".city-selector[rel='"+$(this).attr("id")+"'] input").iCheck('uncheck');
-      
-      $("#tenderTable tr[country='"+$(this).attr("id")+"']").hide();
-      
-      if (!$(".country-select").is(":checked")) {
-        $("#tenderTable tr").show();
-        $("#tenderTable").addClass("initial");
-      }
-      
-      var compNum = $("tr").filter(function() { return $(this).css("display") != "none" }).length - 1;
-      
-      if (compNum !=0 ) {
-        $(".filter-counter").show()
-        $(".filter-counter .num").html(compNum)
-        $(".filter-counter .units").html(compUnits(compNum))
-      } else {
-        $(".filter-counter").hide()
-      }
-    
-    });
-    
-    $(".city-link").click(function() {
-      if ($(".city-selector[rel='"+$(this).parents(".form-item").find("input").attr("id")+"']").css("display") != "block") {
-        $(".city-selector").hide();
-        $(".city-selector[rel='"+$(this).parents(".form-item").find("input").attr("id")+"']").slideDown(250);
-        $(".city-selector[rel='"+$(this).parents(".form-item").find("input").attr("id")+"']").css("background-position",$(this).position().left+$(this).width()/2-10+15+"px 0");
-      } else {
-        $(".city-selector[rel='"+$(this).parents(".form-item").find("input").attr("id")+"']").slideUp(250);
-      }
-    });
-    
-    $('.city-selector input').on('ifChecked', function(event){
-      
-      $("#tenderTable tr[country='"+$(this).parents(".city-selector").attr("rel")+"']").hide();
-      $(this).parents(".city-selector").find("input").each(function() {
-        if ($(this).is(":checked")) {
-          $("#tenderTable tr[city='"+$(this).attr("id")+"']").show();
-        }
-      });
-      
-      var compNum = $("tr").filter(function() { return $(this).css("display") != "none" }).length - 1;
-      
-      if (compNum !=0 ) {
-        $(".filter-counter").show()
-        $(".filter-counter .num").html(compNum)
-        $(".filter-counter .units").html(compUnits(compNum))
-      } else {
-        $(".filter-counter").hide()
-      }
-    
-      
-    });
-    
-    $('.city-selector input').on('ifUnchecked', function(event){
-    
-      $("#tenderTable tr[country='"+$(this).parents(".city-selector").attr("rel")+"']").hide();
-      $(this).parents(".city-selector").find("input").each(function() {
-        if ($(this).is(":checked")) {
-          $("#tenderTable tr[city='"+$(this).attr("id")+"']").show();
-        }
-      });
-      
-      if (!$(this).parents(".city-selector").find("input").is(":checked")) {
-        $("#tenderTable tr[country='"+$(this).parents(".city-selector").attr("rel")+"']").show();
-      }
-      
-      var compNum = $("tr").filter(function() { return $(this).css("display") != "none" }).length - 1;
-      
-      if (compNum !=0 ) {
-        $(".filter-counter").show()
-        $(".filter-counter .num").html(compNum)
-        $(".filter-counter .units").html(compUnits(compNum))
-      } else {
-        $(".filter-counter").hide()
-      }
-      
-    });
-    
-  }
-
-  if ($(".registration-form").length) {
-    var validator = $("#regForm").bind("invalid-form.validate", function() {
-        $("#summary").html("Пожалуйста, заполните все поля");
-      }).validate({
-      rules: {
-        reg_email: {
-          required: true,
-          email: true
-        }
-      },
-      sendForm : false,
-      messages: {
-        reg_company: "",
-        reg_site: "",
-        reg_email: "",
-        reg_captcha: "",
-        reg_agree: ""
-      },
-      errorPlacement: function(error, element) {
-        element.parents(".input-wrapper").addClass("input-wrapper-error");
-        if (element.attr("id") != "reg_email" || element.val() == "") {
-          error.insertAfter(element);
-        }
-        element.focus(function() {
-          error.remove();
-        });
-      },
-      unhighlight: function(element, errorClass, validClass) {
-        $(element).parents(".input-wrapper").removeClass("input-wrapper-error");
-        $(element).removeClass(errorClass);
-      }
-    });
-    
-  }
-
-  if ($(".experts").length) {
-    $(".expertslist-item-big").first().addClass("expertslist-item-first");
-  }
-
-  if ($(".fancybox").length) {
-  
-    $(".fancybox")
-    .attr('rel', 'gallery')
-    .fancybox({
-      nextEffect: 'fade',
-      prevEffect: 'fade',
-      beforeShow: function () {
-      
-        if (this.title) {
-        
-          this.title = '<div class="fancybox-counter">Фотография ' + (this.index + 1) + ' из ' + this.group.length +'</div><div class="ttl">'+this.title+'</div>'
-        
-          // New line
-          this.title += '';
-          
-          picUrl = "http://seonews.renart.ru" + this.href
-          
-          
-          if ($(this.element).children(".descr").html()) {
-            this.title += '<div class="descr">'+$(this.element).children(".descr").html()+'</div>'
-          }
-          
-          
-          
-          this.title += '<div class="f-socbuttons fc">';
-          
-          
-          
-          // Add FaceBook like button
-          
-          this.title += '<div class="fancy-socbutton"><iframe src="//www.facebook.com/plugins/like.php?href='+picUrl+'&amp;width&amp;height=21&amp;colorscheme=light&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;send=false" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:21px;" allowTransparency="true"></iframe></div>';
-          
-          var vkButton = VK.Share.button({url: picUrl},{type: "round", text: "Сохранить"})
-          
-          this.title += '<div class="fancy-socbutton" style="margin-right:20px">'+vkButton+'</div>'
-          
-          // Add tweet button
-          this.title += '<div class="fancy-socbutton"><a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-lang="ru" data-url="' + picUrl + '">Твитнуть</a></div>';
-          
-          this.title += '</div>'
-          
-          
-          
-        }
-      },
-      afterShow: function() {
-        // Render tweet button
-        twttr.widgets.load();
-      },
-      helpers : {
-        title : {
-          type: 'inside'
-        }
-      }
-    });
-
-  } 
-    
-  $(".tabbed-content .tab").click(function() {
-    $(this).parents(".tabs").find(".tab").removeClass("act");
-    $(this).addClass("act");
-    $(this).parents(".tabbed-content").find(".tab-content").hide()
-    $(this).parents(".tabbed-content").find("#"+$(this).attr("rel")).show()
-  });
-  
-  
-  // Tabs switching 
-
-  if (window.location.hash == "#review") {
-    $(".tab[rel='review-tab']").click();
-  } 
-
-  if (window.location.hash == "#photos") {
-    $(".tab[rel='photos-tab']").click();
-  }
-  
-  if (window.location.hash == "#upcoming") {
-    $(".tab[rel='upcoming']").click();
-  }
-  
-  if (window.location.hash == "#archive") {
-    $(".tab[rel='archive']").click();
-  }
-
-  // Tabs switching END
+ 
   
   
 
-  if ($("input:checkbox").length) {
-    $("input:checkbox").iCheck()
-  }
-  
-  $(".type-filter").addClass("initial");
-  
-  $('.type-filter input').on('ifChecked', function(event){
-    
-    if ($(".type-filter").hasClass("initial")) {
-      $(".type-filter").removeClass("initial")
-      $(".event-type").hide();
-      $("." + $(this).attr("rel")).show();
-    } else {
-      $("." + $(this).attr("rel")).show();
-    }
-    
-  });
-  
-  $('.type-filter input').on('ifUnchecked', function(event){
-    
-    $("." + $(this).attr("rel")).hide();
-    
-    if (!$(".type-filter").find("input").is(":checked")) {
-      $(".type-filter").addClass("initial");
-      $(".event-type").show();
-    }
-    
-  });
-  
-  $(".events-calendar .tab").click(function() {
-    if (!$(this).hasClass(".act")) {
-      $('.type-filter input').iCheck('uncheck');
-    }
-  });
-  
 
-  makeup();
-
-  $(".ajax-link").click(function() {
-    var link = $(this);
-    $(".section-content").html("<div class='news-loader' />");
-	
-    $.ajax({
-      url: $(this).attr("rel"),
-      type: 'get',
-      dataType: 'html',
-      async: false
-    }).done(function(data) {
-      //$(".news-loader").remove();
-      $(".section-content").html(data);
-        link.addClass("act");
-        makeup();	
-        newsMakeup();
-    });
-	
-  });
-  
-   $(".nav-calendar .ajax-link").click(function() {
-   
-   if($('.nav-calendar span.year.year-act').html() && $('span.ajax-link.act').html()) 
-		$('h2.section-title').html($(this).html()+' '+$('.nav-calendar span.year.year-act').html());
-	else 
-		$('h2.section-title').html($(this).html());
-   
-   
-   });  
-  
-  
-  $(".year-nav .item").click(function() {
-  
-    if (!$(this).hasClass("act")) {
-      $(".year-nav .item").removeClass("act");
-      var link = $(this);
-      link.addClass("act");
-      var target = $("#"+$(this).attr("rel"));
-      
-      $(".year-nav").closest(".rating-years").find(".rating-content").hide();
-      
-      target.fadeIn(250);
-    
-    }
-  
-  });
-  
-  $(".show-more").click(function() {
-    var link = $(this);
-    link.after("<div class='loader' />");
-    $.ajax({
-      url: $(this).attr("rel"),
-      type: 'get',
-      dataType: 'html',
-      async: false
-    }).done(function(data) {
-      $(".loader").remove();
-      link.before(data);
-      makeup();
-    });
-  });
-
-  $(document.body).on('click', '.section-filter .link', function() {
-    $(".section-filter .link").removeClass("act")
-    $(this).addClass("act");
-    if ($(this).attr("rel") == "all") {
-      $(".event-type").show();
-    } else {
-      $(".event-type").hide();
-      $(".event-type[rel='"+$(this).attr("rel")+"']").show();
-    }
-  });
-  
-  $(document.body).on('click', '.section-filter-tools .link', function() {
-    if (!$(this).hasClass("act")) {
-      $(".section-filter-tools .link").removeClass("act")
-      $(this).addClass("act");
-      var link = $(this);
-      link.after("<div class='loader' />");
-      $.ajax({
-        url: $(this).attr("rel"),
-        type: 'get',
-        dataType: 'html',
-        async: false
-      }).done(function(data) {
-        $(".loader").remove();
-        $(".section-content").html(data);
-        makeup();
-		
-        handleTools();
-      });
-    }
-	
-  });
-  
-  if ($(".section-filter-tools").length) {
-    $(".section-filter-tools .link").last().trigger("click");
-  }
-  
-  $(".sidenav").click(function() {
-    $("body, html").stop().animate({
-      scrollTop: 0
-    },1000);
-  });
-  
-
-  $(".nav-calendar span.year").click(function() {
-    if (!$(this).hasClass("year-act")) {
-      $(".nav-calendar li ul").slideUp(250)
-      $(this).parents("li").children("ul").slideToggle(250);
-      $(".nav-calendar .month-act").removeClass("month-act");
-      $(".nav-calendar .year-act").removeClass("year-act");
-      $(this).addClass("year-act");
-    }
-  });
-  
-  $(".nav-calendar li li span").click(function() {
-    $(".month-act").removeClass("month-act");
-    $(".nav-calendar .month-act").removeClass("month-act");
-    $(this).addClass("month-act");
-	
-  });
-
-  $(".search-trigger").click(function() {
-    $('.search-trigger .txt').html($('.search-trigger .txt').text() == 'Поиск по сайту' ? 'Свернуть поиск' : 'Поиск по сайту');
-    $(".search-block").slideToggle(250);
-    $(".search-trigger .ico").toggleClass("ico-collapse");
-  });
-
-  $(".fav-trigger").click(function() {
-    $(".fav-hint").remove();
-    $('.fav-trigger span').html($('.fav-trigger span').html() == 'В избранное' ? 'В избранном' : 'В избранное');
-    $(this).toggleClass("fav-trigger-act");
-    $(this).append("<div class='fav-hint hint-popup' style='display:none'><div class='hint-content'></div></div>");
-    $(".fav-trigger .hint-popup").fadeIn(150);
-    $('.fav-trigger .hint-popup .hint-content').html($('.fav-trigger span').html() == 'В избранное' ? 'Добавлено в избранное' : 'Удалено из избранного');
-    var tt0 = setTimeout(function() {
-      $(".fav-hint").fadeOut(150,function() {
-        $(".fav-hint").remove();
-      })
-    },2000);
-  });
-  
-  
-  
-    $("div.button-5").click(function() {
-    $(".fav-hint").remove();
-	var title = $(this).html() == "<span>Я пойду</span>" ? "<span>Я не пойду</span>" : "<span>Я пойду</span>";
-	var baloontext = title == '<span>Я не пойду</span>' ? 'Вы добавлены' : 'Вы удалены';
-	$(this).append("<div class='fav-hint hint-popup' style='display:none'><div class='hint-content'></div></div>");
-    $("div.button-5 .hint-popup").fadeIn(150);	
-    $('div.button-5 .hint-popup .hint-content').html(baloontext);
-    var tt0 = setTimeout(function() {
-      $(".fav-hint").fadeOut(150,function() {
-        $(".fav-hint").remove();
-		$('div.button-5').html(title);
-      })
-    },2000);
-	 
-	var result = null;
-	var xdata = {ID:$(this).attr('rel'),ACTION:baloontext};
-	
-    $.ajax({
-      url: '/ajax/addmember.php',
-	  data: xdata,
-      type: 'post',
-      dataType: 'json',
-      async: false
-    }).done(function(data) {     
-        
-        result = data;    
-		
-        
-    });
-	
-	if(result.SUMM>0) $('span.total span').html(result.SUMM+' чел.');
-	
-  });
-  
-  
-  
-  $("*").hover(function() {
-    if ($(this).attr("hint")) {
-      $(".hint-dis").remove();
-      $("body").append("<div class='hint-popup'><div class='hint-content'>"+$(this).attr("hint")+"</div></div>");
-      $(".hint-popup").css("top",$(this).offset().top - $(".hint-popup").outerHeight(true)).css("left",$(this).offset().left - $(".hint-popup").outerWidth(true)/2+$(this).outerWidth()/2).hide().fadeIn(150);
-      if ($(this).attr("hinttype")) {
-        $(".hint-popup").addClass($(this).attr("hinttype"));
-      }
-    }
-  },function() {
-    if ($(this).attr("hint")) {
-      $(".hint-popup").addClass("hint-dis").fadeOut(150,function() {
-        $(".hint-dis").remove();
-      });
-    }
-  });
-  
-
-  if ($(".mainpage-calendar").length) {
-    $(".mainpage-calendar").mainpageCalendar();
-  }
-  
-  if ($(".mainpage-catalogue").length) {
-    $(".mainpage-catalogue").mainpageCatalogue();
-  }
-  
-  if ($(".mainpage-ratings").length) {
-    $(".mainpage-ratings").mainpageRatings();
-  }
-  
-  $(".rating").hover(function() {
-    $(this).find(".rating-controls").fadeIn(150);
-  },function() {
-    $(this).find(".rating-controls").fadeOut(150);
-  });
-  
-  $(".user-link").hover(function() {
-    $(".user-controls").fadeToggle(150);
-  });
-  
-  $(".button-comment").click(function() {
-    $(".root-comment").slideToggle(150);
-  });
-  
-  $(".comment-body").hover(function() {
-    if ($(this).next(".form-wrapper").css("display") != "block" && !$(this).parents().hasClass("qa-comments")) {
-      $(this).children(".reply-link").slideDown(150);
-    }
-  },function() {
-    $(this).children(".reply-link").slideUp(150);
-  });
-  
-  $(".reply-link").click(function() {
-    $(this).hide();
-    $(this).parents(".comment-body").next(".form-wrapper").slideDown(150);
-  });
-  
-  $(".post-comments .cancel").click(function() {
-    $(this).parents(".form-wrapper").slideUp(150);
-  });
   
 });
+
+// Календарь событий на главной странице
 
 (function( jQuery ) {
   jQuery.fn.mainpageCalendar = function() {
     
     var calendar = $(this);
     
-    var eventsXml = $.getValues("calendar.xml");
+    var eventsXml = $.getValues("/calendar/calendar.xml.php");
     
     if (eventsXml) {
     
@@ -1201,12 +789,14 @@ $(".sn-subscribe .button-vk").click(function() {
   }
 })( jQuery );
 
+// Календарь событий
+
 (function( jQuery ) {
   jQuery.fn.eventsCalendar = function() {
     
     var calendar = $(this);
     
-    var eventsXml = $.getValues("calendar.xml");
+    var eventsXml = $.getValues("calendar.xml.php");
     
     if (eventsXml) {
     
@@ -1795,8 +1385,9 @@ $(".sn-subscribe .button-vk").click(function() {
     }
     
   }
-})( jQuery );
+})( jQuery ); 
 
+// Слайдер событий на главной
 
 (function( jQuery ) {
   jQuery.fn.mainpageEventsSlider = function() {
@@ -1818,12 +1409,14 @@ $(".sn-subscribe .button-vk").click(function() {
   }
 })( jQuery );
 
+// Каталог на главной
+
 (function( jQuery ) {
   jQuery.fn.mainpageCatalogue = function() {
     
     var catalogue = $(this);
     
-    var catalogueXml = $.getValues("catalogue.xml");
+    var catalogueXml = $.getValues("/catalogue.xml");
     
     if (catalogueXml) {
     
@@ -1959,12 +1552,14 @@ $(".sn-subscribe .button-vk").click(function() {
   }
 })( jQuery );
 
+// Рейтинги на главной
+
 (function( jQuery ) {
   jQuery.fn.mainpageRatings = function() {
     
     var ratings = $(this);
     
-    var ratingsXml = $.getValues("ratings.xml");
+    var ratingsXml = $.getValues("/ratings.xml");
     
     if (ratingsXml) {
     
@@ -2107,6 +1702,7 @@ $(".sn-subscribe .button-vk").click(function() {
   }
 })( jQuery );
 
+// Парсинг XML
 
 jQuery.extend({
   getValues: function(url) {
@@ -2139,7 +1735,7 @@ jQuery.extend({
 });
 
 function insertCalCard(j,events,calContent,pos) {
-  var calContent = calContent;
+ /*  var calContent = calContent;
   var events = events;
   var calCard = $("<div class='calendar-card event-type event-type-" + events[j].typeid +"' index='" + j + "' />");
   calCard.append("<div class='event-cont' />");
@@ -2157,16 +1753,20 @@ function insertCalCard(j,events,calContent,pos) {
     calCard.prependTo(calContent);
   } else if (pos == 'after') {
     calCard.appendTo(calContent);
-  }
+  } */
   
 }
+
+// Вставка события
 
 function insertEventCards(start,finish,events,calContent) {
   
   var events = events;
   var calContent = calContent;
   calContent.html("");
+  
   for (j=start;j<=finish;j++) {
+  
     var calCard = $("<div class='calendar-card fc event-type event-type-" + events[j].typeid +"' index='" + j + "' filter='" + events[j].filter + "' />");
     calCard.append("<div class='event-cont' />");
     
@@ -2225,6 +1825,8 @@ function insertEventCards(start,finish,events,calContent) {
   
 }
 
+// Построение элемента каталога
+
 function buildCatCard(catCard,j,items) {
   
   var catCard = catCard;
@@ -2255,6 +1857,8 @@ function buildCatCard(catCard,j,items) {
   }
 }
 
+// Построение элемента рейтинга
+
 function buildRatCard(ratCard,j,items) {
   
   var ratCard = ratCard;
@@ -2277,6 +1881,8 @@ function buildRatCard(ratCard,j,items) {
   
 }
 
+// Функции разметки
+
 function makeup() {
 
   $(".post-text table").each(function() {
@@ -2285,13 +1891,13 @@ function makeup() {
     }
   })
 
-  $("ol li").each(function() {
+  $("ol.custom-ol li").each(function() {
     if (!$(this).find(".li-cont").length) {
       $(this).html("<span class='li-cont'>"+$(this).html()+"</span>")
     }
   });
 
-  $("input:text,input:password").each(function () {
+  $(".custom-form input:text, .search-block input:text").each(function () {
     if (!$(this).parents(".input-wrapper").length) $(this).wrap("<div class='input-wrapper'></div>");
     $(this).addClass("initial");
     $(this).focus(function() {
@@ -2305,7 +1911,7 @@ function makeup() {
     });
   });
 
-  $("input.button").each(function () {
+  $(".custom-form input.button, .search-block input.button").each(function () {
     if ($(this)[0].tagName == "INPUT" && !$(this).next("div.form-submit").length) {
       var divBtn = $("<div></div>");
       var submit = $(this);
@@ -2320,9 +1926,9 @@ function makeup() {
   });
   
   
-  $(".common-form select").customSelect();
+  $(".custom-form  select").customSelect();
 
-  if ($(".rating-table").length) {
+  /*if ($(".rating-table").length) {
     $(".rating-table").each(function() {
       if (!$(this).next(".rating-show-more").length && !$(this).hasClass("dont-hide")) {
         
@@ -2340,6 +1946,7 @@ function makeup() {
       
     });
   }
+  */
 
   $(".mainpage-best .bestlist-item").last().addClass("last");
 
@@ -2365,6 +1972,8 @@ function makeup() {
   
   $(".main-menu a").last().addClass("last");
 }
+
+// Обработчик селектов
 
 (function( $ ) {
   $.fn.customSelect = function() {
@@ -2492,7 +2101,7 @@ function compUnits(n) {
   return cur;
 }
 
-
+// Обработчик инструментов
 
 function handleTools() {
   if ($(".tools").length) {
@@ -2709,6 +2318,8 @@ function handleTools() {
   }
 }
 
+// Выравнивание по центру всплывающего окна
+
 function pupMakeup() {
   var popup = $(".popup-act");
   var pupTop = $(window).scrollTop() + ($(window).height() - popup.outerHeight(true))/2;
@@ -2727,6 +2338,8 @@ function closePopup() {
   $(".popup").hide().removeClass("popup-act");
 }
 
+// Адаптация страницы под разную ширину окна
+
 function adaptation() {
   if ($(window).width() <= 1200 && $("body").hasClass("adaptive")) {
     $("html").addClass("html-narrow");
@@ -2734,7 +2347,7 @@ function adaptation() {
     $(".html-narrow .post-controls .author a").eq(1).addClass("author-name");
     if ($(".author-name").length) {
       $(".html-narrow .author-name").each(function() {
-        $(this).html($(this).html().replace(" ","<br />"))
+        //$(this).html($(this).html().replace(" ","<br />"))
       });
     }
     if ($(".mainpage-calendar").length) {
@@ -2828,6 +2441,8 @@ function adaptation() {
   
 }
 
+// Получение переменных из URL
+
 function getUrlVars() {
     var vars = {};
     var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
@@ -2836,23 +2451,1092 @@ function getUrlVars() {
     return vars;
 }
 
-function elementLoader(elementId,loaderBg) {
-  var el = $("#"+elementId);
-  if (!$(".element-loader[rel='"+elementId+"']").length) {
-    $("body").append("<div class='element-loader' rel='"+elementId+"'></div>");
-    var loader = $(".element-loader[rel='"+elementId+"']");
-    loader.css({
-      "left":el.offset().left,
-      "top":el.offset().top,
-      "width":el.width(),
-      "height":el.height()
-    }).append("<div class='loader-bg' />").append("<div class='loader-pic' />");
-    loader.find(".loader-bg").css("background-color",loaderBg)
+// Коллбэки карусели календаря на главной
+
+function mpcFirstin(carousel, item, idx, state) {
+  if (carousel.list.parents(".mainpage-calendar").find(".jcarousel-prev").hasClass("jcarousel-prev-disabled")) {
+    $(".mainpage-calendar .prev").addClass("inact")
+  } else {
+    $(".mainpage-calendar .prev").removeClass("inact")
   }
+  
+  if (carousel.list.parents(".mainpage-calendar").find(".jcarousel-next").hasClass("jcarousel-next-disabled")) {
+    $(".mainpage-calendar .next").addClass("inact")
+  } else {
+    $(".mainpage-calendar .next").removeClass("inact")
+  }
+};
+
+function mpcLastin(carousel, item, idx, state) {
+  if (carousel.list.parents(".mainpage-calendar").find(".jcarousel-prev").hasClass("jcarousel-prev-disabled")) {
+    $(".mainpage-calendar .prev").addClass("inact")
+  } else {
+    $(".mainpage-calendar .prev").removeClass("inact")
+  }
+  
+  if (carousel.list.parents(".mainpage-calendar").find(".jcarousel-next").hasClass("jcarousel-next-disabled")) {
+    $(".mainpage-calendar .next").addClass("inact")
+  } else {
+    $(".mainpage-calendar .next").removeClass("inact")
+  }
+};
+
+// Функции, вызываемые при загузке страницы. Обработка элементов.
+
+function preparePage() {
+
+  if (typeof addthis !== 'undefined') {
+    addthis.toolbox(".addthis_toolbox");
+    addthis.counter(".addthis_counter");
+  }
+
+  if ($(".event-more").length && !$(".calendar-event-content .tab-content .post-controls").length) {
+    $(".event-more").addClass("event-more-act");
+    $(".event-more-content").show();
+  }
+  
+  
+  // Карусель с календарем на главной
+
+  $(".mainpage-calendar .jcarousel").jcarousel({
+    scroll: 3,
+    itemFirstInCallback: mpcFirstin,
+    itemLastInCallback: mpcLastin,
+    itemFallbackDimension: 270
+  });
+  $(".mainpage-calendar .next").on("click",function() {
+    $(".mainpage-calendar .jcarousel-next").click();
+  })
+  
+  $(".mainpage-calendar .prev").on("click",function() {
+    $(".mainpage-calendar .jcarousel-prev").click();
+  })
+  
+  
+  
+  $(".vk-popup").addClass("initial");
+  $(".facebook-popup").addClass("initial");
+  $(".twitter-popup").addClass("initial");
+  
+  // tooltips
+  
+  if ($(".tooltip-custom").length) {
+    $(".tooltip-custom").tooltip({
+      position: {
+          my: "center bottom",
+          at: "center top",
+          using: function( position, feedback ) {
+            $( this ).css( position );
+            $( "<div>" )
+              .addClass( "arrow" )
+              .addClass( feedback.vertical )
+              .addClass( feedback.horizontal )
+              .appendTo( this );
+          }
+        }
+    });
+  }
+  
+  newsMakeup();
+
+  // if ($(".events-calendar").length) {
+    // $(".events-calendar").eventsCalendar();
+  // }
+  
+  evCalendar();
+
+  $(".html-narrow .post-controls .author a").last().addClass("author-name");
+
+  $(".newslist-item").each(function() {
+    if ($(this).find(".pic").length && !$(this).hasClass("newslist-item-big")) {
+      $(this).addClass("with-pic")
+    }
+  });
+
+  $("#compSelectTrigger").click(function() {
+    $("#select-companies").slideDown(400);
+    $("#select-companies input:checkbox").iCheck("uncheck")
+  });
+
+  $(".event-more").click(function() {
+    $(".event-more-content").slideToggle(400);
+    $(this).toggleClass("event-more-act");
+    return false;
+  });
+  
+  // Всплывающие окна с виджетами соцсетей
+
+  $(".sn-subscribe .button-fb").click(function() {
+  
+    $(".vk-popup").hide();
+    $(".twitter-popup").hide();
+    
+    if ($(".facebook-popup").hasClass("initial")) {
+      $(".facebook-popup").hide().removeClass("initial");
+      $(".facebook-popup").css("top",$(this).position().top - $(".facebook-popup").height() - 12).css("left",$(this).position().left - $(".facebook-popup").width()/2 + $(this).width()/2).fadeIn(250);
+    } else {
+      $(".facebook-popup").css("top",$(this).position().top - $(".facebook-popup").height() - 12).css("left",$(this).position().left - $(".facebook-popup").width()/2 + $(this).width()/2).fadeToggle(250);
+    }
+    
+    if ($(".facebook-popup").offset().top < $(window).scrollTop()) {
+      $(".facebook-popup").addClass("facebook-popup-btm").css("top",$(this).position().top + 12 + $(this).height());
+    } else {
+      $(".facebook-popup").removeClass("facebook-popup-btm");
+    }
+    
+    return false;
+  });
+  
+  $(".vk-popup").click(function(){  
+    //$(".vk-popup").hide();
+  });
+  
+  $(".facebook-popup").click(function(){  
+    //$(".facebook-popup").hide();
+  });
+  
+  
+  $(".sn-subscribe .button-vk").click(function() {
+  
+    $(".facebook-popup").hide();
+    $(".twitter-popup").hide();
+    
+    if ($(".vk-popup").hasClass("initial")) {
+      $(".vk-popup").hide().removeClass("initial");
+      $(".vk-popup").css("top",$(this).position().top - $(".vk-popup").height() - 12).css("left",$(this).position().left - $(".vk-popup").width()/2 + $(this).width()/2).fadeIn(250);
+    } else {
+      $(".vk-popup").css("top",$(this).position().top - $(".vk-popup").height() - 12).css("left",$(this).position().left - $(".vk-popup").width()/2 + $(this).width()/2).fadeToggle(250);
+    }
+    
+    if ($(".vk-popup").offset().top < $(window).scrollTop()) {
+      $(".vk-popup").addClass("vk-popup-btm").css("top",$(this).position().top + 12 + $(this).height());
+    } else {
+      $(".vk-popup").removeClass("vk-popup-btm");
+    }
+    
+    return false;
+  });
+  
+  $(".sn-subscribe .button-twitter").click(function() {
+  
+    $(".facebook-popup").hide();
+    $(".vk-popup").hide();
+    
+    if ($(".twitter-popup").hasClass("initial")) {
+      $(".twitter-popup").hide().removeClass("initial");
+      $(".twitter-popup").css("top",$(this).position().top - $(".twitter-popup").height() - 12).css("left",$(this).position().left - $(".twitter-popup").width()/2 + $(this).width()/2).fadeIn(250);
+    } else {
+      $(".twitter-popup").css("top",$(this).position().top - $(".twitter-popup").height() - 12).css("left",$(this).position().left - $(".twitter-popup").width()/2 + $(this).width()/2).fadeToggle(250);
+    }
+    
+    if ($(".twitter-popup").offset().top < $(window).scrollTop()) {
+      $(".twitter-popup").addClass("twitter-popup-btm").css("top",$(this).position().top + 12 + $(this).height());
+    } else {
+      $(".twitter-popup").removeClass("twitter-popup-btm");
+    }
+    
+    return false;
+  });
+  
+  $(".facebook-popup,.vk-popup,.twitter-popup").hover(function() {
+    $(this).addClass("hover");
+  },function() {
+    $(this).removeClass("hover");
+  });
+  
+  $("body").click(function() {
+    if (!$(".facebook-popup").hasClass("hover")) {
+      $(".facebook-popup").fadeOut(250)
+    }
+    if (!$(".vk-popup").hasClass("hover")) {
+      $(".vk-popup").fadeOut(250)
+    }
+    if (!$(".twitter-popup").hasClass("hover")) {
+      $(".twitter-popup").fadeOut(250)
+    }
+  })
+  
+   /* $(".top-filter li").click(function() {
+    $(this).toggleClass("act")
+  }); */
+  
+  if (!$(".top-filter").hasClass("top-filter-locked")) {
+    
+    $(document.body).on('mouseover', '.header-fixed .top-filter-wrapper', function() {
+      $(this).stop().animate({
+        top:0
+      },250);
+    });
+    
+    $(document.body).on('mouseout', '.header-fixed .top-filter-wrapper', function() {
+      $(this).stop().animate({
+        top:-68
+      },250);
+    });
+    
+  }
+
+  // Всплывающее окно с обзором
+  
+  $("#review-open").click(function () {
+    
+    openPopup($(".review-popup"));
+    
+    return false;
+    
+  });
+  
+  
+  $(".review-button").click(function() {
+    $(".review-button").removeClass("button-act");
+    $(this).addClass("button-act");
+    $(".review-input").val(0);
+    $(".review-input[rel='"+$(this).attr("id")+"']").val(1);
+    
+  });
+
+  
+  
+  if ($(".slides").length) {
+    $(".slides").each(function(){
+      var obj = $(this);
+      var size = obj.find("img").length
+      $(this).slidesjs({
+        width: 626,
+        height: 407,
+        pagination: {
+          active: false
+        },
+        callback: {
+          loaded: function(number) {
+            obj.append("<div class='number'>"+number+" из "+size+"</div>")
+          },
+          start: function(number) {
+            // Do something awesome!
+            // Passes slide number at start of animation
+          },
+          complete: function(number) {
+            obj.find(".number").html(number+" из "+size)
+            // Do something awesome!
+            // Passes slide number at end of animation
+          }
+        }
+      });
+    });
+  }
+  
+  // Изменение размера шрифта
+
+  $(".font-control .more").click(function() {
+    var fontSize = parseInt($(".post-text").css("font-size"));
+    fontSize = fontSize + 1 + "px";
+    $(".post-text").css({'font-size':fontSize});
+  })
+  
+  $(".font-control .less").click(function() {
+    var fontSize = parseInt($(".post-text").css("font-size"));
+    fontSize = fontSize - 1 + "px";
+    $(".post-text").css({'font-size':fontSize});
+  })
+  
+  // Форма тендера
+
+  if ($(".tender-form").length) {
+  
+    $("#tenderTable tr").click(function() {
+      if ($(this).find("input").is(":checked")) {
+        $(this).iCheck("uncheck")
+      } else {
+        $(this).iCheck("check")
+      }
+    });
+    
+    $('#tenderTable input').on('ifChecked', function(event){
+      $(this).parents("tr").addClass("selected")
+    });
+    
+    $('#tenderTable input').on('ifUnchecked', function(event){
+      $(this).parents("tr").removeClass("selected")
+    });
+    
+    $("#tenderTable").addClass("initial");
+  
+    $('.country-select').on('ifChecked', function(event){
+    
+      $(".city-selector").slideUp(250);
+    
+      if ($("#tenderTable").hasClass("initial")) {
+        $("#tenderTable tr").eq(0).nextAll("tr").hide();
+      }
+      
+      $("#tenderTable").removeClass("initial");
+    
+      
+      $("#tenderTable tr[country='"+$(this).attr("id")+"']").show();
+    
+      // $(".country-selector").slideUp(250);
+      
+      $(this).parents(".form-item").find(".city-link").show();
+      
+      var compNum = $("tr").filter(function() { return $(this).css("display") != "none" }).length - 1;
+      
+      if (compNum !=0 ) {
+        $(".filter-counter").show()
+        $(".filter-counter .num").html(compNum)
+        $(".filter-counter .units").html(compUnits(compNum))
+      } else {
+        $(".filter-counter").hide()
+      }
+      
+      
+    });
+    
+    $('.country-select').on('ifUnchecked', function(event){
+    
+      $(this).parents(".form-item").find(".city-link").hide();
+      
+      $(".city-selector[rel='"+$(this).attr("id")+"']").slideUp(250);
+      $(".city-selector[rel='"+$(this).attr("id")+"'] input").iCheck('uncheck');
+      
+      $("#tenderTable tr[country='"+$(this).attr("id")+"']").hide();
+      
+      if (!$(".country-select").is(":checked")) {
+        $("#tenderTable tr").show();
+        $("#tenderTable").addClass("initial");
+      }
+      
+      var compNum = $("tr").filter(function() { return $(this).css("display") != "none" }).length - 1;
+      
+      if (compNum !=0 ) {
+        $(".filter-counter").show()
+        $(".filter-counter .num").html(compNum)
+        $(".filter-counter .units").html(compUnits(compNum))
+      } else {
+        $(".filter-counter").hide()
+      }
+    
+    });
+    
+    $(".city-link").click(function() {
+      if ($(".city-selector[rel='"+$(this).parents(".form-item").find("input").attr("id")+"']").css("display") != "block") {
+        $(".city-selector").hide();
+        $(".city-selector[rel='"+$(this).parents(".form-item").find("input").attr("id")+"']").slideDown(250);
+        $(".city-selector[rel='"+$(this).parents(".form-item").find("input").attr("id")+"']").css("background-position",$(this).position().left+$(this).width()/2-10+15+"px 0");
+      } else {
+        $(".city-selector[rel='"+$(this).parents(".form-item").find("input").attr("id")+"']").slideUp(250);
+      }
+    });
+    
+    $('.city-selector input').on('ifChecked', function(event){
+      
+      $("#tenderTable tr[country='"+$(this).parents(".city-selector").attr("rel")+"']").hide();
+      $(this).parents(".city-selector").find("input").each(function() {
+        if ($(this).is(":checked")) {
+          $("#tenderTable tr[city='"+$(this).attr("id")+"']").show();
+        }
+      });
+      
+      var compNum = $("tr").filter(function() { return $(this).css("display") != "none" }).length - 1;
+      
+      if (compNum !=0 ) {
+        $(".filter-counter").show()
+        $(".filter-counter .num").html(compNum)
+        $(".filter-counter .units").html(compUnits(compNum))
+      } else {
+        $(".filter-counter").hide()
+      }
+    
+      
+    });
+    
+    $('.city-selector input').on('ifUnchecked', function(event){
+    
+      $("#tenderTable tr[country='"+$(this).parents(".city-selector").attr("rel")+"']").hide();
+      $(this).parents(".city-selector").find("input").each(function() {
+        if ($(this).is(":checked")) {
+          $("#tenderTable tr[city='"+$(this).attr("id")+"']").show();
+        }
+      });
+      
+      if (!$(this).parents(".city-selector").find("input").is(":checked")) {
+        $("#tenderTable tr[country='"+$(this).parents(".city-selector").attr("rel")+"']").show();
+      }
+      
+      var compNum = $("tr").filter(function() { return $(this).css("display") != "none" }).length - 1;
+      
+      if (compNum !=0 ) {
+        $(".filter-counter").show()
+        $(".filter-counter .num").html(compNum)
+        $(".filter-counter .units").html(compUnits(compNum))
+      } else {
+        $(".filter-counter").hide()
+      }
+      
+    });
+    
+  }
+
+  // Валидация формы регистрации
+  
+  if ($(".registration-form").length) {
+    var validator = $("#regForm").bind("invalid-form.validate", function() {
+        $("#summary").html("Пожалуйста, заполните все поля");
+      }).validate({
+      rules: {
+        reg_email: {
+          required: true,
+          email: true
+        }
+      },
+      sendForm : false,
+      messages: {
+        reg_company: "",
+        reg_site: "",
+        reg_email: "",
+        reg_captcha: "",
+        reg_agree: ""
+      },
+      errorPlacement: function(error, element) {
+        element.parents(".input-wrapper").addClass("input-wrapper-error");
+        if (element.attr("id") != "reg_email" || element.val() == "") {
+          error.insertAfter(element);
+        }
+        element.focus(function() {
+          error.remove();
+        });
+      },
+      unhighlight: function(element, errorClass, validClass) {
+        $(element).parents(".input-wrapper").removeClass("input-wrapper-error");
+        $(element).removeClass(errorClass);
+      }
+    });
+    
+  }
+
+  if ($(".experts").length) {
+    $(".expertslist-item-big").first().addClass("expertslist-item-first");
+  }
+  
+  // Фотогалерея
+
+  if ($(".fancybox").length) {
+  
+    $(".fancybox")
+    .attr('rel', 'gallery')
+    .fancybox({
+      nextEffect: 'fade',
+      prevEffect: 'fade',
+      beforeShow: function () {
+      
+        if (this.title) {
+        
+          this.title = '<div class="fancybox-counter">Фотография ' + (this.index + 1) + ' из ' + this.group.length +'</div><div class="ttl">'+this.title+'</div>'
+        
+          // New line
+          this.title += '';
+          
+          picUrl = "http://seonews.renart.ru" + this.href;
+          picUrl2 = "http://" + window.location.hostname + window.location.pathname + '?photo=' + (this.index + 1);
+          
+          //console.log(picUrl2);
+          
+          if ($(this.element).children(".descr").html()) {
+            this.title += '<div class="descr">'+$(this.element).children(".descr").html()+'</div>'
+          }
+          
+          
+          
+          this.title += '<div class="f-socbuttons fc">';
+          
+          
+          
+          // Add FaceBook like button
+          
+          this.title += '<div class="fancy-socbutton"><iframe src="//www.facebook.com/plugins/like.php?href='+picUrl2+'&amp;width&amp;height=21&amp;colorscheme=light&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;send=false&amp;ref=12121" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:21px;" allowTransparency="true"></iframe></div>';
+          
+          var vkButton = VK.Share.button({url: picUrl2},{type: "round", text: "Сохранить"})
+          
+          this.title += '<div class="fancy-socbutton" style="margin-right:20px">'+vkButton+'</div>'
+          
+          // Add tweet button
+          this.title += '<div class="fancy-socbutton"><a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-lang="ru" data-url="' + picUrl2 + '">Твитнуть</a></div>';
+          
+          this.title += '</div>'
+          
+          
+          
+        }
+      },
+      afterShow: function() {
+        // Render tweet button
+        twttr.widgets.load();
+      },
+      helpers : {
+        title : {
+          type: 'inside'
+        }
+      }
+    });
+
+  } 
+    
+  // Обработка табов
+    
+  $(".tabbed-content .tab").click(function() {
+  	
+  	
+  
+    $(this).parents(".tabs").find(".tab").removeClass("act");
+    $(this).addClass("act");
+    $(this).parents(".tabbed-content").find(".tab-content").hide()
+    var target = $(this).parents(".tabbed-content").find("#"+$(this).attr("rel"));
+    target.show()
+    var sT1 = $("body").scrollTop();
+    var sT2 = $("html").scrollTop();
+    if (sT1) {
+      sT = sT1
+    } else {
+      sT = sT2
+    }
+    
+    var id = $(this).attr('id');
+    if(id == 'type_29' || id == 'type_28')
+    {
+	    var type = id.substr(-2);
+	    var href = "/ratings/type_ajax.php?type=" + type;
+	    var new_url = "/ratings/?type=" + type; //новый урл, который нужно будет подставить
+	      $.ajax({
+	        url: href,
+	        type: 'get',
+	        dataType: 'html',
+	        async: false
+	      }).done(function(data) {
+	        target.html(data);
+	        preparePage();
+	      });
+	    
+    }
+    
+    window.location.hash = $(this).attr("rel")
+    $("body,html").animate({
+      scrollTop: sT
+    },0);
+    return false;
+  });
+  
+  
+  // Tabs switching 
+
+  if (window.location.hash == "#review-tab-0") {
+    $(".tab[rel='review-tab-0']").click();
+    $("html,body").animate({
+      scrollTop: $(".tabbed-content").offset().top - 70
+    },100);
+  } 
+
+  if (window.location.hash == "#photos-tab") {
+    $(".tab[rel='photos-tab']").click();
+    $("html,body").animate({
+      scrollTop: $(".tabbed-content").offset().top - 70
+    },100);
+  }
+  
+  if (window.location.hash == "#upcoming") {
+    $(".tab[rel='upcoming']").click();
+  }
+  
+  if (window.location.hash == "#archive") {
+    $(".tab[rel='archive']").click();
+  }
+
+  // Tabs switching END
+  
+  // Оформление чекбоксов
+
+  if ($(".custom-form input:checkbox, .type-filter input:checkbox").length) {
+    $(".custom-form input:checkbox, .type-filter input:checkbox").iCheck()
+  }
+  
+  $(".type-filter").addClass("initial");
+  
+  // Фильтр по типам событий в правой колонке
+  
+	$('.type-filter input').on('ifChecked ifUnchecked', function(event){
+		
+		elementLoader("news_list_pageID");
+		
+		var href = document.location.href;
+		var questionPos = href.indexOf("?");
+
+		if ( questionPos != -1 ) {
+			var clearUrl = href.slice(0, questionPos);	
+		} else {
+			var clearUrl = href;
+		}
+		
+		
+		var val = $(this).val();
+		var queryString = "RUBRIC["+val+"]="+val;
+		var oldQuery = "";
+		if($("body").data("rubricQuery")){
+			oldQuery = $("body").data("rubricQuery");
+		}
+		if(!$(this).is(":checked") && oldQuery.length){
+			// удалить параметр
+			var newQuery = oldQuery.replace("&"+queryString, "");
+		} else {
+			// добавить параметр
+			var newQuery = oldQuery+"&"+queryString;
+		}
+		
+		$("body").data("rubricQuery", newQuery);
+		
+		if($("body").data("topQuery")){
+			newQuery = newQuery+$("body").data("topQuery");
+		}
+		$.ajaxhelper({
+			url : clearUrl+"?"+newQuery,
+			success:function(data){
+				var result = $(data).html();
+				$(".main-column").html(data);
+				$("body").css("cursor","default");
+				preparePage();
+				evCalendar();
+				removeLoader("news_list_pageID");
+				
+			}
+		})
+		return false;
+
+
+	});
+  
+  /* $('.type-filter input').on('ifUnchecked', function(event){
+    
+    $("." + $(this).attr("rel")).hide();
+    
+    if (!$(".type-filter").find("input").is(":checked")) {
+      $(".type-filter").addClass("initial");
+      $(".event-type").show();
+    }
+    
+  }); */
+  
+  // $(".events-calendar .tab").click(function() {
+    // if (!$(this).hasClass(".act")) {
+      // $('.type-filter input').iCheck('uncheck');
+    // }
+  // });
+  
+
+  makeup();
+  
+  // Подгрузка содержимого из html
+
+  $(".ajax-link").click(function() {
+    var link = $(this);
+    $(".section-content").html("<div class='news-loader' />");
+	
+    $.ajax({
+      url: $(this).attr("rel"),
+      type: 'get',
+      dataType: 'html',
+      async: false
+    }).done(function(data) {
+      //$(".news-loader").remove();
+      $(".section-content").html(data);
+        link.addClass("act");
+        makeup();	
+        newsMakeup();
+    });
+	
+  });
+  
+  $(".nav-calendar .ajax-link").click(function() {
+   
+    if($('.nav-calendar span.year.year-act').html() && $('span.ajax-link.act').html()) 
+      $('h2.section-title').html($(this).html()+' '+$('.nav-calendar span.year.year-act').html());
+    else 
+      $('h2.section-title').html($(this).html());
+    
+   
+  });  
+  
+  // Клик по навигации с датами
+  
+  $(".year-nav .item").click(function() {
+  
+    if (!$(this).hasClass("act")) {
+      $(".year-nav .item").removeClass("act");
+      var link = $(this);
+      link.addClass("act");
+      var target = $("#"+$(this).attr("rel"));
+      
+      $(".year-nav").closest(".rating-years").find(".rating-content").hide();
+	 
+    
+	  var link = $(this);
+      link.after("<div class='loader' />");
+      
+      var year_id = $(this).attr("data-year-id");
+      var href = "/ratings/detail_ajax.php?ID=" + year_id;
+      var new_url = "/ratings/" + year_id + "/"; //новый урл, который нужно будет подставить
+      $.ajax({
+        url: href,
+        type: 'get',
+        dataType: 'html',
+        async: false
+      }).done(function(data) {
+        $(".loader").remove();
+        target.html(data);
+        target.fadeIn(250);
+        //makeup();
+      });
+    
+    }
+  
+  });
+  
+  // Подгрузка из html по клику
+  
+  $(".show-more").click(function() {
+    var link = $(this);
+    link.after("<div class='loader' />");
+    $.ajax({
+      url: $(this).attr("rel"),
+      type: 'get',
+      dataType: 'html',
+      async: false
+    }).done(function(data) {
+      $(".loader").remove();
+      link.before(data);
+      makeup();
+    });
+  });
+
+  
+  
+  $(document.body).on('click', '.section-filter .link', function() {
+    $(".section-filter .link").removeClass("act")
+    $(this).addClass("act");
+    if ($(this).attr("rel") == "all") {
+      $(".event-type").show();
+    } else {
+      $(".event-type").hide();
+      $(".event-type[rel='"+$(this).attr("rel")+"']").show();
+    }
+  });
+  
+  $(document.body).on('click', '.section-filter-tools .link', function() {
+    if (!$(this).hasClass("act")) {
+      $(".section-filter-tools .link").removeClass("act")
+      $(this).addClass("act");
+      var link = $(this);
+      link.after("<div class='loader' />");
+      $.ajax({
+        url: $(this).attr("rel"),
+        type: 'get',
+        dataType: 'html',
+        async: false
+      }).done(function(data) {
+        $(".loader").remove();
+        $(".section-content").html(data);
+        makeup();
+		
+        handleTools();
+      });
+    }
+	
+  });
+  
+  if ($(".section-filter-tools").length) {
+    $(".section-filter-tools .link").last().trigger("click");
+  }
+  
+  // Кнопка "Наверх"
+  
+  $(".sidenav").click(function() {
+    $("body, html").stop().animate({
+      scrollTop: 0
+    },1000);
+  });
+  
+
+  
+
+  // Клик по "Добавить в избранное"
+
+  $(".fav-trigger").click(function() {
+    $(".fav-hint").remove();
+    $('.fav-trigger span').html($('.fav-trigger span').html() == 'В избранное' ? 'В избранном' : 'В избранное');
+    $(this).toggleClass("fav-trigger-act");
+    $(this).append("<div class='fav-hint hint-popup' style='display:none'><div class='hint-content'></div></div>");
+    $(".fav-trigger .hint-popup").fadeIn(150);
+    $('.fav-trigger .hint-popup .hint-content').html($('.fav-trigger span').html() == 'В избранное' ? 'Добавлено в избранное' : 'Удалено из избранного');
+    var tt0 = setTimeout(function() {
+      $(".fav-hint").fadeOut(150,function() {
+        $(".fav-hint").remove();
+      })
+    },2000);
+  });
+  
+  
+  
+  $("div.button-5").click(function() {
+    $(".fav-hint").remove();
+    var title = $(this).html() == "<span>Я пойду</span>" ? "<span>Я не пойду</span>" : "<span>Я пойду</span>";
+    var baloontext = title == '<span>Я не пойду</span>' ? 'Вы добавлены' : 'Вы удалены';
+    $(this).append("<div class='fav-hint hint-popup' style='display:none'><div class='hint-content'></div></div>");
+    $("div.button-5 .hint-popup").fadeIn(150);	
+    $('div.button-5 .hint-popup .hint-content').html(baloontext);
+    var tt0 = setTimeout(function() {
+      $(".fav-hint").fadeOut(150,function() {
+        $(".fav-hint").remove();
+		$('div.button-5').html(title);
+      })
+    },2000);
+	 
+	var result = null;
+	var xdata = {ID:$(this).attr('rel'),ACTION:baloontext};
+	
+    $.ajax({
+      url: '/ajax/addmember.php',
+	  data: xdata,
+      type: 'post',
+      dataType: 'json',
+      async: false
+    }).done(function(data) {     
+        
+        result = data;    
+		
+        
+    });
+	
+	if(result.SUMM>0) $('span.total span').html(result.SUMM+' чел.');
+	
+  });
+  
+  
+  
+  $("*").hover(function() {
+    if ($(this).attr("hint")) {
+      $(".hint-dis").remove();
+      $("body").append("<div class='hint-popup'><div class='hint-content'>"+$(this).attr("hint")+"</div></div>");
+      $(".hint-popup").css("top",$(this).offset().top - $(".hint-popup").outerHeight(true)).css("left",$(this).offset().left - $(".hint-popup").outerWidth(true)/2+$(this).outerWidth()/2).hide().fadeIn(150);
+      if ($(this).attr("hinttype")) {
+        $(".hint-popup").addClass($(this).attr("hinttype"));
+      }
+    }
+  },function() {
+    if ($(this).attr("hint")) {
+      $(".hint-popup").addClass("hint-dis").fadeOut(150,function() {
+        $(".hint-dis").remove();
+      });
+    }
+  });
+  
+
+  /* if ($(".mainpage-calendar").length) {
+    $(".mainpage-calendar").mainpageCalendar();
+  } */
+  
+  if ($(".mainpage-catalogue").length) {
+    $(".mainpage-catalogue").mainpageCatalogue();
+  }
+  
+  if ($(".mainpage-ratings").length) {
+    $(".mainpage-ratings").mainpageRatings();
+  }
+  
+  $(".rating").hover(function() {
+    $(this).find(".rating-controls").fadeIn(150);
+  },function() {
+    $(this).find(".rating-controls").fadeOut(150);
+  });
+  
+  
+  
+  $(".button-comment").click(function() {
+    $(".root-comment").slideToggle(150);
+  });
+  
+  $(".comment-body").hover(function() {
+    if ($(this).next(".form-wrapper").css("display") != "block" && !$(this).parents().hasClass("qa-comments")) {
+      $(this).children(".reply-link").slideDown(150);
+    }
+  },function() {
+    $(this).children(".reply-link").slideUp(150);
+  });
+  
+  $(".reply-link").click(function() {
+    $(this).hide();
+    $(this).parents(".comment-body").next(".form-wrapper").slideDown(150);
+  });
+  
+  $(".post-comments .cancel").click(function() {
+    $(this).parents(".form-wrapper").slideUp(150);
+  });
+  
 }
 
-function removeLoader(elementId) {
-  $(".element-loader[rel='"+elementId+"']").remove();
+// Календарь событий
+
+function evCalendar() {
+
+  var evGroups = $(".events-calendar .cal-content[rel='archive'] .events-group");
+
+  $(".events-calendar .tabs .tab").on("click",function() {
+    window.location.hash = $(this).attr("rel");
+    $(".events-calendar .tabs .tab").removeClass("act");
+    $(this).addClass("act");
+    $(".events-calendar .cal-content").hide();
+    $(".events-calendar .cal-content[rel='"+$(this).attr("rel")+"']").fadeIn(250);
+    if ($(this).attr("rel") == "upcoming") {
+      $(".events-calendar .month-nav").fadeOut(250);
+    } else if (evGroups.length) {
+      $(".events-calendar .month-nav").fadeIn(250);
+    }
+  });
+  
+  var monthNav = $(".events-calendar .month-nav");
+  
+  var monthTrigger = monthNav.find(".month");
+  
+  var monthPopup = monthNav.find(".cal-popup");
+  
+  monthTrigger.off("click").on("click",function() {
+    monthPopup.fadeToggle(250);
+  });
+  
+  monthPopup.hover(function() {
+    $(this).addClass("hover")
+  },function() {
+    $(this).removeClass("hover")
+  });
+  
+  monthTrigger.hover(function() {
+    $(this).addClass("hover")
+  },function() {
+    $(this).removeClass("hover")
+  });
+  
+  $("body").on("click",function() {
+    if (!monthPopup.hasClass("hover") && !monthTrigger.hasClass("hover")) {
+      monthPopup.fadeOut(250)
+    }
+  });
+  
+  monthPopup.find(".close").on("click",function() {
+      monthPopup.fadeOut(250)
+  });
+  
+  
+  
+  if (!evGroups.length) {
+    monthNav.hide()
+  }
+  
+  evGroups.hide();
+  
+  evGroups.last().show().addClass("ev-group-current");
+  
+  var curMonth = parseInt(evGroups.last().attr("month"),10);
+  
+  var curYear = evGroups.last().attr("year");
+  
+  monthTrigger.find("span").html(monthName2[curMonth - 1] + " " + curYear);
+  
+  var cpYearsNav = monthPopup.find(".cal-popup-years .item");
+  
+  cpYearsNav.filter("[year='"+curYear+"']").addClass("act");
+  
+  cpYears = monthPopup.find(".cal-popup-months");
+  
+  cpYears.hide();
+  
+  cpYears.filter("[year='"+curYear+"']").show();
+  
+  
+  cpYearsNav.on("click",function() {
+    curYear = $(this).attr("year");
+    cpYearsNav.removeClass("act");
+    cpYearsNav.filter("[year='"+curYear+"']").addClass("act");
+    cpYears.hide().removeClass("years-group-current");
+    cpYears.filter("[year='"+curYear+"']").fadeIn(250).addClass("years-group-current");
+  });
+  
+  var cpMonthsNav = monthPopup.find(".cal-popup-months .item");
+  
+  cpMonthsNav.not(".inact").last().addClass("act");
+  
+  
+  cpMonthsNav.on("click",function() {
+    if (!$(this).hasClass("act") && !$(this).hasClass("inact")) {
+      curYear = $(this).attr("year");
+      curMonth = $(this).attr("month");
+      cpMonthsNav.removeClass("act");
+      cpMonthsNav.filter("[year='"+curYear+"'][month='"+curMonth+"']").addClass("act");
+      evGroups.hide();
+      evGroups.filter("[year='"+curYear+"'][month='"+curMonth+"']").fadeIn(250);
+      monthTrigger.find("span").html(monthName2[curMonth - 1] + " " + curYear);
+      monthPopup.fadeOut(250);
+    }
+  });
+  
+  var prevBtn = $(".month-nav .prev");
+  var nextBtn = $(".month-nav .next");
+  
+  if (evGroups.last().prev(".events-group").length) {
+    prevBtn.removeClass("inact");
+  }
+  
+  prevBtn.on("click",function() {
+    if (!$(this).hasClass("inact") && $(".ev-group-current").prev(".events-group").length) {
+      curYear = $(".ev-group-current").prev(".events-group").attr("year");
+      curMonth = $(".ev-group-current").prev(".events-group").attr("month");
+      evGroups.hide().removeClass("ev-group-current");
+      evGroups.filter("[year='"+curYear+"'][month='"+curMonth+"']").fadeIn(250).addClass("ev-group-current");
+      
+      monthTrigger.find("span").html(monthName2[curMonth - 1] + " " + curYear);
+      
+      cpYearsNav.removeClass("act");
+      cpYearsNav.filter("[year='"+curYear+"']").addClass("act");
+      cpYears.hide().removeClass("years-group-current");
+      cpYears.filter("[year='"+curYear+"']").fadeIn(250).addClass("years-group-current");
+      cpMonthsNav.removeClass("act");
+      cpMonthsNav.filter("[year='"+curYear+"'][month='"+curMonth+"']").addClass("act");
+      
+      nextBtn.removeClass("inact");
+      if (!$(".ev-group-current").prev(".events-group").length) {
+        prevBtn.addClass("inact");
+      }
+    }
+  });
+  
+  nextBtn.on("click",function() {
+    if (!$(this).hasClass("inact") && $(".ev-group-current").next(".events-group").length) {
+      curYear = $(".ev-group-current").next(".events-group").attr("year");
+      curMonth = $(".ev-group-current").next(".events-group").attr("month");
+      evGroups.hide().removeClass("ev-group-current");
+      evGroups.filter("[year='"+curYear+"'][month='"+curMonth+"']").fadeIn(250).addClass("ev-group-current");
+      
+      monthTrigger.find("span").html(monthName2[curMonth - 1] + " " + curYear);
+      
+      cpYearsNav.removeClass("act");
+      cpYearsNav.filter("[year='"+curYear+"']").addClass("act");
+      cpYears.hide().removeClass("years-group-current");
+      cpYears.filter("[year='"+curYear+"']").fadeIn(250).addClass("years-group-current");
+      cpMonthsNav.removeClass("act");
+      cpMonthsNav.filter("[year='"+curYear+"'][month='"+curMonth+"']").addClass("act");
+      
+      prevBtn.removeClass("inact");
+      if (!$(".ev-group-current").next(".events-group").length) {
+        nextBtn.addClass("inact");
+      }
+    }
+  });
+  
+  
 }
 
 function openPopup(popup) {
@@ -2992,3 +3676,9 @@ jQuery.extend(jQuery.validator.messages, {
     max: jQuery.validator.format("Please enter a value less than or equal to {0}."),
     min: jQuery.validator.format("Please enter a value greater than or equal to {0}.")
 });
+
+function ajaxUpdateHref(params, link)
+{
+	history.pushState(params, "", link);
+	history.pathname = link;		
+}

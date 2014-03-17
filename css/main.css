@@ -8365,3 +8365,19 @@ a:visited font {
 .rating-post-controls {
   margin:25px 0 28px 0 !important;
 }
+
+.form-checkboxes label.error {
+  behavior:url(PIE.htc);
+  position:relative;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  background-color:#ff9b9b !important;
+  width:23px;
+  height:23px;
+  position:absolute;
+  left:0;
+  top:0;
+  text-indent:-10000px;
+  overflow:hidden;
+}
