@@ -4129,7 +4129,7 @@ img.img-float-left {
     cursor: pointer;
     float:left;
     margin-right:11px;
-    margin-top:-3px;
+    margin-top:0;
 }
 
 .icheckbox {
@@ -5611,12 +5611,14 @@ h2 .section-filter span {
   margin-top:25px;
 }
 
-.common-form .form-item {
+.common-form .form-item,
+.custom-form .form-item {
   margin:0 40px 19px 0;
   float:left;
 }
 
-.common-form .input-wrapper {
+.common-form .input-wrapper,
+.custom-form .input-wrapper {
   behavior:url(PIE.htc);
   position:relative;
   background:#f4f4f4;
@@ -5633,25 +5635,30 @@ h2 .section-filter span {
 }
 
 .common-form .form-text,
-.common-form .form-textarea {
+.common-form .form-textarea,
+.custom-form .form-text,
+.custom-form .form-textarea {
   font-size:14px;
   font-family:'OpenSans',sans-serif;
 }
 
-.common-form .form-text {
+.common-form .form-text,
+.custom-form .form-text {
   height:35px;
   line-height:35px;
   padding:0 12px 0 12px;
   outline:none;
 }
 
-.common-form input.initial {
+.common-form input.initial,
+.custom-form input.initial {
   color:#96999d;
   font-size:13px;
   font-family:'OpenSansItalic', sans-serif !important;
 }
 
-.common-form .form-textarea {
+.common-form .form-textarea,
+.custom-form .form-textarea {
   behavior:url(PIE.htc);
   position:relative;
   background:#f4f4f4;
@@ -5690,7 +5697,8 @@ h2 .section-filter span {
   font-family:'OpenSans', sans-serif;
 }
 
-.common-form .form-text {
+.common-form .form-text,
+.custom-form .form-text {
   width:383px;
 }
 
@@ -5727,11 +5735,14 @@ h2 .section-filter span {
 }
 
 .common-form .icheckbox,
-.common-form .iradio {
+.common-form .iradio,
+.custom-form .icheckbox,
+.custom-form .iradio {
   background-image:url(../images/icheck-2.png);
 }
 
-.common-form .captcha {
+.common-form .captcha,
+.custom-form .captcha {
   float:left;
   margin:0 35px 0 0;
 }
@@ -5751,7 +5762,8 @@ h2 .section-filter span {
   white-space:nowrap;
 }
 
-.common-form .input-wrapper-error {
+.common-form .input-wrapper-error,
+.custom-form .input-wrapper-error {
   behavior:url(PIE.htc);
   position:relative;
   -webkit-border-radius: 4px;
@@ -5760,7 +5772,8 @@ h2 .section-filter span {
   background-color:#ff9b9b !important;
 }
 
-.common-form label {
+.common-form label,
+.custom-form label {
   display:block;
   margin:0 0 .35em 0;
 }
@@ -8223,12 +8236,14 @@ a:visited font {
   font-family:'OpenSans';
 }
 
-.common-form .form-item {
+.common-form .form-item,
+.custom-form .form-item {
   position:relative;
   float:none;
 }
 
-.common-form .placeholder {
+.common-form .placeholder,
+.custom-form .placeholder {
   height:35px;
   position:absolute;
   left:0;
@@ -8242,7 +8257,8 @@ a:visited font {
   font-family: 'OpenSans',sans-serif;
 }
 
-.common-form .placeholder-error {
+.common-form .placeholder-error,
+.custom-form .placeholder-error {
   color:#ba3006;
 }
 
