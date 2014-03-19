@@ -7993,6 +7993,15 @@ h2 .section-filter span {
   text-align:left;
 }
 
+.news-item-content img {
+  margin:0 20px 10px 0;
+}
+
+.news-item-content a,
+.news-item-content a:visited {
+  text-decoration:underline;
+}
+
 .post-text img.nofloat {
   float:none !important;
 }
