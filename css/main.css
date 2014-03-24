@@ -8245,8 +8245,7 @@ a:visited font {
   font-family:'OpenSans';
 }
 
-.common-form .form-item,
-.custom-form .form-item {
+.login-form .form-item {
   position:relative;
   float:none;
 }
