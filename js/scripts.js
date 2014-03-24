@@ -292,7 +292,7 @@ $(document).ready(function () {
     }
   });
 
-  $("input:text, input:password, textarea").each(function() {
+  $("input:text, input:password, textarea, input:password").each(function() {
     $(this).addClass("initial");
     
     if ($(this).prop("tagName") == "INPUT" || $(this).prop("tagName") == "TEXTAREA") {
@@ -1905,7 +1905,7 @@ function makeup() {
     }
   });
 
-  $(".custom-form input:text, .search-block input:text").each(function () {
+  $(".custom-form input:text, .search-block input:text, .custom-form input:password").each(function () {
     if (!$(this).parents(".input-wrapper").length) $(this).wrap("<div class='input-wrapper'></div>");
     $(this).addClass("initial");
     $(this).focus(function() {
@@ -2506,12 +2506,16 @@ function preparePage() {
   
   // Карусель с календарем на главной
 
-  $(".mainpage-calendar .jcarousel").jcarousel({
-    scroll: 3,
-    itemFirstInCallback: mpcFirstin,
-    itemLastInCallback: mpcLastin,
-    itemFallbackDimension: 270
-  });
+	if ($(".mainpage-calendar .jcarousel").length) {
+		$(".mainpage-calendar .jcarousel").jcarousel({
+			scroll: 3,
+			itemFirstInCallback: mpcFirstin,
+			itemLastInCallback: mpcLastin,
+			itemFallbackDimension: 270
+		});
+	}
+  
+	
   $(".mainpage-calendar .next").on("click",function() {
     $(".mainpage-calendar .jcarousel-next").click();
   })
