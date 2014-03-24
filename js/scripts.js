@@ -248,7 +248,10 @@ $(document).ready(function () {
   //клик по кнопке "показать еще"
   $(document).on("click", ".rating-show-more a", function() {
     var page = $(this).attr("rel");
-	var url = $(this).attr("href");
+    var url = "/ratings/?PAGEN_1="+page;
+    var tab = $(this).parents('.rating-content').attr('id');
+    console.log(tab);
+	//var url = $(this).attr("href");
 	//var del = page - 1;
 	if(page){
 		 $.ajaxhelper({
@@ -258,17 +261,17 @@ $(document).ready(function () {
 				$("body").css("cursor","progress");
 			},
 			success:function(data){
-				$("#navigation_" + page).remove(); //удаляем навигацию с прошлой страницы
+				 $("#" + tab + " #navigation_" + page).remove(); //удаляем навигацию с прошлой страницы
 				
 				//добавляем ссылку на след. страницу
 				var link = $(data).find("div.rating-show-more");
-				$("#rating-table-content").append($(link));
+				$("#" + tab + " #rating-table-content").append($(link));
 				
 				//добавляем блок 
-				$("#rating_table").append(data);
+				$("#" + tab + " #rating_table").append(data);
 				
 				//удаляем временную навигацию из скрытого блока
-				$("#temp_navigation").remove();
+				$("#" + tab + " #temp_navigation").remove();
 				
 				$("body").css("cursor","default");
 				preparePage();
@@ -277,6 +280,11 @@ $(document).ready(function () {
 	}
 	return false; 
   });
+
+  //согласие в форме регистрации
+    $('#regForm input#7').on('change', function(){
+	    console.log('test123');
+    });
 
   $(".form-text,.form-password, .form-textarea").each(function() {
     if ($(this).val()) {
@@ -2575,7 +2583,7 @@ function preparePage() {
       $(".facebook-popup").hide().removeClass("initial");
       $(".facebook-popup").css("top",$(this).position().top - $(".facebook-popup").height() - 12).css("left",$(this).position().left - $(".facebook-popup").width()/2 + $(this).width()/2).fadeIn(250);
     } else {
-      $(".facebook-popup").css("top",$(this).position().top - $(".facebook-popup").height() - 12).css("left",$(this).position().left - $(".facebook-popup").width()/2 + $(this).width()/2).fadeToggle(250);
+      $(".facebook-popup").css("top",$(this).position().top - $(".facebook-popup").height() - 12).css("left",$(this).position().left - $(".facebook-popup").width()/2 + $(this).width()/2).fadeIn(250);
     }
     
     if ($(".facebook-popup").offset().top < $(window).scrollTop()) {
@@ -2605,7 +2613,7 @@ function preparePage() {
       $(".vk-popup").hide().removeClass("initial");
       $(".vk-popup").css("top",$(this).position().top - $(".vk-popup").height() - 12).css("left",$(this).position().left - $(".vk-popup").width()/2 + $(this).width()/2).fadeIn(250);
     } else {
-      $(".vk-popup").css("top",$(this).position().top - $(".vk-popup").height() - 12).css("left",$(this).position().left - $(".vk-popup").width()/2 + $(this).width()/2).fadeToggle(250);
+      $(".vk-popup").css("top",$(this).position().top - $(".vk-popup").height() - 12).css("left",$(this).position().left - $(".vk-popup").width()/2 + $(this).width()/2).fadeIn(250);
     }
     
     if ($(".vk-popup").offset().top < $(window).scrollTop()) {
@@ -2626,7 +2634,7 @@ function preparePage() {
       $(".twitter-popup").hide().removeClass("initial");
       $(".twitter-popup").css("top",$(this).position().top - $(".twitter-popup").height() - 12).css("left",$(this).position().left - $(".twitter-popup").width()/2 + $(this).width()/2).fadeIn(250);
     } else {
-      $(".twitter-popup").css("top",$(this).position().top - $(".twitter-popup").height() - 12).css("left",$(this).position().left - $(".twitter-popup").width()/2 + $(this).width()/2).fadeToggle(250);
+      $(".twitter-popup").css("top",$(this).position().top - $(".twitter-popup").height() - 12).css("left",$(this).position().left - $(".twitter-popup").width()/2 + $(this).width()/2).fadeIn(250);
     }
     
     if ($(".twitter-popup").offset().top < $(window).scrollTop()) {
@@ -2910,7 +2918,7 @@ function preparePage() {
         $(element).removeClass(errorClass);
       }
     });
-    
+        
   }
 
   if ($(".experts").length) {
@@ -3013,6 +3021,8 @@ function preparePage() {
 	      }).done(function(data) {
 	        target.html(data);
 	        preparePage();
+	        twttr.widgets.load();
+	        FB.XFBML.parse();
 	      });
 	    
     }
@@ -3189,6 +3199,8 @@ function preparePage() {
       }).done(function(data) {
         $(".loader").remove();
         target.html(data);
+        twttr.widgets.load();
+        FB.XFBML.parse();
         target.fadeIn(250);
         //makeup();
       });
@@ -3308,11 +3320,11 @@ function preparePage() {
     }).done(function(data) {     
         
         result = data;    
-		
+		if(result.SUMM>0) $('span.total span').html(result.SUMM+' чел.');
         
     });
 	
-	if(result.SUMM>0) $('span.total span').html(result.SUMM+' чел.');
+	
 	
   });
   

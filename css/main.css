@@ -5071,7 +5071,7 @@ h2 .section-filter span {
 
 .experts {
   padding-top:12px;
-  overflow:hidden;
+  /* overflow:hidden; */
 }
 
 .experts .expertslist {
