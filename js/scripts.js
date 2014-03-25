@@ -241,6 +241,18 @@ $(document).ready(function () {
 
   validateForms();
   
+	$(".content-filter .date-filter-trigger .ttl").click(function() {
+		if (!$(this).parents(".date-filter-trigger").hasClass("date-filter-trigger-on")) {
+			$(this).parents(".date-filter-trigger").addClass("date-filter-trigger-on");
+			$(".content-date-filter").slideDown(150);
+		}
+	});
+	
+	$(".content-filter .date-filter-trigger .close").click(function() {
+		$(".content-date-filter").slideUp(150);
+		$(this).parents(".date-filter-trigger").removeClass("date-filter-trigger-on");
+	});
+	
   $('.form-checkboxes input').on('ifChecked', function(event){
     $(this).parents(".form-checkboxes").find("label.error").remove();
   });
@@ -2019,15 +2031,29 @@ function makeup() {
           } else {
             flag = "";
           }
-          if ($(this).val() != select.val()/* || select.attr("ttl")*/) {
-            dropdown.append("<div val='" + $(this).attr("value") + "'>" + flag + $(this).html() + "</div>");
+          
+          if (select.find("option").length <= 2) {
+          
+            if ($(this).val() != select.val() /* || select.attr("ttl")*/) {
+              dropdown.append("<div val='" + $(this).attr("value") + "'>" + flag + $(this).html() + "</div>");
+            } else {
+              dropdown.append("<div style='display:none' val='" + $(this).attr("value") + "'>" + flag + $(this).html() + "</div>");
+            }
+            
           } else {
-            dropdown.append("<div style='display:none' val='" + $(this).attr("value") + "'>" + flag + $(this).html() + "</div>");
+						if ($(this).val() != select.val() /* || select.attr("ttl")*/) {
+							dropdown.append("<div val='" + $(this).attr("value") + "'>" + flag + $(this).html() + "</div>");
+            } else {
+              dropdown.append("<div class='selected' val='" + $(this).attr("value") + "'>" + flag + $(this).html() + "</div>");
+            }
           }
+          
         });
       
       
-        paramSel.click(function() {
+        paramSel.on("click",function() {
+          $(this).parents(".common-form").find(".form-item").css("z-index",1);
+          $(this).parents(".form-item").css("z-index",10);
           if (!select.is(":disabled")) {
             if (dropdown.css("display") != "block") {
               $(".dropdown").fadeOut(150);
@@ -2067,7 +2093,7 @@ function makeup() {
           }
         });
         
-        dropdown.find("div").click(function () {
+        dropdown.on("click", "div", function() {
           selector.removeClass("param-sel-error");
           paramSel.removeClass("initial");
           var div = $(this);
@@ -2081,7 +2107,10 @@ function makeup() {
             dropdown.find("div[val='']").remove();
           }
           dropdown.fadeOut(150, function () {
-            dropdown.find("div").show().removeClass("selected");
+            dropdown.find("div").show().removeClass("selected").removeClass("hidden");
+            if (select.find("option").length <= 2) {
+              div.addClass("hidden")
+            }
             div.addClass("selected");
             div.parents(".param-open").removeClass("param-open");
           });
@@ -2092,6 +2121,8 @@ function makeup() {
     
   };
 })( jQuery );
+
+
 
 function compUnits(n) {
   var n = n + "";
@@ -3067,9 +3098,13 @@ function preparePage() {
   
   // Оформление чекбоксов
 
-  if ($(".custom-form input:checkbox, .type-filter input:checkbox").length) {
-    $(".custom-form input:checkbox, .type-filter input:checkbox").iCheck()
+  if ($(".custom-form input:checkbox, .type-filter input:checkbox, .content-type-filter input:radio").length) {
+    $(".custom-form input:checkbox, .type-filter input:checkbox, .content-type-filter input:radio").iCheck()
   }
+	
+	$('.content-type-filter input:radio').on('ifChecked ifUnchecked', function(){
+		$(this).parents("label").toggleClass("label-checked");
+	});
   
   $(".type-filter").addClass("initial");
   

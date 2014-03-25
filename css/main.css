@@ -4092,7 +4092,8 @@ img.img-float-left {
   display:none;
 }
 
-.type-filter label {
+.type-filter label,
+.content-type-filter label {
   display:block;
   position:relative;
   behavior:url(PIE.htc);
@@ -4101,6 +4102,7 @@ img.img-float-left {
   border-radius:4px;
   margin:0 0 4px 0;
   font-size:12px;
+	line-height:22px;
   text-transform:uppercase;
   color:#fff;
   clear:left;
@@ -4108,7 +4110,8 @@ img.img-float-left {
   cursor:pointer;
 }
 
-.type-filter label:hover {
+.type-filter label:hover,
+.content-type-filter label:hover {
   opacity:.7;
   filter:alpha(opacity=70)
 }
@@ -4145,6 +4148,8 @@ img.img-float-left {
     .icheckbox.checked.disabled {
         background-position: -54px 0;
     }
+		
+		
 
 .iradio {
     background-position: -72px 0;
@@ -5847,7 +5852,7 @@ h2 .section-filter span {
 }
 
 .param-selector div.selected {
-  display:none !important;
+  color:#a0a0a0;
 }
 
 .param-selector .arr {
@@ -8388,4 +8393,186 @@ a:visited font {
   top:0;
   text-indent:-10000px;
   overflow:hidden;
+}
+
+.event-tag-filter {
+  background:#a8abaf;
+}
+
+.event-tag-filter:hover {
+  opacity:1 !important;
+	background:#7f868f;
+}
+
+.content-filter .iradio {
+    background-position: 0 0;
+}
+    .content-filter .iradio.checked {
+        background-position: -23px 0;
+    }
+    .content-filter .iradio.disabled {
+        background-position: -36px 0;
+        cursor: default;
+    }
+    .content-filter .iradio.checked.disabled {
+        background-position: -54px 0;
+    }
+
+.content-type-filter label {
+  display: block;
+	position: relative;
+	behavior: url(PIE.htc);
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	margin: 0 0 4px 0;
+	font-size: 12px;
+	line-height: 23px;
+	text-transform: uppercase;
+	color: #fff;
+	clear: left;
+	padding: 8px 11px 7px 12px;
+	cursor: pointer;
+}
+
+.content-type-filter .label-checked {
+  background:#3d61a6;
+}
+
+.content-filter {
+  background:#ececec;
+	position:relative;
+	behavior:url(PIE.htc);
+	-webkit-border-radius:4px;
+	-moz-border-radius:4px;
+	border-radius:4px;
+	padding:15px 18px;
+	margin:0 0 30px 0;
+}
+
+.content-filter h3 {
+  font-size:14px;
+	margin:15px 0 8px 0;
+}
+
+.content-filter h3:first-child {
+  margin-top:0;
+}
+
+.content-filter .hr {
+  background:#d7d7d7;
+	height:1px;
+	margin:19px -18px 15px -18px;
+}
+
+.content-filter .param-selector {
+  width:100%;
+}
+
+.content-filter .param-sel {
+  background:#fff;
+	-webkit-box-shadow:0 1px 2px 0 rgba(0,0,0,.24);
+	-moz-box-shadow:0 1px 2px 0 rgba(0,0,0,.24);
+	box-shadow:0 1px 2px 0 rgba(0,0,0,.24);
+	width:auto;
+}
+
+.content-filter .param-selector .dropdown {
+  min-width:206px;
+	width:auto;
+	background:#fff;
+	-webkit-box-shadow:0 0 4px 0 rgba(0,0,0,.46);
+	-moz-box-shadow:0 0 4px 0 rgba(0,0,0,.46);
+	box-shadow:0 0 4px 0 rgba(0,0,0,.46);
+	-webkit-border-radius:0;
+	-moz-border-radius:0;
+	border-radius:0;
+	margin:16px 0 0 0;
+	padding:3px 0;
+}
+
+.content-filter .param-selector .dropdown:before {
+  content:"";
+	width:19px;
+	height:8px;
+	position:absolute;
+	top:-8px;
+	left:16px;
+	background:url(../images/dropdown-pt.png) 0 0 no-repeat;
+}
+
+.content-filter .param-selector .dropdown div {
+  padding:6px 12px;
+}
+
+.content-filter .param-selector .dropdown div:hover {
+  background:#ececec;
+}
+
+.date-filter-trigger {
+  font-size:14px;
+	font-family:'OpenSansSemibold';
+	margin:20px 0 15px 0;
+	position:relative;
+}
+
+.date-filter-trigger span.ttl {
+  border-bottom:2px dotted #2f2c2b;
+	cursor:pointer;
+}
+
+.date-filter-trigger span.ttl:hover {
+  color:#979ba0;
+	border-color:#979ba0;
+}
+
+.date-filter-trigger .close {
+	width:18px;
+	height:18px;
+	background:url(../images/filter-close.png) 0 0 no-repeat;
+	cursor:pointer;
+	margin:0 0 -5px 10px;
+	display:none;
+}
+
+.date-filter-trigger-on .close {
+  display:inline-block;
+}
+
+.date-filter-trigger .close:hover {
+  background-position:-18px 0;
+}
+
+.content-filter .button {
+  float:none;
+	text-align:center;
+	padding:0;
+	font-size:16px;
+	height:42px;
+	line-height:45px;
+}
+
+.content-date-filter {
+  display:none;
+}
+
+.content-date-filter .month-col {
+  width:117px;
+	float:left;
+	margin:0 10px 0 0;
+}
+
+.content-date-filter .month-col .dropdown {
+	width:117px;
+	min-width:117px;
+}
+
+.content-date-filter .year-col {
+  width:79px;
+	float:left;
+}
+
+.content-date-filter .year-col .dropdown {
+	width:79px;
+	min-width:79px;
 }
