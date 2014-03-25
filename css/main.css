@@ -378,7 +378,7 @@ b,strong {
 
 .header .logo {
   float:left;
-  margin:11px 0 0 -11px;
+  margin:40px 50px 0 -4px;
   z-index:16;
   position:relative;
 }
@@ -8406,6 +8406,7 @@ a:visited font {
 
 .content-filter .iradio {
     background-position: 0 0;
+		background-image:url(../images/icheck-filter.png);
 }
     .content-filter .iradio.checked {
         background-position: -23px 0;
@@ -8575,4 +8576,90 @@ a:visited font {
 .content-date-filter .year-col .dropdown {
 	width:79px;
 	min-width:79px;
+}
+
+.h-soclink {
+  display:inline-block;
+	width:44px;
+	height:44px;
+	margin:0 8px 0 0;
+	background-image:url(../images/header-soclinks.png);
+	background-repeat:no-repeat;
+}
+
+.h-soclink-twitter {
+  background-position:0 0;
+}
+
+.h-soclink-twitter:hover {
+  background-position:0 -55px;
+}
+
+.h-soclink-fb {
+  background-position:-55px 0;
+}
+
+.h-soclink-fb:hover {
+  background-position:-55px -55px;
+}
+
+.h-soclink-vk {
+  background-position:-109px 0;
+}
+
+.h-soclink-vk:hover {
+  background-position:-109px -55px;
+}
+
+.h-soclink-google {
+  background-position:-164px 0;
+}
+
+.h-soclink-google:hover {
+  background-position:-164px -55px;
+}
+
+.h-soclink-rss {
+  background-position:-218px 0;
+}
+
+.h-soclink-rss:hover {
+  background-position:-218px -55px;
+}
+
+.h-soclink-email {
+  background-position:-273px 0;
+}
+
+
+.h-soclink-email:hover {
+  background-position:-273px -55px;
+}
+
+.header .site-title {
+  float:left;
+	font-size:15px;
+	line-height:16px;
+	padding:38px 101px 0 0;
+}
+
+.header-soclinks {
+  float:left;
+	padding:34px 0 0 2px;
+}
+
+.header .login-link {
+  font-size:14px;
+	line-height:18px;
+	text-decoration:none;
+	border-bottom:1px dotted #75797f;
+	color:#1f2226;
+}
+
+.header .login-link:hover {
+  color:#75797f;
+}
+
+.header .user-logged-out {
+  padding:4px 0 0 0;
 }

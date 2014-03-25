@@ -67,18 +67,6 @@
             </div>
           </div>
           <!-- Main menu END -->
-          <!-- Main filter -->
-          <div class="center-wrapper">
-            <div class="top-filter-wrapper">
-            	<div class="top-filter-shadow"></div>
-            	<ul class="top-filter fc">
-            	  <li class="tf-prof"><a href="#">SEO-специалистам</a></li>
-            	  <li class="tf-moneymakers"><a href="#">Манимейкерам</a></li>
-            	  <li class="tf-clients"><a href="#">Клиентам SEO</a></li>
-            	</ul>
-            </div>
-          </div>
-          <!-- Main filter END -->
         </div>
         
         <div class="header-bottom fc">
@@ -87,8 +75,29 @@
               <a class="logo-main" href="#"><img src="images/logo.png" alt="SeoNews"/></a>
               <a class="logo-fixed" href="#"><img src="images/logo-fixed.png" alt="SeoNews"/></a>
             </div>
+						<div class="site-title">
+							Интернет-издание<br />о поисковом маркетинге
+						</div>
+						<div class="header-soclinks">
+							<a href="#" class="h-soclink h-soclink-twitter"></a>
+							<a href="#" class="h-soclink h-soclink-fb"></a>
+							<a href="#" class="h-soclink h-soclink-vk"></a>
+							<a href="#" class="h-soclink h-soclink-google"></a>
+							<a href="#" class="h-soclink h-soclink-rss"></a>
+							<a href="#" class="h-soclink h-soclink-email"></a>
+						</div>
             <!-- User link -->
-            <div class="user-link fc">
+						<div class="user-link user-logged-out">
+							<div class="userpic">
+                <a href="#"><img src="images/userpic-dummy.png"/></a>
+              </div>
+              <div class="user-link-wrapper">
+                <a class="login-link" href="#" onclick="openPopup($('.login-popup')); return false;">Войти</a>
+								<a class="login-link" href="#">Зарегистрироваться</a>
+              </div>
+              
+						</div>
+            <div class="user-link fc" style="display:none;">
               <div class="user-events-num">+3</div>
               <div class="userpic">
                 <a href="#"><img src="files/userpic.jpg" alt="Алексей Константинов"/></a>
@@ -1300,6 +1309,64 @@
 <!-- Footer END -->
   
 <!-- Wrapper END -->
+
+<div class="popup login-popup">
+  <div class="popup-header">
+    <div class="close"></div>
+    <h1>Добро пожаловать на SEOnews!</h1>
+  </div>
+  <div class="popup-body">
+    <div class="login-cols fc">
+    	<div class="login-l">
+    	  <h3>Вход на сайт</h3>
+    		<div class="common-form custom-form login-form fc">
+    		
+    		  <form action=".">
+    		  	<div class="form-item">
+    		  	  <label for="login_email" class="placeholder">Электронная почта</label>
+    		  	  <input type="text" name="login_email" id="login_email" class="form-text form-email" required />
+    		  	</div>
+    	      
+    	      <div class="form-item">
+    		  	  <label for="login_password" class="placeholder">Пароль</label>
+    		  	  <input type="password" name="login_password" id="login_password" class="form-text" required />
+    		  	</div>
+    		  	
+    		    <div class="form-footer fc">
+    		    	<input type="submit" value="Войти" class="button button-2 form-submit"/>
+    	        <div class="forgot-link">
+    	        	<a href="#">Я забыл пароль</a>
+    	        </div>
+    		    </div>
+    		    
+    		  </form>
+    		
+    		</div>
+    	  
+    	</div>
+    	
+    	<div class="login-r">
+    	  <h3>Я новый пользователь</h3>
+    	  <div class="text">
+    	  	<p>Чтобы полноценно пользоваться нашим сайтом, вам необходимо зарегистрироваться. Это просто и займет всего одну минуту.</p>
+    	  </div>
+    	  <a href="#" class="button button-4">Зарегистрироваться</a>
+    	</div>
+    </div>
+    
+    <div class="login-external">
+      <h4>Войти через</h4>
+      <div class="buttons fc">
+        <div class="button-login button-vk"></div>
+        <div class="button-login button-facebook"></div>
+        <div class="button-login button-twitter"></div>
+        <div class="button-login button-google"></div>
+        <div class="button-login button-mailru"></div>
+      </div>
+    </div>
+    
+  </div>
+</div>
 
 </body>
 
