@@ -3223,27 +3223,32 @@ function preparePage() {
       
       $(".year-nav").closest(".rating-years").find(".rating-content").hide();
 	 
-    
-	  var link = $(this);
-      link.after("<div class='loader' />");
+			target.fadeIn(250);
+
+		// Кусок для боевой версии
+		
+	  // var link = $(this);
+      // link.after("<div class='loader' />");
       
-      var year_id = $(this).attr("data-year-id");
-      var href = "/ratings/detail_ajax.php?ID=" + year_id;
-      var new_url = "/ratings/" + year_id + "/"; //новый урл, который нужно будет подставить
-      $.ajax({
-        url: href,
-        type: 'get',
-        dataType: 'html',
-        async: false
-      }).done(function(data) {
-        $(".loader").remove();
-        target.html(data);
-        twttr.widgets.load();
-        FB.XFBML.parse();
-        target.fadeIn(250);
-        //makeup();
-      });
+      // var year_id = $(this).attr("data-year-id");
+      // var href = "/ratings/detail_ajax.php?ID=" + year_id;
+      // var new_url = "/ratings/" + year_id + "/"; //новый урл, который нужно будет подставить
+      // $.ajax({
+        // url: href,
+        // type: 'get',
+        // dataType: 'html',
+        // async: false
+      // }).done(function(data) {
+        // $(".loader").remove();
+        // target.html(data);
+        // twttr.widgets.load();
+        // FB.XFBML.parse();
+        // target.fadeIn(250);
+        // //makeup();
+      // });
     
+			// Кусок для боевой версии END
+		
     }
   
   });
