@@ -8648,6 +8648,10 @@ a:visited font {
 	padding:38px 101px 0 0;
 }
 
+.header-fixed .site-title {
+  display:none;
+}
+
 .header-soclinks {
   float:left;
 	padding:34px 0 0 2px;
