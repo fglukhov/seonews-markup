@@ -142,7 +142,7 @@ $(window).scroll(function () {
   
   // Фиксация меню и части шапки при скролле страницы
   
-  if ($(window).scrollTop() > ($(".header").offset().top + $(".header-banner").height())) {
+  if ($(window).scrollTop() > ($(".header").offset().top + $(".header").height())) {
     $(".header-content").addClass("header-fixed").removeClass("header-normal").css("margin-left",-$(document).scrollLeft());
     if (!$(".sidenav").hasClass("invisible")) {
       $(".sidenav").fadeIn(250);
@@ -1911,11 +1911,11 @@ function makeup() {
     }
   })
 
-  $("ol.custom-ol li").each(function() {
-    if (!$(this).find(".li-cont").length) {
-      $(this).html("<span class='li-cont'>"+$(this).html()+"</span>")
-    }
-  });
+  // $(".post-text ol li").each(function() {
+    // if (!$(this).find(".li-cont").length) {
+      // $(this).html("<span class='li-cont'>"+$(this).html()+"</span>")
+    // }
+  // });
 
   $(".custom-form input:text, .search-block input:text, .custom-form input:password").each(function () {
     if (!$(this).parents(".input-wrapper").length) $(this).wrap("<div class='input-wrapper'></div>");
@@ -2117,6 +2117,18 @@ function makeup() {
         });
       
       }
+			
+			$(document).mouseup(function (e) {
+				var container1 = dropdown;
+
+				if (!container1.is(e.target) // if the target of the click isn't the container...
+						&& container1.has(e.target).length === 0) // ... nor a descendant of the container
+				{
+						dropdown.fadeOut(150)
+				}
+			});
+			
+			
     });
     
   };
@@ -2469,12 +2481,17 @@ function adaptation() {
   }
   
   if ($(".mainpage-calendar").length) {
-    var calContent = $(".mainpage-calendar .calendar-content");
-    var t = setTimeout(function() {
-      calPos = -calContent.find(".calendar-card").outerWidth(true)*calContent.find(".first-visible").prevAll(".calendar-card").length;
-      calWidth = calContent.find(".calendar-card").outerWidth(true)*calContent.find(".calendar-card").length;
-      calContent.stop().css("left",calPos).css("width",calWidth)
-    },100)
+	
+		$(".mainpage-calendar .jcarousel-list").css({
+			left: - $(".mainpage-calendar .jcarousel-first").position().left
+		});
+	
+    // var calContent = $(".mainpage-calendar .calendar-content");
+    // var t = setTimeout(function() {
+      // calPos = -calContent.find(".calendar-card").outerWidth(true)*calContent.find(".first-visible").prevAll(".calendar-card").length;
+      // calWidth = calContent.find(".calendar-card").outerWidth(true)*calContent.find(".calendar-card").length;
+      // calContent.stop().css("left",calPos).css("width",calWidth)
+    // },100)
     
   } 
   
@@ -2493,6 +2510,10 @@ function getUrlVars() {
 // Коллбэки карусели календаря на главной
 
 function mpcFirstin(carousel, item, idx, state) {
+
+	carousel.list.parents(".mainpage-calendar").find(".jcarousel-item").removeClass("jcarousel-first");
+	carousel.list.parents(".mainpage-calendar").find(".jcarousel-item").eq(idx-1).addClass("jcarousel-first")
+
   if (carousel.list.parents(".mainpage-calendar").find(".jcarousel-prev").hasClass("jcarousel-prev-disabled")) {
     $(".mainpage-calendar .prev").addClass("inact")
   } else {
@@ -2772,14 +2793,19 @@ function preparePage() {
 
   $(".font-control .more").click(function() {
     var fontSize = parseInt($(".post-text").css("font-size"));
+    var lineHeight = (fontSize+1)*1.5;
     fontSize = fontSize + 1 + "px";
-    $(".post-text").css({'font-size':fontSize});
+    lineHeight = lineHeight + "px";
+		
+    $(".post-text").css({'font-size':fontSize,'line-height':lineHeight});
   })
   
   $(".font-control .less").click(function() {
     var fontSize = parseInt($(".post-text").css("font-size"));
+		var lineHeight = (fontSize-1)*1.5;
     fontSize = fontSize - 1 + "px";
-    $(".post-text").css({'font-size':fontSize});
+		lineHeight = lineHeight + "px";
+    $(".post-text").css({'font-size':fontSize,'line-height':lineHeight});
   })
   
   // Форма тендера
@@ -2932,21 +2958,14 @@ function preparePage() {
         }
       },
       sendForm : false,
-      messages: {
-        reg_company: "",
-        reg_site: "",
-        reg_email: "",
-        reg_captcha: "",
-        reg_agree: ""
-      },
+      
       errorPlacement: function(error, element) {
         element.parents(".input-wrapper").addClass("input-wrapper-error");
-        if (element.attr("id") != "reg_email" || element.val() == "") {
-          error.insertAfter(element);
-        }
-        element.focus(function() {
-          error.remove();
-        });
+        if (!element.parents(".registration-company").length) {
+          error.insertAfter(element.parent());
+        } else {
+          error.insertAfter(element.parents(".registration-company"));
+				} 
       },
       unhighlight: function(element, errorClass, validClass) {
         $(element).parents(".input-wrapper").removeClass("input-wrapper-error");
@@ -3102,10 +3121,25 @@ function preparePage() {
     $(".custom-form input:checkbox, .type-filter input:checkbox, .content-type-filter input:radio").iCheck()
   }
 	
-	$('.content-type-filter input:radio').on('ifChecked ifUnchecked', function(){
+	$('.content-type-filter input:checkbox').on('ifChecked ifUnchecked', function(){
 		$(this).parents("label").toggleClass("label-checked");
 	});
-  
+	
+	$('.content-type-filter input:checkbox').on('ifChecked', function(){
+		$(this).parents(".content-type-filter").find("input:checkbox").not($(this)).iCheck("uncheck");
+		$(".content-filter-form .reset").css("display","inline-block");
+	});
+	
+	$('.content-type-filter input:checkbox').on('ifUnchecked', function(){
+		if (!$(".content-type-filter input").is(":checked").length) {
+			$(".content-filter-form .reset").css("display","none");
+		}
+	});
+	
+	$(".content-filter-form .reset").click(function() {
+		$(".content-type-filter input:checkbox").iCheck("uncheck")
+	});
+	
   $(".type-filter").addClass("initial");
   
   // Фильтр по типам событий в правой колонке
@@ -3738,3 +3772,23 @@ function ajaxUpdateHref(params, link)
 	history.pushState(params, "", link);
 	history.pathname = link;		
 }
+
+jQuery.extend(jQuery.validator.messages, {
+    required: "Поле не заполнено!",
+    remote: "Please fix this field.",
+    email: "Введите правильный e-mail",
+    url: "Please enter a valid URL.",
+    date: "Please enter a valid date.",
+    dateISO: "Please enter a valid date (ISO).",
+    number: "Please enter a valid number.",
+    digits: "Please enter only digits.",
+    creditcard: "Please enter a valid credit card number.",
+    equalTo: "Please enter the same value again.",
+    accept: "Please enter a value with a valid extension.",
+    maxlength: jQuery.validator.format("Please enter no more than {0} characters."),
+    minlength: jQuery.validator.format("Please enter at least {0} characters."),
+    rangelength: jQuery.validator.format("Please enter a value between {0} and {1} characters long."),
+    range: jQuery.validator.format("Please enter a value between {0} and {1}."),
+    max: jQuery.validator.format("Please enter a value less than or equal to {0}."),
+    min: jQuery.validator.format("Please enter a value greater than or equal to {0}.")
+});

@@ -1,0 +1,530 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>SeoNews - Новости</title>
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+<link rel="stylesheet" type="text/css" href="css/reset-min.css" media="screen"/>
+<link rel="stylesheet" type="text/css" href="css/fonts-min.css" media="screen"/>
+<link rel="stylesheet" type="text/css" href="css/jquery.fancybox.css" media="screen"/>
+<link rel="stylesheet" type="text/css" href="css/main.css" media="screen"/>
+<link rel="stylesheet" type="text/css" href="css/narrow.css" media="screen"/>
+<!--[if lte IE 8]>
+  <link rel="stylesheet" type="text/css" href="css/ie7-8.css" media="screen"/>
+<![endif]-->
+<script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.xml2json.js"></script>
+<script type="text/javascript" src="js/jquery.mousewheel-3.0.6.pack.js"></script>
+<script type="text/javascript" src="js/jquery.fancybox.js"></script>
+<script type="text/javascript" src="js/jquery.slides.min.js"></script>
+<script type="text/javascript" src="js/jquery.icheck.min.js"></script>
+<script type="text/javascript" src="js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.10.3.custom.min.js"></script>
+<script type="text/javascript" src="js/scripts.js"></script>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/ru_RU/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+</head>
+
+<body class="adaptive">
+
+<div id="test"></div>
+
+<!-- Wrapper -->
+<div class="top-wrap">
+  <div class="top-main">
+    <!-- Header -->
+    
+    <div class="header">
+      
+      <div class="header-content">
+        <div class="header-top">
+          <!-- Main menu -->
+          <div class="main-menu-wrapper">
+            <div class="center-wrapper">
+              <div class="main-menu fc">
+								<a href="/events/">Обзор рынка</a>
+								<a href="/analytics/">Как продвинуть и заработать</a>
+								<a href="/calendar/">Мероприятия отрасли</a>
+								<a href="/experts/">Откровения экспертов</a>
+								<a href="/ratings/" class="last">Рейтинги</a>
+							</div>
+            </div>
+          </div>
+          <!-- Main menu END -->
+        </div>
+        
+        <div class="header-bottom fc">
+          <div class="center-wrapper">
+            <div class="logo">
+              <a class="logo-main" href="#"><img src="images/logo.png" alt="SeoNews"/></a>
+              <a class="logo-fixed" href="#"><img src="images/logo-fixed.png" alt="SeoNews"/></a>
+            </div>
+						<div class="site-title">
+							Интернет-издание<br />о поисковом маркетинге
+						</div>
+						<div class="header-soclinks">
+							<a href="#" class="h-soclink h-soclink-twitter"></a>
+							<a href="#" class="h-soclink h-soclink-fb"></a>
+							<a href="#" class="h-soclink h-soclink-vk"></a>
+							<a href="#" class="h-soclink h-soclink-google"></a>
+							<a href="#" class="h-soclink h-soclink-rss"></a>
+							<a href="#" class="h-soclink h-soclink-email"></a>
+						</div>
+            <!-- User link -->
+						<div class="user-link user-logged-out">
+							<div class="userpic">
+                <a href="#"><img src="images/userpic-dummy.png"/></a>
+              </div>
+              <div class="user-link-wrapper">
+                <a class="login-link" href="#" onclick="openPopup($('.login-popup')); return false;">Войти</a>
+								<a class="login-link" href="#">Зарегистрироваться</a>
+              </div>
+              
+						</div>
+            <div class="user-link fc" style="display:none;">
+              <div class="user-events-num">+3</div>
+              <div class="userpic">
+                <a href="#"><img src="files/userpic.jpg" alt="Алексей Константинов"/></a>
+              </div>
+              <div class="user-link-wrapper">
+                <span>Алексей Константинов</span>
+              </div>
+              <div class="user-controls">
+                <div class="pt"></div>
+                <ul>
+                  <li>
+                    <a href="#">
+                      <span class="pic"><img src="images/void.gif" class="ico ico-events"/></span>
+                      <span class="descr">
+                        Лента событий
+                        <span class="new-events">Новых: 2</span>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <span class="pic"><img src="images/void.gif" class="ico ico-profile"/></span>
+                      <span class="descr">
+                        Мой профиль
+                        <span class="new-events">Новых подписок: 1</span>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <span class="pic"><img src="images/void.gif" class="ico ico-blog"/></span>
+                      <span class="descr">
+                        Мой блог
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <span class="pic"><img src="images/void.gif" class="ico ico-favorites"/></span>
+                      <span class="descr">
+                        Избранное
+                      </span>
+                    </a>
+                  </li>
+                </ul>
+                <a href="#" class="button button-1 button-ico button-1-ico button-blog">
+                  Написать в блог
+                </a>
+              </div>
+            </div>
+            <!-- User link END -->
+          </div>
+        </div>
+      </div>
+      
+      
+    </div>
+    
+    <!-- Header END -->
+    
+    <!-- Body -->
+    
+    <div class="body">
+    
+      <div class="search-block fc">
+        <div class="center-wrapper">
+        	<input type="text" class="form-text" class="site-search"/>
+        	<input type="submit" class="button button-2 form-submit" value="Найти"/>
+        </div>
+      </div>
+      
+      <div class="center-wrapper">
+      
+        <!-- Content -->
+        
+        <div class="content">
+        
+          <div class="main-column">
+          
+            
+            
+            <!-- Section content -->
+            
+            <div class="section-content">
+            
+              <!-- Как продвинуть и заработать -->
+              
+              <div class="content-block">
+              
+                
+              
+                <div class="fc">
+                	<h2 class="section-title">Поиск по тегам</h2>
+                </div>
+                
+								<div class="tags-control fc">
+									<div class="search-count">Найдено материалов: 13</div>
+									<div class="search-tags">
+										Выбранные теги: <span><a href="#">Seo</a><div class="tag-remove"></div></span><span><a href="#">Google</a><div class="tag-remove"></div></span><span><a href="#">mail.ru</a><div class="tag-remove"></div></span>
+									</div>
+								</div>
+                
+              </div>
+              
+              <!-- Как продвинуть и заработать END -->
+              
+              <!-- Свежее -->
+              
+              <div class="content-block">
+              
+                <div class="newslist newslist-wide">
+                
+                  <div class="newslist-item">
+                  
+                    <div class="pic">
+                      <a href="#">
+                        <img src="files/mainpage-news.jpg" alt="Редактор AdWords"/>
+                      </a>
+                    </div>
+                    
+                    <div class="descr">
+                      <div class="post-lead">
+                        <h3><a href="#">Редактор AdWords</a></h3>
+                        <p>
+                          Google обновил редактор <span class="tag-selected">AdWords</span> для Windows и Mac, добавив в него новые возможности для настройки рекламных кампаний
+                        </p>
+                      </div>
+                      <div class="post-data fc">
+                        <div class="author">
+                          <a href="#"><img class="userpic" src="files/userpic.jpg" alt="Василий Петров"/></a>
+                          <a href="#">Алина Назарова</a><br />
+                          <span class='date-time'>Вчера, <span class="time">в 23:29</span></span>
+                        </div>
+                        <div class="comments-views">
+                          <span class='cv-item'><a href="#"><span class="ico ico-comments"/></span> 16</a></span>
+                          <span class='cv-item'><span class="ico ico-views"/></span> 561</span>
+                        </div>
+                      </div>
+                    </div>
+                    
+                  </div>
+                  
+                  <div class="newslist-item">
+										<div class="pic">
+                      <a href="#">
+                        <img src="files/mainpage-news.jpg" alt="Редактор AdWords"/>
+                      </a>
+                    </div>
+                    <div class="descr">
+                      <div class="post-lead">
+                        <h3><a href="#">17 типов контента, который Google съест</a></h3>
+                        <p>
+                          Google обновил редактор AdWords для Windows и Mac, добавив в него новые возможности. Google обновил редактор AdWords для Windows и Mac,  добавив в него новые возможности
+                        </p>
+                      </div>
+                      <div class="post-data fc">
+                        <div class="author">
+                          <a href="#"><img class="userpic" src="files/userpic.jpg" alt="Василий Петров"/></a>
+                          <a href="#">Василий Петров</a><br />
+                          <span class='date-time'>Вчера, <span class="time">в 23:29</span></span>
+                        </div>
+                        <div class="comments-views">
+                          <span class='cv-item'><a href="#"><span class="ico ico-comments"/></span> 16</a></span>
+                          <span class='cv-item'><span class="ico ico-views"/></span> 561</span>
+                        </div>
+                      </div>
+                    </div>
+                    
+                  </div>
+                  
+                  <div class="newslist-item">
+										<div class="pic">
+                      <a href="#">
+                        <img src="files/mainpage-news.jpg" alt="Редактор AdWords"/>
+                      </a>
+                    </div>
+                    <div class="descr">
+                      <div class="post-lead">
+                        <h3><a href="#">SEMcamp научит противостоять агрессии Google</a></h3>
+                        <p>
+                          11 мая в Киеве компания Promodo проведет семинар, посвященный актуальным вопросам SEO и онлайн-маркетинга
+                        </p>
+                      </div>
+                      <div class="post-data fc">
+                        <div class="author">
+                          <a href="#"><img class="userpic" src="files/userpic.jpg" alt="Василий Петров"/></a>
+                          <a href="#">Василий Петров</a><br />
+                          <span class='date-time'>Вчера, <span class="time">в 23:29</span></span>
+                        </div>
+                        <div class="comments-views">
+                          <span class='cv-item'><a href="#"><span class="ico ico-comments"/></span> 16</a></span>
+                          <span class='cv-item'><span class="ico ico-views"/></span> 561</span>
+                        </div>
+                      </div>
+                    </div>
+                    
+                  </div>
+                  
+                </div>
+                
+              </div>
+                  
+            </div>
+            
+            <!-- Section conent END -->
+            
+          </div>
+          
+          <div class="sidebar">
+          
+            <!-- Навигация -->
+          
+            <div class="sidenav">
+              <div class="up-link">
+                <div class="ico ico-up"></div>
+                <span>Наверх</span>
+              </div>
+            </div>
+            
+            <!-- Навигация END -->
+            
+            <div class="search-trigger-wrapper">
+              <div class="search-trigger">
+                <span class="ico ico-search"></span> <span class="txt">Поиск по сайту</span>
+              </div>
+              
+            </div>
+            
+            <!-- Специальный проект -->
+            
+						
+						
+            <div class="content-block">
+              <a href="#"><img src="files/jobs-banner.jpg"/></a>
+            </div>
+            
+            <!-- Облако тегов -->
+            
+            <div class="content-block">
+            
+              <div class="tags-cloud">
+                <a href="#" style="font-size:18px">Блоггер</a>
+                <a href="#" style="font-size:30px">WEB</a>
+                <a href="#" style="font-size:26px">Яндекс</a>
+                <a href="#" style="font-size:15px">Мысли</a>
+                <a href="#" style="font-size:12px">Домены</a>
+                <a href="#" style="font-size:11px">Обед</a>
+                <a href="#" style="font-size:24px">Новости</a>
+                <a href="#" style="font-size:16px">Новичкам</a>
+                <a href="#" style="font-size:28px">Обзоры</a>
+                <a href="#" style="font-size:32px">Игры</a>
+                <a href="#" style="font-size:14px">Вслух</a>
+                <a href="#" style="font-size:19px">Flash</a>
+                <a href="#" style="font-size:18px">Маркетинг</a>
+                <a href="#" style="font-size:11px">Стиль</a>
+                <a href="#" style="font-size:26px">Рейтинги</a>
+                <a href="#" style="font-size:15px">Кино</a>
+                <a href="#" style="font-size:12px">FeedBurner</a>
+                <a href="#" style="font-size:14px">Веб-дизайн</a>
+                <a href="#" style="font-size:14px">Юзабилити</a>
+                <a href="#" style="font-size:24px">Мнение</a>
+                <a href="#" style="font-size:16px">Google</a>
+                <a href="#" style="font-size:28px">Юмор</a>
+                <a href="#" style="font-size:32px">События</a>
+                <a href="#" style="font-size:14px">Разработка</a>
+                <a href="#" style="font-size:10px">Тесты</a>
+                <a href="#" style="font-size:14px">Маркетинг</a>
+                <a href="#" style="font-size:14px">Стиль</a>
+                <a href="#" style="font-size:24px">Рейтинги</a>
+                <a href="#" style="font-size:16px">Кино</a>
+                <a href="#" style="font-size:28px">FeedBurner</a>
+                <a href="#" style="font-size:32px">Веб-дизайн</a>
+                <a href="#" style="font-size:14px">Юзабилити</a>
+                <a href="#" style="font-size:19px">Мнение</a>
+                <a href="#" style="font-size:14px">Google</a>
+                <a href="#" style="font-size:14px">Юмор</a>
+                <a href="#" style="font-size:24px">События</a>
+                <a href="#" style="font-size:16px">Разработка</a>
+                <a href="#" style="font-size:28px">Тесты</a>
+              </div>
+            
+            </div>
+            
+            <!-- Облако тегов END -->
+            
+          </div>
+        
+        </div>
+        
+        <!-- Content END -->
+      
+      </div>
+      
+    </div>
+    
+    <!-- Body END -->
+  </div>
+</div>
+
+<!-- Footer -->
+
+<div class="footer">
+  
+  <div class="center-wrapper">
+  
+    <div class="footer-content">
+  
+      <div class="footer-col footer-col-1">
+      
+        <p>
+          <a href="#"><img class="logo" src="images/logo.png" alt="SeoNews"/></a>
+        </p>
+        
+        <p>
+          © SEOnews.ru Все права защищены. 2013
+        </p>
+        
+        <p>
+          Все права на материалы, публикуемые на данном сайте, принадлежат редакции сайта, за исключением случаев перепечатки чужих материалов, и охраняются в соответствии с законодательством РФ.
+        </p>
+        
+        <a class="email-link" href="mailto:info@seonews.ru"><span>info@seonews.ru</span></a>
+        
+      </div>
+      
+      <div class="footer-col">
+        <h4>Компания</h4>
+        <ul class="footer-menu">
+          <li><a href="#">О проекте</a></li>
+          <li><a href="#">Приглашаем авторов</a></li>
+          <li><a href="#">Контакты</a></li>
+          <li><a href="#">Реклама на сайте</a></li>
+          <li><a href="#">Правообладателям</a></li>
+          <li><a href="#">Правила</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-col">
+        <h4>Статьи</h4>
+        <ul class="footer-menu">
+          <li><a href="#">Как продвинуть сайт и заработать в Интернете</a></li>
+          <li><a href="#">Инструменты продвижения и заработка в Интеренете</a></li>
+          <li><a href="#">Откроевения экспертов</a></li>
+          <li><a href="#">Рейтинги SEOnews</a></li>
+          <li><a href="#">Библиотека</a></li>
+          <li><a href="#">Участники рынка</a></li>
+          <li><a href="#">Календарь событий</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-col">
+        <h4>Подписывайтесь</h4>
+        <ul class="footer-menu">
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">Тwitter</a></li>
+          <li><a href="#">ВКонтакте</a></li>
+          <li><a href="#">RSS</a></li>
+        </ul>
+        
+        <div class="developed-by fc">
+          <span>Разработка сайта:</span>
+          <span class="dev-link"><a href="#">Renaissance Art</a></span>
+        </div>
+        
+      </div>
+      
+    </div>
+  
+  </div>
+  
+</div>
+
+<!-- Footer END -->
+  
+<!-- Wrapper END -->
+
+<div class="popup login-popup">
+  <div class="popup-header">
+    <div class="close"></div>
+    <h1>Добро пожаловать на SEOnews!</h1>
+  </div>
+  <div class="popup-body">
+    <div class="login-cols fc">
+    	<div class="login-l">
+    	  <h3>Вход на сайт</h3>
+    		<div class="common-form custom-form login-form fc">
+    		
+    		  <form action=".">
+    		  	<div class="form-item">
+    		  	  <label for="login_email" class="placeholder">Электронная почта</label>
+    		  	  <input type="text" name="login_email" id="login_email" class="form-text form-email" required />
+    		  	</div>
+    	      
+    	      <div class="form-item">
+    		  	  <label for="login_password" class="placeholder">Пароль</label>
+    		  	  <input type="password" name="login_password" id="login_password" class="form-text" required />
+    		  	</div>
+    		  	
+    		    <div class="form-footer fc">
+    		    	<input type="submit" value="Войти" class="button button-2 form-submit"/>
+    	        <div class="forgot-link">
+    	        	<a href="#">Я забыл пароль</a>
+    	        </div>
+    		    </div>
+    		    
+    		  </form>
+    		
+    		</div>
+    	  
+    	</div>
+    	
+    	<div class="login-r">
+    	  <h3>Я новый пользователь</h3>
+    	  <div class="text">
+    	  	<p>Чтобы полноценно пользоваться нашим сайтом, вам необходимо зарегистрироваться. Это просто и займет всего одну минуту.</p>
+    	  </div>
+    	  <a href="#" class="button button-4">Зарегистрироваться</a>
+    	</div>
+    </div>
+    
+    <div class="login-external">
+      <h4>Войти через</h4>
+      <div class="buttons fc">
+        <div class="button-login button-vk"></div>
+        <div class="button-login button-facebook"></div>
+        <div class="button-login button-twitter"></div>
+        <div class="button-login button-google"></div>
+        <div class="button-login button-mailru"></div>
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+</body>
+
+
+</html>

@@ -1,0 +1,538 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>SeoNews - Календарь - Предстоящее событие</title>
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+<link rel="stylesheet" type="text/css" href="css/reset-min.css" media="screen"/>
+<link rel="stylesheet" type="text/css" href="css/fonts-min.css" media="screen"/>
+<link rel="stylesheet" type="text/css" href="css/jquery.fancybox.css" media="screen"/>
+<link rel="stylesheet" type="text/css" href="css/main.css" media="screen"/>
+<link rel="stylesheet" type="text/css" href="css/narrow.css" media="screen"/>
+<!--[if lte IE 8]>
+  <link rel="stylesheet" type="text/css" href="css/ie7-8.css" media="screen"/>
+<![endif]-->
+<script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.xml2json.js"></script>
+<script type="text/javascript" src="js/jquery.mousewheel-3.0.6.pack.js"></script>
+<script type="text/javascript" src="js/jquery.fancybox.js"></script>
+<script type="text/javascript" src="js/jquery.slides.min.js"></script>
+<script type="text/javascript" src="js/jquery.icheck.min.js"></script>
+<script type="text/javascript" src="js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="js/scripts.js"></script>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/ru_RU/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<script type="text/javascript" src="http://vk.com/js/api/share.js?86" charset="windows-1251"></script>
+
+</head>
+
+<body class="adaptive">
+
+<!-- Wrapper -->
+<div class="top-wrap">
+  <div class="top-main">
+    <!-- Header -->
+    
+    <div class="header">
+      
+      <!-- Banner END -->
+      
+      <div class="header-content">
+        <div class="header-top">
+          <!-- Main menu -->
+          <div class="main-menu-wrapper">
+            <div class="center-wrapper">
+              <div class="main-menu fc">
+                <a href="#">Обзор рынка</a>
+                <a class="act" href="#">Как продвинуть и заработать</a>
+                <a href="#">Календарь событий</a>
+                <a href="#">Инструменты и сервисы</a>
+                <a href="#">Откровения экспертов</a>
+                <a href="#">Рейтинги</a>
+                <a href="#">Участники рынка</a>
+                <a href="#">Библиотека</a>
+              </div>
+            </div>
+          </div>
+          <!-- Main menu END -->
+        </div>
+        
+        <div class="header-bottom fc">
+          <div class="center-wrapper">
+            <div class="logo">
+              <a class="logo-main" href="#"><img src="images/logo.png" alt="SeoNews"/></a>
+              <a class="logo-fixed" href="#"><img src="images/logo-fixed.png" alt="SeoNews"/></a>
+            </div>
+						<div class="site-title">
+							Интернет-издание<br />о поисковом маркетинге
+						</div>
+						<div class="header-soclinks">
+							<a href="#" class="h-soclink h-soclink-twitter"></a>
+							<a href="#" class="h-soclink h-soclink-fb"></a>
+							<a href="#" class="h-soclink h-soclink-vk"></a>
+							<a href="#" class="h-soclink h-soclink-google"></a>
+							<a href="#" class="h-soclink h-soclink-rss"></a>
+							<a href="#" class="h-soclink h-soclink-email"></a>
+						</div>
+            
+            <div class="user-link fc">
+              <div class="user-events-num">+3</div>
+              <div class="userpic">
+                <a href="#"><img src="images/userpic-dummy.jpg" alt="Алексей Константинов"/></a>
+              </div>
+              <div class="user-link-wrapper">
+                <span>Алексей Константинов</span>
+								<div class="exit-link">
+									<a href="#">Выход</a>
+								</div>
+              </div>
+              <div class="user-controls">
+                <div class="pt"></div>
+                <ul>
+                  <li>
+                    <a href="#">
+                      <span class="pic"><img src="images/void.gif" class="ico ico-events"/></span>
+                      <span class="descr">
+                        Лента событий
+                        <span class="new-events">Новых: 2</span>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <span class="pic"><img src="images/void.gif" class="ico ico-profile"/></span>
+                      <span class="descr">
+                        Мой профиль
+                        <span class="new-events">Новых подписок: 1</span>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <span class="pic"><img src="images/void.gif" class="ico ico-blog"/></span>
+                      <span class="descr">
+                        Мой блог
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <span class="pic"><img src="images/void.gif" class="ico ico-favorites"/></span>
+                      <span class="descr">
+                        Избранное
+                      </span>
+                    </a>
+                  </li>
+                </ul>
+                <a href="#" class="button button-1 button-ico button-1-ico button-blog">
+                  Написать в блог
+                </a>
+              </div>
+            </div>
+            <!-- User link END -->
+          </div>
+        </div>
+      </div>
+      
+      
+    </div>
+    
+    <!-- Header END -->
+    
+    <!-- Body -->
+    
+    <div class="body">
+    
+      <div class="search-block fc">
+        <div class="center-wrapper">
+        	<input type="text" class="form-text" class="site-search"/>
+        	<input type="submit" class="button button-2 form-submit" value="Найти"/>
+        </div>
+      </div>
+      
+      <div class="center-wrapper">
+      
+        <!-- Content -->
+        
+        <div class="content">
+        
+          <div class="main-column">
+            
+            <!-- Breadcrumbs -->
+            
+            <div class="breadcrumbs fc">
+              <a class="ico ico-back" href="#"></a>
+              <a href="#">Главная</a>
+              <span class="sep">></span>
+              <a href="#">Календарь</a>
+              <span class="sep">></span>
+              Очный семинар «Комплексный интернет-маркетинг, нацеленный на рост конверсий и звонков с сайта»
+            </div>
+            
+            <!-- Breadcrumbs END -->
+            
+            <div class="calendar-event-content event-type-1">
+            
+              <div class="event-header fc">
+                <div class="pic">
+                  <span class="date"><span class="day">01</span><span class="mon">сентября</span></span>
+                </div>
+                <div class="descr">
+                  <a href="#" class="event-tag event-tag-1">Веб-аналитика</a>
+                  <span class="name">
+                    Очный семинар «Комплексный интернет-маркетинг, нацеленный на рост конверсий и звонков с сайта»
+                  </span>
+                </div>
+              </div>
+              
+              <div class="event-descr">
+                <table>
+                  <tr>
+                    <td class="ttl">
+                      Начало:
+                    </td>
+                    <td>
+                      21 ноября 2012, пятница, в 12:00
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="ttl">
+                      Длительность:
+                    </td>
+                    <td>
+                      3 часа
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="ttl">
+                      Адрес:
+                    </td>
+                    <td>
+                      Москва, ул. Нежинская, 7, конференц-зал университета МЭСИ (Москва)
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="ttl">
+                      Организатор:
+                    </td>
+                    <td>
+                      образовательный центр «Эдукор» (Санкт-Петербург) , ТОО «Интернет-авеню» (Алмата)
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="ttl">
+                      Аудитория:
+                    </td>
+                    <td>
+                      менеджеры
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="ttl">
+                      Сайт:
+                    </td>
+                    <td>
+                      <a href="#">www.seo-study.ru</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="ttl">
+                      Телефон:
+                    </td>
+                    <td>
+                      +7 (495) 768-99-56
+                    </td>
+                  </tr>
+                </table>
+              </div>
+              
+              <div class="event-status fc">
+                
+                <div class="free-event">
+									Бесплатное мероприятие
+								</div>
+                
+                <div class="members">
+                  <span class="ico ico-members-big"></span>
+                  Уже идут
+                  <span class="total"><span>1562 чел.</span></span>
+                </div>
+                
+                <div class="button button-5">Я пойду</div>
+                
+              </div>
+              
+              <div class="post-controls fc">
+                <div class="social-buttons fc">
+                  <div class="s-button">
+                  	<div class="fb-like" data-href="http://seonews.ru" data-width="450" data-layout="button_count" data-show-faces="false" data-send="false"></div>
+                  </div>
+                  <div class="s-button">
+                    <script type="text/javascript"><!--
+                    document.write(VK.Share.button(false,{type: "round", text: "Сохранить"}));
+                    --></script>
+                  </div>
+                  <div class="s-button">
+                  	<a href="https://twitter.com/share" class="twitter-share-button" data-via="twitterapi" data-lang="ru">Твитнуть</a>
+                  	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                  </div>
+                </div>
+                <div class="fav-trigger fc fr">
+                  <div class="ico ico-fav"></div>
+                  <span>В избранное</span>
+                </div>
+                <div class="comments-views fr">
+                  <span class='cv-item'><span class="ico ico-views"/></span> 561</span>
+                </div>
+              </div>
+              
+              <div class="post-text">
+              	
+                <h2>Описание</h2>
+              	
+              	<p>
+              	  В ходе курса каждый участник проведет собственное исследование и решит множество сложных аналитических задач. Полученный опыт пригодится любому оптимизатору, вне зависимости от занимаемой должности, и позволит достигнуть больших успехов в своей области.
+              	</p>
+                
+                <div class="hr"></div>
+              	
+                <h2>Программа</h2>
+                
+              	<div class="event-lineup">
+                  <div class="item fc">
+                    <div class="time">
+                      11:00 - 11:20
+                    </div>
+                    <div class="descr">
+                      <h3>Cоздание рекламной кампании и анализ сайта</h3>
+                    </div>
+                  </div>
+                  <div class="item fc">
+                    <div class="time">
+                      11:20 - 12:45
+                    </div>
+                    <div class="descr">
+                      <h3>Последние технологии интернет-маркетинга. Опыт Европы и США</h3>
+                      <ul>
+                        <li>Оптимизация рекламных кампаний (рекламного бюджета);</li>
+                        <li>Анализ и борьба с мошенническими кликами (кликфрод)</li>
+                        <li>Оптимизация целевых страниц</li>
+                        <li>Персонализация сайта</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="item fc">
+                    <div class="time">
+                      11:00 - 11:20
+                    </div>
+                    <div class="descr">
+                      <h3>Повышение эффективности контекстной рекламы. Автоматизация</h3>
+                    </div>
+                  </div>
+                  <div class="item fc">
+                    <div class="time">
+                      11:20 - 12:45
+                    </div>
+                    <div class="descr">
+                      <h3>Позиция, позиционирование и бренд – метаморфозы оффлайн и онлайн</h3>
+                      <ul>
+                        <li>Классика маркетинга в иллюстрациях</li>
+                        <li>Онлайн vs Оффлайн или ft. Оффлайн?</li>
+                        <li>Истории успеха: учимся на чужом опыте</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="hr"></div>
+                
+                <h2>Ведущие</h2>
+                
+                <div class="event-leading fc">
+                  <div class="author">
+                    <a href="#"><img class="userpic" src="files/userpic-big.jpg" alt="Василий Петров"></a>
+                    <a href="#">Вячеслав Георгиев</a><br>
+                    <div class="occupation">Специалист по управлению web-проектами</div>
+                  </div>
+                  <div class="author">
+                    <a href="#"><img class="userpic" src="files/userpic-big.jpg" alt="Василий Петров"></a>
+                    <a href="#">Вячеслав Георгиев</a><br>
+                    <div class="occupation">Специалист по управлению web-проектами</div>
+                  </div>
+                </div>
+              	
+              </div>
+              
+            </div>
+            
+          </div>
+          
+          <div class="sidebar">
+          
+            <div class="search-trigger-wrapper">
+              <div class="search-trigger">
+                <span class="ico ico-search"></span> <span class="txt">Поиск по сайту</span>
+              </div>
+              
+            </div>
+            
+            <!-- Специальный проект -->
+            
+            <div class="content-block">
+              <a href="#"><img src="files/jobs-banner.jpg"/></a>
+            </div>
+            
+            <!-- Специальный проект END -->
+
+            <!-- Облако тегов -->
+            
+            <div class="content-block">
+            
+              <div class="tags-cloud">
+                <a href="#" style="font-size:18px">Блоггер</a>
+                <a href="#" style="font-size:30px">WEB</a>
+                <a href="#" style="font-size:26px">Яндекс</a>
+                <a href="#" style="font-size:15px">Мысли</a>
+                <a href="#" style="font-size:12px">Домены</a>
+                <a href="#" style="font-size:11px">Обед</a>
+                <a href="#" style="font-size:24px">Новости</a>
+                <a href="#" style="font-size:16px">Новичкам</a>
+                <a href="#" style="font-size:28px">Обзоры</a>
+                <a href="#" style="font-size:32px">Игры</a>
+                <a href="#" style="font-size:14px">Вслух</a>
+                <a href="#" style="font-size:19px">Flash</a>
+                <a href="#" style="font-size:18px">Маркетинг</a>
+                <a href="#" style="font-size:11px">Стиль</a>
+                <a href="#" style="font-size:26px">Рейтинги</a>
+                <a href="#" style="font-size:15px">Кино</a>
+                <a href="#" style="font-size:12px">FeedBurner</a>
+                <a href="#" style="font-size:14px">Веб-дизайн</a>
+                <a href="#" style="font-size:14px">Юзабилити</a>
+                <a href="#" style="font-size:24px">Мнение</a>
+                <a href="#" style="font-size:16px">Google</a>
+                <a href="#" style="font-size:28px">Юмор</a>
+                <a href="#" style="font-size:32px">События</a>
+                <a href="#" style="font-size:14px">Разработка</a>
+                <a href="#" style="font-size:10px">Тесты</a>
+                <a href="#" style="font-size:14px">Маркетинг</a>
+                <a href="#" style="font-size:14px">Стиль</a>
+                <a href="#" style="font-size:24px">Рейтинги</a>
+                <a href="#" style="font-size:16px">Кино</a>
+                <a href="#" style="font-size:28px">FeedBurner</a>
+                <a href="#" style="font-size:32px">Веб-дизайн</a>
+                <a href="#" style="font-size:14px">Юзабилити</a>
+                <a href="#" style="font-size:19px">Мнение</a>
+                <a href="#" style="font-size:14px">Google</a>
+                <a href="#" style="font-size:14px">Юмор</a>
+                <a href="#" style="font-size:24px">События</a>
+                <a href="#" style="font-size:16px">Разработка</a>
+                <a href="#" style="font-size:28px">Тесты</a>
+              </div>
+            
+            </div>
+            
+            <!-- Облако тегов END -->
+            
+          </div>
+        
+        </div>
+        
+        <!-- Content END -->
+      
+      </div>
+      
+    </div>
+    
+    <!-- Body END -->
+  </div>
+</div>
+
+<!-- Footer -->
+
+<div class="footer">
+  
+  <div class="center-wrapper">
+  
+    <div class="footer-content">
+  
+      <div class="footer-col footer-col-1">
+      
+        <p>
+          <a href="#"><img class="logo" src="images/logo.png" alt="SeoNews"/></a>
+        </p>
+        
+        <p>
+          © SEOnews.ru Все права защищены. 2013
+        </p>
+        
+        <p>
+          Все права на материалы, публикуемые на данном сайте, принадлежат редакции сайта, за исключением случаев перепечатки чужих материалов, и охраняются в соответствии с законодательством РФ.
+        </p>
+        
+        <a class="email-link" href="mailto:info@seonews.ru"><span>info@seonews.ru</span></a>
+        
+      </div>
+      
+      <div class="footer-col">
+        <h4>Компания</h4>
+        <ul class="footer-menu">
+          <li><a href="#">О проекте</a></li>
+          <li><a href="#">Приглашаем авторов</a></li>
+          <li><a href="#">Контакты</a></li>
+          <li><a href="#">Реклама на сайте</a></li>
+          <li><a href="#">Правообладателям</a></li>
+          <li><a href="#">Правила</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-col">
+        <h4>Статьи</h4>
+        <ul class="footer-menu">
+          <li><a href="#">Как продвинуть сайт и заработать в Интернете</a></li>
+          <li><a href="#">Инструменты продвижения и заработка в Интеренете</a></li>
+          <li><a href="#">Откроевения экспертов</a></li>
+          <li><a href="#">Рейтинги SEOnews</a></li>
+          <li><a href="#">Библиотека</a></li>
+          <li><a href="#">Участники рынка</a></li>
+          <li><a href="#">Календарь событий</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-col">
+        <h4>Подписывайтесь</h4>
+        <ul class="footer-menu">
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">Тwitter</a></li>
+          <li><a href="#">ВКонтакте</a></li>
+          <li><a href="#">RSS</a></li>
+        </ul>
+        
+        <div class="developed-by fc">
+          <span>Разработка сайта:</span>
+          <span class="dev-link"><a href="#">Renaissance Art</a></span>
+        </div>
+        
+      </div>
+      
+    </div>
+  
+  </div>
+  
+</div>
+
+<!-- Footer END -->
+  
+<!-- Wrapper END -->
+
+</body>
+
+
+</html>

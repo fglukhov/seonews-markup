@@ -20,7 +20,7 @@
 
 .html-narrow .header {
   min-width:980px;
-  height:236px;
+  /* height:236px; */
 }
 
 .html-narrow .header-top,
@@ -320,13 +320,13 @@
 }
 
 .html-narrow  .mainpage-calendar .calendar-card {
-  width:230px;
-  margin:10px 15px 0 0;
+  width:218px;
+  margin:10px 0 0 0;
 }
 
 .html-narrow .mainpage-calendar {
-  width: 735px;
-  height: 245px;
+  width: 718px;
+  height: 278px;
   margin: 0 -15px 40px 0;
   position: relative;
 }
@@ -336,11 +336,24 @@
 }
 
 .html-narrow .mainpage-calendar .sn-share {
-  width:228px;
+  width:216px;
 }
 
 .html-narrow .mainpage-calendar .prev {
   right:190px;
+}
+
+.html-narrow .mainpage-calendar .jcarousel-item {
+	float: left;
+	width: 218px;
+	height: 278px;
+	margin: 0 22px 0 0;
+}
+
+.html-narrow .mainpage-calendar .jcarousel-clip {
+	width: 718px;
+	overflow: hidden;
+	height: 278px;
 }
 
 .html-narrow .mainpage-catalogue {
@@ -728,4 +741,32 @@
 
 .html-narrow .n-next-link {
   width:280px;
+}
+
+.html-narrow .site-title {
+  padding:38px 22px 0 0;
+	margin-left:-20px;
+}
+
+.html-narrow .user-registration-form .form-checkboxes .icheckbox {
+	position:relative !important;
+	left:auto !important;
+	top:auto !important;
+}
+
+.html-narrow .tabbed-content-2 .tabs .cont {
+	padding: 10px 15px 17px 15px;
+}
+
+.html-narrow .tabbed-content-2 .tabs .act .cont {
+	padding-bottom:21px;
+}
+
+.html-narrow .tabs .ico {
+	float: left;
+	margin: -8px 10px 0 0;
+}
+
+.html-narrow .tabbed-content .tabs {
+	font-size: 16px;
 }
