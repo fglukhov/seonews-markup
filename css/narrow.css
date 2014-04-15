@@ -753,20 +753,3 @@
 	left:auto !important;
 	top:auto !important;
 }
-
-.html-narrow .tabbed-content-2 .tabs .cont {
-	padding: 10px 15px 17px 15px;
-}
-
-.html-narrow .tabbed-content-2 .tabs .act .cont {
-	padding-bottom:21px;
-}
-
-.html-narrow .tabs .ico {
-	float: left;
-	margin: -8px 10px 0 0;
-}
-
-.html-narrow .tabbed-content .tabs {
-	font-size: 16px;
-}

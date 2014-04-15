@@ -4580,7 +4580,7 @@ img.img-float-left {
 }
 
 .tabbed-content .tabs span {
-  background:url(../images/underline-2.png) 0 23px repeat-x;
+  background:url(../images/underline-2.png) 0 21px repeat-x;
   font-family:'OpenSansSemibold',sans-serif;
 }
 
@@ -4617,6 +4617,8 @@ img.img-float-left {
 
 .tabbed-content-2 .tabs {
   margin-left:0;
+	font-size: 17px;
+	line-height: 17px;
 }
 
 .tabbed-content-2 .tabs .tab {
@@ -4630,8 +4632,10 @@ img.img-float-left {
   position:relative;
   z-index:1;
   margin-top:4px;
-  margin-right:6px;
+  margin-right:8px;
   cursor:pointer;
+	width:305px;
+	margin-left:0;
 }
 
 .tabbed-content-2 .tabs .act {
@@ -4651,7 +4655,7 @@ img.img-float-left {
 }
 
 .tabbed-content-2 .tabs .cont {
-  padding:10px 20px 20px 20px;
+  padding:5px 20px 17px 21px;
 }
 
 .tabbed-content .tabs .act .cont {
@@ -4660,8 +4664,8 @@ img.img-float-left {
 }
 
 .tabbed-content-2 .tabs .act .cont {
-  padding-top:13px;
-	padding-bottom:21px;
+  padding-top: 8px;
+	padding-bottom: 18px;
 }
 
 .post-text h3 {
@@ -5280,7 +5284,7 @@ h2 .section-filter span {
 
 .tabs .ico {
   float:left;
-  margin:-6px 10px 0 0;
+  margin:0px 12px 0 0;
 }
 
 .year-nav {
@@ -8813,4 +8817,11 @@ label.error {
    font-weight: normal;
   background:#ffe492;
  
+}
+
+.year-nav-old {
+  position:relative;
+	left:auto;
+	top:auto;
+	margin:27px 0 18px 0;
 }
