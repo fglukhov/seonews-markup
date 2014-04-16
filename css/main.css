@@ -4580,6 +4580,11 @@ img.img-float-left {
 }
 
 .tabbed-content .tabs span {
+  background:url(../images/underline-2.png) 0 23px repeat-x;
+  font-family:'OpenSansSemibold',sans-serif; 
+}
+
+.tabbed-content-2 .tabs span {
   background:url(../images/underline-2.png) 0 21px repeat-x;
   font-family:'OpenSansSemibold',sans-serif;
 }
