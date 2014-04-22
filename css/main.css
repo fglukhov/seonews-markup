@@ -1793,35 +1793,43 @@ padding:27px 0 0 0;
 }
 
 .event-tag-1 {
-  background-color:#45a9b8;
+  /* background-color:#45a9b8; */
+  background-color:#3198a9;
 }
 
 .event-tag-2 {
-  background-color:#3aaddd;
+  /* background-color:#3aaddd; */
+  background-color:#2799c9;
 }
 
 .event-tag-3 {
-  background-color:#3359a3;
+  /* background-color:#3359a3; */
+  background-color:#597dc2;
 }
 
 .event-tag-4 {
-  background-color:#9c4c98;
+ /*  background-color:#9c4c98; */
+  background-color:#9a5c96;
 }
 
 .event-tag-5 {
-  background-color:#bb5476;
+  /* background-color:#bb5476; */
+  background-color:#b66680;
 }
 
 .event-tag-6 {
-  background-color:#6c539a;
+  /* background-color:#6c539a; */
+  background-color:#7959b2;
 }
 
 .event-tag-7 {
-  background-color:#64b8b7;
+  /* background-color:#64b8b7; */
+  background-color:#429998;
 }
 
 .event-tag-8 {
-  background-color:#59a0c1;
+  /* background-color:#59a0c1; */
+  background-color:#378cb3;
 }
 
 .event-tag-9 {
@@ -1845,35 +1853,43 @@ padding:27px 0 0 0;
 }
 
 .event-type-1 .event-cont  {
-  background-color:#45a9b8;
+  /* background-color:#45a9b8; */
+  background-color:#3fa9b9;
 }
 
 .event-type-2 .event-cont {
-  background-color:#45a9b8;
+  /* background-color:#45a9b8; */
+  background-color:#3aaddd;
 }
 
 .event-type-3 .event-cont {
-  background-color:#4b71bd;
+  /* background-color:#4b71bd; */
+  background-color:#3359a3;
 }
 
 .event-type-4 .event-cont {
-  background-color:#804d7d;
+  /* background-color:#804b7e; */
+  background-color:#804b7e;
 }
 
 .event-type-5 .event-cont {
-  background-color:#994561;
+ /*  background-color:#994561; */
+  background-color:#c97691;
 }
 
 .event-type-6 .event-cont {
-  background-color:#7d60b3;
+  /* background-color:#7d60b3; */
+  background-color:#8568b8;
 }
 
 .event-type-7 .event-cont {
-  background-color:#539998;
+  /* background-color:#539998; */
+  background-color:#64b8b7;
 }
 
 .event-type-8 .event-cont {
-  background-color:#4c89a6;
+  /* background-color:#4c89a6; */
+  background-color:#59a0c1;
 }
 
 .event-type-9 .event-cont {
@@ -2333,24 +2349,28 @@ padding:27px 0 0 0;
   float:left;
   z-index:1;
   position:absolute;
+	display:none;
 }
 
 .mainpage-ratings .act {
   z-index:4;
   top:0;
   left:0;
+	display:block;
 }
 
 .mainpage-ratings .act-next {
   left:15px;
   top:15px;
   z-index:3;
+	display:block;
 }
 
 .mainpage-ratings .act-next-next {
   left:30px;
   top:30px;
   z-index:2;
+	display:block;
 }
 
 .mainpage-ratings .prev,
@@ -3373,6 +3393,13 @@ img.img-float-left {
   height:105px;
   float:left;
   margin:0 25px 0 0;
+}
+
+.post-text .post-author .author-data .userpic img {
+behavior: url(PIE.htc);
+-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;
 }
 
 .post-text .post-author .author-data .descr {
@@ -5233,12 +5260,20 @@ h2 .section-filter span {
   top:12px;
 }
 
-.ico-media-video {
-  background-position:0 -48px;
+.expertslist-item .pic .ico-media-video {
+  background-image:url(../images/icons-video.png);
 }
 
-.ico-media-audio {
-  background-position:0 0;
+.expertslist-item .pic .ico-media-audio {
+  background-image:url(../images/icons-audio.png);
+}
+
+.expertslist-item .pic .ico-media-multi {
+  background-image:url(../images/icons-multi.png);
+}
+
+.expertslist-item .pic .ico-media-webinar {
+  background-image:url(../images/icons-webinar.png);
 }
 
 .post-video {
@@ -7977,8 +8012,9 @@ h2 .section-filter span {
 
 .loaded {
 	display:block;
-	background: url("../files/ajax-loader.gif") no-repeat center;
-	height:30px;
+	/*background: url("../files/ajax-loader.gif") no-repeat center;*/
+	background: url("../images/loader_for_news.gif") no-repeat center;
+	height:66px;
 }
 
 .comments-anchor {
@@ -8829,4 +8865,8 @@ label.error {
 	left:auto;
 	top:auto;
 	margin:27px 0 18px 0;
+}
+
+.button-inact {
+  display:none !important;
 }

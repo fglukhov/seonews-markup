@@ -215,21 +215,58 @@ $(window).scroll(function () {
 		var page = $(".navigation").find(".next_page").attr("rel");
 		var url = $(".navigation").find(".next_page").attr("href");
 		if(page){
-			 $.ajaxhelper({
-				//params : {"PAGEN_1" : page},
-				url: url,
-				method : "get",
-				beforeSend 		: function()	{
-					$("body").css("cursor","progress");
-				},
-				success:function(data){
-					$(".navigation").remove();
-					$(".main-column").append(data);
-					$("body").css("cursor","default");
-					preparePage();
-					
-				}
-			}) 
+		
+			if ($(".experts").length) {
+				$.ajaxhelper({
+					url: url,
+					method : "get",
+					beforeSend 		: function()	{
+						$("body").css("cursor","progress");
+					},
+					success:function(data){
+						$(".navigation").remove();
+						$(".experts").append(data);
+						$("body").css("cursor","default");
+						preparePage();
+						
+					}
+				}) 
+			
+			} else if($(".search_list_elements").length){
+				$.ajaxhelper({
+					url: url,
+					method : "get",
+					beforeSend 		: function()	{
+						$("body").css("cursor","progress");
+					},
+					success:function(data){
+						$(".navigation").remove();
+						$(".search_list_elements").append(data);
+						$("body").css("cursor","default");
+						preparePage();
+						
+					}
+				})
+			
+			} else
+			{
+				 $.ajaxhelper({
+					url: url,
+					method : "get",
+					beforeSend 		: function()	{
+						$("body").css("cursor","progress");
+					},
+					success:function(data){
+						$(".navigation").remove();
+						$(".main-column").append(data);
+						$("body").css("cursor","default");
+						preparePage();
+						
+					}
+				}) 
+			}
+		
+
 		}
 		return false;
 
@@ -237,7 +274,47 @@ $(window).scroll(function () {
   
 }); 
 
+
+
+
+
+
 $(document).ready(function () {
+
+	// Пойду/ не пойду в мероприятиях
+	$(".event_go_button").click(function(){
+		var idEl = $(this).data("id");
+		var toGo = $(this).data("to");
+		var _this = $(this);
+		$.ajaxhelper({
+			url: "/go.php",
+			params : {id:idEl, to:toGo},
+			beforeSend : function()	{
+				$("body").css("cursor","progress");
+			},
+			success:function(data){
+				$(".total_go_value").text(data);
+				if(toGo){
+					_this.data("to", 0);
+					_this.text("Я не пойду");
+				} else {
+					_this.data("to", 1);
+					_this.text("Я пойду");
+				}
+				$("body").css("cursor","default");
+			}
+		})
+		
+	})
+	
+	 
+	
+	
+	
+	$(".post-controls div").click(function() {
+		$(".post-controls").css("z-index",5);
+		$(this).parents(".post-controls").css("z-index",6);
+	});
 
   validateForms();
   
@@ -251,10 +328,24 @@ $(document).ready(function () {
 	$(".content-filter .date-filter-trigger .close").click(function() {
 		$(".content-date-filter").slideUp(150);
 		$(this).parents(".date-filter-trigger").removeClass("date-filter-trigger-on");
+		
+		$('.content-date-filter .form-select [value="0"]').attr("selected", "selected");
+		$('.content-date-filter .param-sel .sel-value').text('-');
+		$('.content-date-filter .dropdown div').each(function(){
+			$(this).removeClass('selected');
+		});
+		$('.content-date-filter .dropdown [val=0]').addClass('selected'); 
+
+		
 	});
 	
   $('.form-checkboxes input').on('ifChecked', function(event){
     $(this).parents(".form-checkboxes").find("label.error").remove();
+  });
+  
+  $(".form-checkboxes").on('click', "label",  function(event){
+    $(this).parents(".form-checkboxes").find("label.error").remove();
+	$("#"+$(this).attr("for")).iCheck('check');
   });
 
   //клик по кнопке "показать еще"
@@ -518,7 +609,39 @@ $(document).ready(function () {
 			}
 		})
 		return false;
-	}) 
+	})
+	
+	//новый фильтр
+	$(".content-filter-content").on("click", "#right_filter_submit", function(){
+		
+		var fields = $('#right_filter_form_block form:eq(0)').serialize();
+		var href = $('#right_filter_form_block form:eq(0)').attr("action");
+		
+		elementLoader("news_list_pageID");
+		
+		var questionPos = href.indexOf("?");
+
+		if ( questionPos != -1 ) {
+			var queryString = href.slice(questionPos-(-1));	//только параметры
+			var clearUrl = href.slice(0, questionPos);	
+		} else {
+			var clearUrl = href;
+		}
+		
+		$.ajaxhelper({
+			url : clearUrl+"?"+queryString + "&" + fields,
+			method : "get",
+			success:function(data){
+				var result = $(data).html();
+				$(".main-column").html(data);
+				$("body").css("cursor","default");
+				preparePage();
+				removeLoader("news_list_pageID");
+			}
+		})
+		return false;
+	})
+	 
 	
 	// Calendar
 	$(".top-main").on("click", ".nav-calendar a", function(){
@@ -1579,7 +1702,8 @@ $(document).ready(function () {
     
     var ratings = $(this);
     
-    var ratingsXml = $.getValues("/ratings.xml");
+    //var ratingsXml = $.getValues("/ratings.xml");
+    var ratingsXml = $.getValues("/include/ind_ratings.php");
     
     if (ratingsXml) {
     
@@ -1721,6 +1845,164 @@ $(document).ready(function () {
     }
   }
 })( jQuery );
+
+// Статичные рейтинги на главной
+
+(function( jQuery ) {
+  jQuery.fn.mainpageRatingsStatic = function() {
+    
+    var ratings = $(this);
+    
+    if (1) {
+    
+      var startIndex = 0;
+      
+      var prevBtn = $("<div class='prev'></div>");
+      
+      ratings.append(prevBtn);
+			
+			prevBtn.addClass("button-inact")
+    
+      var nextBtn = $("<div class='next'></div>");
+      
+      ratings.append(nextBtn);
+      
+			var items = ratings.find(".ratings-card");
+		
+      
+      ratings.find(".ratings-card").eq(0).addClass("act")
+      ratings.find(".ratings-card").eq(1).addClass("act-next")
+      ratings.find(".ratings-card").eq(2).addClass("act-next-next")
+      
+      ratings.parents(".content-block").find("h2").append("<a class='rating-link' href='"+items.eq(0).data("ratingurl")+"'>"+items.eq(0).data("ratingname")+"</a>")
+      
+      nextBtn.click(function() {
+        
+        if (!ratings.hasClass("moving") && items.filter(".act").next().length) {
+				
+					prevBtn.removeClass("button-inact");
+					
+					if (!items.filter(".act").next().next().length) {
+						nextBtn.addClass("button-inact");
+					}
+				
+          ratings.addClass("moving");
+        
+					var item1 = items.filter(".act");
+					var item2 = items.filter(".act-next");
+					var item3 = items.filter(".act-next-next");
+					var item4 = items.filter(".act-next-next").next();
+				
+          var newIndex = parseInt($(".mainpage-ratings .act").prevAll().length) + 3;
+
+          if (newIndex >= items.length) {
+            newIndex = -items.length + parseInt($(".mainpage-ratings .act").prevAll().length) + 3;
+          } 
+          
+          j = newIndex;
+          
+          var actIndex = j-2;
+          
+          if (actIndex<0) {
+            actIndex += items.length;
+          }
+          
+          ratings.parents(".content-block").find(".rating-link").remove();
+          ratings.parents(".content-block").find("h2").append("<a class='rating-link' href='"+items.eq(actIndex).data("ratingurl")+"'>"+items.eq(actIndex).data("ratingname")+"</a>")
+          
+					if (!item4) {
+						// item1.removeClass("act").addClass("act-next-next").css("z-index",3).css("left",0).css("top",0).animate({
+							// left:30,
+							// top:30
+						// },350);
+					} else {
+						item1.css("z-index",5).fadeOut(350,function() {
+							$(this).removeClass("act");
+						});
+						item4.fadeIn(350).addClass("act-next-next");
+					}
+					
+          item2.css("z-index",5).animate({
+            left: 0,
+            top: 0
+          },350,function() {
+            $(this).removeClass("act-next").addClass("act");
+            ratings.removeClass("moving");
+          });
+          
+          item3.css("z-index",4).animate({
+            left: ratings.find(".act-next").position().left,
+            top: ratings.find(".act-next").position().top
+          },350,function() {
+            $(this).addClass("act-next").removeClass("act-next-next");
+          });
+          
+        }
+        
+      });
+      
+      prevBtn.click(function() {
+      
+        if (!ratings.hasClass("moving") && items.filter(".act").prev().length) {
+				
+					nextBtn.removeClass("button-inact");
+					
+					if (!items.filter(".act").prev().prev().length) {
+						prevBtn.addClass("button-inact");
+					}
+        
+          ratings.addClass("moving");
+					
+					var item1 = items.filter(".act");
+					var item2 = items.filter(".act-next");
+					var item3 = items.filter(".act-next-next");
+					var item4 = items.filter(".act").prev();
+      
+          var newIndex = parseInt($(".mainpage-ratings .act").prevAll().length) - 1;
+          
+          if (newIndex < 0) {
+            newIndex = items.length - 1;
+          } 
+          
+          j = newIndex;
+          
+          ratings.parents(".content-block").find(".rating-link").remove();
+          ratings.parents(".content-block").find("h2").append("<a class='rating-link' href='"+items.eq(j).data("ratingurl")+"'>"+items.eq(j).data("ratingname")+"</a>")
+          
+          item1.css("z-index",3).animate({
+            left: 15,
+            top: 15
+          },350,function() {
+            $(this).removeClass("act").addClass("act-next");
+          });
+          
+          item2.css("z-index",2).animate({
+            left: 30,
+            top: 30
+          },350,function() {
+            $(this).removeClass("act-next").addClass("act-next-next");
+          });
+          
+          item3.css("z-index",1).fadeOut(350,function() {
+            $(this).removeClass("act-next-next");
+          });
+					
+					item4.fadeIn(350,function() {
+            ratings.removeClass("moving");
+					}).addClass("act");
+        
+        }
+        
+      });
+      
+
+      
+    } else {
+      alert("Произошла техническая ошибка. Попробуйте перегрузить страницу.");
+    }
+  }
+})( jQuery );
+
 
 // Парсинг XML
 
@@ -1915,7 +2197,7 @@ function makeup() {
     // if (!$(this).find(".li-cont").length) {
       // $(this).html("<span class='li-cont'>"+$(this).html()+"</span>")
     // }
-  // });
+  //});
 
   $(".custom-form input:text, .search-block input:text, .custom-form input:password").each(function () {
     if (!$(this).parents(".input-wrapper").length) $(this).wrap("<div class='input-wrapper'></div>");
@@ -2133,7 +2415,6 @@ function makeup() {
     
   };
 })( jQuery );
-
 
 
 function compUnits(n) {
@@ -3044,7 +3325,7 @@ function preparePage() {
     
   // Обработка табов
     
-  $(".tabbed-content .tab").click(function() {
+  $(".tabbed-content .tab").on('click', function() {
   	
   	
   
@@ -3065,7 +3346,11 @@ function preparePage() {
     if(id == 'type_29' || id == 'type_28')
     {
 	    var type = id.substr(-2);
-	    var href = "/ratings/type_ajax.php?type=" + type;
+	    if($('#admin_page_ratings').length)
+	      	 var href = "/ratings/admin_type_ajax.php?type=" + type;
+	      else
+	      	 var href = "/ratings/type_ajax.php?type=" + type;
+	   
 	    var new_url = "/ratings/?type=" + type; //новый урл, который нужно будет подставить
 	      $.ajax({
 	        url: href,
@@ -3074,7 +3359,7 @@ function preparePage() {
 	        async: false
 	      }).done(function(data) {
 	        target.html(data);
-	        preparePage();
+	        //preparePage();
 	        twttr.widgets.load();
 	        FB.XFBML.parse();
 	      });
@@ -3139,7 +3424,7 @@ function preparePage() {
 	$(".content-filter-form .reset").click(function() {
 		$(".content-type-filter input:checkbox").iCheck("uncheck")
 	});
-	
+  
   $(".type-filter").addClass("initial");
   
   // Фильтр по типам событий в правой колонке
@@ -3247,8 +3532,9 @@ function preparePage() {
   
   // Клик по навигации с датами
   
-  $(".year-nav .item").click(function() {
+  $(document.body).on('click', ".year-nav .item" ,function() {
   
+ 
     if (!$(this).hasClass("act")) {
       $(".year-nav .item").removeClass("act");
       var link = $(this);
@@ -3257,32 +3543,30 @@ function preparePage() {
       
       $(".year-nav").closest(".rating-years").find(".rating-content").hide();
 	 
-			target.fadeIn(250);
-
-		// Кусок для боевой версии
-		
-	  // var link = $(this);
-      // link.after("<div class='loader' />");
-      
-      // var year_id = $(this).attr("data-year-id");
-      // var href = "/ratings/detail_ajax.php?ID=" + year_id;
-      // var new_url = "/ratings/" + year_id + "/"; //новый урл, который нужно будет подставить
-      // $.ajax({
-        // url: href,
-        // type: 'get',
-        // dataType: 'html',
-        // async: false
-      // }).done(function(data) {
-        // $(".loader").remove();
-        // target.html(data);
-        // twttr.widgets.load();
-        // FB.XFBML.parse();
-        // target.fadeIn(250);
-        // //makeup();
-      // });
     
-			// Кусок для боевой версии END
-		
+	  var link = $(this);
+      link.after("<div class='loader' />");
+      
+      var year_id = $(this).attr("data-year-id");
+      if($('#admin_page_ratings').length)
+      	var href = "/ratings/admin_detail_ajax.php?ID=" + year_id;
+      else
+      	var href = "/ratings/detail_ajax.php?ID=" + year_id;
+      var new_url = "/ratings/" + year_id + "/"; //новый урл, который нужно будет подставить
+      $.ajax({
+        url: href,
+        type: 'get',
+        dataType: 'html',
+        async: false
+      }).done(function(data) {
+        $(".loader").remove();
+        target.html(data);
+        twttr.widgets.load();
+        FB.XFBML.parse();
+        target.fadeIn(250);
+        //makeup();
+      });
+    
     }
   
   });
@@ -3371,7 +3655,7 @@ function preparePage() {
   });
   
   
-  
+  /*
   $("div.button-5").click(function() {
     $(".fav-hint").remove();
     var title = $(this).html() == "<span>Я пойду</span>" ? "<span>Я не пойду</span>" : "<span>Я пойду</span>";
@@ -3405,7 +3689,7 @@ function preparePage() {
 	
 	
   });
-  
+  */
   
   
   $("*").hover(function() {
@@ -3435,7 +3719,8 @@ function preparePage() {
   }
   
   if ($(".mainpage-ratings").length) {
-    $(".mainpage-ratings").mainpageRatings();
+    // $(".mainpage-ratings").mainpageRatings();
+    $(".mainpage-ratings").mainpageRatingsStatic();
   }
   
   $(".rating").hover(function() {
