@@ -2327,12 +2327,13 @@ padding:27px 0 0 0;
   position:relative;
   margin-top:33px;
   height:270px;
-  margin-bottom:40px;
+  margin-bottom:30px;
   width:860px;
 }
 
 .mainpage-ratings .ratings-content {
-  height:263px;
+  height:273px;
+	background:url(../images/main-ratings-bg.png) 10px 10px no-repeat;
 }
 
 .mainpage-ratings .ratings-card {

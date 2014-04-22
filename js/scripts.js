@@ -1861,141 +1861,89 @@ $(document).ready(function () {
       
       ratings.append(prevBtn);
 			
-			prevBtn.addClass("button-inact")
     
       var nextBtn = $("<div class='next'></div>");
       
       ratings.append(nextBtn);
-      
+
 			var items = ratings.find(".ratings-card");
-		
+
+			if (items.length < 2) {
+				prevBtn.addClass("button-inact")
+				nextBtn.addClass("button-inact")
+			}
+			
+      
       
       ratings.find(".ratings-card").eq(0).addClass("act")
-      ratings.find(".ratings-card").eq(1).addClass("act-next")
-      ratings.find(".ratings-card").eq(2).addClass("act-next-next")
       
       ratings.parents(".content-block").find("h2").append("<a class='rating-link' href='"+items.eq(0).data("ratingurl")+"'>"+items.eq(0).data("ratingname")+"</a>")
       
       nextBtn.click(function() {
         
-        if (!ratings.hasClass("moving") && items.filter(".act").next().length) {
-				
-					prevBtn.removeClass("button-inact");
-					
-					if (!items.filter(".act").next().next().length) {
-						nextBtn.addClass("button-inact");
-					}
+        if (!ratings.hasClass("moving")) {
 				
           ratings.addClass("moving");
-        
-					var item1 = items.filter(".act");
-					var item2 = items.filter(".act-next");
-					var item3 = items.filter(".act-next-next");
-					var item4 = items.filter(".act-next-next").next();
-				
-          var newIndex = parseInt($(".mainpage-ratings .act").prevAll().length) + 3;
-
-          if (newIndex >= items.length) {
-            newIndex = -items.length + parseInt($(".mainpage-ratings .act").prevAll().length) + 3;
-          } 
-          
-          j = newIndex;
-          
-          var actIndex = j-2;
-          
-          if (actIndex<0) {
-            actIndex += items.length;
-          }
-          
-          ratings.parents(".content-block").find(".rating-link").remove();
-          ratings.parents(".content-block").find("h2").append("<a class='rating-link' href='"+items.eq(actIndex).data("ratingurl")+"'>"+items.eq(actIndex).data("ratingname")+"</a>")
-          
-					if (!item4) {
-						// item1.removeClass("act").addClass("act-next-next").css("z-index",3).css("left",0).css("top",0).animate({
-							// left:30,
-							// top:30
-						// },350);
-					} else {
-						item1.css("z-index",5).fadeOut(350,function() {
-							$(this).removeClass("act");
-						});
-						item4.fadeIn(350).addClass("act-next-next");
-					}
 					
-          item2.css("z-index",5).animate({
-            left: 0,
-            top: 0
-          },350,function() {
-            $(this).removeClass("act-next").addClass("act");
-            ratings.removeClass("moving");
-          });
-          
-          item3.css("z-index",4).animate({
-            left: ratings.find(".act-next").position().left,
-            top: ratings.find(".act-next").position().top
-          },350,function() {
-            $(this).addClass("act-next").removeClass("act-next-next");
-          });
-          
-        }
+					if (items.filter(".act").next().length) {
+						var nextItem = items.filter(".act").next()
+					} else {
+						var nextItem = items.eq(0)
+					}
         
+          ratings.parents(".content-block").find(".rating-link").remove();
+          ratings.parents(".content-block").find("h2").append("<a class='rating-link' href='"+nextItem.data("ratingurl")+"'>"+nextItem.data("ratingname")+"</a>")
+          
+					items.filter(".act").hide().removeClass("act");
+        
+					nextItem.show().addClass("act").css({
+						opacity: 0,
+						marginLeft:10,
+						marginTop:10
+					}).animate({
+						opacity: 1,
+						marginLeft: 0,
+						marginTop: 0
+					},250,function() {
+						ratings.removeClass("moving");
+					});
+					
+				}
+				
       });
       
       prevBtn.click(function() {
-      
-        if (!ratings.hasClass("moving") && items.filter(".act").prev().length) {
-				
-					nextBtn.removeClass("button-inact");
-					
-					if (!items.filter(".act").prev().prev().length) {
-						prevBtn.addClass("button-inact");
-					}
         
+        if (!ratings.hasClass("moving")) {
+				
           ratings.addClass("moving");
 					
-					var item1 = items.filter(".act");
-					var item2 = items.filter(".act-next");
-					var item3 = items.filter(".act-next-next");
-					var item4 = items.filter(".act").prev();
-      
-          var newIndex = parseInt($(".mainpage-ratings .act").prevAll().length) - 1;
-          
-          if (newIndex < 0) {
-            newIndex = items.length - 1;
-          } 
-          
-          j = newIndex;
-          
+					if (items.filter(".act").prev().length) {
+						var nextItem = items.filter(".act").prev()
+					} else {
+						var nextItem = items.eq(items.length - 1)
+					}
+        
           ratings.parents(".content-block").find(".rating-link").remove();
-          ratings.parents(".content-block").find("h2").append("<a class='rating-link' href='"+items.eq(j).data("ratingurl")+"'>"+items.eq(j).data("ratingname")+"</a>")
+          ratings.parents(".content-block").find("h2").append("<a class='rating-link' href='"+nextItem.data("ratingurl")+"'>"+nextItem.data("ratingname")+"</a>")
           
-          item1.css("z-index",3).animate({
-            left: 15,
-            top: 15
-          },350,function() {
-            $(this).removeClass("act").addClass("act-next");
-          });
-          
-          item2.css("z-index",2).animate({
-            left: 30,
-            top: 30
-          },350,function() {
-            $(this).removeClass("act-next").addClass("act-next-next");
-          });
-          
-          item3.css("z-index",1).fadeOut(350,function() {
-            $(this).removeClass("act-next-next");
-          });
+					items.filter(".act").hide().removeClass("act");
+        
+					nextItem.show().addClass("act").css({
+						opacity: 0,
+						marginLeft:-10,
+						marginTop:-10
+					}).animate({
+						opacity: 1,
+						marginLeft: 0,
+						marginTop: 0
+					},250,function() {
+						ratings.removeClass("moving");
+					});
 					
-					item4.fadeIn(350,function() {
-            ratings.removeClass("moving");
-					}).addClass("act");
-        
-        }
-        
+				}
+				
       });
-      
-
       
     } else {
       alert("Произошла техническая ошибка. Попробуйте перегрузить страницу.");
