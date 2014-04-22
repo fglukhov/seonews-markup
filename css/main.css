@@ -2454,6 +2454,9 @@ padding:27px 0 0 0;
   color:#8c8c8c;
   font-family:'OpenSansItalic',sans-serif;
   text-align:center;
+	line-height:16px;
+	height:48px;
+	overflow:hidden;
 }
 
 h2 .sep {
