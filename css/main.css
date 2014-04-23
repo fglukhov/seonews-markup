@@ -8891,14 +8891,14 @@ label.error {
 	font-family: 'OpenSansBold';
 	font-size:118px;
 	line-height:118px;
-	margin:0 0 24px 0;
+	margin:0 0 35px 0;
 }
 
 .h2-404 {
   color:#656565;
 	font-size:25px;
 	line-height:33px;
-	margin:0 0 18px 0;
+	margin:0 0 9px 0;
 	text-transform:none;
 }
 
@@ -8918,3 +8918,33 @@ label.error {
 .menu-404 a:visited {
   color:#486cb4;
 }
+
+.search-404 {
+  padding:42px 0 0 0;
+}
+
+.search-404 .input-wrapper {
+  float: left;
+	margin: 0 18px 0 0;
+	width: 249px;
+}
+
+.search-404 .form-submit {
+  float:left;
+	border:none;
+	width:36px;
+	height:36px;
+	background:url(../images/search-btn-404.png) 0 0 no-repeat;
+	border:none;
+	outline:none;
+	display:block;
+	text-indent:-10000px;
+	overflow:hidden;
+	margin:-2px 0 0 0;
+}
+
+.search-404 h3 {
+  font-size:14px;
+	margin:0 0 17px 0;
+}
+
