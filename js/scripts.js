@@ -2154,7 +2154,14 @@ function buildRatCard(ratCard,j,items) {
 // Функции разметки
 
 function makeup() {
-
+	
+	$(".form-text, .form-password, .form-textarea, input[type=text]").each(function() {
+    if ($(this).val()) {
+      $(this).prev(".placeholder").hide();
+			$(this).removeClass("initial");
+    }
+  });
+	
   $(".post-text table").each(function() {
     if (!$(this).parents(".table-wrapper").length) {
       $(this).wrap("<div class='table-wrapper' />")
@@ -2166,21 +2173,58 @@ function makeup() {
       // $(this).html("<span class='li-cont'>"+$(this).html()+"</span>")
     // }
   //});
-
-  $(".custom-form input:text, .search-block input:text, .custom-form input:password").each(function () {
-    if (!$(this).parents(".input-wrapper").length) $(this).wrap("<div class='input-wrapper'></div>");
-    $(this).addClass("initial");
-    $(this).focus(function() {
-      $(this).removeClass("initial");
-      if ($(this).val() == $(this).attr("phvalue")) {
-        $(this).val("")
+	
+	$("input:text, input:password, textarea").each(function() {
+		
+		if (!$(this).parents(".input-wrapper").length) $(this).wrap("<div class='input-wrapper'></div>");
+	
+    if (!$(this).val()) {
+			$(this).addClass("initial");
+		}
+    
+    if ($(this).prop("tagName") == "INPUT" || $(this).prop("tagName") == "TEXTAREA") {
+      // if (!$(this).parents(".input-wrapper").length) $(this).wrap("<div class='input-wrapper'></div>");
+      if ($(this).hasClass("form-phone")) {
+        $(this).focus(function() {
+          $(this).removeClass("initial");
+          $(this).parents(".form-item").find(".placeholder").hide();
+        });
+      } else {
+        $(this).focus(function() {
+          $(this).parents(".form-item").find(".placeholder").addClass("placeholder-initial");
+        });
+        $(this).keydown(function() {
+          $(this).removeClass("initial");
+          $(this).parents(".form-item").find(".placeholder").hide();
+        });
       }
+      $(this).blur(function() {
+        $(this).prev().prev(".placeholder").hide();
+        $(this).parents(".form-item").find(".placeholder").removeClass("placeholder-initial");
+        if (!$(this).val()) {
+          $(this).addClass("initial");
+          $(this).parents(".form-item").find(".placeholder").show();
+        }
+      });
+    } else {
+      $(this).focus(function() {
+        $(this).removeClass("initial");
+        $(this).parents(".form-item").find(".placeholder").hide();
+      });
+      $(this).blur(function() {
+        if (!$(this).val()) {
+          $(this).addClass("initial");
+          $(this).parents(".form-item").find(".placeholder").show();
+        }
+      });
+    }
+      
+    $(this).parents(".form-item").find(".placeholder").click(function() {
+      $(this).focus();
     });
-    $(this).blur(function() {
-      if (!$(this).val()) $(this).addClass("initial").val($(this).attr("phvalue"));
-    });
+    
   });
-
+  
   $(".custom-form input.button, .search-block input.button").each(function () {
     if ($(this)[0].tagName == "INPUT" && !$(this).next("div.form-submit").length) {
       var divBtn = $("<div></div>");
