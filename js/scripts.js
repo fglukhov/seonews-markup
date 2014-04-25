@@ -281,6 +281,26 @@ $(window).scroll(function () {
 
 $(document).ready(function () {
 
+	// Фэнсибокс с окном логина
+	
+	$(".login-fancybox").fancybox({
+		// maxWidth	: 800,
+		// maxHeight	: 600,
+		fitToView	: false,
+		width		: 730,
+		height		: 'auto',
+		autoSize	: false,
+		closeClick	: false,
+		openEffect	: 'none',
+		closeEffect	: 'none',
+		tpl: {
+			wrap     : '<div class="fancybox-wrap fancybox-login" tabIndex="-1"><div class="fancybox-skin"><div class="fancybox-outer"><div class="fancybox-inner"></div></div></div></div>'
+		},
+		afterShow: function() {
+			makeup()
+		}
+	});
+
 	// Пойду/ не пойду в мероприятиях
 	$(".event_go_button").click(function(){
 		var idEl = $(this).data("id");

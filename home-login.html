@@ -34,12 +34,6 @@
 
 <!-- Открываем всплывашку с логином, нужно будет это поставить на onclick ссылке "войти" -->
 
-<script type="text/javascript">
-  $(document).ready(function() {
-    openPopup($(".login-popup"));
-  });
-</script>
-
 </head>
 
 <body class="adaptive">
@@ -50,11 +44,6 @@
     <!-- Header -->
     
     <div class="header">
-      <!-- Banner -->
-      <div class="header-banner">
-        <a href="#"><img src="files/top-banner.jpg" alt="Баннер"/></a>
-      </div>
-      <!-- Banner END -->
       
       <div class="header-content">
         <div class="header-top">
@@ -62,30 +51,15 @@
           <div class="main-menu-wrapper">
             <div class="center-wrapper">
               <div class="main-menu fc">
-                <a href="#">Обзор рынка</a>
-                <a href="#">Как продвинуть и заработать</a>
-                <a href="#">Календарь событий</a>
-                <a href="#">Инструменты и сервисы</a>
-                <a href="#">Откровения экспертов</a>
-                <a href="#">Рейтинги</a>
-                <a href="#">Участники рынка</a>
-                <a href="#">Библиотека</a>
-              </div>
+								<a href="/events/">Обзор рынка</a>
+								<a href="/analytics/">Как продвинуть и заработать</a>
+								<a href="/calendar/">Мероприятия отрасли</a>
+								<a href="/experts/">Откровения экспертов</a>
+								<a href="/ratings/" class="last">Рейтинги</a>
+							</div>
             </div>
           </div>
           <!-- Main menu END -->
-          <!-- Main filter -->
-          <div class="center-wrapper">
-            <div class="top-filter-wrapper">
-            	<div class="top-filter-shadow"></div>
-            	<ul class="top-filter top-filter-locked fc">
-            	  <li class="tf-prof act"><a href="#">SEO-специалистам</a></li>
-            	  <li class="tf-moneymakers"><a href="#">Манимейкерам</a></li>
-            	  <li class="tf-clients"><a href="#">Клиентам SEO</a></li>
-            	</ul>
-            </div>
-          </div>
-          <!-- Main filter END -->
         </div>
         
         <div class="header-bottom fc">
@@ -94,8 +68,29 @@
               <a class="logo-main" href="#"><img src="images/logo.png" alt="SeoNews"/></a>
               <a class="logo-fixed" href="#"><img src="images/logo-fixed.png" alt="SeoNews"/></a>
             </div>
+						<div class="site-title">
+							Интернет-издание<br />о поисковом маркетинге
+						</div>
+						<div class="header-soclinks">
+							<a href="#" class="h-soclink h-soclink-twitter"></a>
+							<a href="#" class="h-soclink h-soclink-fb"></a>
+							<a href="#" class="h-soclink h-soclink-vk"></a>
+							<a href="#" class="h-soclink h-soclink-google"></a>
+							<a href="#" class="h-soclink h-soclink-rss"></a>
+							<a href="#" class="h-soclink h-soclink-email"></a>
+						</div>
             <!-- User link -->
-            <div class="user-link fc">
+						<div class="user-link user-logged-out">
+							<div class="userpic">
+                <a href="#"><img src="images/userpic-dummy.png"/></a>
+              </div>
+              <div class="user-link-wrapper">
+                <a class="login-link login-fancybox fancybox.ajax" data-fancybox-type="ajax" href="files/html/login-window.html">Войти</a>
+								<a class="login-link" href="#">Зарегистрироваться</a>
+              </div>
+              
+						</div>
+            <div class="user-link fc" style="display:none;">
               <div class="user-events-num">+3</div>
               <div class="userpic">
                 <a href="#"><img src="files/userpic.jpg" alt="Алексей Константинов"/></a>

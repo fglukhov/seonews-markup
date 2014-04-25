@@ -8141,16 +8141,15 @@ a:visited font {
   margin-top:3px;
 }
 
-.login-popup {
-  width:730px;
+.login-window {
 }
 
-.login-popup .popup-body {
+.login-window .popup-body {
   padding:30px 39px;
 }
 
-.login-popup .button-2,
-.login-popup .button-4 {
+.login-window .button-2,
+.login-window .button-4 {
   font-size:14px !important;
   font-family:'OpenSansBold';
   text-transform:uppercase;
@@ -8159,7 +8158,7 @@ a:visited font {
   padding:0 20px;
 }
 
-.login-popup .login-l {
+.login-window .login-l {
   float:left;
   width:294px;
   padding:0 30px 0 0;
@@ -8167,12 +8166,12 @@ a:visited font {
   border-right:1px solid #f4f4f4;
 }
 
-.login-popup .login-r {
+.login-window .login-r {
   float:left;
   width:297px;
 }
 
-.login-popup .login-r .text {
+.login-window .login-r .text {
   font-size:13px;
   line-height:20px;
   height:106px;
@@ -8209,7 +8208,7 @@ a:visited font {
   color:#ba3006;
 }
 
-.login-popup h3 {
+.login-window h3 {
   font-size:20px;
   font-family:'OpenSansSemibold';
   margin:16px 0 17px 0;
@@ -8282,7 +8281,7 @@ a:visited font {
   font-size:16px;
 }
 
-.login-popup .login-cols {
+.login-window .login-cols {
   padding:0 0 35px 0;
 }
 
@@ -8948,3 +8947,20 @@ label.error {
 	margin:0 0 17px 0;
 }
 
+.fancybox-login .fancybox-skin {
+  padding:0 !important;
+	-webkit-border-radius:6px !important;
+	-moz-border-radius:6px !important;
+	border-radius:6px !important;
+}
+
+.fancybox-login .fancybox-close {
+  width:35px;
+  height:35px;
+  background:url(../images/sprite.png) -202px 0 no-repeat;
+  cursor:pointer;
+  float:right;
+  margin:0 -10px 0 0;
+	top: 12px;
+	right: 36px;
+}
