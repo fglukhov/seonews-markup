@@ -753,3 +753,7 @@
 	left:auto !important;
 	top:auto !important;
 }
+
+.html-narrow .profile-card .rating-count .ttl {
+  display:none;
+}
