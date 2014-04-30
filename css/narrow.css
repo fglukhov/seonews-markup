@@ -757,3 +757,47 @@
 .html-narrow .profile-card .rating-count .ttl {
   display:none;
 }
+
+.html-narrow .profile-tabs .tabs .cont {
+  padding-right:10px;
+	padding-left:10px;
+}
+
+.html-narrow .profile-achievements .achievements-item {
+	float: left;
+	margin: 0 16px 0 0;
+}
+
+.html-narrow .profile-achievements .achievements-item:last-child {
+	display:none;
+}
+
+.user-progress-titles {
+	height: 34px;
+	background: url(../images/user-progress-titles-narrow.png) 1px 0 no-repeat;
+	margin: 0 0 9px 0;
+}
+
+.html-narrow .user-progress-novice {
+  background-image:url(../images/user-progress-novice-narrow.png);
+}
+
+.html-narrow .user-progress-reader {
+  background-image:url(../images/user-progress-reader-narrow.png);
+}
+
+.html-narrow .user-progress-active {
+  background-image:url(../images/user-progress-active-narrow.png);
+}
+
+.html-narrow .user-progress-specialist {
+  background-image:url(../images/user-progress-specialist-narrow.png);
+}
+
+.html-narrow .user-progress-expert {
+  background-image:url(../images/user-progress-expert-narrow.png);
+}
+
+.html-narrow .user-progress-guru {
+  background-image:url(../images/user-progress-guru-narrow.png);
+}

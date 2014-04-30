@@ -274,12 +274,9 @@ $(window).scroll(function () {
   
 }); 
 
-
-
-
-
-
 $(document).ready(function () {
+
+	$(".expandable").customExpandable();
 
 	// Фэнсибокс с окном логина
 	
@@ -326,10 +323,6 @@ $(document).ready(function () {
 		})
 		
 	})
-	
-	 
-	
-	
 	
 	$(".post-controls div").click(function() {
 		$(".post-controls").css("z-index",5);
@@ -703,9 +696,6 @@ $(document).ready(function () {
   
 	preparePage();
 
-  
-  
-
   // Separating news items by rows
 
   
@@ -752,11 +742,6 @@ $(document).ready(function () {
     });
 
  }*/
- 
-  
-  
-
-
   
 });
 
@@ -2155,6 +2140,7 @@ function buildRatCard(ratCard,j,items) {
 
 function makeup() {
 	
+
 	$(".form-text, .form-password, .form-textarea, input[type=text]").each(function() {
     if ($(this).val()) {
       $(this).prev(".placeholder").hide();
@@ -2162,6 +2148,7 @@ function makeup() {
     }
   });
 	
+
   $(".post-text table").each(function() {
     if (!$(this).parents(".table-wrapper").length) {
       $(this).wrap("<div class='table-wrapper' />")
@@ -2174,6 +2161,7 @@ function makeup() {
     // }
   //});
 	
+
 	$("input:text, input:password, textarea").each(function() {
 		
 		if (!$(this).parents(".input-wrapper").length) $(this).wrap("<div class='input-wrapper'></div>");
@@ -2225,6 +2213,7 @@ function makeup() {
     
   });
   
+
   $(".custom-form input.button, .search-block input.button").each(function () {
     if ($(this)[0].tagName == "INPUT" && !$(this).next("div.form-submit").length) {
       var divBtn = $("<div></div>");
@@ -2428,6 +2417,33 @@ function makeup() {
   };
 })( jQuery );
 
+(function( $ ) {
+  $.fn.customExpandable = function() {
+    var objects = $(this);
+    objects.each(function () {
+      
+			var expandable = $(this);
+      
+			var expandableTrigger = $(this).find(".expandable-trigger");
+			var expandableContent = $(this).find(".expandable-content");
+			
+      expandableTrigger.click(function() {
+				expandableContent.slideToggle(250);
+				
+				if (expandableTrigger.hasClass("expandable-trigger-on")) {
+					expandableTrigger.removeClass("expandable-trigger-on").addClass("expandable-trigger-off");
+					expandableTrigger.find("span").html(expandableTrigger.data("off-text"));
+				} else {
+					expandableTrigger.removeClass("expandable-trigger-off").addClass("expandable-trigger-on")
+					expandableTrigger.find("span").html(expandableTrigger.data("on-text"));
+				}
+			});
+			
+			
+    });
+    
+  };
+})( jQuery );
 
 function compUnits(n) {
   var n = n + "";
@@ -3731,7 +3747,8 @@ function preparePage() {
   }
   
   if ($(".mainpage-ratings").length) {
-    // $(".mainpage-ratings").mainpageRatings();
+    //$(".mainpage-ratings").mainpageRatings();
+		// Статичная листалка рейтингов
     $(".mainpage-ratings").mainpageRatingsStatic();
   }
   
@@ -4089,3 +4106,4 @@ jQuery.extend(jQuery.validator.messages, {
     max: jQuery.validator.format("Please enter a value less than or equal to {0}."),
     min: jQuery.validator.format("Please enter a value greater than or equal to {0}.")
 });
+

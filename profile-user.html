@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
-<title>SeoNews - Профиль компании</title>
+<title>SeoNews - Профиль пользователя</title>
 <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 <meta content="text/html; charset=UTF-8" http-equiv="content-type">
 <link rel="stylesheet" type="text/css" href="css/reset-min.css" media="screen"/>
@@ -178,33 +178,32 @@
                 <span class="sep">></span>
                 <a href="#">Участники рынка</a>
 								<span class="sep">></span>
-                <a href="#">Компании</a>
+                <a href="#">Пользователи</a>
                 <span class="sep">></span>
-                РБC
+                Александра Александрова
               </div>
               
               <!-- Breadcrumbs END -->
               
-              <div class="profile-card fc">
+              <div class="profile-card user-profile-card fc">
                 
                 <div class="pic">
-                  <div class="logo-wrapper">
-                  	<a href="#">
-                  	  <img src="files/logo-yandex-big.png" />
-                  	</a>
-                  </div>
+									<a href="#">
+										<img src="files/userpic-big.jpg" />
+									</a>
                 </div>
                 
                 <div class="descr">
                   <div class="post-lead">
-                    <h3>Корпорация РБС <span class="profile-site-link"><a href="#">www.rbcsoft.ru</a></span></h3>
+										<div class="edit-link"><a href="#">Редактировать</a></div>
+                    <h3>Александра Александрова <span class="user-status user-status-novice">новичок</span></h3>
                     <p>
-                      Комплексное продвижение сайтов, оптимизация, SMM и многое другое!
+                      Самый ответственный менеджер в Seonews.ru
                     </p>
                   </div>
                   <div class="profile-status fc">
 
-                    <a href="#" class="button button-ico button-3-ico button-ico-vote">Мне нравится</a>
+                    <a href="#" class="button button-ico button-3-ico button-ico-vote"></a>
           
                     <div class="rating-count fc">
                       <div class="cont">
@@ -213,7 +212,9 @@
                       </div>
                     </div>
                     
-                    <div class="button button-2">Подписаться на блог</div>
+                    <a href="#" class="button button-2 button-ico button-2-ico button-blog">
+											Написать в блог
+										</a>
                     
                   </div>
                   
@@ -224,45 +225,97 @@
               <div class="tabbed-content profile-tabs">
                 <div class="tabs fc">
                   <div class="tab act" rel="profile-1-tab"><div class="cont"><span>Профиль</span></div></div>
-                  <div class="tab" rel="profile-2-tab"><div class="cont"><span>Корпоративный блог</span></div></div>
-                  <div class="tab" rel="profile-3-tab"><div class="cont"><span>Отзывы</span> (2)</div></div>
+                  <div class="tab" rel="profile-2-tab"><div class="cont"><span>Лента событий</span></div></div>
+                  <div class="tab" rel="profile-3-tab"><div class="cont"><span>Мой блог</span> (576)</div></div>
                   <div class="tab" rel="profile-4-tab"><div class="cont"><span>Подписки и подписчики</span></div></div>
-                  <div class="tab tab-special" rel="profile-5-tab"><div class="cont"><span>Заказать услуги</span></div></div>
+                  <div class="tab" rel="profile-5-tab"><div class="cont"><span>Избранное</span> (25)</div></div>
                 </div>
                 
                 <div class="tab-content-wrapper">
                   
                   <div class="tab-content" id="profile-1-tab" style="display:block;">
                     
-										<div class="profile-rating profile-rating-1">
-											<img src="images/profile-rating-1.png"/> в рейтинге SEO глазами клиентов за 2013 год
+										<div class="user-progress">
+											<div class="user-progress-titles"></div>
+											<div class="user-progress-bar user-progress-active"></div>
 										</div>
 										
-										<h2>О компании</h2>
+										<p class="center">
+											<a href="#" class="profile-hint-trigger">Как повысить свой статус?</a>
+										</p>
+										
+										<script type="text/javascript">
+											$(document).ready(function() {
+												$(".profile-hint-trigger").fancybox({
+													content : '<p>В Интернет с 1997 года, занимался созданием сайтов (дизайн, верстка, немного программирования). С 2002 года занимался продвижением сайтов в компании "Ингатэ". </p><p>В Интернет с 1997 года, занимался созданием сайтов (дизайн, верстка, немного программирования). С 2002 года занимался продвижением сайтов в компании "Ингатэ". </p>',
+													maxWidth: 800
+												})
+											});
+										</script>
+										
+										<div class="profile-achievements">
+											<div class="achievements-content">
+												<div class="expandable">
+													<h2>Мои достижения</h2>
+													<div class="expandable-trigger expandable-trigger-on" data-off-text="Развернуть достижения" data-on-text="Свернуть достижения"><span>Свернуть достижения</span></div>
+													<div class="expandable-content">
+														<div class="achievements-list fc">
+															<div class="achievements-item">
+																<img src="images/achievements-1.png"/>
+															</div>
+															<div class="achievements-item">
+																<img src="images/achievements-2.png"/>
+															</div>
+															<div class="achievements-item">
+																<img src="images/achievements-3.png"/>
+															</div>
+															<div class="achievements-item">
+																<img src="images/achievements-4.png"/>
+															</div>
+															<div class="achievements-item">
+																<img src="images/achievements-5.png"/>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										
+										<a href="#" class="section-edit-link">Редактировать</a>
+										
+										<h2>Общее</h2>
 										
 										<table class="profile-data">
 											<tr>
 												<td class="name">
-													Дата основания:
+													Должность:
 												</td>
 												<td class="val">
-													1998 год
+													Главный редактор портала
 												</td>
 											</tr>
 											<tr>
 												<td class="name">
-													Ген. директор:
+													Компания:
 												</td>
 												<td class="val">
-													Ташогло Александр Михайлович
+													<a href="#">Ingate</a>
 												</td>
 											</tr>
 											<tr>
 												<td class="name">
-													Кол-во сотрудников:
+													Город:
 												</td>
 												<td class="val">
-													100 человек
+													Москва
+												</td>
+											</tr>
+											<tr>
+												<td class="name">
+													Телефон:
+												</td>
+												<td class="val">
+													(495) 772-97-91
 												</td>
 											</tr>
 											<tr>
@@ -279,22 +332,6 @@
 												</td>
 												<td class="val">
 													<a href="#">www.rbcsoft.ru</a>
-												</td>
-											</tr>
-											<tr>
-												<td class="name">
-													Телефон:
-												</td>
-												<td class="val">
-													(495) 772-97-91
-												</td>
-											</tr>
-											<tr>
-												<td class="name">
-													Тендеры
-												</td>
-												<td class="val">
-													<span class="data-yes">компания участвует в тендерах</span>
 												</td>
 											</tr>
 										</table>
@@ -315,16 +352,46 @@
 										
 										<hr/>
 										
-										<h2>О компании</h2>
+										<h2>Карьера</h2>
+										
+										<div class="profile-career">
+											<div class="profile-career-item">
+												<div class="pic">
+													<img src="files/logo-yandex.png"/>
+												</div>
+												<div class="descr">
+													<h3>Главный редактор портала</h3>
+													<div class="career-comp-name"><a href="#">Ingate</a></div>
+													<div class="career-dates">2010 - 2013</div>
+													<div class="career-descr">
+														<p>В Интернет с 1997 года, занимался созданием сайтов (дизайн, верстка, немного программирования). С 2002 года занимался продвижением сайтов в компании "Ингатэ". </p>
+													</div>
+												</div>
+											</div>
+											<div class="profile-career-item">
+												<div class="descr">
+													<h3>Профессиональный бездельник</h3>
+													<div class="career-comp-name"><a href="#">Ingate</a></div>
+													<div class="career-dates">март 2010 - сентябрь 2013</div>
+													<div class="career-descr">
+														<p>Дмитрий Голополосов создал более десятка различных проектов, посвященных как блогингу, так и далеким от интернет-маркетинга темам.</p>
+													</div>
+												</div>
+											</div>
+										</div>
+										
+										<hr/>
+										
+										<h2>О пользователе</h2>
 										
 										<p>В Интернет с 1997 года, занимался созданием сайтов (дизайн, верстка, немного программирования). С 2002 года занимался продвижением сайтов в компании "Ингатэ". Позже занялся собственным бизнесом (создание различных сервисов и софта). Ведет блог: blog.dimok.ru (один из топовых SEO-блогов). В своих многочисленных интервью Дмитрий не раз отмечал, что увлекается бильярдом. Но только на любительском уровне ради удовольствия, в турнирах не участвовал никогда. Дмитрий Голополосов создал более десятка различных проектов, посвященных как блогингу, так и далеким от интернет-маркетинга темам.</p>
 										
 										<hr/>
 										
-										<h2>Презентация компании</h2>
+										<h2>Ваша презентация</h2>
 										
-										<div class="profile-video">
-											<iframe width="100%" height="461" src="//www.youtube.com/embed/3XviR7esUvo" frameborder="0" allowfullscreen></iframe>
+										<div class="profile-presentation">
+											<iframe src="http://www.slideshare.net/slideshow/embed_code/33918689" width="637" height="545" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px 1px 0; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> 
 										</div>
 										
 										<hr/>
@@ -382,97 +449,143 @@
               
             </div>
 						
-						<div class="content-block">
-            	<div class="runet-cat-sidebar fc">
-								<a href="#">Каталог<br>интернет-агентств<br>Рунета</a>
-							</div>
-            </div>
-            
             <!-- Cписок компаний -->
            
 						<div class="content-block">
+							<h2 class="alt">Ваш профиль просматривали</h2>
+							<div class="companies-list users-list">
+								<div class="companies-list-item fc">
+									<div class="pic">
+										<img src="files/userpic-big.jpg" alt=""/>
+									</div>
+									<div class="descr">
+										<h3>
+											<a href="#">Александр Александров</a>
+										</h3>
+										<p>Главный редактор в <a href="#">Seonews.ru</a></p>
+										<div class="company-likes"><a class="like" href="#"></a>1500</div>
+									</div>
+								</div>
+								<div class="companies-list-item fc">
+									<div class="pic">
+										<img src="files/userpic-big.jpg" alt=""/>
+									</div>
+									<div class="descr">
+										<h3>
+											<a href="#">Александр Александров</a>
+										</h3>
+										<p>Главный редактор в <a href="#">Seonews.ru</a></p>
+										<div class="company-likes"><a class="like" href="#"></a>1500</div>
+									</div>
+								</div>
+								<div class="companies-list-item fc">
+									<div class="pic">
+										<img src="files/userpic-big.jpg" alt=""/>
+									</div>
+									<div class="descr">
+										<h3>
+											<a href="#">Александр Александров</a>
+										</h3>
+										<p>Ответственный менеджер по самым ответственным вопросам в <a href="#">Seonews.ru</a></p>
+										<div class="company-likes"><a class="like" href="#"></a>1500</div>
+									</div>
+								</div>
+								<div class="companies-list-item fc">
+									<div class="pic">
+										<img src="files/userpic-big.jpg" alt=""/>
+									</div>
+									<div class="descr">
+										<h3>
+											<a href="#">Александр Александров</a>
+										</h3>
+										<p>Главный редактор в <a href="#">Seonews.ru</a></p>
+										<div class="company-likes"><a class="like" href="#"></a>1500</div>
+									</div>
+								</div>
+								<div class="companies-list-item fc">
+									<div class="pic">
+										<img src="files/userpic-big.jpg" alt=""/>
+									</div>
+									<div class="descr">
+										<h3>
+											<a href="#">Александр Александров</a>
+										</h3>
+										<p>Главный редактор в <a href="#">Seonews.ru</a></p>
+										<div class="company-likes"><a class="like" href="#"></a>1500</div>
+									</div>
+								</div>
+								
+								
+								
+							</div>
+						</div>
+					 
+						<div class="content-block">
 							<h2 class="alt">Вам могут быть интересны</h2>
-							<div class="companies-list">
+							<div class="companies-list users-list">
 								<div class="companies-list-item fc">
 									<div class="pic">
-										<div class="pic-wrapper">
-											<a href="#">
-												<img src="files/logo-yandex-alt.png" />
-											</a>
-										</div>
+										<img src="files/userpic-big.jpg" alt=""/>
 									</div>
 									<div class="descr">
 										<h3>
-											<a href="#">Яндекс</a>
+											<a href="#">Александр Александров</a>
 										</h3>
-										<p>Комплексное продвижение</p>
+										<p>Главный редактор в <a href="#">Seonews.ru</a></p>
 										<div class="company-likes"><a class="like" href="#"></a>1500</div>
 									</div>
 								</div>
 								<div class="companies-list-item fc">
 									<div class="pic">
-										<div class="pic-wrapper">
-											<a href="#">
-												<img src="files/logo-cyberhead-m.png" />
-											</a>
-										</div>
+										<img src="files/userpic-big.jpg" alt=""/>
 									</div>
 									<div class="descr">
 										<h3>
-											<a href="#">Demis Group</a>
+											<a href="#">Александр Александров</a>
 										</h3>
-										<p>Продвижение сайтов, SMM, оптимизация.</p>
-										<div class="company-likes"><a class="like" href="#"></a>220</div>
-									</div>
-								</div>
-								<div class="companies-list-item fc">
-									<div class="pic">
-										<div class="pic-wrapper">
-											<a href="#">
-												<img src="files/logo-yandex-alt.png" />
-											</a>
-										</div>
-									</div>
-									<div class="descr">
-										<h3>
-											<a href="#">Ingate</a>
-										</h3>
-										<p>Продвижение сайтов, SMM, оптимизация, продвижение сайтов, SMM, оптимизация.</p>
+										<p>Главный редактор в <a href="#">Seonews.ru</a></p>
 										<div class="company-likes"><a class="like" href="#"></a>1500</div>
 									</div>
 								</div>
 								<div class="companies-list-item fc">
 									<div class="pic">
-										<div class="pic-wrapper">
-											<a href="#">
-												<img src="files/logo-yandex-alt.png" />
-											</a>
-										</div>
+										<img src="files/userpic-big.jpg" alt=""/>
 									</div>
 									<div class="descr">
 										<h3>
-											<a href="#">Яндекс</a>
+											<a href="#">Александр Александров</a>
 										</h3>
-										<p>Комплексное продвижение</p>
+										<p>Ответственный менеджер по самым ответственным вопросам в <a href="#">Seonews.ru</a></p>
 										<div class="company-likes"><a class="like" href="#"></a>1500</div>
 									</div>
 								</div>
 								<div class="companies-list-item fc">
 									<div class="pic">
-										<div class="pic-wrapper">
-											<a href="#">
-												<img src="files/logo-yandex-alt.png" />
-											</a>
-										</div>
+										<img src="files/userpic-big.jpg" alt=""/>
 									</div>
 									<div class="descr">
 										<h3>
-											<a href="#">Яндекс</a>
+											<a href="#">Александр Александров</a>
 										</h3>
-										<p>Комплексное продвижение</p>
+										<p>Главный редактор в <a href="#">Seonews.ru</a></p>
 										<div class="company-likes"><a class="like" href="#"></a>1500</div>
 									</div>
 								</div>
+								<div class="companies-list-item fc">
+									<div class="pic">
+										<img src="files/userpic-big.jpg" alt=""/>
+									</div>
+									<div class="descr">
+										<h3>
+											<a href="#">Александр Александров</a>
+										</h3>
+										<p>Главный редактор в <a href="#">Seonews.ru</a></p>
+										<div class="company-likes"><a class="like" href="#"></a>1500</div>
+									</div>
+								</div>
+								
+								
+								
 							</div>
 						</div>
 					 

@@ -9292,3 +9292,307 @@ label.error {
 	background:url(../images/ico-like.png) 0 0 no-repeat;
 	margin:0px 6px -1px 0;
 }
+
+.user-profile-card .pic {
+  background:none;
+	width:120px;
+	height:120px;
+}
+
+.user-profile-card img {
+  width:120px;
+	height:120px;
+	behavior:url(PIE.htc);
+	position:relative;
+	-webkit-border-radius:6px;
+	-moz-border-radius:6px;
+	border-radius:6px;
+}
+
+.user-profile-card .edit-link {
+  float:right;
+  font-size:12px;
+	padding:5px 0 0 0;
+}
+
+.user-profile-card .edit-link a,
+.user-profile-card .edit-link a:visited {
+	color:#adacac;
+	text-decoration:underline;
+}
+
+.user-profile-card .edit-link a:hover {
+	text-decoration:none;
+}
+
+.user-profile-card .user-status {
+	behavior: url(PIE.htc);
+	position: relative;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	font-size: 10px;
+	color: #fff;
+	position: relative;
+	top: -13px;
+	padding: 1px 4px;
+}
+
+.user-status-novice {
+  background-color:#7ccd91;
+}
+
+.user-status-reader {
+  background-color:#72bfc4;
+}
+
+.user-status-active {
+  background-color:#66c7e7;
+}
+
+.user-status-specialist {
+  background-color:#668cd6;
+}
+
+.user-status-expert {
+  background-color:#fb955c;
+}
+
+.user-status-guru {
+  background-color:#e07d9e;
+}
+
+.user-profile-card .button-3-ico {
+  width:44px;
+}
+
+.profile-card .button-2-ico {
+  padding:0;
+}
+
+.profile-card .button-2-ico .ico {
+	margin-top:8px;
+}
+
+.profile-card .button-2-ico .cont {
+  padding-top:0;
+}
+
+.fancybox-inner {
+  font-size:15px;
+	line-height:20px;
+}
+
+.fancybox-inner p {
+  margin:0 0 15px 0;
+}
+
+.fancybox-lock {
+  height:auto !important;
+}
+
+.user-progress {
+  margin:16px 0 18px 0;
+}
+
+.user-progress-titles {
+	height: 34px;
+	background: url(../images/user-progress-titles.png) 1px 0 no-repeat;
+	margin: 0 0 9px 0;
+}
+
+.user-progress-bar {
+  height:25px;
+	background-position:0 0;
+	background-repeat:no-repeat;
+}
+
+.user-progress-novice {
+  background-image:url(../images/user-progress-novice.png);
+}
+
+.user-progress-reader {
+  background-image:url(../images/user-progress-reader.png);
+}
+
+.user-progress-active {
+  background-image:url(../images/user-progress-active.png);
+}
+
+.user-progress-specialist {
+  background-image:url(../images/user-progress-specialist.png);
+}
+
+.user-progress-expert {
+  background-image:url(../images/user-progress-expert.png);
+}
+
+.user-progress-guru {
+  background-image:url(../images/user-progress-guru.png);
+}
+
+.center {
+  text-align:center;
+}
+
+.profile-hint-trigger,
+.profile-hint-trigger:visited {
+  text-align: center;
+	font-size: 15px;
+	font-family: OpenSansSemibold;
+	text-decoration:none;
+	color:#3f4349;
+	line-height:20px;
+	background:url(../images/underline-2.png) 0 19px repeat-x;
+}
+
+.profile-hint-trigger:hover {
+  background:none;
+	text-decoration:none !important;
+}
+
+.profile-achievements {
+  behavior:url(PIE.htc);
+	position:relative;
+	margin:34px 0 20px 0;
+	-webkit-box-shadow: 0 0px 5px -1px #ccc;
+	-moz-box-shadow: 0 0px 5px -1px #ccc;
+	box-shadow: 0 0px 5px -1px #ccc;
+	border: 1px solid #e7e7e7;
+	background-color: #FFF;
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+	border-radius:5px;
+}
+
+.profile-achievements .achievements-content {
+	behavior:url(PIE.htc);
+	position:relative;
+  -webkit-box-shadow:inset 0 0 35px 0 rgba(210,215,219,.46);
+  -moz-box-shadow:inset 0 0 35px 0 rgba(210,215,219,.46);
+  box-shadow:inset 0 0 35px 0 rgba(210,215,219,.46);
+	padding:15px 20px 18px 20px;
+}
+
+.profile-achievements h2 {
+  margin:0 0 17px 0;
+}
+
+.expandable {
+  position:relative;
+}
+
+.expandable-trigger {
+  position: absolute;
+	right: 10px;
+	top: 10px;
+	height: 17px;
+	background-repeat: no-repeat;
+	background-image: url(../images/expandable-arrow.png);
+	font-size: 11px;
+	line-height: 12px;
+	color: #6d6d6d;
+	cursor: pointer;
+	padding: 4px 0 0 25px;
+}
+
+.expandable-trigger-on {
+	background-position:0 -21px;
+}
+
+.expandable-trigger-off {
+	background-position:0 0;
+}
+
+.expandable-trigger span {
+  border-bottom:1px dotted #6d6d6d;
+}
+
+.profile-achievements .expandable-trigger {
+  right: -12px;
+	top: -1px;
+}
+
+.profile-achievements .achievements-list {
+  margin:0 -20px 0 6px;
+}
+
+.profile-achievements .achievements-item {
+  float:left;
+	margin:0 20px 0 0;
+}
+
+.section-edit-link,
+.section-edit-link:visited {
+  float: right;
+	height: 24px;
+	line-height: 24px;
+	color: #54858c;
+	text-decoration: underline;
+	font-family: 'OpenSansSemibold';
+	padding: 0 0 0 28px;
+	background: url(../images/ico-edit.png) 0 0 no-repeat;
+	margin: 19px 0 0 0;
+	font-size: 13px;
+}
+
+.section-edit-link:hover {
+  text-decoration:none;
+}
+
+.profile-career {
+  
+}
+
+.profile-career-item {
+  margin:0 0 32px 0;
+}
+
+.profile-career-item h3 {
+  font-size:15px;
+	line-height:22px;
+	font-family:'OpenSansBold';
+	margin:0 0 3px 0;
+}
+
+.profile-career-item .career-comp-name {
+  font-size:13px;
+	line-height:17px;
+	background:url(../images/ico-user-company.png) 0 0 no-repeat;
+	padding:0 0 1px 25px;
+}
+
+.profile-career-item .career-dates {
+  font-size:13px;
+	line-height:17px;
+	background:url(../images/ico-user-time.png) 0 0 no-repeat;
+	padding:0 0 1px 25px;
+}
+
+.profile-career-item .career-descr {
+  font-size:13px;
+	line-height:18px;
+	padding:14px 0 0 0;
+}
+
+.profile-career-item .pic {
+  float:right;
+	margin:0 0 0 50px;
+}
+
+.profile-career-item .descr {
+  overflow:hidden;
+}
+
+.users-list .pic {
+  -webkit-box-shadow:none;
+  -moz-box-shadow:none;
+  box-shadow:none;
+	border:none;
+}
+
+.users-list h3 {
+  font-size: 13px;
+	line-height: 15px;
+	margin: 0 0 6px 0;
+}
