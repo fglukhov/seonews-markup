@@ -1,0 +1,712 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>SeoNews - Каталог компаний</title>
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+<link rel="stylesheet" type="text/css" href="css/reset-min.css" media="screen"/>
+<link rel="stylesheet" type="text/css" href="css/fonts-min.css" media="screen"/>
+<link rel="stylesheet" type="text/css" href="css/jquery.fancybox.css" media="screen"/>
+<link rel="stylesheet" type="text/css" href="css/main.css" media="screen"/>
+<link rel="stylesheet" type="text/css" href="css/narrow.css" media="screen"/>
+<!--[if lte IE 8]>
+  <link rel="stylesheet" type="text/css" href="css/ie7-8.css" media="screen"/>
+<![endif]-->
+<script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.xml2json.js"></script>
+<script type="text/javascript" src="js/jquery.mousewheel-3.0.6.pack.js"></script>
+<script type="text/javascript" src="js/jquery.fancybox.js"></script>
+<script type="text/javascript" src="js/jquery.slides.min.js"></script>
+<script type="text/javascript" src="js/jquery.icheck.min.js"></script>
+<script type="text/javascript" src="js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.10.3.custom.min.js"></script>
+<script type="text/javascript" src="js/scripts.js"></script>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/ru_RU/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+</head>
+
+<body class="adaptive">
+
+<div id="test"></div>
+
+<!-- Wrapper -->
+<div class="top-wrap">
+  <div class="top-main">
+    <!-- Header -->
+    
+    <div class="header">
+      <!-- Banner -->
+      <div class="header-banner">
+        <a href="#"><img src="files/top-banner.jpg" alt="Баннер"/></a>
+      </div>
+      <!-- Banner END -->
+      
+      <div class="header-content">
+        <div class="header-top">
+          <!-- Main menu -->
+          <div class="main-menu-wrapper">
+            <div class="center-wrapper">
+              <div class="main-menu fc">
+								<a href="/events/">Обзор рынка</a>
+								<a href="/analytics/">Как продвинуть и заработать</a>
+								<a href="/calendar/">Мероприятия отрасли</a>
+								<a href="/experts/">Откровения экспертов</a>
+								<a href="/ratings/" class="last">Рейтинги</a>
+							</div>
+            </div>
+          </div>
+          <!-- Main menu END -->
+        </div>
+        
+        <div class="header-bottom fc">
+          <div class="center-wrapper">
+            <div class="logo">
+              <a class="logo-main" href="#"><img src="images/logo.png" alt="SeoNews"/></a>
+              <a class="logo-fixed" href="#"><img src="images/logo-fixed.png" alt="SeoNews"/></a>
+            </div>
+						<div class="site-title">
+							Интернет-издание<br />о поисковом маркетинге
+						</div>
+						<div class="header-soclinks">
+							<a href="#" class="h-soclink h-soclink-twitter"></a>
+							<a href="#" class="h-soclink h-soclink-fb"></a>
+							<a href="#" class="h-soclink h-soclink-vk"></a>
+							<a href="#" class="h-soclink h-soclink-google"></a>
+							<a href="#" class="h-soclink h-soclink-rss"></a>
+							<a href="#" class="h-soclink h-soclink-email"></a>
+						</div>
+            <!-- User link -->
+						<div class="user-link user-logged-out">
+							<div class="userpic">
+                <a href="#"><img src="images/userpic-dummy.png"/></a>
+              </div>
+              <div class="user-link-wrapper">
+                <a class="login-link" href="#" onclick="openPopup($('.login-popup')); return false;">Войти</a>
+								<a class="login-link" href="#">Зарегистрироваться</a>
+              </div>
+              
+						</div>
+            <div class="user-link fc" style="display:none;">
+              <div class="user-events-num">+3</div>
+              <div class="userpic">
+                <a href="#"><img src="files/userpic.jpg" alt="Алексей Константинов"/></a>
+              </div>
+              <div class="user-link-wrapper">
+                <span>Алексей Константинов</span>
+              </div>
+              <div class="user-controls">
+                <div class="pt"></div>
+                <ul>
+                  <li>
+                    <a href="#">
+                      <span class="pic"><img src="images/void.gif" class="ico ico-events"/></span>
+                      <span class="descr">
+                        Лента событий
+                        <span class="new-events">Новых: 2</span>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <span class="pic"><img src="images/void.gif" class="ico ico-profile"/></span>
+                      <span class="descr">
+                        Мой профиль
+                        <span class="new-events">Новых подписок: 1</span>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <span class="pic"><img src="images/void.gif" class="ico ico-blog"/></span>
+                      <span class="descr">
+                        Мой блог
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <span class="pic"><img src="images/void.gif" class="ico ico-favorites"/></span>
+                      <span class="descr">
+                        Избранное
+                      </span>
+                    </a>
+                  </li>
+                </ul>
+                <a href="#" class="button button-1 button-ico button-1-ico button-blog">
+                  Написать в блог
+                </a>
+              </div>
+            </div>
+            <!-- User link END -->
+          </div>
+        </div>
+      </div>
+      
+      
+    </div>
+    
+    <!-- Header END -->
+    
+    <!-- Body -->
+    
+    <div class="body">
+    
+      <div class="search-block fc">
+        <div class="center-wrapper">
+        	<input type="text" class="form-text" class="site-search"/>
+        	<input type="submit" class="button button-2 form-submit" value="Найти"/>
+        </div>
+      </div>
+      
+      <div class="center-wrapper">
+      
+        <!-- Content -->
+        
+        <div class="content">
+        
+          <div class="main-column">
+          
+            <!-- Breadcrumbs -->
+            
+            <div class="breadcrumbs fc">
+              <a class="ico ico-back" href="#"></a>
+              <a href="#">Главная</a>
+              <span class="sep">></span>
+              <a href="#">Рейтинги</a>
+              <span class="sep">></span>
+              Каталог компаний
+            </div>
+            
+            <!-- Breadcrumbs END -->
+            
+            <!-- Section content -->
+            
+            <div class="section-content">
+							
+							<div class="companies-catalogue-wrapper">
+							
+								<h1>Каталог компаний <div class="total"><span>243</span></div></h1>
+							
+								<div class="companies-catalogue">
+									<div class="row fc">
+										<div class="companies-catalogue-item fc">
+											<div class="pic">
+												<div class="pic-wrapper">
+													<a href="#">
+														<img src="files/logo-yandex-alt.png">
+													</a>
+												</div>
+											</div>
+											<div class="descr">
+												<div class="descr-text">
+													<h3>
+														<a href="#">Яндекс</a>
+													</h3>
+													<p>Комплексное продвижение сайтов, оптимизация, SMM и многое другое!</p>
+												</div>
+												<div class="company-info">
+													<div class="company-likes"><a class="like" href="#"></a>1500</div>
+													<div class="company-mentions">10</div>
+													<div class="company-tenders" title="Компания участвует в&nbsp;тендерах"></div>
+													<a href="#" class="company-rating" title="12 место в рейтинге SEO глазами клиентов 2013">12</a>
+												</div>
+											</div>
+										</div>
+										<div class="companies-catalogue-item fc">
+											<div class="pic">
+												<div class="pic-wrapper">
+													<a href="#">
+														<img src="files/logo-cyberhead-m.png">
+													</a>
+												</div>
+											</div>
+											<div class="descr">
+												<div class="descr-text">
+													<h3>
+														<a href="#">Demis Group</a>
+													</h3>
+													<p>Продвижение сайтов, SMM, оптимизация.</p>
+												</div>
+												<div class="company-info">
+													<div class="company-likes"><a class="like" href="#"></a>1500</div>
+													<div class="company-mentions">10</div>
+													<a href="#" class="company-rating" title="12 место в рейтинге SEO глазами клиентов 2013">12</a>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="row fc">
+										<div class="companies-catalogue-item fc">
+											<div class="pic">
+												<div class="pic-wrapper">
+													<a href="#">
+														<img src="files/logo-yandex-alt.png">
+													</a>
+												</div>
+											</div>
+											<div class="descr">
+												<div class="descr-text">
+													<h3>
+														<a href="#">Яндекс с очень длинным названием</a>
+													</h3>
+													<p>Комплексное продвижение сайтов, оптимизация, SMM и многое другое!</p>
+												</div>
+												<div class="company-info">
+													<div class="company-likes"><a class="like" href="#"></a>1500</div>
+													<div class="company-mentions">10</div>
+													<div class="company-tenders" title="Компания участвует в&nbsp;тендерах"></div>
+												</div>
+											</div>
+										</div>
+										<div class="companies-catalogue-item fc">
+											<div class="pic">
+												<div class="pic-wrapper">
+													<a href="#">
+														<img src="files/logo-cyberhead-m.png">
+													</a>
+												</div>
+											</div>
+											<div class="descr">
+												<div class="descr-text">
+													<h3>
+														<a href="#">Demis Group</a>
+													</h3>
+													<p>Продвижение сайтов, SMM, оптимизация.</p>
+												</div>
+												<div class="company-info">
+													<div class="company-likes"><a class="like" href="#"></a>1500</div>
+													<div class="company-mentions">10</div>
+													<a href="#" class="company-rating" title="12 место в рейтинге SEO глазами клиентов 2013">12</a>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="row fc">
+										<div class="companies-catalogue-item fc">
+											<div class="pic">
+												<div class="pic-wrapper">
+													<a href="#">
+														<img src="files/logo-yandex-alt.png">
+													</a>
+												</div>
+											</div>
+											<div class="descr">
+												<div class="descr-text">
+													<h3>
+														<a href="#">Яндекс</a>
+													</h3>
+												</div>
+												<p>Комплексное продвижение сайтов, оптимизация, SMM и многое другое!</p>
+												<div class="company-info">
+													<div class="company-likes"><a class="like" href="#"></a>1500</div>
+													<div class="company-mentions">10</div>
+													<div class="company-tenders" title="Компания участвует в&nbsp;тендерах"></div>
+												</div>
+											</div>
+										</div>
+										<div class="companies-catalogue-item fc">
+											<div class="pic">
+												<div class="pic-wrapper">
+													<a href="#">
+														<img src="files/logo-cyberhead-m.png">
+													</a>
+												</div>
+											</div>
+											<div class="descr">
+												<div class="descr-text">
+													<h3>
+														<a href="#">Demis Group</a>
+													</h3>
+													<p>Продвижение сайтов, SMM, оптимизация.</p>
+												</div>
+												<div class="company-info">
+													<div class="company-likes"><a class="like" href="#"></a>1500</div>
+													<div class="company-mentions">10</div>
+													<a href="#" class="company-rating" title="12 место в рейтинге SEO глазами клиентов 2013">12</a>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="row fc">
+										<div class="companies-catalogue-item fc">
+											<div class="pic">
+												<div class="pic-wrapper">
+													<a href="#">
+														<img src="files/logo-yandex-alt.png">
+													</a>
+												</div>
+											</div>
+											<div class="descr">
+												<div class="descr-text">
+													<h3>
+														<a href="#">Яндекс</a>
+													</h3>
+													<p>Комплексное продвижение сайтов, оптимизация, SMM и многое другое!</p>
+												</div>
+												<div class="company-info">
+													<div class="company-likes"><a class="like" href="#"></a>1500</div>
+													<div class="company-mentions">10</div>
+													<div class="company-tenders" title="Компания участвует в&nbsp;тендерах"></div>
+												</div>
+											</div>
+										</div>
+										<div class="companies-catalogue-item fc">
+											<div class="pic">
+												<div class="pic-wrapper">
+													<a href="#">
+														<img src="files/logo-cyberhead-m.png">
+													</a>
+												</div>
+											</div>
+											<div class="descr">
+												<div class="descr-text">
+													<h3>
+														<a href="#">Demis Group</a>
+													</h3>
+													<p>Продвижение сайтов, SMM, оптимизация.</p>
+												</div>
+												<div class="company-info">
+													<div class="company-likes"><a class="like" href="#"></a>1500</div>
+													<div class="company-mentions">10</div>
+													<a href="#" class="company-rating" title="12 место в рейтинге SEO глазами клиентов 2013">12</a>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="row fc">
+										<div class="companies-catalogue-item fc">
+											<div class="pic">
+												<div class="pic-wrapper">
+													<a href="#">
+														<img src="files/logo-yandex-alt.png">
+													</a>
+												</div>
+											</div>
+											<div class="descr">
+												<div class="descr-text">
+													<h3>
+														<a href="#">Яндекс</a>
+													</h3>
+													<p>Комплексное продвижение сайтов, оптимизация, SMM и многое другое!</p>
+												</div>
+												<div class="company-info">
+													<div class="company-likes"><a class="like" href="#"></a>1500</div>
+													<div class="company-mentions">10</div>
+													<div class="company-tenders" title="Компания участвует в&nbsp;тендерах"></div>
+												</div>
+											</div>
+										</div>
+										<div class="companies-catalogue-item fc">
+											<div class="pic">
+												<div class="pic-wrapper">
+													<a href="#">
+														<img src="files/logo-cyberhead-m.png">
+													</a>
+												</div>
+											</div>
+											<div class="descr">
+												<div class="descr-text">
+													<h3>
+														<a href="#">Demis Group</a>
+													</h3>
+													<p>Продвижение сайтов, SMM, оптимизация.</p>
+												</div>
+												<div class="company-info">
+													<div class="company-likes"><a class="like" href="#"></a>1500</div>
+													<div class="company-mentions">10</div>
+													<a href="#" class="company-rating" title="12 место в рейтинге SEO глазами клиентов 2013">12</a>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="row fc">
+										<div class="companies-catalogue-item fc">
+											<div class="pic">
+												<div class="pic-wrapper">
+													<a href="#">
+														<img src="files/logo-yandex-alt.png">
+													</a>
+												</div>
+											</div>
+											<div class="descr">
+												<div class="descr-text">
+													<h3>
+														<a href="#">Яндекс</a>
+													</h3>
+													<p>Комплексное продвижение сайтов, оптимизация, SMM и многое другое!</p>
+												</div>
+												<div class="company-info">
+													<div class="company-likes"><a class="like" href="#"></a>1500</div>
+													<div class="company-mentions">10</div>
+													<div class="company-tenders" title="Компания участвует в&nbsp;тендерах"></div>
+												</div>
+											</div>
+										</div>
+										<div class="companies-catalogue-item fc">
+											<div class="pic">
+												<div class="pic-wrapper">
+													<a href="#">
+														<img src="files/logo-cyberhead-m.png">
+													</a>
+												</div>
+											</div>
+											<div class="descr">
+												<div class="descr-text">
+													<h3>
+														<a href="#">Demis Group</a>
+													</h3>
+													<p>Продвижение сайтов, SMM, оптимизация.</p>
+												</div>
+												<div class="company-info">
+													<div class="company-likes"><a class="like" href="#"></a>1500</div>
+													<div class="company-mentions">10</div>
+													<a href="#" class="company-rating" title="12 место в рейтинге SEO глазами клиентов 2013">12</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							
+							</div>
+							
+						</div>
+            
+            <!-- Section conent END -->
+            
+          </div>
+          
+          <div class="sidebar">
+          
+            <!-- Навигация -->
+          
+            <div class="sidenav">
+              <div class="up-link">
+                <div class="ico ico-up"></div>
+                <span>Наверх</span>
+              </div>
+            </div>
+            
+            <!-- Навигация END -->
+            
+            <div class="search-trigger-wrapper">
+              <div class="search-trigger">
+                <span class="ico ico-search"></span> <span class="txt">Поиск по сайту</span>
+              </div>
+              
+            </div>
+
+						<h2 class="alt-2">Фильтр компаний</h2>
+            
+						<div class="companies-filter">
+							<div class="companies-filter-companies">
+								<div class="companies-filter-form custom-form">
+									<h3>Выберите услуги <span class="reset"></span></h3>
+									<div class="companies-type-filter">
+										<label class="event-tag-filter" for="filter-checkbox-1"><input type="checkbox" name="filter-checkbox-1" id="filter-checkbox-1"/>Продвижение сайта</label>
+										<label class="event-tag-filter" for="filter-checkbox-2"><input type="checkbox" name="filter-checkbox-2" id="filter-checkbox-2"/>Создание сайта</label>
+										<label class="event-tag-filter" for="filter-checkbox-3"><input type="checkbox" name="filter-checkbox-3" id="filter-checkbox-3"/>Контекстная реклама</label>
+										<label class="event-tag-filter" for="filter-checkbox-4"><input type="checkbox" name="filter-checkbox-4" id="filter-checkbox-4"/>Консалтинг и аудит</label>
+										<label class="event-tag-filter" for="filter-checkbox-5"><input type="checkbox" name="filter-checkbox-5" id="filter-checkbox-5"/>Баннерная реклама</label>
+										<div class="found-hint">
+											Найдено: <a href="#">50</a>
+										</div>
+									</div>
+									<div class="hr"></div>
+									<h3>Страна</h3>
+									<select name="companies-filter-sort" id="companies-filter-sort" class="form-select">
+										<option value="1">Россия</option>
+										<option value="2">Америка</option>
+										<option value="3">Китай</option>
+										<option value="4">Афганистан</option>
+									</select>
+									<h3>Город</h3>
+									<select name="companies-filter-event-type" id="companies-filter-event-type" class="form-select">
+										<option value="1">Москва</option>
+										<option value="2">Баку</option>
+										<option value="3">Куала-Лумпур</option>
+										<option value="4">Ашхабад</option>
+										<option value="5">Душанбе</option>
+									</select>
+									
+									<div class="hr"></div>
+									<input type="submit" value="Фильтровать" class="form-submit button button-4"/>
+								</div>
+								
+							</div>
+						</div>
+						
+						<div class="rating-tender-sidebar fc">
+              <h3>Вы можете организовать тендер для выбранных компаний</h3>
+              <a href="#" class="button button-7"><span>Провести тендер</span></a>
+            </div>
+						
+            <div class="content-block">
+              <a href="#"><img src="files/jobs-banner.jpg"/></a>
+            </div>
+            
+						<div class="company-profile-sidebar fc">
+              <h3>Создайте профиль своей компании!</h3>
+              <a href="#" class="button button-4"><span>Создать компанию</span></a>
+            </div>
+            
+          </div>
+        
+        </div>
+        
+        <!-- Content END -->
+      
+      </div>
+      
+    </div>
+    
+    <!-- Body END -->
+  </div>
+</div>
+
+<!-- Footer -->
+
+<div class="footer">
+  
+  <div class="center-wrapper">
+  
+    <div class="footer-content">
+  
+      <div class="footer-col footer-col-1">
+      
+        <p>
+          <a href="#"><img class="logo" src="images/logo.png" alt="SeoNews"/></a>
+        </p>
+        
+        <p>
+          © SEOnews.ru Все права защищены. 2013
+        </p>
+        
+        <p>
+          Все права на материалы, публикуемые на данном сайте, принадлежат редакции сайта, за исключением случаев перепечатки чужих материалов, и охраняются в соответствии с законодательством РФ.
+        </p>
+        
+        <a class="email-link" href="mailto:info@seonews.ru"><span>info@seonews.ru</span></a>
+        
+      </div>
+      
+      <div class="footer-col">
+        <h4>Компания</h4>
+        <ul class="footer-menu">
+          <li><a href="#">О проекте</a></li>
+          <li><a href="#">Приглашаем авторов</a></li>
+          <li><a href="#">Контакты</a></li>
+          <li><a href="#">Реклама на сайте</a></li>
+          <li><a href="#">Правообладателям</a></li>
+          <li><a href="#">Правила</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-col">
+        <h4>Статьи</h4>
+        <ul class="footer-menu">
+          <li><a href="#">Как продвинуть сайт и заработать в Интернете</a></li>
+          <li><a href="#">Инструменты продвижения и заработка в Интеренете</a></li>
+          <li><a href="#">Откроевения экспертов</a></li>
+          <li><a href="#">Рейтинги SEOnews</a></li>
+          <li><a href="#">Библиотека</a></li>
+          <li><a href="#">Участники рынка</a></li>
+          <li><a href="#">Календарь событий</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-col">
+        <h4>Подписывайтесь</h4>
+        <ul class="footer-menu">
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">Тwitter</a></li>
+          <li><a href="#">ВКонтакте</a></li>
+          <li><a href="#">RSS</a></li>
+        </ul>
+        
+        <div class="developed-by fc">
+          <span>Разработка сайта:</span>
+          <span class="dev-link"><a href="#">Renaissance Art</a></span>
+        </div>
+        
+      </div>
+      
+    </div>
+  
+  </div>
+  
+</div>
+
+<!-- Footer END -->
+  
+<!-- Wrapper END -->
+
+<div class="popup login-popup">
+  <div class="popup-header">
+    <div class="close"></div>
+    <h1>Добро пожаловать на SEOnews!</h1>
+  </div>
+  <div class="popup-body">
+    <div class="login-cols fc">
+    	<div class="login-l">
+    	  <h3>Вход на сайт</h3>
+    		<div class="common-form custom-form login-form fc">
+    		
+    		  <form action=".">
+    		  	<div class="form-item">
+    		  	  <label for="login_email" class="placeholder">Электронная почта</label>
+    		  	  <input type="text" name="login_email" id="login_email" class="form-text form-email" required />
+    		  	</div>
+    	      
+    	      <div class="form-item">
+    		  	  <label for="login_password" class="placeholder">Пароль</label>
+    		  	  <input type="password" name="login_password" id="login_password" class="form-text" required />
+    		  	</div>
+    		  	
+    		    <div class="form-footer fc">
+    		    	<input type="submit" value="Войти" class="button button-2 form-submit"/>
+    	        <div class="forgot-link">
+    	        	<a href="#">Я забыл пароль</a>
+    	        </div>
+    		    </div>
+    		    
+    		  </form>
+    		
+    		</div>
+    	  
+    	</div>
+    	
+    	<div class="login-r">
+    	  <h3>Я новый пользователь</h3>
+    	  <div class="text">
+    	  	<p>Чтобы полноценно пользоваться нашим сайтом, вам необходимо зарегистрироваться. Это просто и займет всего одну минуту.</p>
+    	  </div>
+    	  <a href="#" class="button button-4">Зарегистрироваться</a>
+    	</div>
+    </div>
+    
+    <div class="login-external">
+      <h4>Войти через</h4>
+      <div class="buttons fc">
+        <div class="button-login button-vk"></div>
+        <div class="button-login button-facebook"></div>
+        <div class="button-login button-twitter"></div>
+        <div class="button-login button-google"></div>
+        <div class="button-login button-mailru"></div>
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+</body>
+
+
+</html>

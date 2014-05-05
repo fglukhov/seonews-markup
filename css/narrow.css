@@ -761,6 +761,12 @@
 .html-narrow .profile-tabs .tabs .cont {
   padding-right:10px;
 	padding-left:10px;
+	font-size:13px;
+}
+
+.html-narrow .profile-tabs .tabs .act .cont {
+  padding-right:14px;
+	padding-left:14px;
 }
 
 .html-narrow .profile-achievements .achievements-item {
@@ -800,4 +806,12 @@
 
 .html-narrow .user-progress-guru {
   background-image:url(../images/user-progress-guru-narrow.png);
+}
+
+.html-narrow .companies-catalogue-item {
+	width:327px;
+}
+
+.html-narrow .companies-catalogue-item .descr {
+	width:205px;
 }

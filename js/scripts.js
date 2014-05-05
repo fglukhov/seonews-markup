@@ -2909,6 +2909,42 @@ function preparePage() {
         }
     });
   }
+	
+	if ($(".company-info .company-rating").length) {
+    $(".company-rating").tooltip({
+			tooltipClass: "company-rating-tooltip",
+      position: {
+          my: "center bottom",
+          at: "center top",
+          using: function( position, feedback ) {
+            $( this ).css( position );
+            $( "<div>" )
+              .addClass( "arrow" )
+              .addClass( feedback.vertical )
+              .addClass( feedback.horizontal )
+              .appendTo( this );
+          }
+        }
+    });
+  }
+	
+	if ($(".company-info .company-tenders").length) {
+    $(".company-tenders").tooltip({
+			tooltipClass: "company-tenders-tooltip",
+      position: {
+          my: "center bottom",
+          at: "center top",
+          using: function( position, feedback ) {
+            $( this ).css( position );
+            $( "<div>" )
+              .addClass( "arrow" )
+              .addClass( feedback.vertical )
+              .addClass( feedback.horizontal )
+              .appendTo( this );
+          }
+        }
+    });
+  }
   
   newsMakeup();
 
@@ -3436,6 +3472,11 @@ function preparePage() {
 	
 	$('.content-type-filter input:checkbox').on('ifChecked ifUnchecked', function(){
 		$(this).parents("label").toggleClass("label-checked");
+	});
+	
+	$('.companies-type-filter input:checkbox').on('ifChecked ifUnchecked', function(){
+		$(this).parents("label").toggleClass("label-checked");
+		$(".found-hint").css("top",$(this).parents("label").position().top);
 	});
 	
 	$('.content-type-filter input:checkbox').on('ifChecked', function(){
