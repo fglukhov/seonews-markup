@@ -9004,26 +9004,27 @@ label.error {
 	max-height:90px;
 }
 
-.profile-card .descr h3 {
+.profile-card .descr h1 {
   font-size:26px;
 	line-height:28px;
 	font-family:'OpenSansSemibold';
 	color:#202020;
-	margin:0 0 -3px 0;
+	margin:0 0 2px 0;
 }
 
-.profile-card .descr h3 .profile-site-link {
+.profile-card .descr h1 .profile-site-link {
   font-size:11px;
+	line-height:11px;
 	font-family:'OpenSans';
 	padding:0 0 0 13px;
 }
 
-.profile-card .descr h3 .profile-site-link a,
-.profile-card .descr h3 .profile-site-link a:visited {
+.profile-card .descr h1 .profile-site-link a,
+.profile-card .descr h1 .profile-site-link a:visited {
   text-decoration:none;
 }
 
-.profile-card .descr h3 .profile-site-link a:hover {
+.profile-card .descr h1 .profile-site-link a:hover {
   text-decoration:underline;
 }
 
@@ -9078,10 +9079,25 @@ label.error {
   background-color:#fff7ea;
 }
 
-.profile-rating img {
+.profile-rating-badge {
+	width:73px;
+	height:72px;
+	background:url(../images/profile-rating-bg.png) 0 0 no-repeat;
   position:absolute;
 	left:15px;
 	top:-12px;
+	color:#fff;
+	text-align:center;
+	text-shadow:0 -1px 0 #dd9734;
+	font-size:10px;
+}
+
+.profile-rating-badge span {
+  display: block;
+	font-family: 'OpenSansBold';
+	font-size: 20px;
+	line-height: 16px;
+	padding: 18px 0 0 0;
 }
 
 .profile-tabs h2 {
@@ -9301,13 +9317,13 @@ label.error {
 
 .user-profile-card .pic {
   background:none;
-	width:120px;
-	height:120px;
+	width:126px;
+	height:126px;
 }
 
 .user-profile-card img {
-  width:120px;
-	height:120px;
+  width:123px;
+	height:123px;
 	behavior:url(PIE.htc);
 	position:relative;
 	-webkit-border-radius:6px;
@@ -9338,6 +9354,7 @@ label.error {
 	-moz-border-radius: 2px;
 	border-radius: 2px;
 	font-size: 10px;
+	line-height:10px;
 	color: #fff;
 	position: relative;
 	top: -13px;
