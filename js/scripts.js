@@ -426,6 +426,10 @@ $(document).ready(function () {
           $(this).removeClass("initial");
           $(this).parents(".form-item").find(".placeholder").hide();
         });
+				$(this).change(function() { 
+          $(this).removeClass("initial");
+          $(this).parents(".form-item").find(".placeholder").hide();
+        });
       }
       $(this).blur(function() {
         $(this).prev().prev(".placeholder").hide();
@@ -437,6 +441,10 @@ $(document).ready(function () {
       });
     } else {
       $(this).focus(function() {
+        $(this).removeClass("initial");
+        $(this).parents(".form-item").find(".placeholder").hide();
+      });
+			$(this).change(function() {
         $(this).removeClass("initial");
         $(this).parents(".form-item").find(".placeholder").hide();
       });
