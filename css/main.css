@@ -9992,3 +9992,34 @@ label.error {
 	text-align:center;
 }
 
+.button-ico-vote {
+  text-shadow:0 -1px 0 #d89a3b;
+}
+
+.button-ico-vote-act {
+  text-shadow:0 -1px 0 #8b8b8b;
+  background-image:url(../images/button-rating-reg-ico-bg-act.png);
+}
+
+.profile-card .button-2 {
+  text-shadow:0 -1px 0 #314b6f;
+}
+
+.button-2-act {
+  background-image:url(../images/button-2-bg-act.png);
+}
+
+.button-unsubscribe span {
+  position:relative;
+	padding:0 0 0 17px;
+}
+
+.button-unsubscribe span:before {
+  content:"";
+	background:url(../images/ico-unsubscribe.png) 0 0 no-repeat;
+	width:12px;
+	height:13px;
+	position:absolute;
+	left:-2px;
+	top:3px;
+}
