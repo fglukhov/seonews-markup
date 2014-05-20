@@ -778,7 +778,7 @@
 	display:none;
 }
 
-.user-progress-titles {
+.html-narrow .user-progress-titles {
 	height: 34px;
 	background: url(../images/user-progress-titles-narrow.png) 1px 0 no-repeat;
 	margin: 0 0 9px 0;
