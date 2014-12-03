@@ -13859,4 +13859,86 @@ font-size: 12px;
 	width: 300px;
 }
 
+.tenders-item {
+  margin:0 0 38px 0;
+}
+
+.tenders-item .tender-descr {
+  float: left;
+	width: 534px;
+	border-right: 1px solid #ececec;
+	margin: 0 30px 0 0;
+	padding: 12px 40px 0 0;
+}
+
+.tenders-item .tender-contacts {
+  float: left;
+	width: 255px;
+	padding: 12px 0 0 0;
+}
+
+.tenders-item h3 {
+  font-family:'OpenSansSemibold';
+	font-size:18px;
+	line-height:22px;
+	color:#202020;
+	margin:0 0 22px 0;
+}
+
+.tender-descr-table {
+  width:100%;
+	font-size:14px;
+	line-height:18px;
+}
+
+.tender-descr-table td {
+  vertical-align:top;
+	padding:0 0 20px 0;
+}
+
+.tender-descr-table .name {
+  color: #9b9b9b;
+	padding: 0 15px 20px 0;
+	width: 221px;
+}
+
+.tender-contacts td.name {
+  width:auto;
+}
+
+.tender-descr-table .userpic {
+	display:block;
+	margin:-6px 0 0 0;
+}
+
+.tender-descr-table .userpic img {
+  width:70px;
+	height:70px;
+	border-radius:35px;
+}
+
+.tender-contacts .user-name {
+  font-family:'OpenSansSemibold';
+}
+
+.tender-contacts .user-name a {
+	color:#54858c;
+	text-decoration:none;
+}
+
+.tender-contacts .user-name a:hover {
+	text-decoration:underline;
+}
+
+.tender-contacts .user-post {
+  font-size:11px;
+	line-height:14px;
+	color:#656566;
+	margin:4px 0 0 0;
+}
+
+.tender-contacts .person-descr {
+  padding:3px 0 30px 0;
+}
+
 /* Тендеры END */

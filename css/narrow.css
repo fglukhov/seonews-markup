@@ -806,3 +806,13 @@
 .html-narrow .tender-form-2 .form-date-wrapper .input-wrapper {
   width:130px !important;
 }
+
+.html-narrow .tender-descr-table .name {
+	width: 141px;
+}
+
+.html-narrow .tenders-item .tender-descr {
+	width: 382px;
+	margin: 0 30px 0 0;
+	padding: 12px 30px 0 0;
+}
