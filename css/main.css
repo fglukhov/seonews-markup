@@ -6589,7 +6589,7 @@ h2 .section-filter span {
 .city-selector {
   padding-top:9px;
   margin-right:40px;
-  margin:0 40px -15px 0;
+  margin:0 0 -15px 0;
   position:relative;
   top:-40px;
   position:relative;
@@ -6607,13 +6607,20 @@ h2 .section-filter span {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
-  padding:20px 20px 10px 20px;
+  padding:20px 10px 10px 10px;
+}
+
+.city-selector .col {
+  float:left;
+  width:25%;
+  padding:0 10px 10px 10px;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
 }
 
 .city-selector label {
-  float:left;
-  width:180px;
-  margin:0 20px 10px 0;
+  padding:0 0 10px 0;
+	font-size:12px;
 }
 
 .tender-form .form-checkboxes {
@@ -13597,6 +13604,14 @@ font-size: 12px;
   margin:27px 0 0 0;
 }
 
+.tender-form .param-sel {
+  width:355px;
+}
+
+.tender-form .dropdown {
+  width:355px;
+}
+
 .tender-form-2 {
   margin:0;
 }
@@ -13753,7 +13768,7 @@ font-size: 12px;
 }
 
 .tenders-list td {
-  padding:17px 12px;
+  padding:17px 20px;
 	vertical-align:top;
 }
 

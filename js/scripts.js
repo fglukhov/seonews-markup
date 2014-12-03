@@ -380,8 +380,8 @@ $(document).ready(function () {
 			$(".tender-budget-slider .handle-from .val").html(formatNumber(tenderInitMin))
 			$(".tender-budget-slider .handle-to .val").html(formatNumber(tenderInitMax))
 			
-			$(".tender-budget-slider").append("<div class='min-mark'>"+formatNumber(tenderBudgetMin)+"</div>")
-			$(".tender-budget-slider").append("<div class='max-mark'>"+formatNumber(tenderBudgetMax)+"</div>")
+			// $(".tender-budget-slider").append("<div class='min-mark'>"+formatNumber(tenderBudgetMin)+"</div>")
+			// $(".tender-budget-slider").append("<div class='max-mark'>"+formatNumber(tenderBudgetMax)+"</div>")
 			
 		},
 		slide: function( event, ui ) {
