@@ -117,6 +117,17 @@ $(window).load(function () {
     // },100)
   // }
   
+	$('.post-text a')
+	.not('[href*="://new.seonews.ru/"]')
+	.not('[href^="/"]')
+	.not('[href^="?"]')
+	.not('[href^="#"]')
+	.not('[href^="javascript"]')
+	.each(function(){
+		$(this).attr('target', '_blank');
+		//console.log( $(this).attr('target') + ' --> ' + $(this).attr('href') );
+	});
+  
 });
 
 $(window).resize(function() {
@@ -141,6 +152,8 @@ $(window).resize(function() {
 $(window).scroll(function () {
   
   // Фиксация меню и части шапки при скролле страницы
+  
+  //console.log( $(window).scrollTop(), ($(".header").offset().top + $(".header").height()) );
   
   if ($(window).scrollTop() > ($(".header").offset().top + $(".header").height())) {
     $(".header-content").addClass("header-fixed").removeClass("header-normal").css("margin-left",-$(document).scrollLeft());
@@ -208,14 +221,13 @@ $(window).scroll(function () {
   // }
   
   // Автоподгрузка при скролле
-  
-	if (($(window).scrollTop() > parseInt($(document).height() - $(".footer").height() - $(window).height() - 50)) && !$(".navigation").hasClass("loaded")) {
-	   
+
+	//if (($(window).scrollTop() > parseInt($(document).height() - $(".footer").height() - $(window).height() - 50)) && !$(".navigation").hasClass("loaded")) {
+	if ((($(window).scrollTop() > parseInt($(document).height() - $(".footer").height() - $(window).height() - 50))||((window.location.href == 'http://www.seonews.ru/tools/')&&($(window).scrollTop() > $("#news_list_pageID").height()-$(window).height()))) && !$(".navigation").hasClass("loaded")) {
 		$(".navigation").addClass("loaded");
 		var page = $(".navigation").find(".next_page").attr("rel");
 		var url = $(".navigation").find(".next_page").attr("href");
 		if(page){
-		
 			if ($(".experts").length) {
 				$.ajaxhelper({
 					url: url,
@@ -265,18 +277,78 @@ $(window).scroll(function () {
 					}
 				}) 
 			}
-		
-
 		}
 		return false;
-
-	} 
+	}
+	
+	//
+	// Подгрузка при нажатии на кнопку "Показать ещё" " - в экспертах?"
+	//
+	$(document).on( "click", ".show-more.show-more-small", function( event ) {
+	
+		var target = $( event.target );
+		if( !target.is( ".show-more.show-more-small" ) ) {
+			target = target.closest( ".show-more.show-more-small" );
+		}
+		
+		if( target.hasClass( "in-progress" ) ) {
+			return false;
+		}
+		target.addClass( "in-progress" );
+		
+		var link = target.find( "a" );
+		console.log( event.target, target, link );
+		
+		if( link.length <= 0 ) {
+			return true;
+		}
+		
+		var page = link.attr("rel");
+		var url = link.attr("href");
+		
+		// Выбираем куда грузить, см. дурацкую ренартовскую функцию выше
+		var place = $(".experts");
+		if( place.length <= 0 ) {
+			place = $(".search_list_elements");
+		}
+		if( place.length <= 0 ) {
+			place = $(".main-column");
+		}
+		
+		console.log( place );
+		
+		//return false;
+		
+		if( place.length > 0 && page > 0 ) {
+			// Загружаем куда надо
+			$.ajaxhelper({
+				"url": url,
+				"method": "get",
+				"beforeSend": function()	{
+					$("body").css("cursor","progress");
+				},
+				"success": function(data){
+					console.log( data );
+					target.remove();
+					place.append(data);
+					$("body").css("cursor","default");
+					preparePage();
+				}
+			})
+		} else {
+			return true;
+		}
+		return false;
+	});
   
 }); 
 
-$(document).ready(function () {
 
-	$(".expandable").customExpandable();
+
+
+
+
+$(document).ready(function () {
 
 	// Фэнсибокс с окном логина
 	
@@ -284,7 +356,7 @@ $(document).ready(function () {
 		// maxWidth	: 800,
 		// maxHeight	: 600,
 		fitToView	: false,
-		width		: 730,
+		width		: 750,
 		height		: 'auto',
 		autoSize	: false,
 		closeClick	: false,
@@ -294,8 +366,30 @@ $(document).ready(function () {
 			wrap     : '<div class="fancybox-wrap fancybox-login" tabIndex="-1"><div class="fancybox-skin"><div class="fancybox-outer"><div class="fancybox-inner"></div></div></div></div>'
 		},
 		afterShow: function() {
-			makeup()
-		}
+			makeup();
+		},
+		href: "/files/html/login-window.html",
+	});
+	
+	// Фэнсибокс со специальным окном логина, для регистрации компаний в каталоге
+	
+	$(".login-company-register-fancybox").fancybox({
+		// maxWidth	: 800,
+		// maxHeight	: 600,
+		fitToView	: false,
+		width		: 750,
+		height		: 'auto',
+		autoSize	: false,
+		closeClick	: false,
+		openEffect	: 'none',
+		closeEffect	: 'none',
+		tpl: {
+			wrap     : '<div class="fancybox-wrap fancybox-login" tabIndex="-1"><div class="fancybox-skin"><div class="fancybox-outer"><div class="fancybox-inner"></div></div></div></div>'
+		},
+		afterShow: function() {
+			makeup();
+		},
+		href: "/files/html/login-for-company-register-window.html",
 	});
 
 	// Пойду/ не пойду в мероприятиях
@@ -323,6 +417,10 @@ $(document).ready(function () {
 		})
 		
 	})
+	
+	 
+	
+	
 	
 	$(".post-controls div").click(function() {
 		$(".post-controls").css("z-index",5);
@@ -361,12 +459,13 @@ $(document).ready(function () {
 	$("#"+$(this).attr("for")).iCheck('check');
   });
 
+  /*
   //клик по кнопке "показать еще"
   $(document).on("click", ".rating-show-more a", function() {
     var page = $(this).attr("rel");
     var url = "/ratings/?PAGEN_1="+page;
     var tab = $(this).parents('.rating-content').attr('id');
-    console.log(tab);
+    //console.log(tab);
 	//var url = $(this).attr("href");
 	//var del = page - 1;
 	if(page){
@@ -396,11 +495,9 @@ $(document).ready(function () {
 	}
 	return false; 
   });
+  */
 
-  //согласие в форме регистрации
-    $('#regForm input#7').on('change', function(){
-	    console.log('test123');
-    });
+
 
   $(".form-text,.form-password, .form-textarea").each(function() {
     if ($(this).val()) {
@@ -426,10 +523,6 @@ $(document).ready(function () {
           $(this).removeClass("initial");
           $(this).parents(".form-item").find(".placeholder").hide();
         });
-				$(this).change(function() { 
-          $(this).removeClass("initial");
-          $(this).parents(".form-item").find(".placeholder").hide();
-        });
       }
       $(this).blur(function() {
         $(this).prev().prev(".placeholder").hide();
@@ -441,10 +534,6 @@ $(document).ready(function () {
       });
     } else {
       $(this).focus(function() {
-        $(this).removeClass("initial");
-        $(this).parents(".form-item").find(".placeholder").hide();
-      });
-			$(this).change(function() {
         $(this).removeClass("initial");
         $(this).parents(".form-item").find(".placeholder").hide();
       });
@@ -508,6 +597,8 @@ $(document).ready(function () {
     $('.search-trigger .txt').html($('.search-trigger .txt').text() == 'Поиск по сайту' ? 'Свернуть поиск' : 'Поиск по сайту');
     $(".search-block").slideToggle(250);
     $(".search-trigger .ico").toggleClass("ico-collapse");
+    //сворачиваем инфу с логотипом и авторизации когда развернут поиск
+    $(".header-bottom").slideToggle(250);
   });
   
   // Всплывающее окно с меню пользователя в шапке
@@ -633,7 +724,9 @@ $(document).ready(function () {
 	})
 	
 	//новый фильтр
-	$(".content-filter-content").on("click", "#right_filter_submit", function(){
+	// А также фильтр в разделе "Участники рыка" / "Каталог компаний"
+	//$(".content-filter-content").on("click", "#right_filter_submit", function(){
+	$("#right_filter_submit").on("click", function(){
 		
 		var fields = $('#right_filter_form_block form:eq(0)').serialize();
 		var href = $('#right_filter_form_block form:eq(0)').attr("action");
@@ -661,7 +754,7 @@ $(document).ready(function () {
 			}
 		})
 		return false;
-	})
+	});
 	 
 	
 	// Calendar
@@ -703,6 +796,9 @@ $(document).ready(function () {
 	}) 
   
 	preparePage();
+
+  
+  
 
   // Separating news items by rows
 
@@ -750,6 +846,11 @@ $(document).ready(function () {
     });
 
  }*/
+ 
+  
+  
+
+
   
 });
 
@@ -1859,112 +1960,6 @@ $(document).ready(function () {
   }
 })( jQuery );
 
-// Статичные рейтинги на главной
-
-(function( jQuery ) {
-  jQuery.fn.mainpageRatingsStatic = function() {
-    
-    var ratings = $(this);
-    
-    if (1) {
-    
-      var startIndex = 0;
-      
-      var prevBtn = $("<div class='prev'></div>");
-      
-      ratings.append(prevBtn);
-			
-    
-      var nextBtn = $("<div class='next'></div>");
-      
-      ratings.append(nextBtn);
-
-			var items = ratings.find(".ratings-card");
-
-			if (items.length < 2) {
-				prevBtn.addClass("button-inact")
-				nextBtn.addClass("button-inact")
-			}
-			
-      
-      
-      ratings.find(".ratings-card").eq(0).addClass("act")
-      
-      ratings.parents(".content-block").find("h2").append("<a class='rating-link' href='"+items.eq(0).data("ratingurl")+"'>"+items.eq(0).data("ratingname")+"</a>")
-      
-      nextBtn.click(function() {
-        
-        if (!ratings.hasClass("moving")) {
-				
-          ratings.addClass("moving");
-					
-					if (items.filter(".act").next().length) {
-						var nextItem = items.filter(".act").next()
-					} else {
-						var nextItem = items.eq(0)
-					}
-        
-          ratings.parents(".content-block").find(".rating-link").remove();
-          ratings.parents(".content-block").find("h2").append("<a class='rating-link' href='"+nextItem.data("ratingurl")+"'>"+nextItem.data("ratingname")+"</a>")
-          
-					items.filter(".act").hide().removeClass("act");
-        
-					nextItem.show().addClass("act").css({
-						opacity: 0,
-						marginLeft:10,
-						marginTop:10
-					}).animate({
-						opacity: 1,
-						marginLeft: 0,
-						marginTop: 0
-					},250,function() {
-						ratings.removeClass("moving");
-					});
-					
-				}
-				
-      });
-      
-      prevBtn.click(function() {
-        
-        if (!ratings.hasClass("moving")) {
-				
-          ratings.addClass("moving");
-					
-					if (items.filter(".act").prev().length) {
-						var nextItem = items.filter(".act").prev()
-					} else {
-						var nextItem = items.eq(items.length - 1)
-					}
-        
-          ratings.parents(".content-block").find(".rating-link").remove();
-          ratings.parents(".content-block").find("h2").append("<a class='rating-link' href='"+nextItem.data("ratingurl")+"'>"+nextItem.data("ratingname")+"</a>")
-          
-					items.filter(".act").hide().removeClass("act");
-        
-					nextItem.show().addClass("act").css({
-						opacity: 0,
-						marginLeft:-10,
-						marginTop:-10
-					}).animate({
-						opacity: 1,
-						marginLeft: 0,
-						marginTop: 0
-					},250,function() {
-						ratings.removeClass("moving");
-					});
-					
-				}
-				
-      });
-      
-    } else {
-      alert("Произошла техническая ошибка. Попробуйте перегрузить страницу.");
-    }
-  }
-})( jQuery );
-
-
 // Парсинг XML
 
 jQuery.extend({
@@ -2113,7 +2108,7 @@ function buildCatCard(catCard,j,items) {
     catCard.find(".comments-views").append("<span class='cv-item'><a href='#'><span class='ico ico-comments'></span>"+items[j].comments+"</a></span>");
   }
   if (items[j].review != "") {
-    catCard.find(".comments-views").append("<span class='cv-item'><a href='"+items[j].review+"'><span class='ico ico-review'></span>Обзор редакции</a></span>");
+    catCard.find(".comments-views").append("<span class='cv-item'><a href='"+items[j].review+"'><span class='ico ico-review'></span>Обзор</a></span>");
   }
   if (items[j].rating != "") {
     catCard.children(".item-cont").append("<div class='rating fc'><div class='place'><span>"+items[j].rating+"</span>место</div><div class='ratingname'>"+items[j].ratingname+"</div></div>");
@@ -2132,15 +2127,15 @@ function buildRatCard(ratCard,j,items) {
 
   ratCard.append("<div class='rating-item' /><div class='rating-item' /><div class='rating-item last' />");
   
-  ratCard.children(".rating-item").eq(0).append("<a class='logo' href='" + items[j].url.first + "'><img src='" + items[j].logo.first + "'/></a>");
-  ratCard.children(".rating-item").eq(1).append("<a class='logo' href='" + items[j].url.second + "'><img src='" + items[j].logo.second + "'/></a>");
-  ratCard.children(".rating-item").eq(2).append("<a class='logo' href='" + items[j].url.third + "'><img src='" + items[j].logo.third + "'/></a>");
+  ratCard.children(".rating-item").eq(0).append("<a class='logo' target='_blank' href='" + items[j].url.first + "'><img src='" + items[j].logo.first + "'/></a>");
+  ratCard.children(".rating-item").eq(1).append("<a class='logo' target='_blank' href='" + items[j].url.second + "'><img src='" + items[j].logo.second + "'/></a>");
+  ratCard.children(".rating-item").eq(2).append("<a class='logo' target='_blank' href='" + items[j].url.third + "'><img src='" + items[j].logo.third + "'/></a>");
   
   ratCard.children(".rating-item").eq(0).append("<div class='rating-place rating-place-1'></div>");
   ratCard.children(".rating-item").eq(1).append("<div class='rating-place rating-place-2'></div>");
   ratCard.children(".rating-item").eq(2).append("<div class='rating-place rating-place-3'></div>");
   
-  ratCard.children(".rating-item").append("<div class='rating-name'>в рейтинге<br />"+ items[j].ratingname +"</div>");
+  ratCard.children(".rating-item").append("<div class='rating-name'>в рейтинге<br />" + items[j].ratingname +"</div>");
   
 }
 
@@ -2170,12 +2165,17 @@ function makeup() {
   //});
 	
 
-	$("input:text, input:password, textarea").each(function() {
+	//$("input:text, input:password, textarea").each(function() {
+	$(".custom-form input:text, .custom-form input:password, .custom-form textarea"
+		+ ", .search-block input:text, .search-block input:password, .search-block textarea")
+	.each(function() {
 		
 		if (!$(this).parents(".input-wrapper").length) $(this).wrap("<div class='input-wrapper'></div>");
 	
     if (!$(this).val()) {
 			$(this).addClass("initial");
+		} else {
+			$(this).parents(".form-item").find(".placeholder").hide();
 		}
     
     if ($(this).prop("tagName") == "INPUT" || $(this).prop("tagName") == "TEXTAREA") {
@@ -2406,18 +2406,20 @@ function makeup() {
             div.parents(".param-open").removeClass("param-open");
           });
         });
+		
+		$(document).mouseup(function (e) {
+			var container1 = dropdown;
+
+			if (!container1.is(e.target) // if the target of the click isn't the container...
+					&& container1.has(e.target).length === 0) // ... nor a descendant of the container
+			{
+					dropdown.fadeOut(150)
+			}
+		});
       
       }
 			
-			$(document).mouseup(function (e) {
-				var container1 = dropdown;
 
-				if (!container1.is(e.target) // if the target of the click isn't the container...
-						&& container1.has(e.target).length === 0) // ... nor a descendant of the container
-				{
-						dropdown.fadeOut(150)
-				}
-			});
 			
 			
     });
@@ -2425,33 +2427,6 @@ function makeup() {
   };
 })( jQuery );
 
-(function( $ ) {
-  $.fn.customExpandable = function() {
-    var objects = $(this);
-    objects.each(function () {
-      
-			var expandable = $(this);
-      
-			var expandableTrigger = $(this).find(".expandable-trigger");
-			var expandableContent = $(this).find(".expandable-content");
-			
-      expandableTrigger.click(function() {
-				expandableContent.slideToggle(250);
-				
-				if (expandableTrigger.hasClass("expandable-trigger-on")) {
-					expandableTrigger.removeClass("expandable-trigger-on").addClass("expandable-trigger-off");
-					expandableTrigger.find("span").html(expandableTrigger.data("off-text"));
-				} else {
-					expandableTrigger.removeClass("expandable-trigger-off").addClass("expandable-trigger-on")
-					expandableTrigger.find("span").html(expandableTrigger.data("on-text"));
-				}
-			});
-			
-			
-    });
-    
-  };
-})( jQuery );
 
 function compUnits(n) {
   var n = n + "";
@@ -2473,7 +2448,7 @@ function compUnits(n) {
 
 function handleTools() {
   if ($(".tools").length) {
-  
+
     $(document.body).on('click', '.toolsreviews .show-more' ,function() {
       var link = $(this);
       link.after("<div class='loader' />");
@@ -2488,7 +2463,7 @@ function handleTools() {
         makeup();
       });
     });
-  
+
     $(".toolsreviews-item .ico-comments").hover(function() {
       var pup = $(this).parents(".toolsreviews-item").find(".tool-review-pup")
       $(this).addClass("hover");
@@ -2532,6 +2507,7 @@ function handleTools() {
       },500)
     });
     
+
     $(".toolslist-item .ico-comments").hover(function() {
       $(this).addClass("hover")
       var pup = $(this).parents(".toolslist-item").find(".tool-review-pup")
@@ -2551,7 +2527,6 @@ function handleTools() {
         }
       },500)
     });
-    
     $(".toolslist-item .pic").hover(function() {
       $(this).addClass("hover")
       var pup = $(this).parents(".toolslist-item").find(".tool-review-pup")
@@ -2571,7 +2546,6 @@ function handleTools() {
         }
       },500)
     });
-    
     $(".tool-review-pup").hover(function() {
       $(this).addClass("hover")
     },function() {
@@ -2584,7 +2558,6 @@ function handleTools() {
       },200)
       
     });
-    
     $(".toolslist .comments-views").hover(function() {
       $(this).addClass("hover")
     },function() {
@@ -2596,7 +2569,6 @@ function handleTools() {
         }
       },200)
     });
-    
     $("#tf_select").change(function() {
       if ($(this).val() != "all") {
         $(".tool-type").hide();
@@ -2605,8 +2577,7 @@ function handleTools() {
         $(".tool-type").show();
       }
     });
-    
-    
+    //--start-- сортировка по категориям --start--
     $(".tf-sort .link").click(function() {
       $(".tf-sort .link").removeClass("act");
       $(this).addClass("act");
@@ -2630,6 +2601,7 @@ function handleTools() {
         list.find('.toolsrevews-item').remove();
         list.append(listItems);
       }
+	  
       if ($(this).attr("sort") == "names") {
         var list = $('.toolsreviews');
         var listItems = list.find(".toolsreviews-item").sort(function(a,b){
@@ -2648,6 +2620,7 @@ function handleTools() {
         list.find('.toolsrevews-item').remove();
         list.append(listItems);
       };
+	  
       if ($(this).attr("sort") == "choices") {
         var list = $('.toolsreviews');
         var listItems = list.find(".toolsreviews-item").sort(function(a,b){
@@ -2675,14 +2648,14 @@ function handleTools() {
         $(this).remove();
         index++;
       })
-      
+	
+	  //переносим кнопку показать еще чтоли
       var showMore = $(".toolsreviews .show-more").clone();
       $(".toolsreviews .show-more").remove();
       $(".toolsreviews-item").last().after(showMore);
-      
-      
-      
     });
+	//--end-- сортировка по категориям --end--
+
   }
 }
 
@@ -2788,7 +2761,7 @@ function adaptation() {
     }
     
     if ($(".toolsreviews").length) {
-      $(".toolsreviews .ico-review").parent().html("<span class='ico ico-review'></span> Обзор редакции");
+      $(".toolsreviews .ico-review").parent().html("<span class='ico ico-review'></span> Обзор");
     }
     
     if ($(".tool-descr .rating").length) {
@@ -2903,42 +2876,6 @@ function preparePage() {
   
   if ($(".tooltip-custom").length) {
     $(".tooltip-custom").tooltip({
-      position: {
-          my: "center bottom",
-          at: "center top",
-          using: function( position, feedback ) {
-            $( this ).css( position );
-            $( "<div>" )
-              .addClass( "arrow" )
-              .addClass( feedback.vertical )
-              .addClass( feedback.horizontal )
-              .appendTo( this );
-          }
-        }
-    });
-  }
-	
-	if ($(".company-info .company-rating").length) {
-    $(".company-rating").tooltip({
-			tooltipClass: "company-rating-tooltip",
-      position: {
-          my: "center bottom",
-          at: "center top",
-          using: function( position, feedback ) {
-            $( this ).css( position );
-            $( "<div>" )
-              .addClass( "arrow" )
-              .addClass( feedback.vertical )
-              .addClass( feedback.horizontal )
-              .appendTo( this );
-          }
-        }
-    });
-  }
-	
-	if ($(".company-info .company-tenders").length) {
-    $(".company-tenders").tooltip({
-			tooltipClass: "company-tenders-tooltip",
       position: {
           my: "center bottom",
           at: "center top",
@@ -3102,15 +3039,7 @@ function preparePage() {
     return false;
     
   });
-  
-  
-  $(".review-button").click(function() {
-    $(".review-button").removeClass("button-act");
-    $(this).addClass("button-act");
-    $(".review-input").val(0);
-    $(".review-input[rel='"+$(this).attr("id")+"']").val(1);
-    
-  });
+
 
   
   
@@ -3398,47 +3327,37 @@ function preparePage() {
   // Обработка табов
     
   $(".tabbed-content .tab").on('click', function() {
-  	
-  	
-  
-    $(this).parents(".tabs").find(".tab").removeClass("act");
-    $(this).addClass("act");
-    $(this).parents(".tabbed-content").find(".tab-content").hide()
-    var target = $(this).parents(".tabbed-content").find("#"+$(this).attr("rel"));
-    target.show()
+  	var it = $(this);
+	
+	if( it.hasClass( "act" ) ) {
+		return false;
+	}
+	
+	var act = it.closest(".tabs").find(".tab.act");
+    var old_tab_selector = "#" + act.attr("rel");
+    var new_tab_selector = "#" + it.attr("rel");
+	
+	var old_tab = it.closest(".tabbed-content").find( old_tab_selector );
+	var new_tab = it.closest(".tabbed-content").find( new_tab_selector );
+	
+	old_tab.fadeOut( 200, function() {
+		new_tab.fadeIn( 200, function() {
+		
+		});
+	});
+	
+	act.removeClass( "act" );
+	it.addClass( "act" );
+	
     var sT1 = $("body").scrollTop();
     var sT2 = $("html").scrollTop();
     if (sT1) {
-      sT = sT1
+      sT = sT1;
     } else {
-      sT = sT2
+      sT = sT2;
     }
     
-    var id = $(this).attr('id');
-    if(id == 'type_29' || id == 'type_28')
-    {
-	    var type = id.substr(-2);
-	    if($('#admin_page_ratings').length)
-	      	 var href = "/ratings/admin_type_ajax.php?type=" + type;
-	      else
-	      	 var href = "/ratings/type_ajax.php?type=" + type;
-	   
-	    var new_url = "/ratings/?type=" + type; //новый урл, который нужно будет подставить
-	      $.ajax({
-	        url: href,
-	        type: 'get',
-	        dataType: 'html',
-	        async: false
-	      }).done(function(data) {
-	        target.html(data);
-	        //preparePage();
-	        twttr.widgets.load();
-	        FB.XFBML.parse();
-	      });
-	    
-    }
-    
-    window.location.hash = $(this).attr("rel")
+    window.location.hash = it.attr("rel")
     $("body,html").animate({
       scrollTop: sT
     },0);
@@ -3482,25 +3401,140 @@ function preparePage() {
 		$(this).parents("label").toggleClass("label-checked");
 	});
 	
+		$('.content-type-filter input:checkbox').on('ifChecked', function(){
+			$(this).parents(".content-type-filter").find("input:checkbox").not($(this)).iCheck("uncheck");
+			$(".content-filter-form .reset").css("display","inline-block");
+		});
+		
+		$('.content-type-filter input:checkbox').on('ifUnchecked', function(){
+			if (!$(".content-type-filter input").is(":checked").length) {
+				$(".content-filter-form .reset").css("display","none");
+			}
+		});
+		
+		$(".content-filter-form .reset").click(function() {
+			$(".content-type-filter input:checkbox").iCheck("uncheck")
+		});
+	
 	$('.companies-type-filter input:checkbox').on('ifChecked ifUnchecked', function(){
 		$(this).parents("label").toggleClass("label-checked");
-		$(".found-hint").css("top",$(this).parents("label").position().top);
+		//$(".found-hint").css("top",$(this).parents("label").position().top);
 	});
 	
-	$('.content-type-filter input:checkbox').on('ifChecked', function(){
-		$(this).parents(".content-type-filter").find("input:checkbox").not($(this)).iCheck("uncheck");
-		$(".content-filter-form .reset").css("display","inline-block");
+		$('.companies-type-filter input:checkbox').on('ifChecked', function(){
+			//$(this).parents(".companies-type-filter").find("input:checkbox").not($(this)).iCheck("uncheck");
+			var container_id = $(this).closest( ".companies-type-filter" ).attr( "id" );
+			$(".companies-filter-form .reset[for='" + container_id + "']").css("display","inline-block");
+		});
+		
+		$('.companies-type-filter input:checkbox').on('ifUnchecked', function() {
+			var container = $(this).closest( ".companies-type-filter" );
+			var container_id = container.attr( "id" );
+			if( $( "input:checked", container ).length <= 0 ) {
+				$(".companies-filter-form .reset[for='" + container_id + "']").css("display","none");
+			}
+		});
+		
+		$('.companies-type-filter .filter-text-block input').on( "keyup", function() {
+			var it = $(this);
+			var container_id = it.closest( ".companies-type-filter" ).attr( "id" );
+			//console.log( it, container_id );
+			if( String( it.val() ).length > 0 ) {
+				it.addClass( "filter-filled" );
+				$(".companies-filter-form .reset[for='" + container_id + "']").css("display","inline-block");
+			} else {
+				it.removeClass( "filter-filled" ).addClass( "initial" );
+				$(".companies-filter-form .reset[for='" + container_id + "']").css("display","none");
+			}
+		});
+	
+		$(".companies-filter-form .reset").click(function() {
+			var container_id = $(this).attr( "for" );
+			//console.log( ".companies-type-filter #" + container_id + " input:checkbox" );
+			$("#" + container_id + ".companies-type-filter input:checkbox").iCheck("uncheck");
+			$("#" + container_id + ".companies-type-filter input[type='text']").removeClass( "filter-filled" ).val("");
+		});
+		
+	$('.tools-type-filter input:checkbox').on('ifChecked ifUnchecked', function(){
+		$(this).parents("label").toggleClass("label-checked");
+		//$(".found-hint").css("top",$(this).parents("label").position().top);
 	});
 	
-	$('.content-type-filter input:checkbox').on('ifUnchecked', function(){
-		if (!$(".content-type-filter input").is(":checked").length) {
-			$(".content-filter-form .reset").css("display","none");
-		}
+		$('.tools-type-filter input:checkbox').on('ifChecked', function(){
+			//$(this).parents(".tools-type-filter").find("input:checkbox").not($(this)).iCheck("uncheck");
+			var container_id = $(this).closest( ".tools-type-filter" ).attr( "id" );
+			$(".tools-filter-form .reset[for='" + container_id + "']").css("display","inline-block");
+		});
+		
+		$('.tools-type-filter input:checkbox').on('ifUnchecked', function() {
+			var container = $(this).closest( ".tools-type-filter" );
+			var container_id = container.attr( "id" );
+			if ( $( "input:checked", container ).length <= 0 ) {
+				$(".tools-filter-form .reset[for='" + container_id + "']").css("display","none");
+			}
+		});
+		
+		$('.tools-type-filter .filter-text-block input').on( "keyup", function() {
+			var it = $(this);
+			var container_id = it.closest( ".tools-type-filter" ).attr( "id" );
+			//console.log( it, container_id );
+			if( String( it.val() ).length > 0 ) {
+				it.addClass( "filter-filled" );
+				$(".tools-filter-form .reset[for='" + container_id + "']").css("display","inline-block");
+			} else {
+				it.removeClass( "filter-filled" ).addClass( "initial" );
+				$(".tools-filter-form .reset[for='" + container_id + "']").css("display","none");
+			}
+		});
+	
+		$(".tools-filter-form .reset").click(function() {
+			var container_id = $(this).attr( "for" );
+			//console.log( ".tools-type-filter #" + container_id + " input:checkbox" );
+			$("#" + container_id + ".tools-type-filter input:checkbox").iCheck("uncheck");
+			$("#" + container_id + ".tools-type-filter input[type='text']").removeClass( "filter-filled" ).val("");
+		});
+		
+		
+		
+	$('.books-type-filter input:checkbox').on('ifChecked ifUnchecked', function(){
+		$(this).parents("label").toggleClass("label-checked");
+		//$(".found-hint").css("top",$(this).parents("label").position().top);
 	});
 	
-	$(".content-filter-form .reset").click(function() {
-		$(".content-type-filter input:checkbox").iCheck("uncheck")
-	});
+		$('.books-type-filter input:checkbox').on('ifChecked', function(){
+			//$(this).parents(".books-type-filter").find("input:checkbox").not($(this)).iCheck("uncheck");
+			var container_id = $(this).closest( ".books-type-filter" ).attr( "id" );
+			$(".books-filter-form .reset[for='" + container_id + "']").css("display","inline-block");
+		});
+		
+		$('.books-type-filter input:checkbox').on('ifUnchecked', function() {
+			var container = $(this).closest( ".books-type-filter" );
+			var container_id = container.attr( "id" );
+			if ( $( "input:checked", container ).length <= 0 ) {
+				$(".books-filter-form .reset[for='" + container_id + "']").css("display","none");
+			}
+		});
+		
+		$('.books-type-filter .filter-text-block input').on( "keyup", function() {
+			var it = $(this);
+			var container_id = it.closest( ".books-type-filter" ).attr( "id" );
+			//console.log( it, container_id );
+			if( String( it.val() ).length > 0 ) {
+				it.addClass( "filter-filled" );
+				$(".books-filter-form .reset[for='" + container_id + "']").css("display","inline-block");
+			} else {
+				it.removeClass( "filter-filled" ).addClass( "initial" );
+				$(".books-filter-form .reset[for='" + container_id + "']").css("display","none");
+			}
+		});
+	
+		$(".books-filter-form .reset").click(function() {
+			var container_id = $(this).attr( "for" );
+			//console.log( ".books-type-filter #" + container_id + " input:checkbox" );
+			$("#" + container_id + ".books-type-filter input:checkbox").iCheck("uncheck");
+			$("#" + container_id + ".books-type-filter input[type='text']").removeClass( "filter-filled" ).val("");
+		});
+	
   
   $(".type-filter").addClass("initial");
   
@@ -3594,8 +3628,8 @@ function preparePage() {
         makeup();	
         newsMakeup();
     });
-	
   });
+
   
   $(".nav-calendar .ajax-link").click(function() {
    
@@ -3609,45 +3643,34 @@ function preparePage() {
   
   // Клик по навигации с датами
   
-  $(document.body).on('click', ".year-nav .item" ,function() {
+	$(document.body).on('click', ".year-nav .item", function( event ) {
+		var target = $( event.target );
+		if( target.is( ".year-nav .item" ) ) {
+			var it = target;
+		} else {
+			var it = target.closest( ".year-nav .item" );
+		}
+		//console.log( it );
+		var it_parent = it.closest( ".tab-content" );
+		if( !it.hasClass("act") ) {
+			var ratingID = it.data( "rating-id" );
+			//console.log( ratingID );
+			if( ratingID > 0 ) {
+				it_parent.find( ".year-nav .item" )
+					.removeClass( "act" )
+					.filter( "[data-rating-id='" + ratingID + "']" )
+					.addClass( "act" );
+				var list = it_parent.find( ".rating-content" );
+					list.filter( ":visible" )
+					.fadeOut( 200, function() {
+						list.filter( "[data-rating-id='" + ratingID + "']" )
+						.fadeIn( 200 );
+					});
+			}
+		}
+	});
   
- 
-    if (!$(this).hasClass("act")) {
-      $(".year-nav .item").removeClass("act");
-      var link = $(this);
-      link.addClass("act");
-      var target = $("#"+$(this).attr("rel"));
-      
-      $(".year-nav").closest(".rating-years").find(".rating-content").hide();
-	 
-    
-	  var link = $(this);
-      link.after("<div class='loader' />");
-      
-      var year_id = $(this).attr("data-year-id");
-      if($('#admin_page_ratings').length)
-      	var href = "/ratings/admin_detail_ajax.php?ID=" + year_id;
-      else
-      	var href = "/ratings/detail_ajax.php?ID=" + year_id;
-      var new_url = "/ratings/" + year_id + "/"; //новый урл, который нужно будет подставить
-      $.ajax({
-        url: href,
-        type: 'get',
-        dataType: 'html',
-        async: false
-      }).done(function(data) {
-        $(".loader").remove();
-        target.html(data);
-        twttr.widgets.load();
-        FB.XFBML.parse();
-        target.fadeIn(250);
-        //makeup();
-      });
-    
-    }
-  
-  });
-  
+  /*
   // Подгрузка из html по клику
   
   $(".show-more").click(function() {
@@ -3664,9 +3687,9 @@ function preparePage() {
       makeup();
     });
   });
+  */
 
-  
-  
+
   $(document.body).on('click', '.section-filter .link', function() {
     $(".section-filter .link").removeClass("act")
     $(this).addClass("act");
@@ -3697,9 +3720,9 @@ function preparePage() {
         handleTools();
       });
     }
-	
   });
-  
+
+
   if ($(".section-filter-tools").length) {
     $(".section-filter-tools .link").last().trigger("click");
   }
@@ -3717,6 +3740,7 @@ function preparePage() {
 
   // Клик по "Добавить в избранное"
 
+  /*
   $(".fav-trigger").click(function() {
     $(".fav-hint").remove();
     $('.fav-trigger span').html($('.fav-trigger span').html() == 'В избранное' ? 'В избранном' : 'В избранное');
@@ -3730,6 +3754,131 @@ function preparePage() {
       })
     },2000);
   });
+  */
+  
+//
+// Раздел "Каталог компаний", нажатие на кнопку "Мне нравится"
+//
+
+	var companyLikeInProgress = false;
+	
+	$( "#company-detail-like-btn, #company-detail-unlike-btn" ).on( "click", function() {
+		if( companyLikeInProgress ) return;
+		companyLikeInProgress = true;
+		//
+		var it = $(this);
+		var company_id = it.attr( "data-company-id" );
+		//
+		var action = "add";
+		if( it.is( "#company-detail-unlike-btn" ) ) {
+			action = "remove";
+		}
+		//
+		$( "#company-detail-like-btn, #company-detail-unlike-btn" ).hide()
+			.not( it ).show();
+		//
+		$.ajax({
+			"url": "/companies/ajax.php",
+			"type": "POST",
+			"data": {
+				"action": action,
+				"company_id": company_id
+			},
+			"complete": function() {
+				companyLikeInProgress = false;
+			},
+			"error": function() {
+				$( "#company-detail-like-btn, #company-detail-unlike-btn" ).hide()
+					.filter( it ).show();
+				//console.log( "error!" );
+			},
+			"success": function( data ) {
+				//console.log( data );
+				data = $(data);
+				if( data.find( ".success-flag" ).length > 0 ) {
+					$( "#company-detail-likes-counter" ).text( data.find( ".likes-count" ).text() );
+				} else {
+					$( "#company-detail-like-btn, #company-detail-unlike-btn" ).hide()
+						.filter( it ).show();
+				}
+			}
+		});
+	});
+	
+//
+// Раздел "Инструменты и сервисы", нажатие на кнопку "Голосовать"
+//
+var companyLikeInProgress = false;
+
+$( "#tool-detail-like-btn, #tool-detail-unlike-btn" ).on( "click", function() {
+	if( companyLikeInProgress ) return;
+	companyLikeInProgress = true;
+	//
+	var it = $(this);
+	var tool_id = it.attr( "data-tool-id" );
+	//
+	var action = "add";
+	if( it.is( "#tool-detail-unlike-btn" ) ) {
+		action = "remove";
+	}
+	//
+	$( "#tool-detail-like-btn, #tool-detail-unlike-btn" ).hide()
+		.not( it ).show();
+	//
+	$.ajax({
+		"url": "/tools/ajax.php",
+		"type": "POST",
+		"data": {
+			"action": action,
+			"tool_id": tool_id
+		},
+		"complete": function() {
+			companyLikeInProgress = false;
+		},
+		"error": function() {
+			$( "#tool-detail-like-btn, #tool-detail-unlike-btn" ).hide()
+				.filter( it ).show();
+			//console.log( "error!" );
+		},
+		"success": function( data ) {
+			//console.log( data );
+			data = $(data);
+			if( data.find( ".success-flag" ).length > 0 ) {
+				$( "#tool-detail-likes-counter" ).text( data.find( ".likes-count" ).text() );
+			} else {
+				$( "#tool-detail-like-btn, #tool-detail-unlike-btn" ).hide()
+					.filter( it ).show();
+			}
+		}
+	});
+});
+	
+//
+// Раздел "Библиотека", нажатие на кнопку "Скачать" или "Купить" (на любую)
+//
+
+	var bookLikeInProgress = false;
+	
+	$( ".library-book-ds-button[data-book-id]" ).on( "click", function() {
+		if( bookLikeInProgress ) return;
+		bookLikeInProgress = true;
+		//
+		var it = $(this);
+		var book_id = it.attr( "data-book-id" );
+		//
+		$.ajax({
+			"url": "/books/ajax.php",
+			"type": "POST",
+			"data": {
+				"book_id": book_id
+			},
+			"complete": function() {
+				bookLikeInProgress = false;
+			},
+		});
+		//
+		return true;
+	});
   
   
   /*
@@ -3768,7 +3917,7 @@ function preparePage() {
   });
   */
   
-  
+  /*
   $("*").hover(function() {
     if ($(this).attr("hint")) {
       $(".hint-dis").remove();
@@ -3785,6 +3934,7 @@ function preparePage() {
       });
     }
   });
+  */
   
 
   /* if ($(".mainpage-calendar").length) {
@@ -3796,9 +3946,7 @@ function preparePage() {
   }
   
   if ($(".mainpage-ratings").length) {
-    //$(".mainpage-ratings").mainpageRatings();
-		// Статичная листалка рейтингов
-    $(".mainpage-ratings").mainpageRatingsStatic();
+    $(".mainpage-ratings").mainpageRatings();
   }
   
   $(".rating").hover(function() {
@@ -3989,8 +4137,9 @@ function evCalendar() {
     }
   });
   
-  
 }
+//--------календарь событий end -------------
+
 
 function openPopup(popup) {
   var popup = popup;
@@ -4156,3 +4305,439 @@ jQuery.extend(jQuery.validator.messages, {
     min: jQuery.validator.format("Please enter a value greater than or equal to {0}.")
 });
 
+
+//
+// Обработчики системы Отзывов
+// В "Каталоге компаний" и "Каталоге инструментов и сервисов"
+//
+$(function() {
+	$( "#matrev-open" ).on( "click", function() {
+		//
+		// Показываем форму отзыва на детальной странице компании в "Каталоге компаний"
+		//
+		$( ".matrev-form" ).slideToggle( 500 );
+	});
+	
+	$( ".companies-requests-matrev-open" ).on( "click", function() {
+		//
+		// Показываем форму отзыва на странице "Мои заявки на услуги компаний"
+		//
+		/*
+		var form_id = $( this ).data( "matrev-mid" );
+		if( form_id > 0 ) {
+			var form = $( ".matrev-form form[data-matrev-mid='" + form_id + "']" );
+			var form_wrapper = form.closest( ".matrev-form-wrapper" );
+			form_wrapper.show();
+			form.slideToggle( 500 );
+		}
+		*/
+		
+		var it = $( this );
+		var container = it.closest( ".companies-requests-list-item" );
+		var it_row = it. closest( "tr" );
+		var form = container.find( ".matrev-form" );
+		
+		//it_row.remove();
+		it_row.find( "td ").css( "border-bottom", it_row.find( "td ").css( "border-top" ) );
+		form.slideToggle( 500 );
+		
+	});
+	
+	var Textarea = $( ".matrev-form textarea" );
+	var TextareaInitPadding = parseInt(Textarea.css("padding-top")) + parseInt(Textarea.css("padding-bottom"));
+	var TextareaInitHeightReal = Textarea.height() - TextareaInitPadding;
+	
+	$( ".matrev-form" ).on( "keyup", "textarea", function( event ) {
+		var target = $( event.target );
+		target.height( TextareaInitHeightReal );
+		var targetScrollHeightReal = event.target.scrollHeight /*- TextareaInitPadding*/;
+		if( targetScrollHeightReal > TextareaInitHeightReal ) {
+			target.height( targetScrollHeightReal );
+		}
+	});
+	
+	$( window ).on( "resize", function() {
+		$( ".matrev-form textarea" ).each( function() {
+			var target = $( this );
+			target.height( TextareaInitHeightReal );
+			var targetScrollHeightReal = this.scrollHeight /*- TextareaInitPadding*/;
+			if( targetScrollHeightReal > TextareaInitHeightReal ) {
+				target.height( targetScrollHeightReal );
+			}
+		});
+	});
+	
+	$( ".matrev-form .matrev-opinion .button" ).on( "click", function() {
+		var it = $( this );
+		if( it.hasClass( "button-act" ) ) {
+			return false;
+		}
+		
+		var form = it.closest( ".matrev-form" );
+		form.find( ".matrev-opinion .button" ).removeClass( "button-act" );
+		it.addClass( "button-act" );
+		return false;
+	});
+	
+	$( ".matrev-form form" ).on( "submit", function( event ) {
+		var form = $( this );
+		event.preventDefault();
+		
+		//console.log( form );
+		
+		if( formIsInProgress() ) {
+			return false;
+		}
+		formSetInProgress( true );
+
+		var data = {
+			"mid": String( form.find( "[name='mid']" ).val() ),
+			"project_name": String( form.find( "[name='project_name']" ).val() ),
+			"project_time": String( form.find( "[name='project_time']" ).val() ),
+			"review_pos": String( form.find( "[name='review_pos']" ).val() ),
+			"review_neg": String( form.find( "[name='review_neg']" ).val() ),
+			"review_comment": String( form.find( "[name='review_comment']" ).val() ),
+			"opinion_type": "neu"
+		};
+		
+		//console.log( data );
+		
+		if( form.find( ".button-pos" ).hasClass( "button-act" ) ) {
+			data.opinion_type = "pos";
+		} else if( form.find( ".button-neg" ).hasClass( "button-act" ) ) {
+			data.opinion_type = "neg";
+		}
+		
+		if( data.project_name.length > 3 && data.project_time != "" ) {
+		
+			if( data.mid > 0 ) {
+			
+				if( form.closest( ".tool-page" ).length > 0 ) {
+					// Обрабатываем форму отзывов в разделе "Инструменты и сервисы"
+					var url = "/ajax/tools_add_review.php";
+				} else if( form.closest( ".company-page" ).length > 0 )  {
+					// Обрабатываем форму отзывов в разделе "Каталог компаний" на детальной странице компании
+					var url = "/ajax/company_add_review.php";
+				} else if( form.closest( ".companies-requests-list" ).length > 0 )  {
+					// Обрабатываем форму отзывов в разделе "Каталог компаний" на странице списка заявок
+					var url = "/ajax/company_add_review.php";
+				} else {
+					// Что-то непонятное
+					return false;
+				}
+			
+				$.ajax({
+					"url": url,
+					"type": "POST",
+					"data": data,
+					"error": function() {
+						showErrorServer();
+					},
+					"success": function( data ) {
+						data = $( data );
+						if( data.find(".success-flag").length > 0 ) {
+							showSuccess();
+						} else {
+							showErrorServer();
+						}
+					}
+				});
+			
+			} else {
+				console.log( data );
+				showErrorServer();
+			}
+		
+		} else {
+			showErrorReqFields();
+		}
+		
+		//
+		// Вспомогательные функции
+		//
+		
+		function formIsInProgress() {
+			return form.hasClass( "in-progress" );
+		}
+		
+		function formSetInProgress( is ) {
+			if( is == true ) {
+				form.addClass( "in-progress" );
+			} else {
+				form.removeClass( "in-progress" );
+			}
+		}
+		
+		function showSuccess() {
+			form.find( ".matrev-success, .matrev-error" ).hide();
+			form.find( ".matrev-success" ).slideDown( 200, function() {
+				setTimeout( function() {
+					reloadReviewsList();
+					form.find( ".matrev-success" ).slideUp( 200, function() {
+						formSetInProgress( false );
+					});
+				}, 3000 );
+			});
+		}
+		
+		function showErrorServer() {
+			form.find( ".matrev-success, .matrev-error" ).hide();
+			form.find( ".matrev-error-server" ).slideDown( 200, function() {
+				setTimeout( function() {
+					form.find( ".matrev-error-server" ).slideUp( 200, function() {
+						formSetInProgress( false );
+					});
+				}, 3000 );
+			});
+		}
+		
+		function showErrorReqFields() {
+			form.find( ".matrev-success, .matrev-error" ).hide();
+			form.find( ".matrev-error-req" ).slideDown( 200, function() {
+				setTimeout( function() {
+					form.find( ".matrev-error-req" ).slideUp( 200, function() {
+						formSetInProgress( false );
+					});
+				}, 3000 );
+			});
+		}
+		
+		function reloadReviewsList() {
+		
+			if( form.closest( ".tool-page" ).length > 0 ) {
+				// Обрабатываем загрузку отзывов в разделе "Инструменты и сервисы"
+				var url = "/ajax/tools_get_review.php";
+			} else if( form.closest( ".company-page" ).length > 0 )  {
+				// Обрабатываем загрузку отзывов в разделе "Компании"
+				var url = "/ajax/company_get_review.php";
+			} else {
+				// Что-то непонятное
+				return false;
+			}
+			
+			$( ".matrev-list-wrapper" ).addClass( "in-progress" );
+			$.ajax({
+				"url": url,
+				"type": "GET",
+				"data": {
+					"mid": String( form.find( "[name='mid']" ).val() )
+				},
+				"success": function( data ) {
+					data = $(data);
+					data.find( ".matrev-list-wrapper" )
+						.replaceAll( ".main-column .matrev-list-wrapper" );
+				},
+				"error": function() {
+					console.log( "Что-то пошло не так!" );
+				}
+			});
+		}
+		
+		return false;// Выход из функции
+		
+	});
+	
+});
+
+//
+// Обработчики сервиса "Заказать услуги"
+// В "Каталоге компаний" 
+//
+
+$(function() {
+
+	var Textarea = $( ".matreq-form textarea" );
+	var TextareaInitPadding = parseInt(Textarea.css("padding-top")) + parseInt(Textarea.css("padding-bottom"));
+	var TextareaInitHeightReal = Textarea.height() - TextareaInitPadding;
+	
+	$( ".matreq-form" ).on( "keyup", "textarea", function( event ) {
+		var target = $( event.target );
+		target.height( TextareaInitHeightReal );
+		var targetScrollHeightReal = event.target.scrollHeight /*- TextareaInitPadding*/;
+		if( targetScrollHeightReal > TextareaInitHeightReal ) {
+			target.height( targetScrollHeightReal );
+		}
+	});
+	
+	$( window ).on( "resize", function() {
+		$( ".matreq-form textarea" ).each( function() {
+			var target = $( this );
+			target.height( TextareaInitHeightReal );
+			var targetScrollHeightReal = this.scrollHeight /*- TextareaInitPadding*/;
+			if( targetScrollHeightReal > TextareaInitHeightReal ) {
+				target.height( targetScrollHeightReal );
+			}
+		});
+	});
+	
+	$( ".matreq-form form" ).on( "submit", function( event ) {
+		var form = $( this );
+		event.preventDefault();
+		
+		if( formIsInProgress() ) {
+			return false;
+		}
+		formSetInProgress( true );
+
+		var data = {
+			"mid": String( form.find( "[name='mid']" ).val() ),
+			"request_fio": String( form.find( "[name='request_fio']" ).val() ),
+			"request_phone": String( form.find( "[name='request_phone']" ).val() ),
+			"request_email": String( form.find( "[name='request_email']" ).val() ),
+			"request_company_name": String( form.find( "[name='request_company_name']" ).val() ),
+			"request_company_site": String( form.find( "[name='request_company_site']" ).val() ),
+			"request_text": String( form.find( "[name='request_text']" ).val() ),
+		};
+		
+		var services_chbx = form.find( ".matreq-chechbox input:checked" );
+		services_chbx.each( function() {
+			var it = $( this );
+			data[ it.attr("name") ] = 'Y';
+		});
+		
+		if( data.request_fio.length > 0 && data.request_phone.length > 0 && data.request_phone.length > 0 ) {
+		
+			if( data.mid > 0 ) {
+			
+				/*
+				if( form.closest( ".tool-page" ).length > 0 ) {
+					// Обрабатываем форму отзывов в разделе "Инструменты и сервисы"
+					var url = "/ajax/tools_add_review.php";
+				} else 
+				*/
+				if( form.closest( ".company-page" ).length > 0 )  {
+					// Обрабатываем форму отзывов в разделе "Компании"
+					var url = "/ajax/company_add_request.php";
+				} else {
+					// Что-то непонятное
+					return false;
+				}
+			
+				$.ajax({
+					"url": url,
+					"type": "POST",
+					"data": data,
+					"error": function() {
+						showErrorServer();
+					},
+					"success": function( data ) {
+						data = $( data );
+						if( data.find(".success-flag").length > 0 ) {
+							form.find( ".matreq-new-request-id" ).text( data.find(".success-new-id").text() );
+							showSuccess();
+						} else {
+							showErrorServer();
+						}
+					}
+				});
+			
+			} else {
+				showErrorServer();
+			}
+		
+		} else {
+			showErrorReqFields();
+		}
+		
+		//
+		// Вспомогательные функции
+		//
+		
+		function formIsInProgress() {
+			return form.hasClass( "in-progress" );
+		}
+		
+		function formSetInProgress( is ) {
+			if( is == true ) {
+				form.addClass( "in-progress" );
+			} else {
+				form.removeClass( "in-progress" );
+			}
+		}
+		
+		function showSuccess() {
+			form.find( ".matreq-success, .matreq-error" ).hide();
+			form.find( ".matreq-success" ).slideDown( 200, function() {
+				formSetInProgress( false );
+				/*
+				setTimeout( function() {
+					form.find( ".matreq-success" ).slideUp( 200, function() {
+						formSetInProgress( false );
+					});
+				}, 3000 );
+				*/
+			});
+		}
+		
+		function showErrorServer() {
+			form.find( ".matreq-success, .matreq-error" ).hide();
+			form.find( ".matreq-error-server" ).slideDown( 200, function() {
+				setTimeout( function() {
+					form.find( ".matreq-error-server" ).slideUp( 200, function() {
+						formSetInProgress( false );
+					});
+				}, 3000 );
+			});
+		}
+		
+		function showErrorReqFields() {
+			form.find( ".matreq-success, .matreq-error" ).hide();
+			form.find( ".matreq-error-req" ).slideDown( 200, function() {
+				setTimeout( function() {
+					form.find( ".matreq-error-req" ).slideUp( 200, function() {
+						formSetInProgress( false );
+					});
+				}, 3000 );
+			});
+		}
+		
+		return false;// Выход из функции
+		
+	});
+	
+});
+
+//
+
+$(function() {
+jQuery.fn.addtocopy = function (usercopytxt) {
+    var options = { htmlcopytxt: '<br>More: <a href="' + window.location.href + '">' + window.location.href + '</a><br>', minlen: 25, addcopyfirst: false }
+    $.extend(options, usercopytxt);
+    var copy_sp = document.createElement('span');
+    copy_sp.id = 'ctrlcopy';
+    copy_sp.innerHTML = options.htmlcopytxt;
+    return this.each(function () {
+        $(this).mousedown(function () { $('#ctrlcopy').remove(); });
+        $(this).mouseup(function () {
+            if (window.getSelection) {	//good times 
+                var slcted = window.getSelection();
+                var seltxt = slcted.toString();
+                if (!seltxt || seltxt.length < options.minlen) return;
+                var nslct = slcted.getRangeAt(0);
+                seltxt = nslct.cloneRange();
+                seltxt.collapse(options.addcopyfirst);
+                seltxt.insertNode(copy_sp);
+                if (!options.addcopyfirst) nslct.setEndAfter(copy_sp);
+                slcted.removeAllRanges();
+                slcted.addRange(nslct);
+            } else if (document.selection) {	//bad times
+                var slcted = document.selection;
+                var nslct = slcted.createRange();
+                var seltxt = nslct.text;
+                if (!seltxt || seltxt.length < options.minlen) return;
+                seltxt = nslct.duplicate();
+                seltxt.collapse(options.addcopyfirst);
+                seltxt.pasteHTML(copy_sp.outerHTML);
+                if (!options.addcopyfirst) { nslct.setEndPoint("EndToEnd", seltxt); nslct.select(); }
+            }
+        });
+    });
+}
+
+});
+// перенесено в addtocopy.js
+// $(document).ready(function(){
+//   // $(document).addtocopy({htmlcopytxt: '<br>Подробнее: <a href="' + window.location.href + '">' + window.location.href + '</a>', minlen: 5, addcopyfirst: false});
+// 	$(".post-text, .page-text,.event-descr").addtocopy({htmlcopytxt: '<br>Подробнее: <a href="' + window.location.href + '">' + window.location.href + '</a>', minlen: 5, addcopyfirst: false});
+// //.post-lead p,.post-lead ul,
+// });

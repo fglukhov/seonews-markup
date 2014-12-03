@@ -125,7 +125,7 @@
 }
 
 .html-narrow .mainpage-main .post-lead {
-  height:196px;
+  /*height:196px;*/ 
   overflow:hidden;
 }
 
@@ -387,6 +387,10 @@
 .html-narrow .mainpage-ratings .rating-item {
   width:162px;
 }
+	.html-narrow .mainpage-ratings .rating-item.last {
+	  width:162px;
+	  padding-right: 0;
+	}
 
 .html-narrow .mainpage-ratings .rating-place {
   width:162px;
@@ -754,64 +758,36 @@
 	top:auto !important;
 }
 
-.html-narrow .profile-card .rating-count .ttl {
-  display:none;
+.html-narrow .companies-mainpage{
+  margin: 0 4px 20px 0;
+}
+.html-narrow .companies-catalogue-item{
+  float: left;
 }
 
-.html-narrow .profile-tabs .tabs .cont {
-  padding-right:10px;
-	padding-left:10px;
-	font-size:13px;
+.html-narrow .companies-catalogue-item.companies-mainpage{
+  width: 228px;
+}
+.html-narrow .companies-catalogue-item.companies-mainpage .descr{
+  width: 218px;
 }
 
-.html-narrow .profile-tabs .tabs .act .cont {
-  padding-right:14px;
-	padding-left:14px;
+.html-narrow  .tools-mainpage-item-2 {
+    left: 366px;
 }
-
-.html-narrow .profile-achievements .achievements-item {
-	float: left;
-	margin: 0 16px 0 0;
+.html-narrow .tools-mainpage-item-1 {
+    left: 183px;
 }
+.html-narrow .tools-mainpage-item .descr {
+  width: 270px !important;
+  }
+.html-narrow .row-tools .prev{
+    left: 100px;
+  }
+.html-narrow .row-tools .next{
+    left: 530px;
+  }
 
-.html-narrow .profile-achievements .achievements-item:last-child {
-	display:none;
-}
-
-.html-narrow .user-progress-titles {
-	height: 34px;
-	background: url(../images/user-progress-titles-narrow.png) 1px 0 no-repeat;
-	margin: 0 0 9px 0;
-}
-
-.html-narrow .user-progress-novice {
-  background-image:url(../images/user-progress-novice-narrow.png);
-}
-
-.html-narrow .user-progress-reader {
-  background-image:url(../images/user-progress-reader-narrow.png);
-}
-
-.html-narrow .user-progress-active {
-  background-image:url(../images/user-progress-active-narrow.png);
-}
-
-.html-narrow .user-progress-specialist {
-  background-image:url(../images/user-progress-specialist-narrow.png);
-}
-
-.html-narrow .user-progress-expert {
-  background-image:url(../images/user-progress-expert-narrow.png);
-}
-
-.html-narrow .user-progress-guru {
-  background-image:url(../images/user-progress-guru-narrow.png);
-}
-
-.html-narrow .companies-catalogue-item {
-	width:327px;
-}
-
-.html-narrow .companies-catalogue-item .descr {
-	width:205px;
+.html-narrow .tools-mainpage-item{
+  width: 300px;
 }
