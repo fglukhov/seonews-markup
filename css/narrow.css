@@ -589,7 +589,7 @@
 }
 
 .html-narrow .rating-table {
-  width:698px;
+  /* width:698px; */
 }
 
 .html-narrow .rating-table .name {
@@ -597,7 +597,7 @@
 }
 
 .html-narrow .rating-table {
-  background-image:url(../images/rating-table-header-n.png) !important;
+  /* background-image:url(../images/rating-table-header-n.png) !important; */
 }
 
 .html-narrow .sponsorslist-item {
@@ -790,4 +790,19 @@
 
 .html-narrow .tools-mainpage-item{
   width: 300px;
+}
+
+.html-narrow .tender-form-2 .input-wrapper,
+.html-narrow .tender-form-2 textarea {
+	float:left;
+	width:390px !important;
+}
+
+.html-narrow .custom-form .form-files .input-wrapper {
+	width: 200px !important;
+	margin: 0 10px 0 0;
+}
+
+.html-narrow .tender-form-2 .form-date-wrapper .input-wrapper {
+  width:130px !important;
 }

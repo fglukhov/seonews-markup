@@ -1,0 +1,550 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>SeoNews - Тендеры - Добавить тендер</title>
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+<link href="http://www.seonews.ru/css/reset-min.css" type="text/css" rel="stylesheet" />
+<link href="http://www.seonews.ru/css/jquery.fancybox.css" type="text/css" rel="stylesheet" />
+<link href="css/main.css" type="text/css" rel="stylesheet" />
+<link href="css/narrow.css" type="text/css" rel="stylesheet" />
+
+<!--[if lte IE 8]>
+	<link rel="stylesheet" type="text/css" href="http://www.seonews.ru/css/ie7-8.css" media="screen"/>
+<![endif]-->
+
+	
+<script type="text/javascript" src="http://www.seonews.ru/js/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="http://www.seonews.ru/js/jquery-ui-1.10.4.custom.min.js"></script>
+<script type="text/javascript" src="http://www.seonews.ru/js/jquery.xml2json.js"></script>
+<script type="text/javascript" src="http://www.seonews.ru/js/jquery.mousewheel-3.0.6.pack.js"></script>
+<script type="text/javascript" src="http://www.seonews.ru/js/jquery.fancybox.js"></script>
+<script type="text/javascript" src="http://www.seonews.ru/js/jquery.slides.min.js"></script>
+<script type="text/javascript" src="http://www.seonews.ru/js/jquery.icheck.min.js"></script>
+<script type="text/javascript" src="http://www.seonews.ru/js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="http://www.seonews.ru/js/jquery.jcarousel.min.js"></script>
+<script type="text/javascript" src="js/scripts.js"></script>
+<script type="text/javascript" src="http://www.seonews.ru/js/jquery.ajax-helper.js"></script>
+<script type="text/javascript" src="http://www.seonews.ru/js/jquery.livequery.js"></script>
+<script type="text/javascript" src="http://www.seonews.ru/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="http://www.seonews.ru/js/addtocopy.js"></script>	<link href="http://www.seonews.ru/css/fonts-min.css" type="text/css" rel="stylesheet" />
+<link href="http://www.seonews.ru/css/smoothness/jquery-ui-1.10.4.custom.min.css" type="text/css" rel="stylesheet" />
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/ru_RU/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+</head>
+
+<body class="adaptive">
+
+<!-- Wrapper -->
+<div class="top-wrap">
+  <div class="top-main">
+    <!-- Header -->
+    
+    <div class="header">
+			<!-- Banner -->
+			<div class="header-banner">
+				<div style="width: 1142px; height: 92px; padding:0; margin:auto">
+					<object classid="clsid:D27CDB6E-AE6D-11CF-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" id="banner_45" width="1142" height="92">
+					<param name="movie" value="http://seonews.ru/upload/rk/b69/b694113ddba910bf3ffa9a77d440346c.swf">
+					<param name="quality" value="high">
+					<param name="bgcolor" value="#FFFFFF">
+					<param name="wmode" value="transparent">
+					<embed src="http://seonews.ru/upload/rk/b69/b694113ddba910bf3ffa9a77d440346c.swf" quality="high" bgcolor="#FFFFFF" wmode="transparent" width="1142" height="92" name="banner" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer">
+					</object>
+				</div>
+			</div>
+			<!-- Banner END -->
+			<div class="header-content header-normal" style="margin-left: 0px;">
+				<div class="header-top">
+					<!-- Main menu -->
+					<div class="main-menu-wrapper">
+						<div class="center-wrapper">
+							<div class="main-menu fc">
+								<a href="http://www.seonews.ru/events/" onclick="ga('send', 'event', 'main_menu_1', 'click');">Новости рынка</a>
+								<a href="http://www.seonews.ru/analytics/" onclick="ga('send', 'event', 'main_menu_2', 'click');">Как продвинуть и заработать</a>
+								<a href="http://www.seonews.ru/interviews/" onclick="ga('send', 'event', 'main_menu_3', 'click');">Интервью с экспертами</a>
+								<a href="http://www.seonews.ru/calendar/" onclick="ga('send', 'event', 'main_menu_4', 'click');">Мероприятия отрасли</a>
+								<a href="http://rating.seonews.ru/ratings/" onclick="ga('send', 'event', 'main_menu_5', 'click');">Рейтинги SEO-компаний</a>
+								<a href="http://www.seonews.ru/tools/" onclick="ga('send', 'event', 'main_menu_6', 'click');">Инструменты и сервисы</a>
+								<a href="http://www.seonews.ru/books/" onclick="ga('send', 'event', 'main_menu_7', 'click');">Библиотека</a>
+								<a href="http://www.seonews.ru/companies/" class="last" onclick="ga('send', 'event', 'main_menu_8', 'click');">Каталог SEO- компаний</a>
+							</div>
+						</div>
+					</div>
+					<!-- Main menu END -->
+				</div>
+				<div class="header-bottom fc">
+					<div class="center-wrapper">
+						<div class="logo">
+							<!--<div class="logo-beta">бета</div>-->
+							<a class="logo-main" href="http://www.seonews.ru/"><img src="/images/logo.png" alt="SeoNews"></a>
+							<a class="logo-fixed" href="http://www.seonews.ru/"><img src="/images/logo-fixed.png" alt="SeoNews"></a>
+						</div>
+						<div class="site-title">
+							<h1 class="gm-index-page-title">Издание о поисковом маркетинге <br>
+							и заработке в Интернете </h1>
+						</div>
+						<div class="header-soclinks">
+							<a href="https://twitter.com/SEOnewsru" target="_blank" class="h-soclink h-soclink-twitter"></a>
+							<a href="http://www.facebook.com/SEOnews.ru" target="_blank" class="h-soclink h-soclink-fb"></a>
+							<a href="http://vk.com/seonews_ru" target="_blank" class="h-soclink h-soclink-vk"></a>
+							<a href="http://plus.google.com/s/seonews" target="_blank" class="h-soclink h-soclink-google"></a>
+							<a href="http://www.seonews.ru/rss/" class="h-soclink h-soclink-rss"></a>
+						</div>
+						<div class="user-link fc">
+							<!--<div class="user-events-num">+3</div>-->
+							<div class="userpic" data-xcom-comment-author-id="136509">
+								<!--<a href="#">-->
+								<img src="/images/userpic-dummy.png">
+								<!--</a>-->
+							</div>
+							<div class="user-link-wrapper" data-xcom-comment-author-id="136509">
+								<div style="position: relative; display: inline;">
+									<span>Федор Глухов</span><br>
+									<!--
+											<a href="?logout=yes" title="Выйти"><img class="gm-header-logout-btn" src="/images/logout_6318_gray.png"></a>
+											-->
+									<a href="?logout=yes" title="Выйти" class="logout-link">Выйти</a>
+								</div>
+							</div>
+							<!--
+									<div class="user-controls">
+									<div class="pt"></div>
+									<ul>
+										<li class="first">
+										<a href="#">
+											<span class="pic"><img src="images/void.gif" class="ico ico-events"></span>
+											<span class="descr">
+											Лента событий
+											<span class="new-events">Новых: 2</span>
+											</span>
+										</a>
+										</li>
+										<li>
+										<a href="#">
+											<span class="pic"><img src="images/void.gif" class="ico ico-profile"></span>
+											<span class="descr">
+											Мой профиль
+											<span class="new-events">Новых подписок: 1</span>
+											</span>
+										</a>
+										</li>
+										<li>
+										<a href="#">
+											<span class="pic"><img src="images/void.gif" class="ico ico-blog"></span>
+											<span class="descr">
+											Мой блог
+											</span>
+										</a>
+										</li>
+										<li class="last">
+										<a href="#">
+											<span class="pic"><img src="images/void.gif" class="ico ico-favorites"></span>
+											<span class="descr">
+											Избранное
+											</span>
+										</a>
+										</li>
+									</ul>
+									<a href="#" class="button button-1 button-ico button-1-ico button-blog"><span class="ico"></span><span class="cont">
+										Написать в блог
+									</span></a>
+									</div>
+									-->
+						</div>
+						<!-- User link END -->
+					</div>
+				</div>
+			</div>
+			<!-- header-content -->
+			<!-- Banner 2 -->
+			<div class="header-banner-2">
+			</div>
+		</div>
+    
+    <!-- Header END -->
+    
+    <!-- Body -->
+    
+    <div class="body">
+    
+      <div class="search-block fc">
+        <div class="center-wrapper">
+        	<input type="text" class="form-text" class="site-search"/>
+        	<input type="submit" class="button button-2 form-submit" value="Найти"/>
+        </div>
+      </div>
+      
+      <div class="center-wrapper">
+      
+        <!-- Content -->
+        
+        <div class="content">
+        
+          <div class="main-column">
+          
+            <!-- Breadcrumbs -->
+            
+            <div class="breadcrumbs fc">
+              <a class="ico ico-back" href="#"></a>
+              <a href="#">Главная</a>
+              <span class="sep">></span>
+              Тендеры
+            </div>
+            
+            <!-- Breadcrumbs END -->
+            
+            <h1>Список тендеров</h1>
+						
+            <div class="add-tender-wrapper fc">
+							<a class="button button-2 button-add-tender">Организовать тендер</a>
+							<div class="add-tender-descr">
+								Вы можете сами организовать тендер и следить
+								за его проведением — небольшой текст о тендерах
+							</div>
+						</div>
+            
+						<table class="rating-table tenders-list">
+												
+							<tr>
+								<th>Тип тендера</th>
+								<th>Организатор</th>
+								<th>Создан</th>
+								<th>Окончание</th>
+								<th>Бюджет, руб.</th>
+							</tr>
+							
+							<tr>
+								<td class="type">
+									<div class="type-cont">
+										<div class="ico ico-type-ad"></div>
+										<div class="tender-name">
+											<a href="#">Размещение контекстной рекламы</a>
+										</div>
+										<div class="premoderation">
+											на премодерации
+										</div>
+									</div>
+								</td>
+								<td>
+									<div>Интерактивные Медиа</div>
+									<div class="person"><a href="#">Алина Назарова</a></div>
+								</td>
+								<td>
+									05.11.2014
+								</td>
+								<td>
+									01.01.2015
+								</td>
+								<td class="budget">
+									333000 - 432000
+								</td>
+							</tr>
+							<tr>
+								<td class="type">
+									<div class="type-cont">
+										<div class="ico ico-type-seo"></div>
+										<div class="tender-name">
+											<a href="#">Продвижение интернет-магазина желтых резиновых уточек</a>
+										</div>
+									</div>
+								</td>
+								<td>
+									<div>Интерактивные Медиа</div>
+									<div class="person"><a href="#">Алина Назарова</a></div>
+								</td>
+								<td>
+									05.11.2014
+								</td>
+								<td>
+									01.01.2015
+								</td>
+								<td class="budget">
+									333000 - 432000
+								</td>
+							</tr>
+							<tr>
+								<td class="type">
+									<div class="type-cont">
+										<div class="ico ico-type-ad"></div>
+										<div class="tender-name">
+											<a href="#">Продвижение интернет-магазина желтых резиновых уточек</a>
+										</div>
+									</div>
+								</td>
+								<td>
+									<div>Интерактивные Медиа</div>
+									<div class="person"><a href="#">Алина Назарова</a></div>
+								</td>
+								<td>
+									05.11.2014
+								</td>
+								<td>
+									01.01.2015
+								</td>
+								<td class="budget">
+									333000 - 432000
+								</td>
+							</tr>
+							<tr>
+								<td class="type">
+									<div class="type-cont">
+										<div class="ico ico-type-seo"></div>
+										<div class="tender-name">
+											<a href="#">Размещение контекстной рекламы</a>
+										</div>
+										<div class="premoderation">
+											на премодерации
+										</div>
+									</div>
+								</td>
+								<td>
+									<div>Интерактивные Медиа</div>
+									<div class="person"><a href="#">Алина Назарова</a></div>
+								</td>
+								<td>
+									05.11.2014
+								</td>
+								<td>
+									01.01.2015
+								</td>
+								<td class="budget">
+									333000 - 432000
+								</td>
+							</tr>
+							<tr>
+								<td class="type">
+									<div class="type-cont">
+										<div class="ico ico-type-ad"></div>
+										<div class="tender-name">
+											<a href="#">Размещение контекстной рекламы</a>
+										</div>
+										<div class="premoderation">
+											на премодерации
+										</div>
+									</div>
+								</td>
+								<td>
+									<div>Интерактивные Медиа</div>
+									<div class="person"><a href="#">Алина Назарова</a></div>
+								</td>
+								<td>
+									05.11.2014
+								</td>
+								<td>
+									01.01.2015
+								</td>
+								<td class="budget">
+									333000 - 432000
+								</td>
+							</tr>
+							<tr>
+								<td class="type">
+									<div class="type-cont">
+										<div class="ico ico-type-ad"></div>
+										<div class="tender-name">
+											<a href="#">Продвижение интернет-магазина желтых резиновых уточек</a>
+										</div>
+									</div>
+								</td>
+								<td>
+									<div>Интерактивные Медиа</div>
+									<div class="person"><a href="#">Алина Назарова</a></div>
+								</td>
+								<td>
+									05.11.2014
+								</td>
+								<td>
+									01.01.2015
+								</td>
+								<td class="budget">
+									333000 - 432000
+								</td>
+							</tr>
+							<tr>
+								<td class="type">
+									<div class="type-cont">
+										<div class="ico ico-type-ad"></div>
+										<div class="tender-name">
+											<a href="#">Размещение контекстной рекламы</a>
+										</div>
+									</div>
+								</td>
+								<td>
+									<div>Интерактивные Медиа</div>
+									<div class="person"><a href="#">Алина Назарова</a></div>
+								</td>
+								<td>
+									05.11.2014
+								</td>
+								<td>
+									01.01.2015
+								</td>
+								<td class="budget">
+									333000 - 432000
+								</td>
+							</tr>
+							<tr>
+								<td class="type">
+									<div class="type-cont">
+										<div class="ico ico-type-ad"></div>
+										<div class="tender-name">
+											<a href="#">Продвижение интернет-магазина желтых резиновых уточек</a>
+										</div>
+									</div>
+								</td>
+								<td>
+									<div>Интерактивные Медиа</div>
+									<div class="person"><a href="#">Алина Назарова</a></div>
+								</td>
+								<td>
+									05.11.2014
+								</td>
+								<td>
+									01.01.2015
+								</td>
+								<td class="budget">
+									333000 - 432000
+								</td>
+							</tr>
+							<tr>
+								<td class="type">
+									<div class="type-cont">
+										<div class="ico ico-type-ad"></div>
+										<div class="tender-name">
+											<a href="#">Продвижение интернет-магазина желтых резиновых уточек</a>
+										</div>
+									</div>
+								</td>
+								<td>
+									<div>Интерактивные Медиа</div>
+									<div class="person"><a href="#">Алина Назарова</a></div>
+								</td>
+								<td>
+									05.11.2014
+								</td>
+								<td>
+									01.01.2015
+								</td>
+								<td class="budget">
+									333000 - 432000
+								</td>
+							</tr>
+						</table>
+						
+          </div>
+          
+          <div class="sidebar">
+          
+            <div class="search-trigger-wrapper">
+              <div class="search-trigger">
+                <span class="ico ico-search"></span> <span class="txt">Поиск по сайту</span>
+              </div>
+              
+            </div>
+                      
+            <!-- Регистрация в рейтинге -->
+            
+            <div class="rating-reg-sidebar fc">
+              <h3>Зарегистрируйтесь для участия в рейтинге</h3>
+              <div class="button button-ico button-3-ico button-ico-rating-reg">Регистрация</div>
+            </div>
+            
+            <!-- Регистрация в рейтинге END -->
+            
+            <!-- Специальный проект -->
+            
+            <div class="content-block">
+              <a href="#"><img src="files/jobs-banner.jpg"></a>
+            </div>
+            
+            <!-- Специальный проект END -->
+            
+          </div>
+        
+        </div>
+        
+        <!-- Content END -->
+      
+      </div>
+      
+    </div>
+    
+    <!-- Body END -->
+  </div>
+</div>
+
+<!-- Footer -->
+
+<div class="footer">
+	<div class="center-wrapper">
+		<div class="footer-content">
+			<div class="footer-col footer-col-1">
+				<p style="position:relative;">
+					<!--<div class="footer-logo-beta">бета</div>-->
+					<a href="http://www.seonews.ru"><img class="logo" src="/images/logo.png" alt="SeoNews"></a>
+				</p>
+				<p>
+					 © SEOnews.ru Все права защищены. 2014
+				</p>
+				<p>
+					 Все права на материалы, публикуемые на данном сайте, принадлежат редакции сайта, за исключением случаев перепечатки чужих материалов, и охраняются в соответствии с законодательством РФ.
+				</p>
+				<a class="email-link" href="mailto:info@seonews.ru"><span>info@seonews.ru</span></a>
+			</div>
+			<div class="footer-col">
+				<h4>Компания</h4>
+				<ul class="footer-menu">
+					<li class="first"><a href="http://www.seonews.ru/about/">О проекте</a></li>
+					<li><a href="http://www.seonews.ru/about/editors.php">Приглашаем авторов</a></li>
+					<li><a href="http://www.seonews.ru/about/contacts.php">Контакты</a></li>
+					<li><a href="http://www.seonews.ru/advertisment/">Реклама на сайте</a></li>
+					<li><a href="http://www.seonews.ru/about/rules.php">Правила</a></li>
+					<li class="last"><a href="http://www.seonews.ru/map/">Карта сайта</a></li>
+				</ul>
+			</div>
+			<div class="footer-col">
+				<h4>Статьи</h4>
+				<ul class="footer-menu">
+					<li class="first" onclick="ga('send', 'event', 'main_menu_1', 'click');"><a href="http://www.seonews.ru/events/">Новости рынка</a></li>
+					<li onclick="ga('send', 'event', 'main_menu_2', 'click');"><a href="http://www.seonews.ru/analytics/">Как продвинуть сайт и заработать в Интернете</a></li>
+					<li onclick="ga('send', 'event', 'main_menu_3', 'click');"><a href="http://www.seonews.ru/interviews/">Интервью с экспертами</a></li>
+					<li onclick="ga('send', 'event', 'main_menu_4', 'click');"><a href="http://www.seonews.ru/calendar/">Календарь событий</a></li>
+					<li onclick="ga('send', 'event', 'main_menu_8', 'click');"><a href="http://www.seonews.ru/companies/">Каталог компаний</a></li>
+					<li class="last" onclick="ga('send', 'event', 'main_menu_9', 'click');"><a href="http://www.seonews.ru/glossary/">Глоссарий</a></li>
+				</ul>
+			</div>
+			<div class="footer-col">
+				<h4>Подписывайтесь</h4>
+				<ul class="footer-menu">
+					<li class="first"><a href="http://www.facebook.com/SEOnews.ru">Facebook</a></li>
+					<li><a href="https://twitter.com/SEOnewsru">Тwitter</a></li>
+					<li><a href="http://vk.com/seonews_ru">ВКонтакте</a></li>
+					<li><a href="http://plus.google.com/s/seonews">Google+</a></li>
+					<li class="last"><a href="http://www.seonews.ru/rss/">RSS</a></li>
+				</ul>
+				<div class="developed-by fc">
+					<span>Разработка сайта:</span>
+					<span class="dev-link"><a href="http://renart.ru" target="_blank">Renaissance Art</a></span>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Footer END -->
+  
+<!-- Wrapper END -->
+
+</body>
+
+
+</html>

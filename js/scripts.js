@@ -350,6 +350,73 @@ $(window).scroll(function () {
 
 $(document).ready(function () {
 
+	// Тендер
+
+	// Слайдер тендеров
+	
+	// Минимальное и максимальное значения бюджета
+	
+	var tenderBudgetMin = 0;
+	var tenderBudgetMax = 10000000;
+	
+	// Значения бюджета по умолчанию
+	
+	var tenderInitMin = 100000;
+	var tenderInitMax = 5000000;
+	
+	$( ".tender-budget-slider").slider({
+		range: true,
+		min: tenderBudgetMin,
+		max: tenderBudgetMax,
+		values: [ tenderInitMin, tenderInitMax ],
+		create: function() {
+			
+			$("#tender_budget_from").val(formatNumber(tenderInitMin))
+			$("#tender_budget_to").val(formatNumber(tenderInitMax))
+			
+			$(".tender-budget-slider .ui-slider-handle").eq(0).addClass("handle-from").append("<span class='val' />")
+			$(".tender-budget-slider .ui-slider-handle").eq(1).addClass("handle-to").append("<span class='val' />")
+			
+			$(".tender-budget-slider .handle-from .val").html(formatNumber(tenderInitMin))
+			$(".tender-budget-slider .handle-to .val").html(formatNumber(tenderInitMax))
+			
+			$(".tender-budget-slider").append("<div class='min-mark'>"+formatNumber(tenderBudgetMin)+"</div>")
+			$(".tender-budget-slider").append("<div class='max-mark'>"+formatNumber(tenderBudgetMax)+"</div>")
+			
+		},
+		slide: function( event, ui ) {
+			$("#tender_budget_from").val(formatNumber(ui.values[ 0 ]))
+			$("#tender_budget_to").val(formatNumber(ui.values[ 1 ]))
+			
+			$(".tender-budget-slider .handle-from .val").html(formatNumber(ui.values[ 0 ]))
+			$(".tender-budget-slider .handle-to .val").html(formatNumber(ui.values[ 1 ]))
+		}
+	});
+	
+	$("#tender_budget_from,#tender_budget_to").keyup(function() {
+		fromVal = $("#tender_budget_from").val().replace(/\s+/g, '');
+		toVal = $("#tender_budget_to").val().replace(/\s+/g, '');
+		$(".tender-budget-slider").slider( "values", [parseInt(fromVal), parseInt(toVal)] );
+		$(this).val(formatNumber($(this).val().replace(/\s+/g, '')))
+		$(".tender-budget-slider .handle-from .val").html(formatNumber(fromVal))
+		$(".tender-budget-slider .handle-to .val").html(formatNumber(toVal))
+	})
+	
+	$("#tender_budget_from,#tender_budget_to").blur(function() {
+		fromVal = $("#tender_budget_from").val().replace(/\s+/g, '');
+		toVal = $("#tender_budget_to").val().replace(/\s+/g, '');
+		$(".tender-budget-slider").slider( "values", [parseInt(fromVal), parseInt(toVal)] );
+		$(this).val(formatNumber($(this).val().replace(/\s+/g, '')))
+		$(".tender-budget-slider .handle-from .val").html(formatNumber(fromVal))
+		$(".tender-budget-slider .handle-to .val").html(formatNumber(toVal))
+	})
+	
+	$(".tender-form .button-forward").click(function() {
+		$(".tab[rel='tender-step-2']").click();
+	})
+	
+	// Тендер END
+
 	// Фэнсибокс с окном логина
 	
 	$(".login-fancybox").fancybox({
@@ -2909,7 +2976,17 @@ function preparePage() {
 
   $("#compSelectTrigger").click(function() {
     $("#select-companies").slideDown(400);
-    $("#select-companies input:checkbox").iCheck("uncheck")
+    $("#select-companies input:checkbox").iCheck("uncheck");
+  });
+	
+	$('#tender_closed_selector').on('ifChecked', function(event){
+    $("#select-companies").slideDown(400);
+    $("#select-companies input:checkbox").iCheck("uncheck");
+  });
+	
+	$('#tender_closed_selector').on('ifUnchecked', function(event){
+    $("#select-companies").slideUp(400);
+    $("#select-companies input:checkbox").iCheck("check");
   });
 
   $(".event-more").click(function() {
@@ -3363,6 +3440,14 @@ function preparePage() {
     },0);
     return false;
   });
+	
+	if (window.location.hash == "#tender-step-1") {
+		$(".tab[rel='tender-step-1']").click();
+	}
+	
+	if (window.location.hash == "#tender-step-2") {
+		$(".tab[rel='tender-step-2']").click();
+	}
   
   
   // Tabs switching 
@@ -4255,14 +4340,102 @@ function validateForms() {
       }
     });
     
-  });  
+  });
+	
+	// Тендеры
+	
+	
+	
+	
+	$(".tender-form form, .tender-form-2 form").each(function() {
+    $(this).validate({
+      focusInvalid: false,
+      sendForm : false,
+      errorPlacement: function(error, element) {
+        element.parents(".input-wrapper").addClass("input-wrapper-error");
+        element.parents(".form-item").find(".placeholder").addClass("placeholder-error");
+        if (element.attr("id") != "reg_email" || element.val() == "") {
+          error.insertAfter(element.parent());
+        }
+        element.focus(function() {
+          error.remove();
+        });
+      },
+      unhighlight: function(element, errorClass, validClass) {
+        $(element).parents(".input-wrapper").removeClass("input-wrapper-error");
+        $(element).parents(".form-item").find(".placeholder").removeClass("placeholder-error");
+        $(element).removeClass(errorClass);
+      },
+      invalidHandler: function(form, validatorcalc) {
+        var errors = validatorcalc.numberOfInvalids();
+        if (errors && validatorcalc.errorList[0].element.tagName == "INPUT") {                    
+            validatorcalc.errorList[0].element.focus();
+        }
+      }
+    });
     
+    if ($(this).find(".form-email").length) {
+      $(this).find(".form-email").rules('add', {
+        email: true,
+        messages: {
+          required:  "Введите правильный email!"
+        }
+      });
+    }
+    
+    if ($(this).find(".form-date").length) {
+      $(this).find(".form-date").rules('add', {
+        messages: {
+          required:  "Выберите дату!"
+        }
+      });
+    }
+    
+    if ($(this).find(".form-email").length && $(this).find(".form-phone").length) {
+      var thisField = $(this).find(".form-phone");
+      var relatedField = $(this).find(".form-email");
+      thisField.rules('add', {
+        required: function(element) {
+          if (relatedField.val() == "") {
+            return true;
+          } else {
+            return false;
+          }
+        }
+      });
+      var thisField2 = $(this).find(".form-email");
+      var relatedField2 = $(this).find(".form-phone");
+      thisField2.rules('add', {
+        required: function(element) {
+          if (relatedField2.val() == "") {
+            return true;
+          } else {
+            return false;
+          }
+        }
+      });
+    }
+    
+    $(document).mouseup(function (e) {
+      var container = $("form");
+
+      if (!container.is(e.target) // if the target of the click isn't the container...
+          && container.has(e.target).length === 0) // ... nor a descendant of the container
+      {
+          $(".error-wrapper").remove();
+      }
+    });
+    
+  });  
+  
+	// Тендеры END
+	
 }
 
 jQuery.extend(jQuery.validator.messages, {
     required: "Заполните поле!",
     remote: "Please fix this field.",
-    email: "Введите правильный e-mail",
+    email: "Введите правильный e-mail!",
     url: "Please enter a valid URL.",
     date: "Please enter a valid date.",
     dateISO: "Please enter a valid date (ISO).",
@@ -4288,7 +4461,7 @@ function ajaxUpdateHref(params, link)
 jQuery.extend(jQuery.validator.messages, {
     required: "Поле не заполнено!",
     remote: "Please fix this field.",
-    email: "Введите правильный e-mail",
+    email: "Введите правильный e-mail!",
     url: "Please enter a valid URL.",
     date: "Please enter a valid date.",
     dateISO: "Please enter a valid date (ISO).",
@@ -4741,3 +4914,10 @@ jQuery.fn.addtocopy = function (usercopytxt) {
 // 	$(".post-text, .page-text,.event-descr").addtocopy({htmlcopytxt: '<br>Подробнее: <a href="' + window.location.href + '">' + window.location.href + '</a>', minlen: 5, addcopyfirst: false});
 // //.post-lead p,.post-lead ul,
 // });
+
+function formatNumber(val) {
+		
+	return (""+val).replace(/\B(?=(\d{3})+(?!\d))/g, " ")
+	
+}
+
